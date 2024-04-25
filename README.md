@@ -1,4 +1,4 @@
-![thumbnail-Formação Java (4)](https://user-images.githubusercontent.com/66698429/226751112-f79aaa28-16c9-4561-8a15-0ac62ec9cb44.png)
+
 
 
 # Java: consumindo uma API, gravando arquivos e lidando com erros

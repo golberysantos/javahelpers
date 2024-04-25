@@ -1,4 +1,4 @@
-package br.com.javaapi.exemplos;
+package br.com.javaapi.helper;
 
 import java.io.IOException;
 import java.net.URI;
@@ -38,7 +38,7 @@ public class MovieInformationOMDbApi {
 	 */
 	public String exibir(String busca, String parameter, String apikey) throws IOException, InterruptedException  {
 
-		String endereco = "http://www.omdbapi.com/?apikey=" + apikey + "&" + parameter + "=" + busca;
+		String endereco = "http://www.omdbapi.com/?apikey=" + apikey + "&" + parameter + "=" + busca.replace(" ", "+");
 		HttpClient client = HttpClient.newHttpClient();
 		HttpRequest request = HttpRequest.newBuilder().uri(URI.create(endereco)).build();
 		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
