@@ -1,16 +1,14 @@
 package br.com.alura.screenmatch.principal;
 
-import br.com.alura.screenmatch.modelos.Filme;
-import br.com.alura.screenmatch.modelos.Serie;
-import br.com.alura.screenmatch.modelos.Titulo;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.google.gson.Gson;
+import br.com.alura.screenmatch.modelos.Filme;
+import br.com.alura.screenmatch.modelos.Serie;
+import br.com.alura.screenmatch.modelos.Titulo;
 
 public class PrincipalComListas {
     public static void main(String[] args) {
@@ -51,7 +49,7 @@ public class PrincipalComListas {
         lista.sort(Comparator.comparing(Titulo::getAnoDeLancamento));
         System.out.println("Ordenando por ano");
         System.out.println(lista);
-        
-        
+
+
     }
 }

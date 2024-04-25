@@ -5,7 +5,6 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Scanner;
 
 /**
  * The OMDb API is a RESTful web service to obtain movie information, all
@@ -27,25 +26,25 @@ public class MovieInformationOMDbApi {
 	 * r = The data type to return
 	 * callback = JSONP callback name
 	 * v = API version (reserved for future use)
-	 * 
+	 *
 	 * By Search
-	 * s = Movie title to search for. 
+	 * s = Movie title to search for.
 	 * type = Type of result to return.
-	 * y = Year of release. 
+	 * y = Year of release.
 	 * r = The data type to return.
 	 * page = Page number to return.
 	 * callback = JSONP callback name.
 	 * v = API version (reserved for future use).
 	 */
 	public String exibir(String busca, String parameter, String apikey) throws IOException, InterruptedException  {
-						
+
 		String endereco = "http://www.omdbapi.com/?apikey=" + apikey + "&" + parameter + "=" + busca;
 		HttpClient client = HttpClient.newHttpClient();
 		HttpRequest request = HttpRequest.newBuilder().uri(URI.create(endereco)).build();
 		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
 		System.out.println(response.body());
-		
+
 		return response.body();
 
 	}
