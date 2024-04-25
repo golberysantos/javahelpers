@@ -17,6 +17,10 @@ public class Titulo implements Comparable<Titulo> {
         this.nome = nome;
         this.anoDeLancamento = anoDeLancamento;
     }
+    
+    public Titulo () {
+    	
+    }
 
     public String getNome() {
         return nome;
