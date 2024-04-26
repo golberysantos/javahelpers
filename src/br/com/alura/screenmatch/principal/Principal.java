@@ -1,5 +1,6 @@
 package br.com.alura.screenmatch.principal;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
@@ -7,9 +8,21 @@ import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
 import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
+import br.com.javaapi.helper.ArquivoLeituraEscrita;
 
 public class Principal {
     public static void main(String[] args) {
+    	
+    	var Ale = new ArquivoLeituraEscrita();    	
+    	
+    	Ale.criarComFileWriter("C:\\Users\\SENAC\\meuArquivo.txt",
+    			"sada");
+    	
+    	
+    	
+    	
+    	System.exit(0);
+    	
         Filme meuFilme = new Filme("O poderoso chefão", 1970);
         meuFilme.setDuracaoEmMinutos(180);
         System.out.println("Duração do filme: " + meuFilme.getDuracaoEmMinutos());
