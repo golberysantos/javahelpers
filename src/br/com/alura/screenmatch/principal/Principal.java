@@ -9,17 +9,13 @@ import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 import br.com.javaapi.helper.ArquivoLeituraEscrita;
+import br.com.javaapi.helper.BuscarEnderecoViaCep;
 
 public class Principal {
     public static void main(String[] args) {
     	
-    	var Ale = new ArquivoLeituraEscrita();    	
-    	
-    	Ale.criarComFileWriter("C:\\Users\\SENAC\\meuArquivo.txt",
-    			"sada");
-    	
-    	
-    	
+    	BuscarEnderecoViaCep Bevc = new BuscarEnderecoViaCep();
+    	System.out.println(Bevc.exibir("69086051"));
     	
     	System.exit(0);
     	

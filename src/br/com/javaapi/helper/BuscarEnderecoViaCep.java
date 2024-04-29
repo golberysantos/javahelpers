@@ -14,27 +14,23 @@ import br.com.alura.screenmatch.modelos.Endereco;
 
 public class BuscarEnderecoViaCep {
 
-	public void exibir(String cep) {
-		
+	public Endereco exibir(String cep) {
+
 		Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
 		URI endereco = URI.create("https://viacep.com.br/ws/" + cep + "/json");
-		
-
-    	HttpClient client = HttpClient.newHttpClient();
 		HttpRequest request = HttpRequest.newBuilder().uri(endereco).build();
-		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());        
-        
-        try {
+		HttpClient client = HttpClient.newHttpClient();		
 
+		try {
+			HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 			String json = response.body();
 			System.out.println(json);
-        	return gson.fromJson(json, Endereco.class);
+			//returna o objeto Endereco 
+			return gson.fromJson(json, Endereco.class);
 
-        } catch (IOException | InterruptedException e) {
-           throw new RuntimeException ("Não consegui obter o endereço a partir desse CEP.");
-        }
-
-           
+		} catch (IOException | InterruptedException e) {
+			throw new RuntimeException("Não consegui obter o endereço a partir desse CEP.");
+		}
 
 	}
 }
