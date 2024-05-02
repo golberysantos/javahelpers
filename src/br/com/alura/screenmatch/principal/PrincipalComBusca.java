@@ -1,14 +1,11 @@
 package br.com.alura.screenmatch.principal;
 
-import java.awt.Window.Type;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Scanner;
-
-import javax.lang.model.type.TypeVariable;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -17,7 +14,6 @@ import com.google.gson.GsonBuilder;
 import br.com.alura.screenmatch.execoes.ErroDeConversaoDeAnoException;
 import br.com.alura.screenmatch.modelos.Titulo;
 import br.com.alura.screenmatch.modelos.TituloOmdb;
-import br.com.javaapi.helper.MovieInformationOMDbApi;
 
 public class PrincipalComBusca {
 

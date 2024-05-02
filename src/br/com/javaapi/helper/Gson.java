@@ -1,12 +1,10 @@
 package br.com.javaapi.helper;
 
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
+
+import br.com.alura.screenmatch.modelos.Titulo;
+import br.com.alura.screenmatch.modelos.TituloOmdb;
 
 /**
  * Gson é uma biblioteca Java que pode ser usada para converter objetos Java em
@@ -18,18 +16,18 @@ import com.google.gson.GsonBuilder;
 public class Gson {
 
 	public void serializar(Object ObjJava) {
-		
+
 	}
 
 	public void desserializar(String Json) {
-		
-        try {
+
+
+		try {
 
 			System.out.println(Json);
+			com.google.gson.Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
 
-			Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
-
-			TituloOmdb meuTituloOmdb = gson.fromJson(json, TituloOmdb.class);
+			TituloOmdb meuTituloOmdb = gson.fromJson(Json, TituloOmdb.class);
 			System.out.println(meuTituloOmdb);
 
 			Titulo meuTitulo = new Titulo(meuTituloOmdb);

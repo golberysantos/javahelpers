@@ -13,6 +13,7 @@ import java.io.IOException;
 public class ArquivoLeituraEscrita {
 	/**
 	 * Exemplo path: "C:\\Users\\user\\meuArquivo.txt"
+	 *
 	 * @param path
 	 * @throws IOException
 	 */
@@ -20,40 +21,37 @@ public class ArquivoLeituraEscrita {
 		File file = new File(path);
 		FileReader reader = new FileReader(file);
 
-		try {		
+		try {
 			int data = reader.read();
 			while (data != -1) {
-			    System.out.print((char) data);
-			    data = reader.read();
+				System.out.print((char) data);
+				data = reader.read();
 			}
 			reader.close();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
-	
+
 	/**
 	 * Exemplo path: "C:\\Users\\user\\meuArquivo.txt"
+	 *
 	 * @param path
 	 * @param texto
 	 */
 	public void criarComFileWriter(String path, String texto) {
 		File file = new File(path);
 		FileWriter writer;
-		try {			
+		try {
 			writer = new FileWriter(file);
 			writer.write(texto);
 			writer.write("dsfafdsa");
 			writer.close();
 			System.out.println("Arquivo criado com sucesso!");
-		} catch (IOException e) {			
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 
 	}
-	
-	
-	
 
 }

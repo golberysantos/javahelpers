@@ -17,26 +17,16 @@ import java.net.http.HttpResponse;
 public class MovieInformationOMDbApi {
 
 	/**
-	 * Parameters list By ID or Title:
-	 * i = A valid IMDb ID (e.g. tt1285016)
-	 * t = Movie title to search for
-	 * type = Type of result to return
-	 * y =  Year of release
-	 * plot = Return short or full plot
-	 * r = The data type to return
-	 * callback = JSONP callback name
-	 * v = API version (reserved for future use)
+	 * Parameters list By ID or Title: i = A valid IMDb ID (e.g. tt1285016) t =
+	 * Movie title to search for type = Type of result to return y = Year of release
+	 * plot = Return short or full plot r = The data type to return callback = JSONP
+	 * callback name v = API version (reserved for future use)
 	 *
-	 * By Search
-	 * s = Movie title to search for.
-	 * type = Type of result to return.
-	 * y = Year of release.
-	 * r = The data type to return.
-	 * page = Page number to return.
-	 * callback = JSONP callback name.
-	 * v = API version (reserved for future use).
+	 * By Search s = Movie title to search for. type = Type of result to return. y =
+	 * Year of release. r = The data type to return. page = Page number to return.
+	 * callback = JSONP callback name. v = API version (reserved for future use).
 	 */
-	public String exibir(String busca, String parameter, String apikey) throws IOException, InterruptedException  {
+	public String exibir(String busca, String parameter, String apikey) throws IOException, InterruptedException {
 
 		String endereco = "http://www.omdbapi.com/?apikey=" + apikey + "&" + parameter + "=" + busca.replace(" ", "+");
 		HttpClient client = HttpClient.newHttpClient();

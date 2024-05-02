@@ -1,6 +1,5 @@
 package br.com.alura.screenmatch.principal;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
@@ -8,69 +7,73 @@ import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
 import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
-import br.com.javaapi.helper.ArquivoLeituraEscrita;
+import br.com.javaapi.env.ConexaoGibenDB;
 import br.com.javaapi.helper.BuscarEnderecoViaCep;
 
 public class Principal {
-    public static void main(String[] args) {
-    	
-    	BuscarEnderecoViaCep Bevc = new BuscarEnderecoViaCep();
-    	System.out.println(Bevc.exibir("69086051"));
-    	
-    	System.exit(0);
-    	
-        Filme meuFilme = new Filme("O poderoso chefão", 1970);
-        meuFilme.setDuracaoEmMinutos(180);
-        System.out.println("Duração do filme: " + meuFilme.getDuracaoEmMinutos());
+	public static void main(String[] args) {
 
-        meuFilme.exibeFichaTecnica();
-        meuFilme.avalia(8);
-        meuFilme.avalia(5);
-        meuFilme.avalia(10);
-        System.out.println("Total de avaliações: " + meuFilme.getTotalDeAvaliacoes());
-        System.out.println(meuFilme.pegaMedia());
-        //meuFilme.somaDasAvaliacoes = 10;
-        //meuFilme.totalDeAvaliacoes = 1;
-        //System.out.println(meuFilme.pegaMedia());
+		ConexaoGibenDB Cgdb = new ConexaoGibenDB();
+		Cgdb.conectar();
 
-        Serie lost = new Serie("Lost", 2000);
-        lost.exibeFichaTecnica();
-        lost.setTemporadas(10);
-        lost.setEpisodiosPorTemporada(10);
-        lost.setMinutosPorEpisodio(50);
-        System.out.println("Duração para maratonar Lost: " + lost.getDuracaoEmMinutos());
+		System.out.println("foi");
 
-        Filme outroFilme = new Filme("Avatar", 2023);
-        outroFilme.setDuracaoEmMinutos(200);
+		System.exit(0);
 
-        CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
-        calculadora.inclui(meuFilme);
-        calculadora.inclui(outroFilme);
-        calculadora.inclui(lost);
-        System.out.println(calculadora.getTempoTotal());
+		BuscarEnderecoViaCep Bevc = new BuscarEnderecoViaCep();
+		System.out.println(Bevc.exibir("69086051"));
 
-        FiltroRecomendacao filtro = new FiltroRecomendacao();
-        filtro.filtra(meuFilme);
+		Filme meuFilme = new Filme("O poderoso chefão", 1970);
+		meuFilme.setDuracaoEmMinutos(180);
+		System.out.println("Duração do filme: " + meuFilme.getDuracaoEmMinutos());
 
-        Episodio episodio = new Episodio();
-        episodio.setNumero(1);
-        episodio.setSerie(lost);
-        episodio.setTotalVisualizacoes(300);
-        filtro.filtra(episodio);
+		meuFilme.exibeFichaTecnica();
+		meuFilme.avalia(8);
+		meuFilme.avalia(5);
+		meuFilme.avalia(10);
+		System.out.println("Total de avaliações: " + meuFilme.getTotalDeAvaliacoes());
+		System.out.println(meuFilme.pegaMedia());
+		// meuFilme.somaDasAvaliacoes = 10;
+		// meuFilme.totalDeAvaliacoes = 1;
+		// System.out.println(meuFilme.pegaMedia());
 
-        var filmeDoPaulo = new Filme("Dogville", 2003);
-        filmeDoPaulo.setDuracaoEmMinutos(200);
-        filmeDoPaulo.avalia(10);
+		Serie lost = new Serie("Lost", 2000);
+		lost.exibeFichaTecnica();
+		lost.setTemporadas(10);
+		lost.setEpisodiosPorTemporada(10);
+		lost.setMinutosPorEpisodio(50);
+		System.out.println("Duração para maratonar Lost: " + lost.getDuracaoEmMinutos());
 
-        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
-        listaDeFilmes.add(filmeDoPaulo);
-        listaDeFilmes.add(meuFilme);
-        listaDeFilmes.add(outroFilme);
-        System.out.println("Tamanho da lista " + listaDeFilmes.size());
-        System.out.println("Primeiro filme " + listaDeFilmes.get(0).getNome());
-        System.out.println(listaDeFilmes);
-        System.out.println("toString do filme " + listaDeFilmes.get(0).toString());
+		Filme outroFilme = new Filme("Avatar", 2023);
+		outroFilme.setDuracaoEmMinutos(200);
 
+		CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
+		calculadora.inclui(meuFilme);
+		calculadora.inclui(outroFilme);
+		calculadora.inclui(lost);
+		System.out.println(calculadora.getTempoTotal());
 
-    }
+		FiltroRecomendacao filtro = new FiltroRecomendacao();
+		filtro.filtra(meuFilme);
+
+		Episodio episodio = new Episodio();
+		episodio.setNumero(1);
+		episodio.setSerie(lost);
+		episodio.setTotalVisualizacoes(300);
+		filtro.filtra(episodio);
+
+		var filmeDoPaulo = new Filme("Dogville", 2003);
+		filmeDoPaulo.setDuracaoEmMinutos(200);
+		filmeDoPaulo.avalia(10);
+
+		ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+		listaDeFilmes.add(filmeDoPaulo);
+		listaDeFilmes.add(meuFilme);
+		listaDeFilmes.add(outroFilme);
+		System.out.println("Tamanho da lista " + listaDeFilmes.size());
+		System.out.println("Primeiro filme " + listaDeFilmes.get(0).getNome());
+		System.out.println(listaDeFilmes);
+		System.out.println("toString do filme " + listaDeFilmes.get(0).toString());
+
+	}
 }
