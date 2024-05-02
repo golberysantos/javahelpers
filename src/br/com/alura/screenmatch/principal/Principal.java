@@ -1,5 +1,6 @@
 package br.com.alura.screenmatch.principal;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
@@ -14,7 +15,15 @@ public class Principal {
 	public static void main(String[] args) {
 
 		ConexaoGibenDB Cgdb = new ConexaoGibenDB();
-		Cgdb.conectar();
+		try {
+			Cgdb.conectar();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		System.out.println("foi");
 
