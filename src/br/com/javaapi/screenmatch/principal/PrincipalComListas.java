@@ -1,4 +1,4 @@
-package br.com.alura.screenmatch.principal;
+package br.com.javaapi.screenmatch.principal;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,6 +1,5 @@
 package br.com.javaapi.env;
 
-import java.beans.Statement;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,11 +10,12 @@ public class ConexaoGibenDB {
 		try {
 			String url = "jdbc:mysql://localhost:3306/giben";
 			Connection conn = DriverManager.getConnection(url, "root", "root");
-
-			java.sql.Statement stmt = conn.createStatement();
-			System.out.println("vai" + conn);
+			System.out.println("CONEXAO ESTABELECIADA");
+			
+			java.sql.Statement stmt = conn.createStatement();			
 			ResultSet rs;
-			rs = ((java.sql.Statement) stmt).executeQuery("SELECT * FROM user");
+			
+			rs = stmt.executeQuery("SELECT * FROM giben.user");
 			System.out.println(rs);
 			while (rs.next()) {
 				String lastName = rs.getString("nome");

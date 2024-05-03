@@ -1,4 +1,4 @@
-package br.com.alura.screenmatch.principal;
+package br.com.javaapi.screenmatch.principal;
 
 import com.google.gson.Gson;
 

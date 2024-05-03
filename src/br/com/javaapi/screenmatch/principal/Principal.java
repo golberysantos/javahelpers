@@ -1,4 +1,4 @@
-package br.com.alura.screenmatch.principal;
+package br.com.javaapi.screenmatch.principal;
 
 import java.io.IOException;
 import java.util.ArrayList;
