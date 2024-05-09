@@ -13,17 +13,21 @@ public class ConexaoGibenDB {
 			System.out.println("CONEXAO ESTABELECIADA");
 			
 			java.sql.Statement stmt = conn.createStatement();			
-			ResultSet rs;
+			ResultSet rs;			
 			
-			rs = stmt.executeQuery("SELECT * FROM giben.user");
-			System.out.println(rs);
+			rs = stmt.executeQuery("select * from usuario");
+			System.out.println(rs);			
 			while (rs.next()) {
-				String lastName = rs.getString("nome");
-				System.out.println(lastName);
+				String nick = rs.getString("nick");
+				String senha = rs.getString("senha");
+				System.out.println(nick +" | senha: "+ senha);
 			}
+			
+					
+			
 			conn.close();
 		} catch (Exception e) {
-			System.err.println("ERRO "+e);
+			System.err.println("ERRO "+e.getMessage());
 		}
 	}
 
