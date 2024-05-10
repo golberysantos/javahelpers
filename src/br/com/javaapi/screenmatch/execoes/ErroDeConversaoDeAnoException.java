@@ -1,4 +1,4 @@
-package br.com.alura.screenmatch.execoes;
+package br.com.javaapi.screenmatch.execoes;
 
 public class ErroDeConversaoDeAnoException extends RuntimeException {
 

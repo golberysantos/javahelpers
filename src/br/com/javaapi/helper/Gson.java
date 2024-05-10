@@ -3,8 +3,8 @@ package br.com.javaapi.helper;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
 
-import br.com.alura.screenmatch.modelos.Titulo;
-import br.com.alura.screenmatch.modelos.TituloOmdb;
+import br.com.javaapi.screenmatch.modelos.Titulo;
+import br.com.javaapi.screenmatch.modelos.TituloOmdb;
 
 /**
  * Gson é uma biblioteca Java que pode ser usada para converter objetos Java em

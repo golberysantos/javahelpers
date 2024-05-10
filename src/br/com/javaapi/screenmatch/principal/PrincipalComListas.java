@@ -6,9 +6,9 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
-import br.com.alura.screenmatch.modelos.Filme;
-import br.com.alura.screenmatch.modelos.Serie;
-import br.com.alura.screenmatch.modelos.Titulo;
+import br.com.javaapi.screenmatch.modelos.Filme;
+import br.com.javaapi.screenmatch.modelos.Serie;
+import br.com.javaapi.screenmatch.modelos.Titulo;
 
 public class PrincipalComListas {
 	public static void main(String[] args) {

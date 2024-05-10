@@ -1,4 +1,4 @@
-package br.com.alura.screenmatch.modelos;
+package br.com.javaapi.screenmatch.modelos;
 
 public class Pessoa {
 	private String nome;

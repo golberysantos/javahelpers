@@ -1,8 +1,8 @@
-package br.com.alura.screenmatch.modelos;
+package br.com.javaapi.screenmatch.modelos;
 
 import com.google.gson.annotations.SerializedName;
 
-import br.com.alura.screenmatch.execoes.ErroDeConversaoDeAnoException;
+import br.com.javaapi.screenmatch.execoes.ErroDeConversaoDeAnoException;
 
 public class Titulo implements Comparable<Titulo> {
 

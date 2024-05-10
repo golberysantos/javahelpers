@@ -3,13 +3,13 @@ package br.com.javaapi.screenmatch.principal;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
-import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
-import br.com.alura.screenmatch.modelos.Episodio;
-import br.com.alura.screenmatch.modelos.Filme;
-import br.com.alura.screenmatch.modelos.Serie;
 import br.com.javaapi.env.ConexaoGibenDB;
 import br.com.javaapi.helper.BuscarEnderecoViaCep;
+import br.com.javaapi.screenmatch.calculos.CalculadoraDeTempo;
+import br.com.javaapi.screenmatch.calculos.FiltroRecomendacao;
+import br.com.javaapi.screenmatch.modelos.Episodio;
+import br.com.javaapi.screenmatch.modelos.Filme;
+import br.com.javaapi.screenmatch.modelos.Serie;
 
 public class Principal {
 	public static void main(String[] args) {
