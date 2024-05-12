@@ -1,7 +1,7 @@
 package br.com.helper.javaapi;
 
 final class APIInfo {
-	private String chaveapi = null;
+	private String chaveapi = "";
 
 	public String getChaveapi() {
 		return chaveapi;

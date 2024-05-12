@@ -7,6 +7,7 @@ import java.util.Scanner;
 import br.com.giben.env.ConexaoGibenDB;
 import br.com.helper.javaapi.BuscarEnderecoViaCep;
 import br.com.helper.javaapi.ExchangeRateAPI;
+import br.com.helper.javaapi.ExchangeRateAPITela;
 import br.com.javaapi.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.javaapi.screenmatch.calculos.FiltroRecomendacao;
 import br.com.javaapi.screenmatch.modelos.Episodio;
@@ -14,7 +15,8 @@ import br.com.javaapi.screenmatch.modelos.Filme;
 import br.com.javaapi.screenmatch.modelos.Serie;
 
 public class Principal {
-	public static void main(String[] args) {
+	
+	public static void main(String[] args) throws IOException, InterruptedException {	
 		Scanner ler = new Scanner(System.in);
 		System.out.println("\n");
 		System.out.println("╔═════════════════════════╗");
@@ -27,22 +29,23 @@ public class Principal {
 		System.out.println("╚═════════════════════════╝");
 		System.out.println("");
 
-		String opcao = ler.next();
-		ler.close();
+		String opcao = ler.next();		
 
 		System.out.println(opcao);
 		switch (opcao) {
 		case "0":
-
+			
 			break;
 		case "1":
-
+			ExchangeRateAPITela exch = new ExchangeRateAPITela();
+			exch.exibir();
 			break;
 
 		default:
 			break;
 		}
 
+		ler.close();
 		System.exit(0);
 
 		ConexaoGibenDB Cgdb = new ConexaoGibenDB();
