@@ -25,9 +25,7 @@ public class ReqHttpClient {
 
 	private String requisitar() throws IOException, InterruptedException {
 		HttpClient client = HttpClient.newHttpClient();
-		HttpRequest request = HttpRequest.newBuilder()
-				.uri(URI.create(url))
-				.build();
+		HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).build();
 		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 		return response.body();
 	}

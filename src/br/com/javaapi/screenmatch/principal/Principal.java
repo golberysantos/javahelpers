@@ -15,8 +15,8 @@ import br.com.javaapi.screenmatch.modelos.Filme;
 import br.com.javaapi.screenmatch.modelos.Serie;
 
 public class Principal {
-	
-	public static void main(String[] args) throws IOException, InterruptedException {	
+
+	public static void main(String[] args) throws IOException, InterruptedException {
 		Scanner ler = new Scanner(System.in);
 		System.out.println("\n");
 		System.out.println("╔═════════════════════════╗");
@@ -29,12 +29,12 @@ public class Principal {
 		System.out.println("╚═════════════════════════╝");
 		System.out.println("");
 
-		String opcao = ler.next();		
+		String opcao = ler.next();
 
 		System.out.println(opcao);
 		switch (opcao) {
 		case "0":
-			
+
 			break;
 		case "1":
 			ExchangeRateAPITela exch = new ExchangeRateAPITela();
