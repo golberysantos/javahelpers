@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import br.com.giben.env.ConexaoGibenDB;
-import br.com.javaapi.helper.BuscarEnderecoViaCep;
+import br.com.helper.javaapi.BuscarEnderecoViaCep;
+import br.com.helper.javaapi.ExchangeRateAPI;
 import br.com.javaapi.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.javaapi.screenmatch.calculos.FiltroRecomendacao;
 import br.com.javaapi.screenmatch.modelos.Episodio;

@@ -1,4 +1,4 @@
-package br.com.javaapi.helper;
+package br.com.helper.javaapi;
 
 import java.io.IOException;
 import java.net.URI;
