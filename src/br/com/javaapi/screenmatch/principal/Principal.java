@@ -2,8 +2,9 @@ package br.com.javaapi.screenmatch.principal;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
-import br.com.javaapi.env.ConexaoGibenDB;
+import br.com.giben.env.ConexaoGibenDB;
 import br.com.javaapi.helper.BuscarEnderecoViaCep;
 import br.com.javaapi.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.javaapi.screenmatch.calculos.FiltroRecomendacao;
@@ -13,6 +14,35 @@ import br.com.javaapi.screenmatch.modelos.Serie;
 
 public class Principal {
 	public static void main(String[] args) {
+		Scanner ler = new Scanner(System.in);
+		System.out.println("\n");
+		System.out.println("╔═════════════════════════╗");
+		System.out.println("║ JAVA HELPER. BY GOLBERY ║");
+		System.out.println("╚═════════════════════════╝");
+		System.out.println("╔═════════════════════════╗");
+		System.out.println("║ OPÇÕES:                 ║");
+		System.out.println("║ 0. SAIR                 ║");
+		System.out.println("║ 1. Exchange Rate API    ║");
+		System.out.println("╚═════════════════════════╝");
+		System.out.println("");
+
+		String opcao = ler.next();
+		ler.close();
+
+		System.out.println(opcao);
+		switch (opcao) {
+		case "0":
+
+			break;
+		case "1":
+
+			break;
+
+		default:
+			break;
+		}
+
+		System.exit(0);
 
 		ConexaoGibenDB Cgdb = new ConexaoGibenDB();
 		try {

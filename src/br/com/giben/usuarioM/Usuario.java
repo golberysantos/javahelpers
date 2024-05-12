@@ -1,19 +1,18 @@
 package br.com.giben.usuarioM;
 
 public class Usuario {
-	
-	private int usuarioid; 
-	private String nick; 
-	private String senha; 
-	private String ri; 
-	private int pessoa_id;  
+
+	private int usuarioid;
+	private String nick;
+	private String senha;
+	private String ri;
+	private int pessoa_id;
 	private String avatar;
-	
-	public void criar () {
-		
+
+	public void criar() {
+
 	}
-	
-	
+
 	public int getUsuarioid() {
 		return usuarioid;
 	}
@@ -62,6 +61,4 @@ public class Usuario {
 		this.avatar = avatar;
 	}
 
-	
-	
 }
