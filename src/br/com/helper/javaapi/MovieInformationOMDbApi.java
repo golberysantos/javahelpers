@@ -9,8 +9,12 @@ import java.net.http.HttpResponse;
 /**
  * The OMDb API is a RESTful web service to obtain movie information, all
  * content and images on the site are contributed and maintained by our users.
- * Primeiro, acesse o site do OMDb para cadastro de uma chave. Link:
- * https://www.omdbapi.com/apikey.aspx How to use it: http://www.omdbapi.com/
+ * Primeiro, acesse o site do OMDb para cadastro de uma chave. 
+ * 
+ * Fonte:
+ * https://www.omdbapi.com/apikey.aspx 
+ * How to use it: http://www.omdbapi.com/
+ * 
  * Usage Send all data requests to: http://www.omdbapi.com/?apikey=yourkey&
  * Poster API requests: http://img.omdbapi.com/?apikey=yourkey&
  */
