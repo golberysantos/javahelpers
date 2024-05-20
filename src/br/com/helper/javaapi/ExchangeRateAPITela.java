@@ -8,18 +8,19 @@ public class ExchangeRateAPITela {
 
 	public void exibir() throws IOException, InterruptedException {
 
-		System.out.println(") \nBEM VINDO AO CONVERSOR DE MOEDA =]");		
+		System.out.println("\nBEM VINDO AO CONVERSOR DE MOEDA =]");
 		System.out.println("INFORME O CÓDIGO BASE.");
 		System.out.println("EXEMPLO: BRL, USD, EUR ...:");
 		String baseCode = ler.nextLine();
 		ExchangeRateAPI erapi = new ExchangeRateAPI(baseCode, suaChaveAPI());
 		System.out.println(erapi.rate());
+		
 	}
 
 	private String suaChaveAPI() {
 		APIInfo info = new APIInfo();
 		if (info.getChaveapi().equals("")) {
-			System.out.println("INFORME A CHAVE DA API: ");
+			System.out.println("INFORME A CHAVE DA API DO EXCHANGE RATE API: ");
 			String chave = ler.next();
 			info.setChaveapi(chave);
 		}

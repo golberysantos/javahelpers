@@ -10,6 +10,7 @@ import br.com.javaapi.screenmatch.modelos.Filme;
 import br.com.javaapi.screenmatch.modelos.Serie;
 import br.com.javaapi.screenmatch.modelos.Titulo;
 
+
 public class PrincipalComListas {
 	public static void main(String[] args) {
 		Filme meuFilme = new Filme("O poderoso chefão", 1970);

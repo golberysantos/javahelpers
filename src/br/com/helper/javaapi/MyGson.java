@@ -1,10 +1,8 @@
 package br.com.helper.javaapi;
 
 import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import br.com.javaapi.screenmatch.modelos.Titulo;
-import br.com.javaapi.screenmatch.modelos.TituloOmdb;
 
 /**
  * Gson é uma biblioteca Java que pode ser usada para converter objetos Java em
@@ -21,7 +19,7 @@ import br.com.javaapi.screenmatch.modelos.TituloOmdb;
  * https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5/com/google/gson/Gson.html
  * https://mvnrepository.com/artifact/com.google.code.gson/gson/2.10
  */
-public class Gson {
+public class MyGson {
 
 	private String json;
 	private Object obj = null;
@@ -39,8 +37,7 @@ public class Gson {
 
 		try {
 
-			com.google.gson.Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-					.create();
+			Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
 			obj = gson.fromJson(json, obj.getClass());
 		} catch (NumberFormatException e) {
 			System.out.println("Aconteceu um erro: ");
