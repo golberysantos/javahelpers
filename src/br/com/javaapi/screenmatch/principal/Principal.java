@@ -16,6 +16,26 @@ import br.com.javaapi.screenmatch.modelos.Serie;
 public class Principal {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
+		
+		ConexaoGibenDB Cgdb = new ConexaoGibenDB();
+		try {
+			Cgdb.conectar();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		System.out.println("foi");
+
+		System.exit(0);
+		
+		
+		
+		
+		
 		Scanner ler = new Scanner(System.in);
 		System.out.println("\n");
 		System.out.println("╔═════════════════════════╗");
@@ -47,20 +67,7 @@ public class Principal {
 		ler.close();
 		System.exit(0);
 
-		ConexaoGibenDB Cgdb = new ConexaoGibenDB();
-		try {
-			Cgdb.conectar();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		System.out.println("foi");
-
-		System.exit(0);
+		
 
 		BuscarEnderecoViaCep Bevc = new BuscarEnderecoViaCep();
 		System.out.println(Bevc.exibir("69086051"));
