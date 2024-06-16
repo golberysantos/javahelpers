@@ -4,14 +4,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import br.com.giben.env.ConexaoGibenDB;
-import br.com.helper.javaapi.BuscarEnderecoViaCep;
-import br.com.helper.javaapi.ExchangeRateAPITela;
-import br.com.javaapi.screenmatch.calculos.CalculadoraDeTempo;
-import br.com.javaapi.screenmatch.calculos.FiltroRecomendacao;
-import br.com.javaapi.screenmatch.modelos.Episodio;
-import br.com.javaapi.screenmatch.modelos.Filme;
-import br.com.javaapi.screenmatch.modelos.Serie;
+import main.java.br.com.giben.env.ConexaoGibenDB;
+import main.java.br.com.helper.javaapi.BuscarEnderecoViaCep;
+import main.java.br.com.helper.javaapi.ExchangeRateAPITela;
+import main.java.br.com.javaapi.screenmatch.calculos.CalculadoraDeTempo;
+import main.java.br.com.javaapi.screenmatch.calculos.FiltroRecomendacao;
+import main.java.br.com.javaapi.screenmatch.modelos.Episodio;
+import main.java.br.com.javaapi.screenmatch.modelos.Filme;
+import main.java.br.com.javaapi.screenmatch.modelos.Serie;
 
 public class Principal {
 

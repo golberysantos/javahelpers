@@ -1,6 +1,6 @@
 package br.com.javaapi.screenmatch.modelos;
 
-import br.com.javaapi.screenmatch.calculos.Classificavel;
+import main.java.br.com.javaapi.screenmatch.calculos.Classificavel;
 
 public class Episodio implements Classificavel {
 	private int numero;

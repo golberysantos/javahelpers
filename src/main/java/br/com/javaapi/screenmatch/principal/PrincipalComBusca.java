@@ -11,9 +11,9 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import br.com.javaapi.screenmatch.execoes.ErroDeConversaoDeAnoException;
-import br.com.javaapi.screenmatch.modelos.Titulo;
-import br.com.javaapi.screenmatch.modelos.TituloOmdb;
+import main.java.br.com.javaapi.screenmatch.execoes.ErroDeConversaoDeAnoException;
+import main.java.br.com.javaapi.screenmatch.modelos.Titulo;
+import main.java.br.com.javaapi.screenmatch.modelos.TituloOmdb;
 
 public class PrincipalComBusca {
 

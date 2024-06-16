@@ -2,7 +2,7 @@ package br.com.javaapi.screenmatch.modelos;
 
 import com.google.gson.annotations.SerializedName;
 
-import br.com.javaapi.screenmatch.execoes.ErroDeConversaoDeAnoException;
+import main.java.br.com.javaapi.screenmatch.execoes.ErroDeConversaoDeAnoException;
 
 public class Titulo implements Comparable<Titulo> {
 

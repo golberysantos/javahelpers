@@ -2,7 +2,7 @@ package br.com.javaapi.screenmatch.principal;
 
 import com.google.gson.Gson;
 
-import br.com.javaapi.screenmatch.modelos.Pessoa;
+import main.java.br.com.javaapi.screenmatch.modelos.Pessoa;
 
 public class TestaJar {
 
