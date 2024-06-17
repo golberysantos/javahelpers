@@ -10,7 +10,7 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import main.java.br.com.javaapi.screenmatch.modelos.Endereco;
+import br.com.helper.javaapi.modelos.Endereco;
 
 public class BuscarEnderecoViaCep {
 

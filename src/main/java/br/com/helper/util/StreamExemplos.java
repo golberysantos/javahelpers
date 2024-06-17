@@ -11,6 +11,6 @@ public class StreamExemplos {
         .limit(3)
         .filter(n -> n.startsWith("N"))
         .map(n -> n.toUpperCase())
-        .forEach(System.out::println);		
+        .forEach(System.out::println);
 	}
 }

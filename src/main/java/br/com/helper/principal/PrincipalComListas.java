@@ -1,4 +1,4 @@
-package br.com.javaapi.screenmatch.principal;
+package br.com.helper.principal;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,9 +6,9 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
-import main.java.br.com.javaapi.screenmatch.modelos.Filme;
-import main.java.br.com.javaapi.screenmatch.modelos.Serie;
-import main.java.br.com.javaapi.screenmatch.modelos.Titulo;
+import br.com.helper.javaapi.modelos.Filme;
+import br.com.helper.javaapi.modelos.Serie;
+import br.com.helper.javaapi.modelos.Titulo;
 
 
 public class PrincipalComListas {

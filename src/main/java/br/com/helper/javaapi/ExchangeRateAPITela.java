@@ -14,7 +14,7 @@ public class ExchangeRateAPITela {
 		String baseCode = ler.nextLine();
 		ExchangeRateAPI erapi = new ExchangeRateAPI(baseCode, suaChaveAPI());
 		System.out.println(erapi.rate());
-		
+
 	}
 
 	private String suaChaveAPI() {

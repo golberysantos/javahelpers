@@ -1,6 +1,6 @@
 package br.com.javaapi.screenmatch.calculos;
 
-import main.java.br.com.javaapi.screenmatch.modelos.Titulo;
+import br.com.helper.javaapi.modelos.Titulo;
 
 public class CalculadoraDeTempo {
 	private int tempoTotal;

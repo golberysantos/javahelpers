@@ -1,6 +1,6 @@
-package br.com.javaapi.screenmatch.modelos;
+package br.com.helper.javaapi.modelos;
 
-import main.java.br.com.javaapi.screenmatch.calculos.Classificavel;
+import br.com.javaapi.screenmatch.calculos.Classificavel;
 
 public class Filme extends Titulo implements Classificavel {
 	private String diretor;

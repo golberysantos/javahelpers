@@ -1,8 +1,8 @@
-package br.com.javaapi.screenmatch.principal;
+package br.com.helper.principal;
 
 import com.google.gson.Gson;
 
-import main.java.br.com.javaapi.screenmatch.modelos.Pessoa;
+import br.com.helper.javaapi.modelos.Pessoa;
 
 public class TestaJar {
 

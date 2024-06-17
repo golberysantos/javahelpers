@@ -1,4 +1,4 @@
-package br.com.javaapi.screenmatch.modelos;
+package br.com.helper.javaapi.modelos;
 
 public class Serie extends Titulo {
 	private int temporadas;
