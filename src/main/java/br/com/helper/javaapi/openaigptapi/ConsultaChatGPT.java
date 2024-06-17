@@ -3,7 +3,7 @@ package br.com.helper.javaapi.openaigptapi;
 import com.theokanning.openai.completion.CompletionRequest;
 import com.theokanning.openai.service.OpenAiService;
 
-import br.com.giben.env.SecretKey;
+import br.com.helper.env.SecretKey;
 
 /**
  * OpenAI-Java
@@ -22,7 +22,7 @@ public class ConsultaChatGPT {
 		OpenAiService service = new OpenAiService(SecretKey.getMyAPIKeyOpenAI01());
 
 		CompletionRequest requisicao = CompletionRequest.builder()
-		.model("gpt-3.5-turbo-instruct")
+		.model("gpt-3.5-turbo-16k")
 		.prompt("traduza para o português o texto: " + texto)
 		.maxTokens(1000)
 		.temperature(0.7)

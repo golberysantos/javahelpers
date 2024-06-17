@@ -1,12 +1,24 @@
-package br.com.giben.env;
+package br.com.helper.env;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 
-public class ConexaoGibenDB {
+public class ConexaoGibenDB_a {
 	public void conectar() throws IOException, InterruptedException {
+		try {
+			String url = "jdbc:mysql://localhost:3306/giben";
+			Connection conn = DriverManager.getConnection(url, "root", "root");
+			System.out.println("CONEXAO ESTABELECIADA");
+
+			conn.close();
+		} catch (Exception e) {
+			System.err.println("ERRO " + e.getMessage());
+		}
+	}
+
+	public void inserir(){
 		try {
 			String url = "jdbc:mysql://localhost:3306/giben";
 			Connection conn = DriverManager.getConnection(url, "root", "root");

@@ -4,18 +4,25 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import br.com.giben.env.ConexaoGibenDB;
+import br.com.helper.env.ConexaoGibenDB;
 import br.com.helper.javaapi.BuscarEnderecoViaCep;
 import br.com.helper.javaapi.ExchangeRateAPITela;
 import br.com.helper.javaapi.modelos.Episodio;
 import br.com.helper.javaapi.modelos.Filme;
 import br.com.helper.javaapi.modelos.Serie;
+import br.com.helper.javaapi.openaigptapi.ConsultaChatGPTCtrl;
 import br.com.javaapi.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.javaapi.screenmatch.calculos.FiltroRecomendacao;
 
 public class Principal {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
+
+		ConsultaChatGPTCtrl ccgptctrl = new ConsultaChatGPTCtrl();
+		ccgptctrl.consultar();
+
+		System.exit(0);
+
 
 		ConexaoGibenDB Cgdb = new ConexaoGibenDB();
 		try {
