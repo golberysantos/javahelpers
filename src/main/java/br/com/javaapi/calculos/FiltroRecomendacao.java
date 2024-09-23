@@ -1,4 +1,4 @@
-package br.com.javaapi.screenmatch.calculos;
+package br.com.javaapi.calculos;
 
 public class FiltroRecomendacao {
 	private String recomendacao;

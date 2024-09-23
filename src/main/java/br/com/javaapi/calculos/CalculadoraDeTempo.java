@@ -1,4 +1,4 @@
-package br.com.javaapi.screenmatch.calculos;
+package br.com.javaapi.calculos;
 
 import br.com.helper.javaapi.modelos.Titulo;
 

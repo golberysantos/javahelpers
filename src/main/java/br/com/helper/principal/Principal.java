@@ -11,8 +11,8 @@ import br.com.helper.javaapi.modelos.Episodio;
 import br.com.helper.javaapi.modelos.Filme;
 import br.com.helper.javaapi.modelos.Serie;
 import br.com.helper.javaapi.openaigptapi.ConsultaChatGPTCtrl;
-import br.com.javaapi.screenmatch.calculos.CalculadoraDeTempo;
-import br.com.javaapi.screenmatch.calculos.FiltroRecomendacao;
+import br.com.javaapi.calculos.CalculadoraDeTempo;
+import br.com.javaapi.calculos.FiltroRecomendacao;
 
 public class Principal {
 

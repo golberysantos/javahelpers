@@ -1,6 +1,6 @@
 package br.com.helper.javaapi.modelos;
 
-import br.com.javaapi.screenmatch.calculos.Classificavel;
+import br.com.javaapi.calculos.Classificavel;
 
 public class Episodio implements Classificavel {
 	private int numero;

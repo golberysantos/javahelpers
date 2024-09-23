@@ -13,7 +13,7 @@ import com.google.gson.GsonBuilder;
 
 import br.com.helper.javaapi.modelos.Titulo;
 import br.com.helper.javaapi.modelos.TituloOmdb;
-import br.com.javaapi.screenmatch.execoes.ErroDeConversaoDeAnoException;
+import br.com.javaapi.execoes.ErroDeConversaoDeAnoException;
 
 public class PrincipalComBusca {
 
