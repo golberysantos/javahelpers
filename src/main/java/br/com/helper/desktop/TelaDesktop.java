@@ -13,7 +13,7 @@ public class TelaDesktop extends JFrame{
 	private JPanel contentPane;
 
 	public void exibir() {
-
+		System.out.println("maravilhoooso");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import br.com.helper.desktop.TelaDesktop;
 import br.com.helper.env.ConexaoGibenDB;
 import br.com.helper.javaapi.BuscarEnderecoViaCep;
 import br.com.helper.javaapi.ExchangeRateAPITela;
@@ -18,6 +19,11 @@ public class Principal {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
+		TelaDesktop td = new TelaDesktop();
+		td.exibir();
+		System.out.println("vaii");
+		System.exit(0);
+		
 		ConsultaChatGPTCtrl ccgptctrl = new ConsultaChatGPTCtrl();
 		ccgptctrl.consultar();
 
