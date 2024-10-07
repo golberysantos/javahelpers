@@ -1,8 +1,9 @@
 package br.com.helper.calculadora;
 
 public class Calculadora {
-	private void calcular() {
-		somar();
+	public void calcular() {
+		TelaCalculadora tc = new TelaCalculadora();
+		tc.initialize();
 
 	}
 

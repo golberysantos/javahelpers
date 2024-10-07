@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import br.com.helper.calculadora.Calculadora;
 import br.com.helper.desktop.TelaDesktop;
 import br.com.helper.env.ConexaoGibenDB;
 import br.com.helper.javaapi.BuscarEnderecoViaCep;
@@ -19,9 +20,10 @@ public class Principal {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
-		TelaDesktop td = new TelaDesktop();
-		td.exibir();
+		Calculadora c = new Calculadora();
+		c.calcular();
 		System.out.println("vaii");
+		/*
 		System.exit(0);
 		
 		ConsultaChatGPTCtrl ccgptctrl = new ConsultaChatGPTCtrl();
@@ -136,6 +138,8 @@ public class Principal {
 		System.out.println("Primeiro filme " + listaDeFilmes.get(0).getNome());
 		System.out.println(listaDeFilmes);
 		System.out.println("toString do filme " + listaDeFilmes.get(0).toString());
+		*/
 
 	}
+	
 }

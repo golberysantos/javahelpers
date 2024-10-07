@@ -34,6 +34,7 @@
 		<jacoco.destFile>../target/jacoco.exec</jacoco.destFile>
 		<tycho.scmUrl>scm:git:https://github.com/eclipse-m2e/m2e-core.git</tycho.scmUrl>
 		<trimStackTrace>false</trimStackTrace>
+		<java.version>23</java.version>
 	</properties>
 
 	<repositories>
@@ -53,6 +54,7 @@
 	<modules>
 
 	</modules>
+	
 
 	<dependencies>
 
