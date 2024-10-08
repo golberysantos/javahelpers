@@ -15,29 +15,26 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
 
 public class TelaCalculadora {
+	//private static JTextField textField_1;
 
-	private JFrame frame;	
-	private JTextField textField;
+	
 
 	/**
 	 * Create the application.
+	 * @wbp.parser.entryPoint
 	 */
-	public TelaCalculadora() {
-		//initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	public void initialize() {
+	public TelaCalculadora() {			
 		
-		frame = new JFrame();
+		JFrame frame = new JFrame();
+		JTextField textField = new JTextField();
+		JTextField textField_1 = new JTextField();;
+		JPanel panel = new JPanel();
+		JLabel lblNewLabel = new JLabel("CALCULADORA");
+		
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JPanel panel = new JPanel();
 		
-		JLabel lblNewLabel = new JLabel("CALCULADORA");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
@@ -55,7 +52,7 @@ public class TelaCalculadora {
 					.addContainerGap())
 		);
 		
-		textField = new JTextField();
+		 
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		textField.setColumns(10);
 		
@@ -65,22 +62,34 @@ public class TelaCalculadora {
 		
 		JLabel lblNewLabel_1 = new JLabel("Entre com o primeiro número");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		
+		textField_1 = new JTextField();
+		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		textField_1.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("Entre com o segundo número");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(90)
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
-							.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-								.addComponent(textField, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-								.addGroup(gl_panel.createSequentialGroup()
-									.addPreferredGap(ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-									.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 202, GroupLayout.PREFERRED_SIZE)))
-							.addGap(103))
 						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(lblNewLabel_1)
-							.addContainerGap(112, Short.MAX_VALUE))))
+							.addComponent(lblNewLabel_2)
+							.addContainerGap())
+						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+							.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+								.addComponent(lblNewLabel_1)
+								.addContainerGap(112, Short.MAX_VALUE))
+							.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+								.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+									.addComponent(textField_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+									.addComponent(textField, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+									.addGroup(gl_panel.createSequentialGroup()
+										.addPreferredGap(ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+										.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 202, GroupLayout.PREFERRED_SIZE)))
+								.addGap(103)))))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -91,7 +100,11 @@ public class TelaCalculadora {
 					.addComponent(lblNewLabel_1)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(151, Short.MAX_VALUE))
+					.addGap(42)
+					.addComponent(lblNewLabel_2)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(53, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
 		frame.getContentPane().setLayout(groupLayout);
