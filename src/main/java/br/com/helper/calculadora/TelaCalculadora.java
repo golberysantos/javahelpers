@@ -15,21 +15,39 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
 
 public class TelaCalculadora {
-	//private static JTextField textField_1;
-
+	private JFrame frame;
+	private JTextField txtNum1;	
+	private JTextField txtNum2;
+	private JPanel panel;
+	private JLabel lblNewLabel;
+	private float num1;
+	private float num2;
+	
 	
 
-	/**
-	 * Create the application.
-	 * @wbp.parser.entryPoint
-	 */
+	
+	public float getNum1() {
+		num1 = txtNum1.getText();
+		return num1;
+	}
+
+
+
+
+	public float getNum2() {
+		return num2;
+	}
+
+
+
+
 	public TelaCalculadora() {			
 		
-		JFrame frame = new JFrame();
-		JTextField textField = new JTextField();
-		JTextField textField_1 = new JTextField();;
-		JPanel panel = new JPanel();
-		JLabel lblNewLabel = new JLabel("CALCULADORA");
+		frame = new JFrame();
+		txtNum1 = new JTextField();
+		txtNum2 = new JTextField();;
+		panel = new JPanel();
+		lblNewLabel = new JLabel("CALCULADORA");
 		
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,19 +71,16 @@ public class TelaCalculadora {
 		);
 		
 		 
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		textField.setColumns(10);
-		
-		System.out.print(textField.getText());
-		
+		txtNum1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtNum1.setColumns(10);		
 		
 		
 		JLabel lblNewLabel_1 = new JLabel("Entre com o primeiro número");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		textField_1.setColumns(10);
+		txtNum2 = new JTextField();
+		txtNum2.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtNum2.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Entre com o segundo número");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -84,8 +99,8 @@ public class TelaCalculadora {
 								.addContainerGap(112, Short.MAX_VALUE))
 							.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
 								.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-									.addComponent(textField_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-									.addComponent(textField, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+									.addComponent(txtNum2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+									.addComponent(txtNum1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
 									.addGroup(gl_panel.createSequentialGroup()
 										.addPreferredGap(ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
 										.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 202, GroupLayout.PREFERRED_SIZE)))
@@ -99,15 +114,19 @@ public class TelaCalculadora {
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(lblNewLabel_1)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addComponent(txtNum1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(42)
 					.addComponent(lblNewLabel_2)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addComponent(txtNum2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(53, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
 		frame.getContentPane().setLayout(groupLayout);
 		frame.setVisible(true);
 	}
+	
+	
+	
+	
 }
