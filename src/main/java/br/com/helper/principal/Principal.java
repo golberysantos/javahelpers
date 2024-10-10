@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import br.com.helper.calculadora.Calculadora;
+import br.com.helper.calculadora.CalculadoraController;
 import br.com.helper.desktop.TelaDesktop;
 import br.com.helper.env.ConexaoGibenDB;
 import br.com.helper.javaapi.BuscarEnderecoViaCep;
@@ -20,9 +21,8 @@ public class Principal {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
-		Calculadora c = new Calculadora();
-		c.calcular();
-		System.out.println("vaii");
+		CalculadoraController c = new CalculadoraController();
+		c.iniciar();
 		/*
 		System.exit(0);
 		
