@@ -44,14 +44,15 @@ a:hover {
     text-align: center;
 }
 
+
 /* seu estilo */
+
 form {
     border-radius: 15px;
     font-family: monospace;
-    background-image: url('/static/img/bg-login-2.jpg');
+    background-image: url('../../static/img/likeastone.jpg');
     background-size: cover;
     font-size: 14pt;
-
 }
 
 button {
@@ -80,10 +81,3 @@ input {
 
 }
 
-form {
-
-    background: #004953;
-    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
-    background-image: url('/static/img/bg-login-2.png');
-
-}
