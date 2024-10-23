@@ -47,13 +47,16 @@ a:hover {
 
 /* seu estilo */
 
+
 form {
     border-radius: 15px;
     font-family: monospace;
-    background-image: url('../../static/img/likeastone.jpg');
-    background-size: cover;
     font-size: 14pt;
+    background-image: url('../../static/img/likeastone.jpg');    
+    background-size: cover;        
 }
+
+
 
 button {
     background-color: #3e69f7;
@@ -79,5 +82,8 @@ input {
     padding: 15px;
     font-size: 18pt;
 
+}
+body {
+	background-color: #2C3333;
 }
 
