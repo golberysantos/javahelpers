@@ -1,0 +1,89 @@
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.login {
+    border: 1px solid black;
+    width: 400px;
+    height: 500px;
+}
+
+form {
+    padding: 40px;
+    flex-direction: column;
+    display: flex;
+    gap: 5px;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+button {
+    margin: 25px 0 0 0;
+}
+
+p {
+    text-align: right;
+}
+
+a {
+    text-decoration: none;
+    color: #2252ee;
+}
+
+a:hover {
+    color: #025206;
+    font-weight: bold;
+}
+
+.p {
+    text-align: center;
+}
+
+/* seu estilo */
+form {
+    border-radius: 15px;
+    font-family: monospace;
+    background-image: url('/static/img/bg-login-2.jpg');
+    background-size: cover;
+    font-size: 14pt;
+
+}
+
+button {
+    background-color: #3e69f7;
+    font-size: 18pt;
+    color: white;
+    font-weight: bolder;
+    padding: 15px;
+    border-radius: 25px;
+}
+
+label {
+    text-transform: uppercase;
+    color: white;
+}
+
+h1 {
+    color: white;
+}
+
+input {
+    border: solid 3px;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 18pt;
+
+}
+
+form {
+
+    background: #004953;
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    background-image: url('/static/img/bg-login-2.png');
+
+}

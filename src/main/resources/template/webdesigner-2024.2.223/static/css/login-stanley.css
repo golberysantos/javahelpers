@@ -1,0 +1,59 @@
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.login {
+    border: 1px solid black;
+    width: 400px;
+    height: 500px;
+}
+
+form {
+    padding: 40px;
+    flex-direction: column;
+    display: flex;
+    gap: 5px;
+
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+button {
+    margin: 25px 0 0 0;
+}
+
+p {
+    text-align: right;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover {
+    color: darkgreen;
+
+}
+
+.p {
+    text-align: center;
+}
+
+/* seu estilo*/
+
+
+.personalizaBotao {
+    color: blueviolet;
+    background-color: coral;
+}
+
+.personalizaCaixa {
+    background-color: cornflowerblue;
+    border-radius: 1rem;
+}

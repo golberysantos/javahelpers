@@ -1,0 +1,115 @@
+header {
+    background-color: rgb(9, 9, 9);
+    height: 113px;
+    align-content: center;
+}
+
+.padding-15px {
+    padding: 15px;
+}
+
+.desenvolvidopor {
+    background-color: rgb(9, 9, 9);
+    text-align: center;
+    color: aliceblue;
+    height: 50px;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.link-cor-branca {
+    color: white;
+    text-decoration: none;
+}
+
+.font-size-h1 {
+    font-size: 50pt;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.font-size-h2 {
+    font-size: 40pt;
+    text-transform: uppercase;
+    margin-top: 15px;
+}
+
+.font-size-h3 {
+    color: #072F38;
+}
+
+.fonte-letra {
+    font-size: 18pt;
+}
+
+.bloco1 {
+    background-color: #65806D;
+    margin-bottom: 10px;
+}
+
+.bloco2 {
+    background-color: #C8CBC0;
+    margin-top: 10px;
+}
+
+.posicao {
+    display: flex;
+    padding-top: 15px;
+}
+
+.largura-60 {
+    width: 60%;
+}
+
+.largura-40 {
+    width: 40%;
+}
+
+.img-banner {
+    width: 100%;
+}
+
+.padding-20px {
+    padding: 20px;
+}
+
+.margem-article {
+    margin-right: 10px;
+}
+
+.margem-aside {
+    margin-left: 10px;
+}
+
+.tamanho-fonte-bloco {
+    font-size: 18pt;
+}
+
+.nav-alinhamento {
+    width: 100%;
+    display: flex;
+    align-content: end;
+    justify-content: left;
+}
+
+.logo {
+    width: 50%;
+    text-align: left;
+}
+
+.menu {
+    display: flex;
+    width: 50%;
+    justify-content: end;
+}
+
+.efeito-borda {
+    border: solid 3px;
+    border-radius: 0 29px;
+}
+
+main {
+    padding: 0 25px 0 25px;
+}

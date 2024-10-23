@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home. Golbery 2024.2.223</title>
+    <style>
+        header {
+            background-color: chocolate;
+            height: 40px;
+            text-align: center;
+            display: flex;
+            justify-content: end;
+        }
+
+        .padding-15px {
+            padding: 15px;
+        }
+
+        .botao-ver-mais {
+            background-color: chartreuse;
+            border: solid 1px;
+            color: rgb(8, 84, 150);
+            border-radius: 10rem;
+        }
+
+        .desenvolvidopor {
+            background-color: rgb(32, 32, 128);
+            text-align: center;
+            color: aliceblue;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- conteúod para o usuário -->
+    <header>
+        <nav>
+            <a href="Golbery.html" class="padding-15px">
+                HTML CSS
+            </a>
+
+            <a href="https://www.w3schools.com/" class="padding-15px">
+                W3Schools
+            </a>
+
+            <a href="laves.html" class="padding-15px">
+                Adioslaves
+            </a>
+        </nav>
+    </header>
+    <main>
+
+        <h1>Olá! Bem vindo a minha Página!</h1>
+        <img src="static\img\golbery.gif" alt="Foto perfil golbery" width="100" height="100">
+        <button type="button" class="botao-ver-mais">Ver mais</button>
+
+        <section></section>
+        <article></article>
+        <aside></aside>
+        <p id="golbery"></p>
+
+    </main>
+    <footer class="desenvolvidopor">
+        <p>Desenvolvido por Golbery</p>
+    </footer>
+    <script>
+        document.getElementById("golbery")
+            .innerHTML = "Texto do JavaScript";
+    </script>
+</body>
+
+</html>
