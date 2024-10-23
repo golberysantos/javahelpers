@@ -1,190 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-	Copyright (c) 2010, 2023 Sonatype, Inc. and others
-	All rights reserved. This program and the accompanying materials
-	are made available under the terms of the Eclipse Public License 2.0
-	which accompanies this distribution, and is available at
-	https://www.eclipse.org/legal/epl-2.0/
-
-	SPDX-License-Identifier: EPL-2.0
--->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.3.4</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
 
 	<!-- Informações do projeto -->
 
 	<groupId>br.com.javahelper</groupId>
 	<artifactId>javahelper</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-
-
-	<packaging>pom</packaging>
-
-	<name>Maven Integration for Eclipse (root)</name>
+	<name>javahelper</name>
+	<description>Java Helper</description>
 
 	<properties>
-		<tychoDefaultTestArgLine>-Xmx800m</tychoDefaultTestArgLine>
-		<tycho.testArgLine>${tychoDefaultTestArgLine}</tycho.testArgLine>
-		<surefire.timeout>900</surefire.timeout>
-		<tycho.surefire.useUIHarness>true</tycho.surefire.useUIHarness>
-		<tycho.surefire.useUIThread>true</tycho.surefire.useUIThread>
-		<tycho.useJDK>SYSTEM</tycho.useJDK>
-		<jacoco.destFile>../target/jacoco.exec</jacoco.destFile>
-		<tycho.scmUrl>scm:git:https://github.com/eclipse-m2e/m2e-core.git</tycho.scmUrl>
-		<trimStackTrace>false</trimStackTrace>
-		<java.version>23</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>21</java.version>
 	</properties>
-
-	<repositories>
-		<repository>
-			<!-- 
-			LibreTranslate Java Restful Client
-			At some point, we had to translate the Java text, but we didn't find
-			comfortable and understandable libraries, so I wrote my decision.
-			https://github.com/dynomake/libretranslate-java
-			-->
-			<id>clojars.org</id>
-			<url>https://repo.clojars.org</url>
-		</repository>
-	</repositories>
-
-
-	<modules>
-
-	</modules>
 	
-
 	<dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jdbc</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
 
-		<dependency>
-			<groupId>com.theokanning.openai-gpt3-java</groupId>
-			<artifactId>service</artifactId>
-			<version>0.14.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>net.clojars.suuft</groupId>
-			<artifactId>libretranslate-java</artifactId>
-			<version>1.0.5</version>
-		</dependency>
-
-
-	</dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <scope>runtime</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 
 	<build>
 		<plugins>
-
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
 		</plugins>
-
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.eclipse.tycho</groupId>
-					<artifactId>tycho-p2-director-plugin</artifactId>
-					<version>${tycho-version}</version>
-					<executions>
-						<execution>
-							<id>materialize-products</id>
-							<goals>
-								<goal>materialize-products</goal>
-							</goals>
-							<phase>package</phase>
-						</execution>
-						<execution>
-							<id>archive-products</id>
-							<goals>
-								<goal>archive-products</goal>
-							</goals>
-							<phase>verify</phase>
-							<configuration>
-								<formats>
-									<linux>tar.gz</linux>
-									<macosx>tar.gz</macosx>
-								</formats>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-
-
-				<plugin>
-					<groupId>org.eclipse.tycho</groupId>
-					<artifactId>tycho-compiler-plugin</artifactId>
-					<version>${tycho-version}</version>
-					<configuration>
-						<useJDK>${tycho.useJDK}</useJDK>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.eclipse.tycho</groupId>
-					<artifactId>tycho-p2-publisher-plugin</artifactId>
-					<version>${tycho-version}</version>
-				</plugin>
-				<plugin>
-					<groupId>org.eclipse.tycho</groupId>
-					<artifactId>tycho-p2-repository-plugin</artifactId>
-					<version>${tycho-version}</version>
-				</plugin>
-				<plugin>
-					<groupId>org.eclipse.tycho</groupId>
-					<artifactId>tycho-surefire-plugin</artifactId>
-					<version>${tycho-version}</version>
-					<configuration>
-						<useJDK>${tycho.useJDK}</useJDK>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>build-helper-maven-plugin</artifactId>
-					<version>3.6.0</version>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 	</build>
 
-	<profiles>
-		<profile>
-			<id>osx</id>
-			<activation>
-				<os>
-					<family>mac</family>
-				</os>
-			</activation>
-			<properties>
-				<!-- SWT on Mac OS needs to be started on main thread -->
-				<tycho.testArgLine>-XstartOnFirstThread
-					${tychoDefaultTestArgLine}</tycho.testArgLine>
-			</properties>
-			<build>
-				<pluginManagement>
-					<plugins>
-						<plugin>
-							<groupId>org.eclipse.tycho</groupId>
-							<artifactId>tycho-surefire-plugin</artifactId>
-							<configuration>
-								<dependencies combine.children="append">
-									<!--this dependency is needed to detect and set the default VM correctly on Mac OS,
-									 https://github.com/eclipse-jdt/eclipse.jdt.debug/tree/master/org.eclipse.jdt.launching.macosx -->
-									<dependency>
-										<artifactId>
-											org.eclipse.jdt.launching.macosx</artifactId>
-										<type>eclipse-plugin</type>
-										<version>0.0.0</version>
-									</dependency>
-								</dependencies>
-							</configuration>
-						</plugin>
-					</plugins>
-				</pluginManagement>
-			</build>
-		</profile>
-		<profile>
-			<id>its</id>
-			<modules>
-				<module>m2e-core-tests</module>
-			</modules>
-		</profile>
-	</profiles>
 </project>
