@@ -5,12 +5,12 @@ form {
     border-radius: 15px;
     font-family: monospace;
     font-size: 14pt;
-    background-image: url('../../static/img/likeastone.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: #93B1A6;
 }
 
-
+/*
 
 button {
     background-color: #3e69f7;
@@ -20,14 +20,14 @@ button {
     padding: 15px;
     border-radius: 25px;
 }
-
+*/
 label {
     text-transform: uppercase;
-    color: white;
+    color: #040D12;
 }
 
 h1 {
-    color: white;
+    color: #040D12;
 }
 
 input {
@@ -44,4 +44,29 @@ body {
 
 a {
     color: azure;
+}
+
+h1 {
+    font-weight: bold;
+    text-shadow: 1px 1px #000000;
+}
+
+
+/* exemplo */
+
+button {
+    border: solid 1px #040D12;
+    border-radius: 20px;
+    color: white;
+    background-color: #040D12;
+    transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+    height: 45px;
+    margin: 25px;
+}
+
+button:hover {
+    background-color: #183D3D;
+    color: white;
+    transform: scale(1.2);
+
 }
