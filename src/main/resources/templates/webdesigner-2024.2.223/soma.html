@@ -22,14 +22,16 @@
     <main id="idMain">
         <section class="zzz"> Caluladora
 
-            <label for="">N1</label>
-            <input type="number" name="" id="">
-            <label for="">N2</label>
-            <input type="number" name="" id="">
+            <label for="inputN1">N1</label>
+            <input type="number" name="inputN1" id="inputN1">
+
+            <label for="inputN2">N2</label>
+            <input type="number" name="inputN2" id="inputN2">
+
             <button onclick="soma()" type="button">OK</button>
 
-            <label for="">RESULTADO</label>
-            <input type="number" name="" id="">
+            <label for="resultado">RESULTADO</label>
+            <input type="number" name="resultado" id="resultado">
 
         </section>
         <article></article>
@@ -39,7 +41,11 @@
     <script>
 
         function soma() {
-            alert("BOTÃO 'OK' FOI CLICADO");
+            console.log("BOTÃO 'OK' FOI CLICADO");
+            n1 = document.getElementById("inputN1").value;
+            n2 = document.getElementById("inputN2").value;
+            resultado = (parseInt(n1) + parseInt(n2));
+            document.getElementById("resultado").value = resultado;
         }
     </script>
 </body>
