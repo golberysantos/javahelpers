@@ -1,0 +1,148 @@
+/* --- estilo joao*/
+
+form {
+    background-color: rgb(255, 211, 196);
+    background-image: url('../img/fisica.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11pt;
+
+}
+
+h1,
+p,
+label {
+    color: #FF7F3E;
+
+}
+
+a {
+    color: aliceblue;
+}
+
+/* From Uiverse.io by SteveBloX */
+button {
+    width: 150px;
+    height: 60px;
+    border: 3px solid #315cfd;
+    border-radius: 45px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: #2A629A;
+    font-size: 2.2rem;
+    font-weight: 550;
+    width: 100%;
+}
+
+button:hover {
+    background: #315cfd;
+    color: #2A629A;
+    font-size: 2.2rem;
+}
+
+input {
+    border: 3px solid #315cfd;
+    border-radius: 45px;
+    width: 190px;
+    height: 30px;
+    padding: 10px;
+    background-color: #2A629A;
+    color: #edf0f3;
+    font-size: 18px;
+}
+
+label {
+    font-size: 24pt;
+}
+
+h1 {
+    text-transform: uppercase;
+
+}
+
+.login {
+    border-radius: 3.5rem;
+
+}
+
+h1 {
+    text-align: center;
+    font-size: 27pt;
+}
+
+label {
+    text-transform: uppercase;
+}
+
+p {
+    color: #edf0f3;
+    font-size: 16pt;
+    font-weight: bold
+}
+
+.fonteComSombra {
+    font-weight: bold;
+    text-shadow: 1px 1px #000000;
+}
+
+form {
+    padding: 50px;
+    gap: 20px;
+}
+
+.login {
+    width: 573px;
+    margin: 13px;
+}
+
+p {
+    color: #FF7F3E;
+}
+
+a {
+    color: #efefef;
+
+}
+
+.p {
+    font-size: 33px;
+    margin: 0px;
+}
+
+.fonteComSombra {
+    font-weight: bold;
+    text-shadow: 1px 1px #000000;
+}
+
+footer {
+    border: 3px solid #315cfd;
+    background-color: #003285;
+}
+
+header {
+    background-color: #003285;
+    margin: 0 0 0 0;
+    height: 50px;
+    color: #FF7F3E;
+    border: 3px solid #315cfd;
+    background-color: #003285
+}
+
+.doctype {}
+
+main {
+    background-image: url('../img/bg-body-1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+body {
+    margin: 0 0 0 0;
+}
+
+nav {
+    text-align: center;
+}
