@@ -8,6 +8,7 @@ function fSoma() {
     this.n2 = document.getElementById("inputN2").value;
     this.resultado = (parseInt(n1) + parseInt(n2));
     document.getElementById("resultado").value = this.resultado;
+    fResultado();
 }
 
 function fResultado() {
@@ -15,6 +16,14 @@ function fResultado() {
     console.log("N1: " + this.n1);
     console.log("N2: " + this.n2);
     console.log("RESULTADO DA SOMA: " + this.resultado);
+    document.getElementById("idSpanResultado")
+        .textContent = "RESULTADO DA SOMA = " + this.resultado;
 }
 
-
+function limpar() {
+    console.log("o botão limpar foi clicado.");
+    document.getElementById('inputN1').value = "";
+    document.getElementById('inputN2').value = "";
+    document.getElementById('resultado').value = "";
+    document.getElementById('idSpanResultado').textContent = "";
+}
