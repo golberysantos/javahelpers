@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="static/css/bootstrap/docs.css">
     <link href="static/css/bootstrap/bootstrap-v5.3.3.min.css" rel="stylesheet">
 
     <script></script>
@@ -17,37 +17,39 @@
     <main id="idMain">
         <div class="container">
             <section class="zzz">
-                <h1 class="mb-5">Caluladora</h1>
-                <div>
-                    <form class="row g-3">
-                        <div class="row mb-3">
-                            <label for="inputN1" class="col-sm-2 col-form-label">N1</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control" name="inputN1" id="inputN1">
+                <h1 class="mb-5">Calculadora</h1>
+                <div class="bd-example-snippet bd-code-snippet">
+                    <div class="bd-example m-0 border-0">
+                        <form class="row g-3">
+                            <div class="row mb-3">
+                                <label for="inputN1" class="col-sm-2 col-form-label">N1</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" name="inputN1" id="inputN1">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputN2" class="col-sm-2 col-form-label">N2</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control" name="inputN2" id="inputN2">
+                            <div class="row mb-3">
+                                <label for="inputN2" class="col-sm-2 col-form-label">N2</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" name="inputN2" id="inputN2">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="resultado" class="col-sm-2 col-form-label">Resultado</label>
-                            <div class="col-sm-10">
-                                <input disabled type="number" class="form-control" name="resultado" id="resultado">
+                            <div class="row mb-3">
+                                <label for="resultado" class="col-sm-2 col-form-label">Resultado</label>
+                                <div class="col-sm-10">
+                                    <input disabled type="number" class="form-control" name="resultado" id="resultado">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <button onclick="fSoma()" type="button" class="btn btn-primary">Somar</button>
+                            <div class="row">
+                                <div class="col-6">
+                                    <button onclick="fSoma()" type="button" class="btn btn-success">Somar</button>
+                                </div>
+                                <div class="col-6">
+                                    <button onclick="limpar()" type="button" class="btn btn-dark">Limpar</button>
+                                </div>
                             </div>
-                            <div class="col-6">
-                                <button onclick="limpar()" type="button" class="btn btn-dark">Limpar</button>
-                            </div>
-                        </div>
 
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </section>
             <div>
