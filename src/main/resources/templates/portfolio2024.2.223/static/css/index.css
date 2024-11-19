@@ -1,0 +1,12 @@
+.bg-body-tertiary {
+    background-color: #000000 !important;
+    color: #FFFFFF;
+}
+
+.nav-link {
+    color: #FFFFFF !important;
+}
+
+.card-footer {
+    padding: 8px;
+}
