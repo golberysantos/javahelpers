@@ -8,7 +8,42 @@
 </head>
 
 <body>
-    <h1 style="text-transform: uppercase;">login</h1>
+    <header>
+        <nav>
+            <a href="principal.html">Principal</a>
+        </nav>
+    </header>
+    <main>
+        <form action="">
+            <h1 style="text-transform: uppercase;">login</h1><br>
+            <img src="static/img/logo.png" alt="Imagem logo" width="20%"><br>
+
+            <label for="user">Usuário (E-mail ou CPF):</label><br>
+            <input type="text" name="user" id="user" value="g@g.com"><br>
+
+            <label for="senha">Senha:</label><br>
+            <input type="password" name="senha" id="senha"><br>
+            <button type="button" onclick="validar()" style="
+                    background-color: #414BB2; 
+                    color: white; 
+                ">Entrar
+            </button><br>
+            <a href="#">Cadastre-se</a>
+            <p>Você também pode entrar com:</p>
+            <button type="button">Google</button><br>
+            <button type="button">Facebook</button><br>
+        </form>
+    </main>
+    <footer>
+    </footer>
+    <script>
+        var usuario;
+        function validar() {
+            usuario = document.getElementById('user').value;
+            console.log("Valor do campo usuário: " + usuario);
+            alert("Valor do campo usuário: " + usuario);
+        }
+    </script>
 </body>
 
 </html>
