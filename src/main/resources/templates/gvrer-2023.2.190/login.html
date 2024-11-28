@@ -14,34 +14,57 @@
         </nav>
     </header>
     <main>
-        <form action="">
-            <h1 style="text-transform: uppercase;">login</h1><br>
-            <img src="static/img/logo.png" alt="Imagem logo" width="20%"><br>
+        <div style="text-align: center;">
+            <form action="" style="
+                    border: solid 3px;
+                    margin-left: 15%;
+                    margin-right: 15%;
+                    border-color: blue;
+                    border-radius: 15px;
+                ">
+                <h1 style="text-transform: uppercase;">login</h1><br>
+                <img src="static/img/logo.png" alt="Imagem logo" width="20%"><br>
 
-            <label for="user">Usuário (E-mail ou CPF):</label><br>
-            <input type="text" name="user" id="user" value="g@g.com"><br>
+                <label for="user">Usuário (E-mail ou CPF):</label><br>
+                <input type="text" name="user" id="user"><br>
 
-            <label for="senha">Senha:</label><br>
-            <input type="password" name="senha" id="senha"><br>
-            <button type="button" onclick="validar()" style="
-                    background-color: #414BB2; 
-                    color: white; 
-                ">Entrar
-            </button><br>
-            <a href="#">Cadastre-se</a>
-            <p>Você também pode entrar com:</p>
-            <button type="button">Google</button><br>
-            <button type="button">Facebook</button><br>
-        </form>
+                <label for="senha">Senha:</label><br>
+                <input type="password" name="senha" id="senha"><br>
+                <button type="button" onclick="validar()" style="
+                        background-color: #414BB2; 
+                        color: white; 
+                    ">Entrar
+                </button><br>
+                <a href="#">Cadastre-se</a>
+                <p>Você também pode entrar com:</p>
+                <button type="button">Google</button><br>
+                <button type="button">Facebook</button><br>
+            </form>
+        </div>
     </main>
     <footer>
     </footer>
     <script>
+        const usuarioBd = "gabriel@gmail";
+        const senhaBd = "123";
         var usuario;
+        var senha;
         function validar() {
             usuario = document.getElementById('user').value;
+            senha = document.getElementById('senha').value;
             console.log("Valor do campo usuário: " + usuario);
-            alert("Valor do campo usuário: " + usuario);
+            console.log("Valor do campo senha: " + senha);
+            verificar();
+        }
+
+        function verificar() {
+            if (usuarioBd == usuario && senhaBd == senha) {
+                console.log("Sucesso!!");
+                window.location.href = "principal.html";
+            } else {
+                alert("Erro!! Usuário ou senha incorreto.");
+                console.log("Erro!! Usuário ou senha incorreto.");
+            }
         }
     </script>
 </body>
