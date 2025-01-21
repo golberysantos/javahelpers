@@ -5,24 +5,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <style>
+        h1 {
+            text-transform: uppercase;
+            color: #414BB2;
+            background-color: blueviolet;
+        }
+
+        div {
+            text-align: center;
+        }
+
+        form {
+            border: solid 3px;
+            margin-left: 15%;
+            margin-right: 15%;
+            border-color: rgb(91, 91, 108);
+            border-radius: 15px;
+        }
+
+        .buttonEntrar {
+            background-color: #414BB2;
+            color: white;
+            border: solid 2px;
+            border-color: black;
+            border-radius: 15px;
+            padding: 5px 45px 5px 45px;
+            margin: 45px 0 45px 0;
+        }
+
+        header {
+            padding: 25px;
+            background-color: black;
+            font-size: 20pt;
+            text-align: end;
+        }
+
+        footer {
+            padding: 5px;
+            background-color: black;
+            font-size: 20pt;
+            text-align: center;
+        }
+
+        .pRodape {
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <nav>
-            <a href="principal.html">Principal</a>
+            <a href="index.html">Home</a>
         </nav>
     </header>
     <main>
-        <div style="text-align: center;">
-            <form action="" style="
-                    border: solid 3px;
-                    margin-left: 15%;
-                    margin-right: 15%;
-                    border-color: blue;
-                    border-radius: 15px;
-                ">
-                <h1 style="text-transform: uppercase;">login</h1><br>
+        <div>
+            <form action="">
+                <h1>login</h1><br>
                 <img src="static/img/logo.png" alt="Imagem logo" width="20%"><br>
 
                 <label for="user">Usuário (E-mail ou CPF):</label><br>
@@ -30,11 +71,7 @@
 
                 <label for="senha">Senha:</label><br>
                 <input type="password" name="senha" id="senha"><br>
-                <button type="button" onclick="validar()" style="
-                        background-color: #414BB2; 
-                        color: white; 
-                    ">Entrar
-                </button><br>
+                <button class="buttonEntrar" type="button" onclick="validar()">Entrar</button><br>
                 <a href="#">Cadastre-se</a>
                 <p>Você também pode entrar com:</p>
                 <button type="button">Google</button><br>
@@ -43,6 +80,7 @@
         </div>
     </main>
     <footer>
+        <p class="pRodape">Desenvolvido por Golbery</p>
     </footer>
     <script>
         const usuarioBd = "gabriel@gmail";
