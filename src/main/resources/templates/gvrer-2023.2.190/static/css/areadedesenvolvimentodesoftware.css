@@ -1,0 +1,20 @@
+.table1 {
+    border: solid 2px;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: yellow;
+}
+
+th {
+    border: solid 1px;
+}
+
+tr td {
+    border: solid 1px;
+}
+
+.trBG {
+    background-color: rgb(74, 73, 73);
+}
