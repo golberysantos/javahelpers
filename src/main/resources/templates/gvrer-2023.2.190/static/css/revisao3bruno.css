@@ -1,0 +1,58 @@
+body {
+    background-color: black;
+    color: white;
+    border: solid;
+    border-color: yellow;
+    border-radius: 15pt;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 50pt;
+    color: yellow;
+}
+
+div {
+    font-size: 20px;
+    text-align:center
+    padding: 3px;
+    display: flex;
+    justify-content:center;
+    margin: 40px;
+    margin-right: 20px;
+}
+
+footer {
+    padding: 40px 1px 1px 1px;
+    text-align:center;
+    color: yellow;
+    font-size: 30px;
+}
+
+button {
+    border-radius: 10pt;
+    border: solid;
+    border-color: yellow;
+    color: yellow;
+    background-color: black;
+    font-size: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+p {
+    font-size: 30px;
+    text-align: center;
+    padding: 50px 1px 1px 1px;
+}
+
+.p {
+    font-size: 30px;
+    text-align: center;
+    padding: 200px 1px 10px 1px;
+}
+
+a {
+    color: yellow;
+}
