@@ -21,7 +21,13 @@
         <input type="number" id="n2">
         <label for="">Operador</label>
         <input type="text" id="operador">
-        <button type="button" onclick="processar()">Ok</button>
+        <div>
+            <button type="button" onclick="processar()">Ok</button>
+        </div>
+        <div>
+            <button type="button" onclick="processar('L')">Limpar</button>
+        </div>
+
         <p>
             <label for="">Resultado: </label>
             <span id="resultado"></span>
@@ -30,67 +36,9 @@
     <footer>
         <p> &copy; By Golbery</p>
     </footer>
-    <script>
-        var n1;
-        var n2;
-        var operador;
-        var resultado;
 
-        function processar() {
-            n1 = document.getElementById('n1').valueAsNumber;
-            n2 = document.getElementById('n2').valueAsNumber;
-            operador = document.getElementById('operador').value;
-            switch (operador) {
-                case '+':
-                    document.getElementById('resultado').textContent = soma();
-                    break;
-                case '-':
-                    document.getElementById('resultado').textContent = sub();
-                    break;
-                case '*':
-                    document.getElementById('resultado').textContent = mult();
-                    break;
-                case '/':
-                    document.getElementById('resultado').textContent = div();
-                    break;
-                case 'L':
-                    document.getElementById('resultado').textContent = limpar();
-                    break;
-                default:
-                    alert("VOCÊ INOFORMOU UM OPERADOR ERRADO.");
-                    break;
-            }
-        }
+    <script src="static/js/revisao2.js"></script>
 
-        function soma() {
-            resultado = n1 + n2;
-            console.log("Soma = ", resultado);
-            return resultado;
-        }
-
-        function sub() {
-            resultado = n1 - n2;
-            console.log("Sub = ", resultado);
-            return resultado;
-        }
-
-        function mult() {
-            resultado = n1 * n2;
-            console.log("Mult = ", resultado);
-            return resultado;
-        }
-
-        function div() {
-            resultado = n1 / n2;
-            console.log("Div = ", resultado);
-            return resultado;
-        }
-
-        function limpar() {
-
-        }
-
-    </script>
 </body>
 
 </html>
