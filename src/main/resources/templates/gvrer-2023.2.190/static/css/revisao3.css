@@ -1,0 +1,13 @@
+.navbar-brand {
+    color: aliceblue !important;
+}
+
+.nav-link {
+    color: aliceblue !important;
+
+}
+
+.al {
+    display: flex;
+    justify-content: center;
+}
