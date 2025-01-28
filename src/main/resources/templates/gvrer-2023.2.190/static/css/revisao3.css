@@ -11,3 +11,7 @@
     display: flex;
     justify-content: center;
 }
+
+.bgColor {
+    background-color: #FF4646;
+}
