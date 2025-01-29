@@ -1,9 +1,9 @@
 .navbar-brand {
-    color: aliceblue !important;
+    color: #222222 !important;
 }
 
 .nav-link {
-    color: aliceblue !important;
+    color: 222222 !important;
 
 }
 
@@ -13,5 +13,9 @@
 }
 
 .bgColor {
-    background-color: #FF4646;
+    background-color: #EEEEEE;
+}
+
+.corDoTitulo {
+    color: #FF385C;
 }
