@@ -1,0 +1,23 @@
+.ca {
+    text-transform: uppercase;
+}
+
+.card-title {
+    text-transform: uppercase;
+}
+
+.text-bg-danger {
+    background-color: #FF385C !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.separaCard {
+    margin: 5px;
+}
+
+.larguraCard {
+    width: 13rem;
+}
