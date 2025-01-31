@@ -1,0 +1,7 @@
+.form {
+    --bd-example-padding: 1.5rem;
+    margin: 15px !important;
+    border-width: 1px;
+    border-radius: var(--bs-border-radius);
+    border: solid #d8d8d8;
+}

@@ -1,0 +1,36 @@
+nav {
+    background: linear-gradient(#294380, rgb(0, 0, 128));
+    font-size: 32pt;
+    color: white;
+}
+
+footer {
+    background: linear-gradient(#294380, rgb(0, 0, 128));
+    color: white;
+    font-size: 12pt;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+h1 {
+    font-size: 28pt;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+ul {
+    font-size: 12pt;
+    text-align: start;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+main {
+    display: flex;
+    align-items: center;
+}
+
+section>img {
+    width: 500px;
+}

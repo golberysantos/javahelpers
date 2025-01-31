@@ -1,0 +1,37 @@
+.card-title {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.text-bg-danger {
+    background-color: #FF385C !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.separaCard {
+    margin: 5px;
+}
+
+.larguraCard {
+    width: 40rem;
+}
+
+.card-text {
+    font-size: 1.5rem !important;
+}
+
+.card-img-top {
+    width: 100%;
+    /* A imagem vai ocupar 100% da largura do contêiner */
+    max-width: 200px;
+    /* Define um limite de largura (200px) para a imagem */
+    height: auto;
+    /* Mantém a proporção da imagem ao ajustar a largura */
+    margin: 0 auto;
+    /* Centraliza a imagem horizontalmente, caso necessário */
+    padding: 10px;
+
+}

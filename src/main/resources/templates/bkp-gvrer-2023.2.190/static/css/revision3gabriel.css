@@ -1,0 +1,78 @@
+body {
+    background-color: black;
+    background-image: url(../img/galaxy.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18pt;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.user {
+    padding-bottom: 20px;
+}
+
+.user>label {
+    padding-right: 62px;
+}
+
+.password>label {
+    padding-right: 4px;
+}
+
+input {
+    height: 25px;
+    border-radius: 5px;
+    width: 400px;
+}
+
+.button {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 428px;
+}
+
+button {
+    width: 100px;
+    height: 35px;
+    font-size: 12pt;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: yellow;
+    font-size: 12pt;
+}
+
+.forgot {
+    padding-left: 300px;
+    font-size: 12pt;
+    border-radius: 5px;
+}
+
+p {
+    font-size: 12pt;
+}
