@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta Corporativa</title>
+    <link rel="stylesheet" href="../static/css/empresadados1.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Vamos criar sua conta corporativa!</h2>
+        <p>Preencha os campos:</p>
+        <p class="obrigatorio">Campos com (*) são obrigatórios</p>
+        <form id="signup-form">
+            <div class="input-group">
+                <label for="name">Nome completo do responsável*:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-group">
+                <label for="birthdate">Data de nascimento*:</label>
+                <input type="date" id="birthdate" name="birthdate" required>
+            </div>
+            <div class="input-group">
+                <label for="gender">Sexo*:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Selecione</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="outro">Outro</option>
+                </select>
+            </div>
+            <button type="submit">Avançar</button>
+        </form>
+        <div class="info-do-app">
+            <img src="../static/img/travelservtitle.png" alt="TravelServ Logo">
+            <p class="desenvolvedor">Um aplicativo desenvolvido pela<br>Patrono Tech</p>
+        </div>
+    </div>
+    <script src=""></script>
+</body>
+
+</html>
