@@ -39,8 +39,7 @@ label {
     margin-bottom: 5px;
 }
 
-input,
-select {
+input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -71,6 +70,7 @@ button {
     margin-bottom: 10px;
 }
 
+/* Responsiveness */
 @media (max-width: 500px) {
     .container {
         padding: 15px;
