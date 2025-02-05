@@ -1,0 +1,20 @@
+.botaoPad {
+    padding: 35pt;
+}
+
+.borda {
+    border-color: black !important;
+    border-width: 3px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    color: black !important;
+}
+
+.negrito {
+    font-weight: bold;
+}
+
+.border {
+    border-radius: 10pt;
+    
+}
