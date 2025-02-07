@@ -7,7 +7,9 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background: url('../img/mundo.png');
+    background-size: cover;
+    background-position: center;
 }
 
 .container {

@@ -7,7 +7,9 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background: url('../img/mundo.png');
+    background-size: cover;
+    background-position: center;
 }
 
 .container {
@@ -58,6 +60,24 @@ button {
     color: white;
     background: #019401;
     font-weight: 600;
+}
+
+.termos-de-uso {
+    margin-top: 20px;
+}
+
+.termos-de-uso label {
+    display: flex;
+    align-items: center;
+}
+
+.termos-de-uso input [type="checkbox"] {
+    margin-right: 10px;
+}
+
+.termos-de-uso a {
+    color: blue;
+    text-decoration: none;
 }
 
 .info-do-app {
