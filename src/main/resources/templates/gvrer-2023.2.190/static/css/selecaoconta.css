@@ -53,10 +53,23 @@ h2 {
     cursor: pointer;
     background-color: #f0f0f0;
     font-weight: 600;
+    font-size: 12pt;
+}
+
+.user {
+    max-width: 60px;
+    height: auto;
+}
+
+.briefcase {
+    max-width: 50px;
+    height: auto;
+    padding-bottom: 5px;
 }
 
 .conta-btn:hover {
-    background-color: #396eca;
+    background-color: #FF385C;
+    color: white;
 }
 
 .info-do-app {

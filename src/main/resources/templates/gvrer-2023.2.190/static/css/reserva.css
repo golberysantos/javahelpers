@@ -12,6 +12,8 @@
 
 .reservacor{
     background-color: rgb(224, 82, 5);
+    padding-bottom: 80pt;
+    padding-top: 80pt;
 }
 
 .negrito {
@@ -39,4 +41,19 @@
 
 .bg-mesa4 {
     background-color: rgb(72, 7, 133);
+}
+
+.rad {
+    border-radius: 0pt;
+    background-color: rgb(200, 200, 200);
+}
+
+.marg {
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.a {
+    color: #ffffff;
+    text-decoration: none;
 }

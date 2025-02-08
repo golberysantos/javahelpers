@@ -21,7 +21,7 @@ body {
     max-width: 90%;
 }
 
-h2 {
+h1 {
     text-align: center;
     margin-bottom: 10px;
 }
@@ -58,26 +58,8 @@ button {
     cursor: pointer;
     font-size: 16px;
     color: white;
-    background: #019401;
+    background: #FF385C;
     font-weight: 600;
-}
-
-.termos-de-uso {
-    margin-top: 20px;
-}
-
-.termos-de-uso label {
-    display: flex;
-    align-items: center;
-}
-
-.termos-de-uso input [type="checkbox"] {
-    margin-right: 10px;
-}
-
-.termos-de-uso a {
-    color: blue;
-    text-decoration: none;
 }
 
 .info-do-app {

@@ -1,5 +1,5 @@
 .w-100 {
-    width: 50% !important;
+    width: 100% !important;
 }
 
 
@@ -11,4 +11,8 @@
 .al {
     display: flex;
     justify-content: center;
+}
+
+.carousel-caption{
+    bottom: 0.1rem;
 }
