@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('../img/mundo.png');
+    background: url('/static/img/mundo.png');
     background-size: cover;
     background-position: center;
 }
@@ -21,7 +21,7 @@ body {
     max-width: 90%;
 }
 
-h1 {
+h2 {
     text-align: center;
     margin-bottom: 10px;
 }
@@ -41,7 +41,8 @@ label {
     margin-bottom: 5px;
 }
 
-input {
+input,
+select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -72,7 +73,6 @@ button {
     margin-bottom: 10px;
 }
 
-/* Responsiveness */
 @media (max-width: 500px) {
     .container {
         padding: 15px;

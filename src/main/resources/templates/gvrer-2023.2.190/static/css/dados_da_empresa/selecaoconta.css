@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('../img/mundo.png');
+    background: url('/static/img/mundo.png');
     background-size: cover;
     background-position: center;
 }
@@ -21,46 +21,48 @@ body {
     max-width: 90%;
 }
 
-h2 {
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.obrigatorio {
-    font-size: 0.8em;
-    color: #777;
+h1 {
     margin-bottom: 20px;
+    text-align: center;
 }
 
-.input-group {
-    margin-bottom: 15px;
+h2 {
+    margin-top: 30px;
+    text-align: center;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
+.voce-empresa {
+    text-align: center;
 }
 
-input,
-select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+.opcao-de-contas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
 }
 
-button {
-    width: 100%;
-    height: 45px;
+.conta-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
     border: none;
-    outline: none;
-    border-radius: 40px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
-    color: white;
-    background: #FF385C;
+    background-color: #f0f0f0;
     font-weight: 600;
+    font-size: 12pt;
+}
+
+i {
+    padding-bottom: 5px;
+}
+
+.conta-btn:hover {
+    background-color: #FF385C;
+    color: white;
 }
 
 .info-do-app {
@@ -73,6 +75,7 @@ button {
     margin-bottom: 10px;
 }
 
+/* Responsiveness */
 @media (max-width: 500px) {
     .container {
         padding: 15px;

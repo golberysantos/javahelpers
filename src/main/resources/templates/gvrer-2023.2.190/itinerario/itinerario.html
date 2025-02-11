@@ -86,41 +86,9 @@
 
                             </select>
                         </div>
-                        <div class="col-12">
-                            <div>
-                                <label for="inputAddress" class="form-label">Atividades</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                <label class="form-check-label" for="inlineCheckbox1">Caminhada</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                <label class="form-check-label" for="inlineCheckbox2">Decida sobre o meio de
-                                    transporte</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                                <label class="form-check-label" for="inlineCheckbox3">Crie um grupo no whatsapplabel>
-                            </div>
-                        </div>
+
                         <div>
-                            <label class="form-check-label" for="inlineCheckbox3"> Entenda o potencial econômico do
-                                grupo</label>
-                        </div>
-                        <div>
-                            <label class="form-check-label" for="inlineCheckbox3">Escolha o destino da viagem com o
-                                grupo</label>
-                        </div>
-                        <div>
-                            <label class="form-check-label" for="inlineCheckbox3">Organize os horários do grupo </label>
-                        </div>
-                        <div>
-                            <label class="form-check-label" for="inlineCheckbox3">Planeje um roteiro </label>
-                        </div>
-                        <div>
-                            <label class="form-check-label" for="inlineCheckbox3">Esteja preparado para imprevistos
-                            </label>
+
                         </div>
 
                         <div class="col-12">
@@ -146,7 +114,7 @@
                         </div>
                         <div class="col-12">
                             <label for="inputCity" class="form-label">Horário de partida</label>
-                            <input type="text" class="form-control" id="inputCity">
+                            <input type="time" class="form-control" id="inputCity">
                         </div>
 
                         <div class="col-12">
@@ -180,7 +148,7 @@
                         </div>
 
                         <div class="col-2 pb-2">
-                            <a href="../itinerario/adicionarAtividades.html" class="btn btn-primary">Salva</a>
+                            <button id="button" type="button" class="btn btn-primary">Salva</button>
                         </div>
                     </form>
                 </div>
@@ -195,6 +163,12 @@
         </div>
     </footer>
     <script src="../static/js/bootstrap/bootstrap5.3.3.bundle.min.js"></script>
+    <script src="../static/js/redirecionarParaOutraPagina.js"></script>
+
+
+    <script>
+        abrirEmOutraAba("../itinerario/adicionarAtividades.html");
+    </script>
 
 </body>
 

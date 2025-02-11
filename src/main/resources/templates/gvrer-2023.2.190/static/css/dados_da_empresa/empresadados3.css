@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('../img/mundo.png');
+    background: url('/static/img/mundo.png');
     background-size: cover;
     background-position: center;
 }
@@ -21,7 +21,7 @@ body {
     max-width: 90%;
 }
 
-h2 {
+h1 {
     text-align: center;
     margin-bottom: 10px;
 }

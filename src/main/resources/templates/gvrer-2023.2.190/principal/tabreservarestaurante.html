@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../static/css/header.css">
     <link rel="stylesheet" href="../static/css/footer.css">
     <link rel="stylesheet" href="../static/css/principal.css">
+    <link rel="stylesheet" href="../static/css/tabreservarestaurante.css">
 
 </head>
 
@@ -58,33 +59,34 @@
                     <div>
                         <ul class="nav nav-underline">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page"
+                                <a class="nav-link b" aria-current="page"
                                     href="../principal/tabviagememgrupo.html">Viagens Em
                                     Grupo</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link b" href="../principal/tabreservarestaurante.html">Reseva de
+                                <a class="nav-link active" href="../principal/tabreservarestaurante.html">Reseva de
                                     Restaurante em Grupo</a>
                             </li>
                         </ul>
                     </div>
                     <div>
-                        <img src="../static/img/logo.png">
-                        <h1>TravelServ</h1>
+                        <img src="../static/img/easybooking.png">
+                        <h1>Easy Booking</h1>
                     </div>
                     <div class="col">
+                        <h2> Reservar Restaturante</h2>
                         <br>
                         <br>
                         <div type="button" class="border border-4">Notificação</div>
                         <br>
-                        <div type="button" class="border border-4">Perfil</div>
+                        <div type="button" class="border border-4">Culinária</div>
                         <br>
                         <div type="button" class="border border-4">Meus Grupos</div>
                         <br>
                         <div type="button" class="border border-4">Lista de Itinerários</div>
                         <br>
                         <div type="button" class="border border-4">
-                            <a class="a" href="../pessoa/empresadados1.html" role="button">Cadastrar Empresa</a>
+                            <a class="a" href="../pessoa/restaurante.html" role="button">Cadastrar Restaurante</a>
                         </div>
 
                         <br>
@@ -101,6 +103,11 @@
     </footer>
 
     <script src="../static/js/bootstrap/bootstrap5.3.3.bundle.min.js"></script>
+    <script src="../static/js/redirecionarParaOutraPagina.js"></script>
+
+<script>
+    abrirEmOutraAba("../pessoa/restaurante.html");
+</script>
 
 </body>
 

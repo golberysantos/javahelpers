@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Conta Corporativa Pt.I</title>
-    <link rel="stylesheet" href="../static/css/empresadados1.css">
+    <link rel="stylesheet" href="../static/css/dados_da_empresa/empresadados1.css">
 </head>
 
 <body>
@@ -32,7 +32,9 @@
                     <option value="outro">Outro</option>
                 </select>
             </div>
-            <button type="submit">Avançar</button>
+
+            <button id="button" type="submit">Avançar</button>
+
         </form>
 
         <div class="info-do-app">
@@ -40,7 +42,11 @@
             <p class="desenvolvedor">Desenvolvido pela<br> Patrono Tech</p>
         </div>
     </div>
-    <script src=""></script>
+    <script src="../static/js/redirecionarParaOutraPagina.js"></script>
+
+    <script>
+        abrirEmOutraAba("../pessoa/empresadados2.html");
+    </script>
 </body>
 
 </html>

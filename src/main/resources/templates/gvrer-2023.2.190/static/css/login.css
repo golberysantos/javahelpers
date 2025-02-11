@@ -19,12 +19,16 @@
 .corDoTitulo {
     color: #FF385C;
 }
+.btn{
+   background-color: #FF385C;
+   color: white;
+}
 /* Estilo para o ícone de olho */
 .eye-icon {
     position: absolute;
     top: 50%;
     right: 10px;
-    transform: translateY(-50%);
+    transform: translateY(-70%);
     cursor: pointer;}
     /* Estilo para o container da senha */
     .password-container {
