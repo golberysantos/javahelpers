@@ -11,10 +11,27 @@ function abrirEmOutraAba(url) {
 }
 
 function abrirAba(url) {
-    window.location.assign(url); // carrega link na janela atual
+    window.open(url); // abre link em outra janela
 }
 
-function name(params) {
+function abrirNaAbaAtual(url) {
+    let e = document.querySelector("#button");
+    e.addEventListener(
+        "click",
+        function (e) {
+            e.preventDefault();
+            carregarNaAbaAtual(url)
+        }
+    );
+}
+
+function carregarNaAbaAtual(url) {
+    setTimeout(function () {
+        window.location.assign(url); // carrega link na janela atual
+    }, 5000)
+}
+
+function exemplo(params) {
     setTimeout(function () {
         window.location.href = "http://www.google.com";
         //ou

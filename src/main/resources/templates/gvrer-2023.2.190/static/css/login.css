@@ -6,6 +6,11 @@
     color: 222222 !important;
 
 }
+.nav-item{
+    font-weight: 600;
+    letter-spacing: -.3px;
+    font-size: 18px;
+}
 
 .al {
     display: flex;
@@ -28,8 +33,9 @@
     position: absolute;
     top: 50%;
     right: 10px;
-    transform: translateY(-70%);
+    transform: translateY(-50%);
     cursor: pointer;}
+    
     /* Estilo para o container da senha */
     .password-container {
         position: relative;
@@ -37,4 +43,12 @@
       }
       .olho {
         margin-top: -20px; /* Isso move a imagem 30px para cima */
+      }
+     h2{
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: -.3px;
+     }
+      a {
+        color: #FF385C;
       }
