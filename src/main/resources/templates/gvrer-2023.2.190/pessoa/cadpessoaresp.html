@@ -116,13 +116,31 @@
         </form>
       </div>
     </main>
-    <footer>
-      <div class="text-center footerBgColor p-3">
+    <footer class="text-center bgColor p-3">
+      <div class="text-center footerBgColo">
         <p class="p"> &copy; Gvrer | By Renan</p>
       </div>
     </footer>
       
       <script src="../static/js/bootstrap/bootstrap5.3.3.bundle.min.js"></script>
-      <script src="../static/js/cadpessoaresp.js"></script>
+  <script src="../static/js/sweetalert/sweetalert2.all.v11.16.0.min.js"></script>
+  <script src="../static/js/login.js"></script>
+  <script src="../static/js/validarInput.js"></script>
+  <script src="../static/js/redirecionarParaOutraPagina.js"></script>
+  <script>
+    function enviar() {
+
+      if (validar()) {
+        abrirEmOutraAba("../principal/principal.html");
+      } else {
+        Swal.fire({
+          title: "Opps!",
+          text: "preencha os espaços em branco",
+          icon: "dunger",
+          confirmButtonColor: "#FF385C",
+        });
+      }
+    }
+  </script>
   </body>
 </html>

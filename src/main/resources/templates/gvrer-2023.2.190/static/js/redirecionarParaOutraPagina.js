@@ -28,7 +28,7 @@ function abrirNaAbaAtual(url) {
 function carregarNaAbaAtual(url) {
     setTimeout(function () {
         window.location.assign(url); // carrega link na janela atual
-    }, 5000)
+    }, 500)
 }
 
 function exemplo(params) {
@@ -38,7 +38,7 @@ function exemplo(params) {
         window.location.assign(url); // carrega link na janela atual
         //ou
         window.open(url); // abre link em outra janela
-    }, 5000);
+    }, 500);
 }
 
 
