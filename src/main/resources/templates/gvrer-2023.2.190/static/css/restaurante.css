@@ -13,3 +13,17 @@ h1 {
     justify-items: flex-start;
     width: 200pt;
 }
+
+.border {
+    background-color:#FF385C;
+    border-radius: 20px;
+    color: aliceblue !important;
+    font-size: 23pt;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: aliceblue !important;
+}

@@ -77,6 +77,7 @@
                                             <option value="5">Aluguel de Casas ou Apartamentos</option>
                                             <option value="6">Cruzeiros</option>
                                             <option value="7">Camping</option>
+                                            <option value="8">Caminhada</option>
                                         </select>
                                         <button type="button" class="btn btn-primary btnSalvar ms-1"
                                             style="width: 15%;">+</button>
@@ -167,7 +168,7 @@
 
 
                                 <div class="col-12 pb-2 efeitoHover">
-                                    <button type="submit" class="btn btn-primary  btnSalvar">Salva</button>
+                                    <button id="button" type="submit" class="btn btn-primary  btnSalvar">Salva</button>
                                 </div>
                     </form>
                 </div>
@@ -182,7 +183,11 @@
         </div>
 
     </footer>
-    <script src="../static/js/bootstrap/bootstrap5.3.3.bundle.min.js"></script>
+    <script src="../static/js/bootstrap/bootstrap5.3.3.bundle.min.js"></script> 
+    <script src="../static/js/redirecionarParaOutraPagina.js"></script> 
+    <script>
+        abrirNaAbaAtual("../home/home.html");
+    </script>
 
 </body>
 

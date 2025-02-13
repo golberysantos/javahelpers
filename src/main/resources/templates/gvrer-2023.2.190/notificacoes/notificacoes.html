@@ -1,32 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notificações</title>
-    <link rel="stylesheet" href="../notificacoes/notificacoes.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../notificacoes/notificacoes.css">
+
+  <title>Página de Notificações</title>
+
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <header>
-            <div class="notif_box">
-                <h2 class="title">Notificações</h2>
-                <span id="notificacoes"></span>
+  <div class="container">
+    <div class="app">
+      <div class="header">
+        <h2><span class="title">Notificações</span> <span class="unread-notification-number">3</span></h2>
+        <p>Marcar todas como lida</p>
+      </div>
+      <div class="body">
+        <div class="notification unreaded">
+          <div class="avatar"><img src="../static/img/latamairlines.png"></div>
+          <div class="text">
+            <div class="text-top">
+              <p><span class="profil-name">LATAM Airlines</span> confirmou sua <b> reserva de viagem!</b><span class="unread-dot"></span></p>
             </div>
-            <p id="mark_all">Marcar todas como lidas</p>
-        </header>
-        <main>
-            <div class="notif_card_unread">
-                <img src="../static/img/rjicon.png" alt="avatar">
-                <div class="description">
-                    <p class="user_activity">
-                        <strong>Reserva solicitada</strong>
-                    </p>
-                    <p class="tempo">1 min atrás</p>
-                </div>
+            <div class="text-bottom"> 1m atrás</div>
+          </div>
+        </div>
+        <div class="notification unreaded">
+          <div class="avatar"><img src="../static/img/golairlines.png"></div>
+          <div class="text">
+            <div class="text-top">
+              <p><span class="profil-name">Gol Airlines</span> cancelou sua <b> reserva de viagem.</b><span class="unread-dot"></span></p>
             </div>
-        </main>
+            <div class="text-bottom"> 5m atrás</div>
+          </div>
+        </div>
+        <div class="notification unreaded">
+          <div class="avatar"><img src="../static/img/user_black.png"></div>
+          <div class="text">
+            <div class="text-top">
+              <p><span class="profil-name">Pedro Alcântara </span> entrou no <b class="b-blue">Grupo da Família</b><span class="unread-dot"></span></p>
+            </div>
+            <div class="text-bottom"> 1 dia atrás</div>
+          </div>
+        </div>
+        <div class="notification readed private-message">
+          <div class="avatar"><img src="../static/img/user_black.png"></div>
+          <div class="text">
+            <div class="text-top">
+              <p><span class="profil-name">Leonardo Alves</span> enviou pra você uma mensagem</p>
+            </div>
+            <div class="text-bottom"> 5 dias atrás
+              <p> Opa, bom dia meu nobre! </p>
+            </div>
+          </div>
+        </div>
     </div>
-    
+
+    <div class="attribution">
+      Desenvolvido pela <a href="" target="_blank">PatronoTech</a>.
+    </div>
+  </div>
 </body>
+
 </html>
