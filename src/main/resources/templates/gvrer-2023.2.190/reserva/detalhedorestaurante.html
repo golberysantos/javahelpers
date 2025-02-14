@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adicionar Item</title>
+    <title>Cadastro Cardápio</title>
     <link rel="stylesheet" href="../static/css/bootstrap/bootstrap5.3.3.min.css">
     <link rel="stylesheet" href="../static/css/header.css">
     <link rel="stylesheet" href="../static/css/footer.css">
-    <link rel="stylesheet" href="../static/css/adicionaritem.css">
-
+    <link rel="stylesheet" href="../static/css/detalhedorestaurante.css">
 </head>
 
 <body>
@@ -19,8 +17,8 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="../home/home.html">Gvrer</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -31,7 +29,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-
+    
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
                                     <path
@@ -53,7 +51,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="../usuario/usuario.html">Cadastrar-se</a>
                                 </li>
-
+    
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -61,88 +59,64 @@
                                 </li>
                                 <li><a class="dropdown-item" href="../pessoa/restaurante.html">Cadastrar Restaurante</a>
                                 </li>
-
+    
                             </ul>
                         </li>
-
+    
                     </ul>
-
+    
                 </div>
             </div>
         </nav>
     </header>
+
     <main>
-        <div class="container al ">
+
+        <div class="container">
             <div class="d-flex justify-content-center row">
+                <div class="form">
+                    <h1></h1>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Detalhe Do Restaurante">
 
-                <div class="card col-md-2 separaCard larguraCard">
-                    <img src="../static/img/carnes.jpg" class="card-img-top " alt="Imagem Carnes">
-                    <div class="card-body">
-                        <h5 class="card-title">Carnes</h5>
-                        <p class="card-text"></p>
-                        <span class="badge text-bg-danger pointer">Adicionar</span>
-                    </div>
-                </div>
+                    <form class="row g-3 ">
+                        <div class="card">
+                            <img src="../static/img/logoTemakiStationSush.png" class="card-img-top" alt="..." style="width: 50%;">
+                            <div class="card-body">
+                              <h5 class="card-title">Torino Massas</h5>
+                              <p class="card-text"><b>Endereço: </b>  Av. Djalma Batista- Manaus-AM </p>
+                              <p class="card-text"> <b>Telefone: </b>  (92) 3642-1234</p>
+                              <p class="card-text"> <b> Horário de funcionamento: </b>  (92) 3642-1234</p>
 
-                <div class="card col-md-2 separaCard larguraCard">
-                    <img src="../static/img/massa.png" class="card-img-top " alt="Imagem Carnes">
-                    <div class="card-body">
-                        <h5 class="card-title">Massas</h5>
-                        <p class="card-text"></p>
-                        <span class="badge text-bg-danger pointer">Adicionar</span>
-                    </div>
-                </div>
+                                
+                                Fecha em breve ⋅ 22:00 ⋅ Abre sex. às 11:00
+                                
+                                Pagamentos: Pluxee · VR · Alelo
+                                
+                                Telefone: (92) 3085-8500
+                              <a href="#" class="btn btn-primary">Reservar</a>
+                            </div>
+                          </div>
+                    </form>
 
-                <div class="card col-md-2 separaCard larguraCard">
-                    <img src="../static/img/vegana.jpg" class="card-img-top " alt="Imagem Carnes">
-                    <div class="card-body">
-                        <h5 class="card-title">Vegana</h5>
-                        <p class="card-text"></p>
-                        <span class="badge text-bg-danger pointer">Adicionar</span>
-                    </div>
                 </div>
-
-                <div class="card col-md-2 separaCard larguraCard">
-                    <img src="../static/img/sobremesa.jpg" class="card-img-top " alt="Imagem Carnes">
-                    <div class="card-body">
-                        <h5 class="card-title">Sobremesa</h5>
-                        <p class="card-text"></p>
-                        <span class="badge text-bg-danger pointer">Adicionar</span>
-                    </div>
-                </div>
-                <div class="card col-md-2 separaCard larguraCard">
-                    <img src="../static/img/arábe.jpg" class="card-img-top " alt="Imagem Carnes">
-                    <div class="card-body">
-                        <h5 class="card-title">arábe</h5>
-                        <p class="card-text"></p>
-                        <span class="badge text-bg-danger pointer">Adicionar</span>
-                    </div>
-                </div>
-                <div class="card col-md-2 separaCard larguraCard">
-                    <img src="../static/img/portuguesa.jpg" class="card-img-top " alt="Imagem Carnes">
-                    <div class="card-body">
-                        <h5 class="card-title">portuguesa</h5>
-                        <p class="card-text"></p>
-                        <span class="badge text-bg-danger pointer">Adicionar</span>
-                    </div>
-                </div>
-
-
             </div>
-
         </div>
 
     </main>
 
     <footer>
         <div class="text-center footerBgColor p-3">
-            <p class="p"> &copy; Gvrer | By Mércia</p>
+            <p class="p"> &copy; Gvrer | By joao</p>
         </div>
     </footer>
-
     <script src="../static/js/bootstrap/bootstrap5.3.3.bundle.min.js"></script>
+    <script src="../static/js/redirecionarParaOutraPagina.js"></script>
+
+
+    <script>
+        abrirEmOutraAba("../itinerario/adicionarAtividades.html");
+    </script>
 
 </body>
-
 
 </html>

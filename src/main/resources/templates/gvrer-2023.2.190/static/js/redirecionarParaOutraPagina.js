@@ -42,6 +42,12 @@ function exemplo(params) {
 }
 
 
+function onClickAbaAtual(url) {
+    setTimeout(function () {
+        window.location.assign(url); // carrega link na janela atual
+    }, 500)
+}
+
 
 
 

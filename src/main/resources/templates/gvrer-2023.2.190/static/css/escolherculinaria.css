@@ -67,3 +67,6 @@ div:focus {
     color: #FF385C; 
     font-size: 25px;
 }
+.badge text-bg-primary pointer{
+    color: #FF385C
+}

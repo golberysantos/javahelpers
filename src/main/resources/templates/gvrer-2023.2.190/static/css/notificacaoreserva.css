@@ -1,0 +1,4 @@
+
+.toast:not(.show) {
+    display: block;
+}
