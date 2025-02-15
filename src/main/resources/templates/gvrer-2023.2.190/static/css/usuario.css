@@ -19,14 +19,14 @@
 .corDoTitulo {
     color: #FF385C;
 }
-.btn{
-   background-color: #FF385C;
-   color: white;
-}
 h2{
     text-align: center;
     font-weight: 600;
     letter-spacing: -.3px;
+}
+.btn{
+   background-color: #FF385C;
+   color: white;
 }
 a{
     color: #FF385C;
