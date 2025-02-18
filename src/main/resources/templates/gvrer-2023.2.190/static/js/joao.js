@@ -1,5 +1,5 @@
 
-function addItem() {
+function pegarItemSelecionado() {
     let idItemSelect;
     let txtSelect;
 
@@ -11,4 +11,5 @@ function addItem() {
 
     console.log(txtSelect);
 }
+
 

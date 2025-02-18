@@ -21,7 +21,7 @@ function linha(itemSelecionado) {
             <div class="w-100 ms-3">
                 <div class="d-flex w-100 align-items-center justify-content-between">
                     <span>`+ itemSelecionado + `</span>
-                    <span onclick="removerLinha('`+ id + `')" class="input-group-text pointer"
+                    <span onclick="removerLinha(`+ id + `)" class="input-group-text pointer"
                         id="basic-addon1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
