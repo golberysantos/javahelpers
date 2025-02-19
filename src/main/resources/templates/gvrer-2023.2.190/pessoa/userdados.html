@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta</title>
+    <link rel="stylesheet" href="../static/css/dados_do_usuario/userdados1.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Vamos criar sua conta!</h2>
+        <p>Preencha os campos:</p>
+        <p class="obrigatorio">Campos com (*) são obrigatórios</p>
+
+        <form id="signup-form">
+            <div class="input-group">
+                <label for="name">Nome completo*:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="input-group">
+                <label for="birthdate">Data de nascimento*:</label>
+                <input type="date" id="data-nascimento" name="data-nascimento" required>
+            </div>
+            <div class="input-group">
+                <label for="genero">Sexo*:</label>
+                <select id="genero" name="genero" required>
+                    <option value="">Selecione</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="outro">Outro</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="cpf">CPF*:</label>
+                <input type="tel" id="cpf" name="cpf" required>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="cep">CEP*:</label>
+                <input type="tel" id="cep" name="cep" required>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="telefone_fixo">Telefone Fixo:</label>
+                <input type="tel" id="telefone_fixo" name="telefone_fixo">
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="celular">Celular*:</label>
+                <input type="tel" id="celular" name="celular" required>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="e-mail">E-mail*:</label>
+                <input type="email" id="e-mail" name="e-mail" required>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="senha">Senha*:</label>
+                <input type="password" id="senha" name="senha" required>
+                </select>
+            </div>
+
+            <button id="button" type="submit">Avançar</button>
+
+        </form>
+
+        <div class="info-do-app">
+            <img src="../static/img/travelservtitle.png" alt="TravelServ Logo">
+            <p class="desenvolvedor">Desenvolvido pela<br> Patrono Tech</p>
+        </div>
+    </div>
+    <script src="../static/js/redirecionarParaOutraPagina.js"></script>
+    <script> abrirNaAbaAtual("../");</script>
+</body>
+
+</html>

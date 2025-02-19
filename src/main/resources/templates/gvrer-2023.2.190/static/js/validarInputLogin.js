@@ -9,12 +9,12 @@ function validar() {
     // Função para validar campos
     var usuario = document.getElementById("usuario");
     var senha = document.getElementById("senha");
-    var termosDeUso = document.getElementById("termosDeUso");
+
 
     // Limpar as bordas de erro antes de validar novamente
     usuario.classList.remove("border-danger");
     senha.classList.remove("border-danger");
-    termosDeUso.classList.remove("border-danger");  // Limpa a borda do checkbox
+
 
     var isValid = true;
 
@@ -30,11 +30,14 @@ function validar() {
         isValid = false;
     }
 
-    // Verifica se o checkbox de termos de uso está marcado
-    if (!termosDeUso.checked) {
-        termosDeUso.classList.add("border-danger");  // Adiciona borda vermelha no checkbox
+    if (usuario.value.trim() === user) {
+        isValid = true;
+    } else {
         isValid = false;
+        console.log("Usuário ou senha incorreto.");
+
     }
+
 
     // Retorna verdadeiro se os campos estiverem preenchidos, falso caso contrário
     return isValid;
