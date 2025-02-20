@@ -1,3 +1,5 @@
+let nomeVariavel;
+
 function name() {
     let nomeVariavel = "Exemplo";
     const $dolar = 10;

@@ -7,7 +7,7 @@ function removerLinha (idLinha) {
 function addItem() {
     let itemSelecionado;
     itemSelecionado = pegarItemSelecionado();
-    document.getElementById("lista").innerHTML += linha(itemSelecionado);    
+    document.getElementById("lista").innerHTML += linha(itemSelecionado);   
 }
 
 function linha(itemSelecionado) {

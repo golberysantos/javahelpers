@@ -1,5 +1,5 @@
 function name() {
-    let nomeVariavel = "Exemplo";
+let nomeVariavel = "Exemplo";
 const $dolar = 10;
 let _sublinhado = true;
 }

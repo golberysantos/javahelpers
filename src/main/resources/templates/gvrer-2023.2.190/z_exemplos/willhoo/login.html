@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="../../static/css/bootstrap/bootstrap5.3.3.min.css" />
+  <link rel="stylesheet" href="../../static/css/header.css" />
+  <link rel="stylesheet" href="../../static/css/footer.css" />
+  <link rel="stylesheet" href="../../static/css/login.css" />
+  <link rel="stylesheet" href="../../static/css/sweetalert/sweetalert2.v11.16.0.min.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg headerBgColor">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../home/home.html">Gvrer</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="../willhoo/usuario.html">Cadastre-se aqui</a>
+            </li>
+
+        </div>
+    </nav>
+  </header>
+  <main>
+    <div class="container al">
+      <form action="" class="mt-3 mb-3 col-md-6 login border border-4 rounded">
+        <div class="card p-3">
+          <div>
+            <h2 class="mt-2 mb-4">Seja bem vindo ao Gvrer</h2>
+          </div>
+          <div class="mb-3">
+            <label for="usuario" class="form-label">Usuário (E-mail ou celular)</label>
+            <input type="text" class="form-control validar" name="usuario" id="usuario" required />
+          </div>
+          <div class="mb-3 password-container">
+            <label for="senha" class="form-label">Senha</label>
+            <input type="password" class="form-control" name="senha" id="senha" required />
+            <p class="fas fa-eye eye-icon" id="togglePassword"></p>
+            <div class="d-flex">
+              <div class="mt-2">
+                <a href="../senha/novaSenha.html" class="text-decoration-none">
+                  Esqueceu a senha?</a>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4 mt-4">
+            <button onclick="enviar()" type="button" id="button" class="btn btn-dark col-12">Entrar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+  <footer class="text-center bgColor">
+    <div class="text-center footerBgColor p-3">
+      <p class="p">&copy; Gvrer | By Renan</p>
+    </div>
+  </footer>
+
+  <script src="../../static/js/bootstrap/bootstrap5.3.3.bundle.min.js"></script>
+  <script src="../../static/js/sweetalert/sweetalert2.all.v11.16.0.min.js"></script>
+  <script src="../../static/js/login.js"></script>
+  <script src="../../static/js/validarInputLogin.js"></script>
+  <script src="../../static/js/redirecionarParaOutraPagina.js"></script>
+  <script src="../../static/js/db.js"></script>
+  <script>
+    function enviar() {
+
+      if (validar()) {
+        abrirEmOutraAba("../principal/principal.html");
+      } else {
+        Swal.fire({
+          title: "Opps!",
+          text: "preencha os espaços em branco",
+          icon: "dunger",
+          confirmButtonColor: "#FF385C",
+        });
+      }
+    }
+  </script>
+</body>
+
+</html>

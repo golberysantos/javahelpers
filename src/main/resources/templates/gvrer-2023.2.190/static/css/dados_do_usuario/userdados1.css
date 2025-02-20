@@ -17,8 +17,10 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    max-width: 90%;
+    width: 90%; /* Ocupa 90% da largura da tela */
+    max-width: 400px; /* Largura máxima de 400px */
+    margin: 20px auto; /* Centraliza o container */
+    box-sizing: border-box; /* Garante que padding e border não aumentem a largura */
 }
 
 h2 {
@@ -64,6 +66,10 @@ button {
     margin-top: 15px;
 }
 
+button:hover {
+    background-color: #a6033f;
+}
+
 .info-do-app {
     text-align: center;
     margin-top: 20px;
@@ -74,12 +80,18 @@ button {
     margin-bottom: 10px;
 }
 
+.desenvolvedor {
+    font-size: 10pt;
+}
+
+/* Media query para telas menores (celulares) */
 @media (max-width: 500px) {
     .container {
         padding: 15px;
     }
-}
 
-.desenvolvedor {
-    font-size: 10pt;
+    /* Ajuste para telas menores, se necessário */
+    .info-do-app img {
+        max-width: 150px;
+    }
 }
