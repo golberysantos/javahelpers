@@ -55,7 +55,7 @@
             </div>
           </div>
           <div class="mb-4 mt-4">
-            <button onclick="enviar()" type="button" id="button" class="btn btn-dark col-12">Entrar</button>
+            <button onclick="enviar();" type="button" id="button" class="btn btn-dark col-12">Entrar</button>
           </div>
         </div>
       </form>
@@ -72,21 +72,60 @@
   <script src="../../static/js/login.js"></script>
   <script src="../../static/js/validarInputLogin.js"></script>
   <script src="../../static/js/redirecionarParaOutraPagina.js"></script>
-  <script src="../../static/js/db.js"></script>
+  <script src="../vini/dbGabriel.js"></script>
+  <script src="../vini/usuario.js"></script>
+  <script src="../vini/login.js"></script>
   <script>
-    function enviar() {
 
-      if (validar()) {
-        abrirEmOutraAba("../../principal/principal.html");
-      } else {
+    function enviar() {
+      if(validar()){
+        let l;
+        let s;
+        l = document.getElementById("usuario").value;
+        s = document.getElementById("senha").value;
+        if (encontrar(l,s)) {
+          console.log("login encontrado!!");
+          abrirEmOutraAba("../../principal/principal.html"); 
+        } else{
+          Swal.fire({
+            title: "Opps!",
+            text: "Login não encontrado!",
+            icon: "error",
+            confirmButtonColor: "#FF385C",
+          });
+        }
+        
+      }else {
         Swal.fire({
           title: "Opps!",
-          text: "preencha os espaços em branco",
-          icon: "dunger",
+          text: "Usuário ou senha incorretos",
+          icon: "error",
           confirmButtonColor: "#FF385C",
         });
-      }
+          
+       }
     }
+    // function enviar() {
+
+    //   if (validar()) {
+      
+    //   } else if(encontrar(l,s)){
+    //     abrirEmOutraAba("../../principal/principal.html");
+    //     if (usuario.value.trim() === user) {
+    //       isValid = true;
+    //     } else{
+    //       isValid = false
+    //       console.log("Usuário ou senha incorretos");
+    //     }
+    //   } else {
+    //     Swal.fire({
+    //       title: "Opps!",
+    //       text: "preencha os espaços em branco",
+    //       icon: "dunger",
+    //       confirmButtonColor: "#FF385C",
+    //     });
+    //   }
+    // }
   </script>
 </body>
 

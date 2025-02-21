@@ -55,7 +55,7 @@
       <form action="" class="mt-3 mb-3 col-md-6 login border border-4 rounded">
         <div class="card p-3">
           <div>
-            <h2 class="mt-2 mb-4">Seja bem vindo ao Gvrer</h2>
+            <h2 class="mt-2 mb-4">Cadastro de Usuário</h2>
           </div>
           <div class="mb-3">
             <label for="usuario" class="form-label">Usuário (E-mail ou celular)</label>
@@ -97,11 +97,18 @@
   <script src="../../static/js/validarInput.js"></script>
   <script src="../../static/js/redirecionarParaOutraPagina.js"></script>
   <script src="../golbery/usuario.js"></script>
+  <script src="../golbery/db.js"></script>
+
 
   <script>
     function enviar() {
       if (validar()) {
-        abrirEmOutraAba("../../home/home.html");
+        let lcu;
+        let scu;
+        lcu = document.getElementById("usuario").value;
+        scu = document.getElementById("senha").value;
+        inserirUsuario(lcu, scu);
+        abrirEmOutraAba("../golbery/login.html");
       } else {
         Swal.fire({
           title: "Opps!",

@@ -49,7 +49,7 @@
             <p class="fas fa-eye eye-icon" id="togglePassword"></p>
             <div class="d-flex">
               <div class="mt-2">
-                <a href="../senha/novaSenha.html" class="text-decoration-none">
+                <a href="../../senha/novaSenha.html" class="text-decoration-none">
                   Esqueceu a senha?</a>
               </div>
             </div>
@@ -72,21 +72,43 @@
   <script src="../../static/js/login.js"></script>
   <script src="../../static/js/validarInputLogin.js"></script>
   <script src="../../static/js/redirecionarParaOutraPagina.js"></script>
-  <script src="../../static/js/db.js"></script>
+  <script src="../willhoo/dbwillho.js"></script>
+  <script src="../willhoo/login.js"></script>
   <script>
+    
     function enviar() {
 
       if (validar()) {
-        abrirEmOutraAba("../principal/principal.html");
+
+        let l;
+        let p;
+
+        l = document.getElementById("usuario").value;
+        p = document.getElementById("senha").value;
+
+        if (find(l, p)) {
+          console.log("Login encontrado!!");
+          abrirEmOutraAba("../../principal/principal.html");
+
+        } else {
+          Swal.fire({
+          title: "Opps!",
+          text: "Login não encontrado!",
+          icon: "dunger",
+          confirmButtonColor: "#FF385C",
+          });
+        }
+
       } else {
         Swal.fire({
           title: "Opps!",
-          text: "preencha os espaços em branco",
+          text: "Preencha os espaços em branco!",
           icon: "dunger",
           confirmButtonColor: "#FF385C",
         });
       }
     }
+
   </script>
 </body>
 

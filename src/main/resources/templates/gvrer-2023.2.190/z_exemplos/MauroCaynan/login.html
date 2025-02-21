@@ -26,7 +26,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="../golberyJS.js">Cadastre-se aqui</a>
+              <a class="nav-link active" aria-current="page" href="../JoaoJS.js">Cadastre-se aqui</a>
             </li>
 
         </div>
@@ -72,26 +72,12 @@
   <script src="../../static/js/login.js"></script>
   <script src="../../static/js/validarInputLogin.js"></script>
   <script src="../../static/js/redirecionarParaOutraPagina.js"></script>
-  <script src="../Joao/login.html"></script>
-  <script src="../Joao/logi.js"></script>
+  <script src="../../static/js/db.js"></script>
   <script>
     function enviar() {
+
       if (validar()) {
-        let l;
-        let s;
-        l = document.getElementById("usuario").value;
-        s = document.getElementById("senha").value;
-        if (encontrar(l, s)) {
-          console.log("login encontrado!!");
-          abrirEmOutraAba("../../principal/principal.html");
-        } else {
-          Swal.fire({
-            title: "Opps!",
-            text: "Login não encontrado!",
-            icon: "dunger",
-            confirmButtonColor: "#FF385C",
-          });
-        }
+        abrirEmOutraAba("../../principal/principal.html");
       } else {
         Swal.fire({
           title: "Opps!",

@@ -1,6 +1,7 @@
-//Declara uma nova variável e cria um novo objeto do tipo Array
-var login = new Array();
-var password = new Array();
+let lcu;
+let pcu;
+lcu = document.getElementById("usuario").value;
+pcu = document.getElementById("senha").value;
 
 function addUser(l, p) {
     login.push(l);
@@ -8,6 +9,12 @@ function addUser(l, p) {
 }
 
 function listar() {
-    console.log(login[0]);
-    console.log(password[0]);
+
+    for (let index = 0; index < login.length; index++) {
+        const l = login[index];
+        const p = password[index];
+        console.log(l);
+        console.log(p);
+    }
+
 }

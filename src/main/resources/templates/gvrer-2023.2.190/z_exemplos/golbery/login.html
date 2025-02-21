@@ -72,12 +72,26 @@
   <script src="../../static/js/login.js"></script>
   <script src="../../static/js/validarInputLogin.js"></script>
   <script src="../../static/js/redirecionarParaOutraPagina.js"></script>
-  <script src="../../static/js/db.js"></script>
+  <script src="../golbery/db.js"></script>
+  <script src="../golbery/login.js"></script>
   <script>
     function enviar() {
-
       if (validar()) {
-        abrirEmOutraAba("../../principal/principal.html");
+        let l;
+        let s;
+        l = document.getElementById("usuario").value;
+        s = document.getElementById("senha").value;
+        if (encontrar(l, s)) {
+          console.log("login encontrado!!");
+          abrirEmOutraAba("../../principal/principal.html");
+        } else {
+          Swal.fire({
+            title: "Opps!",
+            text: "Login não encontrado!",
+            icon: "dunger",
+            confirmButtonColor: "#FF385C",
+          });
+        }
       } else {
         Swal.fire({
           title: "Opps!",

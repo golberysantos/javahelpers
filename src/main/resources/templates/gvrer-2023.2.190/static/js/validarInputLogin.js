@@ -30,15 +30,6 @@ function validar() {
         isValid = false;
     }
 
-    if (usuario.value.trim() === user) {
-        isValid = true;
-    } else {
-        isValid = false;
-        console.log("Usuário ou senha incorreto.");
-
-    }
-
-
     // Retorna verdadeiro se os campos estiverem preenchidos, falso caso contrário
     return isValid;
 }

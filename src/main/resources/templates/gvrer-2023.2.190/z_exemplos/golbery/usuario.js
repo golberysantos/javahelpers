@@ -1,5 +1,4 @@
-var login = new Array();
-var senha = new Array();
+
 
 function inserirUsuario(l, s) {
     login.push(l);
@@ -7,9 +6,10 @@ function inserirUsuario(l, s) {
 }
 
 function listar() {
-    console.log(login[0]);
-    console.log(senha[0]);
-    console.log(login[1]);
-    console.log(senha[1]);
-
+    for (let index = 0; index < login.length; index++) {
+        const l = login[index];
+        const s = senha[index];
+        console.log(l);
+        console.log(s);
+    }
 }

@@ -142,10 +142,18 @@
     <script src="../../static/js/validarInput.js"></script>
     <script src="../../static/js/redirecionarParaOutraPagina.js"></script>
     <script src="../vini/usuario.js"></script>
+    <script src="../vini/dbGabriel.js"></script>
     <script>
       function enviar() {
         if (validar()) {
-          abrirEmOutraAba("../home/home.html");
+          let lcu;
+          let scu
+
+          lcu = document.getElementById("usuario").value;
+          scu = document.getElementById("senha").value;
+
+          inserirUsuario(lcu, scu);
+          abrirEmOutraAba("../vini/login.html");
         } else {
           Swal.fire({
             title: "Opps!",
