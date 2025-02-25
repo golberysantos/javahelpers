@@ -1,8 +1,4 @@
-let lcu;
-let scu;
 
-lcu = document.getElementById("usuario").value;
-scu = document.getElementById("senha").value;
 
 function inserirUsuario(l, s) {
     login.push(l);

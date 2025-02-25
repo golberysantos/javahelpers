@@ -5,3 +5,6 @@
 .tc{
     color: #FF385C;
 }
+.text-bg-danger {
+    background-color: #FF385C !important;
+}

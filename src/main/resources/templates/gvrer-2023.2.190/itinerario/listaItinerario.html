@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/bootstrap/bootstrap5.3.3.min.css">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/listaItinerario.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
+    <title>Lista de Itinerário</title>
+</head>
+<body>
+    <!--Header Begin-->
+    <header>
+        <nav class="navbar navbar-expand-lg bgColor">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Gvrer</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+    </header>
+    <!--Haeder End-->
+    <!--Main Begin-->
+    <main>
+      <!--Início Carrossel-->
+      <div class="container carrosselAnimado">
+        <div id="carouselExampleCaptions" class="carousel slide">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="../static/img/buenos-aires.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>Some representative placeholder content for the first slide.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="../static/img/rj.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>Some representative placeholder content for the second slide.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="../static/img/bogota.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Some representative placeholder content for the third slide.</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <!--Fim Carrossel-->
+      <!--Início bloco 1-->
+      <h1 class="m-2">Cidades mais visitadas</h1>
+      <div class="card-block-1">
+          <!--1st Card Begin-->
+          <div class="card" style="width: 18rem;">
+              <img src="../static/img/rj.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><b>Rio de Janeiro - Brasil</b></h5>
+                <p class="card-text">
+                  <span class="textoDetalhe">Partindo de São Paulo</span><br>
+                  <b>Ida:</b> 07/03/2025<br>
+                  <b>Volta:</b> 10/03/2025<br>
+                  <span class="textoDetalhe">Ida e Volta</span><br>
+                  <b class="bordaPreco">4x de R$ 120,00</b><br>
+                  <span class="textoDetalhe">A partir de 446*</span>
+                </p>
+                <a href="#" class="btn">Saiba Mais</a>
+              </div>
+          </div>
+          <!--1st Card End-->
+          <!--2nd Card Begin-->
+          <div class="card" style="width: 18rem;">
+              <img src="../static/img/buenos-aires.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><b>Buenos Aires - Argentina</b></h5>
+                <p class="card-text">
+                  <span class="textoDetalhe">Partindo de São Paulo</span><br>
+                  <b>Ida:</b> 07/03/2025<br>
+                  <b>Volta:</b> 10/03/2025<br>
+                  <span class="textoDetalhe">Ida e Volta</span><br>
+                  <b class="bordaPreco">4x de R$ 120,00</b><br>
+                  <span class="textoDetalhe">A partir de 446*</span>
+                </p>
+                <a href="#" class="btn">Saiba Mais</a>
+              </div>
+          </div>
+          <!--2nd Card End-->
+          <!--3th Card Begin-->
+          <div class="card" style="width: 18rem;">
+              <img src="../static/img/bogota.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><b>Bogotá - Colombia</b></h5>
+                <p class="card-text">
+                  <span class="textoDetalhe">Partindo de São Paulo</span><br>
+                  <b>Ida:</b> 07/03/2025<br>
+                  <b>Volta:</b> 10/03/2025<br>
+                  <span class="textoDetalhe">Ida e Volta</span><br>
+                  <b class="bordaPreco">4x de R$ 120,00</b><br>
+                  <span class="textoDetalhe">A partir de 446*</span>
+                </p>
+                <a href="#" class="btn">Saiba Mais</a>
+              </div>
+          </div>
+          <!--3th Card End-->
+          <!--4th Card Begin-->
+          <div class="card" style="width: 18rem;">
+              <img src="../static/img/la paz.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><b>La Paz - Chile</b></h5>
+                <p class="card-text">
+                  <span class="textoDetalhe">Partindo de São Paulo</span><br>
+                  <b>Ida:</b> 07/03/2025<br>
+                  <b>Volta:</b> 10/03/2025<br>
+                  <span class="textoDetalhe">Ida e Volta</span><br>
+                  <b class="bordaPreco">4x de R$ 120,00</b><br>
+                  <span class="textoDetalhe">A partir de 446*</span>
+                </p>
+                <a href="#" class="btn">Saiba Mais</a>
+              </div>
+          </div>
+          <!--4th Card End-->
+      </div>
+      <hr>
+      <!--Fim bloco 1-->
+      <!--Início bloco 2-->
+      <h1 class="m-2">Cidades para o inverno</h1>
+      <div class="card-block-1">
+          <!--1st Card Begin-->
+          <div class="card" style="width: 18rem;">
+              <img src="../static/img/rj.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><b>Rio de Janeiro - Brasil</b></h5>
+                <p class="card-text">
+                  <span class="textoDetalhe">Partindo de São Paulo</span><br>
+                  <b>Ida:</b> 07/03/2025<br>
+                  <b>Volta:</b> 10/03/2025<br>
+                  <span class="textoDetalhe">Ida e Volta</span><br>
+                  <b class="bordaPreco">4x de R$ 120,00</b><br>
+                  <span class="textoDetalhe">A partir de 446*</span>
+                </p>
+                <a href="#" class="btn">Saiba Mais</a>
+              </div>
+          </div>
+          <!--1st Card End-->
+          <!--2nd Card Begin-->
+          <div class="card" style="width: 18rem;">
+              <img src="../static/img/buenos-aires.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><b>Buenos Aires - Argentina</b></h5>
+                <p class="card-text">
+                  <span class="textoDetalhe">Partindo de São Paulo</span><br>
+                  <b>Ida:</b> 07/03/2025<br>
+                  <b>Volta:</b> 10/03/2025<br>
+                  <span class="textoDetalhe">Ida e Volta</span><br>
+                  <b class="bordaPreco">4x de R$ 120,00</b><br>
+                  <span class="textoDetalhe">A partir de 446*</span>
+                </p>
+                <a href="#" class="btn">Saiba Mais</a>
+              </div>
+          </div>
+          <!--2nd Card End-->
+          <!--3th Card Begin-->
+          <div class="card" style="width: 18rem;">
+              <img src="../static/img/bogota.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><b>Bogotá - Colombia</b></h5>
+                <p class="card-text">
+                  <span class="textoDetalhe">Partindo de São Paulo</span><br>
+                  <b>Ida:</b> 07/03/2025<br>
+                  <b>Volta:</b> 10/03/2025<br>
+                  <span class="textoDetalhe">Ida e Volta</span><br>
+                  <b class="bordaPreco">4x de R$ 120,00</b><br>
+                  <span class="textoDetalhe">A partir de 446*</span>
+                </p>
+                <a href="#" class="btn">Saiba Mais</a>
+              </div>
+          </div>
+          <!--3th Card End-->
+          <!--4th Card Begin-->
+          <div class="card" style="width: 18rem;">
+              <img src="../static/img/la paz.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><b>La Paz - Chile</b></h5>
+                <p class="card-text">
+                  <span class="textoDetalhe">Partindo de São Paulo</span><br>
+                  <b>Ida:</b> 07/03/2025<br>
+                  <b>Volta:</b> 10/03/2025<br>
+                  <span class="textoDetalhe">Ida e Volta</span><br>
+                  <b class="bordaPreco">4x de R$ 120,00</b><br>
+                  <span class="textoDetalhe">A partir de 446*</span>
+                </p>
+                <a href="#" class="btn">Saiba Mais</a>
+              </div>
+          </div>
+          <!--4th Card End-->
+      </div>
+      <hr>
+      <!--Fim bloco 2-->
+    </main>
+    <!--Main End-->
+    <!--Footer Begin-->
+    <footer>
+        <div class="text-center footerbgColor p-3">
+            <p>&copy;By Vini</p>
+        </div>
+    </footer>
+    <!--Footer End-->
+    <script src="../static/js/bootstrap/bootstrap5.3.3.bundle.min.js">
+
+    </script>
+</body>
+</html>

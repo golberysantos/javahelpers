@@ -77,23 +77,22 @@
   <script>
     function enviar() {}
 
-      if (validar()) {
+    if (validar()) {
         let l;
         let s;
-      l = document.getElementById("usuario").value;
-      s = document.getElementById("senha").value;
-        if (encontar(l, s)){
-          console.log("Login encontrado!!");
-          abrirEmOutraAba("../../principal.html");
+        l = document.getElementById("usuario").value;
+        s = document.getElementById("senha").value;
+        if (encontrar(l, s)) {
+          console.log("login encontrado!!");
+          abrirEmOutraAba("../../principal/principal.html");
         } else {
           Swal.fire({
-          title: "Opps!",
-          text: "Login não encontrado!",
-          icon: "dunger",
-          confirmButtonColor: "#FF385C",
-        });
+            title: "Opps!",
+            text: "Login não encontrado!",
+            icon: "dunger",
+            confirmButtonColor: "#FF385C",
+          });
         }
-
       } else {
         Swal.fire({
           title: "Opps!",

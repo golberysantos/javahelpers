@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+
+<body>
+
+    <h1>Calculadora</h1>
+    <input type="number" name="" id="num1"> <br>
+    <input type="number" name="" id="num2"> <br>
+    <input type="text" name="" id="operador"> <br>
+    <input readonly placeholder="Resultado..." type="text" name="" id="resultado"> <br>
+    <button onclick="processar()" type="button">Calcular</button>
+
+
+    <script>
+
+        function processar() {
+            let num1 = 0;
+            let num2 = 0;
+            let operador = 0;
+            num1 = document.getElementById("num1").valueAsNumber;
+            num2 = document.getElementById("num2").valueAsNumber;
+            operador = document.getElementById("operador").value;
+            console.log("OPERADOR >>> " + operador);
+            Calculadora(num1, num2);
+            document.getElementById("resultado").value = calcular(operador);
+            document.getElementById("resultado").style.color = "blue";
+            document.getElementById("resultado").style.fontSize = "15pt";
+        }
+
+
+
+
+
+
+        function Calculadora(num1, num2) {
+            this.num1 = num1;
+            this.num2 = num2;
+        }
+
+        function calcular(operador) {
+            console.log(operador);
+
+
+            switch (operador) {
+                case '+':
+                    resultado = somar();
+                    break;
+                case "-":
+                    resultado = subtrair();
+                    break;
+                case "x":
+                    resultado = multiplicar();
+                    break;
+                case "/":
+                    resultado = dividir();
+                    break;
+                default:
+                    console.log("OPERADOR ERRADO");
+                    break;
+            }
+            return resultado;
+        }
+
+        function dividir() {
+            return this.num1 / this.num2;
+        }
+
+        function multiplicar() {
+            return this.num1 * this.num2;
+        }
+
+        function somar() {
+            return this.num1 + this.num2;
+        }
+
+        function subtrair() {
+            return this.num1 - this.num2;
+        }
+
+
+    </script>
+
+</body>
+
+</html>

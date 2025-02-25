@@ -97,12 +97,17 @@
   <script src="../../static/js/validarInput.js"></script>
   <script src="../../static/js/redirecionarParaOutraPagina.js"></script>
   <script src="../italo/usuario.js"></script>
-  <script src="../../static/js/db.js"></script>
+  <script src="../../italo/db.js"></script>
 
   <script>
     function enviar() {
       if (validar()) {
-        abrirEmOutraAba("../../home/home.html");
+        let lcu;
+        let scu;
+        lcu = document.getElementById("usuario").value;
+        scu = document.getElementById("senha").value;
+        inserirUsuario(lcu, scu);
+        abrirEmOutraAba("../golbery/login.html");
       } else {
         Swal.fire({
           title: "Opps!",
