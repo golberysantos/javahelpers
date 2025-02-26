@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+:root {
+    --Red: hsl(1, 90%, 64%);
+    --Blue: hsl(219, 85%, 26%);
+    --White: hsl(0, 0%, 100%);
+    --Very-light-grayish-blue: hsl(210, 60%, 98%);
+    --Light-grayish-blue-1: hsl(211, 68%, 94%);
+    --Light-grayish-blue-2: hsl(205, 33%, 90%);
+    --Grayish-blue: hsl(219, 14%, 63%);
+    --Dark-grayish-blue: hsl(219, 12%, 42%);
+    --Very-dark-blue: hsl(224, 21%, 14%);
+}
+
+* {
+    font-family: "Plus Jakarta Sans", serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza verticalmente também */
+    background-color: var(--Blue);
+}
+
+.container {
+    margin: 2rem;
+    max-width: 700px; /* Largura máxima, permite que o conteúdo se ajuste em telas maiores */
+    width: 95%;
+    background-color: var(--White);
+    padding: 1.5rem 1rem;
+    border-radius: .5rem;
+}
+
+.header h2 .unread-notification-number {
+  text-align: center;
+  background: var(--Red);
+  color: var(--White);
+  width: 24px;
+  height: 24px;
+  font-size: 15px;
+  border-radius: 50%;
+  line-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  min-width: 24px;
+}
+
+.app {
+    width: 100%; /* Largura total dentro do container */
+}
+
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.header h2 {
+    font-size: 1.5rem; /* Tamanho de fonte relativo */
+}
+
+.header p {
+    font-size: 1rem; /* Tamanho de fonte relativo */
+    color: var(--Grayish-blue); /* Cor mais suave */
+    cursor: pointer;
+}
+
+.header p:hover {
+    color: var(--Blue);
+}
+
+.body .notification {
+    background: var(--Very-light-grayish-blue);
+    display: flex;
+    align-items: flex-start; /* Alinha os itens ao topo */
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    margin-bottom: 1rem; /* Espaçamento entre notificações */
+}
+
+.notification .avatar {
+    width: 3rem; /* Largura fixa para avatares */
+    height: 3rem; /* Altura fixa para avatares (para manter a forma circular, se for o caso) */
+    border-radius: 50%; /* Se quiser avatares circulares */
+    overflow: hidden; /* Esconde qualquer parte da imagem que exceda o tamanho */
+}
+
+.notification .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra todo o espaço do avatar */
+}
+
+.notification .text {
+    flex-grow: 1; /* Permite que o texto cresça para ocupar o espaço disponível */
+}
+
+.text .text-top p {
+    font-size: 1rem;
+    color: var(--Dark-grayish-blue);
+}
+
+.text .text-top p .profil-name {
+    font-weight: bold;
+}
+
+.text .text-top p b {
+    color: var(--Blue);
+}
+
+.text .text-bottom {
+    font-size: 0.875rem;
+    color: var(--Grayish-blue);
+}
+
+.unread-dot {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-left: 0.5rem;
+    border-radius: 50%;
+    background: var(--Red);
+}
+
+.notification.readed {
+    background: var(--White); /* Fundo branco para notificações lidas */
+}
+
+.notification.readed .text-bottom p {
+    color: var(--Dark-grayish-blue);
+    padding: 1rem;
+    border: 1px solid var(--Light-grayish-blue-2);
+    margin-top: 0.5rem;
+    border-radius: .5rem;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .header h2 {
+        font-size: 1.25rem;
+    }
+
+    .header p {
+        font-size: 0.875rem;
+    }
+
+    .notification {
+        flex-direction: column; /* Notificações em coluna */
+        align-items: stretch; /* Alinhar itens horizontalmente */
+    }
+
+    .notification .avatar {
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .text .text-top p {
+        font-size: 1rem;
+    }
+
+    .text .text-bottom {
+        font-size: 0.75rem;
+    }
+
+    .notification.readed .text-bottom p {
+        font-size: 0.75rem;
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 375px) { /* Celulares */
+    .container {
+        width: 95%;
+        margin: 0.5rem;
+        padding: 0.75rem;
+    }
+
+    .header h2 {
+        font-size: 1rem;
+    }
+
+    .header p {
+        font-size: 0.75rem;
+    }
+
+    .notification {
+        padding: 0.75rem;
+    }
+
+    .text .text-top p {
+        font-size: 0.875rem;
+    }
+
+    .text .text-bottom {
+        font-size: 0.625rem;
+    }
+
+    .notification.readed .text-bottom p {
+        font-size: 0.625rem;
+        padding: 0.5rem;
+    }
+}

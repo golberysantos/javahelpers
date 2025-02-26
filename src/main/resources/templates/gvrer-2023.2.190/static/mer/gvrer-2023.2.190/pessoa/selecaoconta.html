@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecione o tipo de conta</title>
+    <link rel="stylesheet" href="../static/css/dados_da_empresa/selecaoconta.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1> Seja bem-vindo(a)! </h1>
+        <h2> Vamos criar sua conta </h2>
+
+        <p class="voce-empresa"> Para começar essa conta é para você ou sua empresa? </p>
+
+        <div class="opcao-de-contas">
+            <button id="pessoal-btn" class="conta-btn" onclick="window.location.href='userdados.html'"">
+                <i class='bx bxs-user bx-md'></i>
+                <div class="icone"></div>
+                Para você
+            </button>
+
+            <button id="corporativa-btn" class="conta-btn" onclick="window.location.href='empresadados1.html'">
+                <i class='bx bxs-business bx-md'></i>
+                <div class="icone"></div>
+                Para sua empresa (Corporativa)
+            </button>
+        </div>
+
+        <div class="info-do-app">
+            <img src="../static/img/travelservtitle.png" alt="TravelServ Logo">
+            <p class="desenvolvedor">Desenvolvido pela<br> Patrono Tech</p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

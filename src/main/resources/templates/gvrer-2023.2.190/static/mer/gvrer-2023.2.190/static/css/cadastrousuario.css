@@ -1,0 +1,32 @@
+h1 {
+    text-transform: initial;
+    font-size: 14pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.aCor {
+    color: blue;
+}
+
+nav {
+    background: linear-gradient(#294380, rgb(0, 0, 128));
+    font-size: 18pt;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer {
+    background: linear-gradient(#294380, rgb(0, 0, 128));
+    color: white;
+    font-size: 12pt;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}

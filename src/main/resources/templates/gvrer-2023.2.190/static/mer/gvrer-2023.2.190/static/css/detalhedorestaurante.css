@@ -1,0 +1,13 @@
+.text-bg-danger {
+    background-color: #FF385C !important;
+}
+
+.btn-primary {
+    background-color: rgb(255, 56, 92);
+}
+
+.btn:hover {
+    color: #EEEEEE;
+    background-color: #222222;
+    border-color: #EEEEEE;
+}

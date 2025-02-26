@@ -1,0 +1,21 @@
+.navbar-brand {
+    color: #222222 !important;
+}
+
+.nav-link {
+    color: 222222 !important;
+
+}
+
+.al {
+    display: flex;
+    justify-content: center;
+}
+
+.bgColor {
+    background-color: #EEEEEE;
+}
+
+.corDoTitulo {
+    color: #FF385C;    
+}

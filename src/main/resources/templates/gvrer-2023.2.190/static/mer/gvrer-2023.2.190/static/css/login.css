@@ -1,0 +1,54 @@
+.navbar-brand {
+    color: #222222 !important;
+}
+
+.nav-link {
+    color: 222222 !important;
+
+}
+.nav-item{
+    font-weight: 600;
+    letter-spacing: -.3px;
+    font-size: 18px;
+}
+
+.al {
+    display: flex;
+    justify-content: center;
+}
+h2{
+text-align: center;
+font-weight: 600;
+letter-spacing: -.3px;
+}
+ a {
+   color: #FF385C;
+ }
+
+.bgColor {
+    background-color: #EEEEEE;
+}
+
+.corDoTitulo {
+    color: #FF385C;
+}
+.btn{
+   background-color: #FF385C;
+   color: white;
+}
+/* Estilo para o ícone de olho */
+.eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;}
+    
+    /* Estilo para o container da senha */
+    .password-container {
+        position: relative;
+        width: 100%;
+      }
+      .olho {
+        margin-top: -20px; /* Isso move a imagem 30px para cima */
+      }

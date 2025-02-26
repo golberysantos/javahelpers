@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item</title>
+    <link rel="stylesheet" href="../static/css/bootstrap/bootstrap5.3.3.min.css">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/item.css">
+
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg headerBgColor">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../home/home.html">Gvrer</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="d-flex justify-content-end">
+
+                <div class="form">
+                    <h1>Cadastro Cardápio</h1>
+                    <form class="row g-3 ">
+
+                        <div class="col-12">
+                            <label for="inputnome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="inputnome" placeholder="Nome">
+                        </div>
+                        <div class="col-12">
+                            <label for="inputingredientes" class="form-label">Ingredientes</label>
+                            <input type="text" class="form-control" id="inputingredientes" placeholder="Ingredientes">
+                        </div>
+                        <div class="col-12">
+                            <label for="inputespecialidades2" class="form-label">especialidades</label>
+                            <input type="text" class="form-control" id="inputespecialidades2" placeholder="">
+                        </div>
+                        <div class="col-12">
+                            <label for="inputorigem" class="form-label">Origem</label>
+                            <input type="text" class="form-control" id="inputorigem">
+                        </div>
+                        <div class="col-12">
+                            <label for="inputdescrição" class="form-label">Descrição</label>
+                            <input type="text" class="form-control" id="inputdescrição">
+                        </div>
+                        <div class="col-12">
+                            <label for="inputvalor" class="form-label">Valor</label>
+                            <input type="text" class="form-control" id="inputvalor">
+                        </div>
+
+
+                        <div class="col-12 pb-2">
+                            <button type="submit" class="btn btn-primary">
+                                <a class="a1" href="../cardapio/menu.html">Salvar</a>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="text-center footerBgColor p-3">
+            <p class="p"> &copy; Gvrer | By Mércia</p>
+        </div>
+    </footer>
+    <script src="../static/js/bootstrap/bootstrap5.3.3.bundle.min.js"></script>
+
+
+</body> 
+
+</html>

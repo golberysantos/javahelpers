@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Cardápio</title>
+    <link rel="stylesheet" href="../static/css/bootstrap/bootstrap5.3.3.min.css">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/adicionarAtividade.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg headerBgColor">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../home/home.html">Gvrer</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Sobre</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    style="fill: rgba(0, 0, 0, 1);">
+                                    <path
+                                        d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z">
+                                    </path>
+                                </svg>
+                                <i>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                        class="bi bi-list" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                                    </svg>
+                                </i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../usuario/login.html">Entrar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../usuario/usuario.html">Cadastrar-se</a>
+                                </li>
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="../pessoa/selecaoconta.html">Cadastrar Empresa</a>
+                                </li>
+                                <li><a class="dropdown-item" href="../pessoa/restaurante.html">Cadastrar Restaurante</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="container">
+            <div class="d-flex justify-content-center row">
+                <div class="form">
+                    <h1>Adiciona Atividades</h1>
+
+                    <form class="row g-3 ">
+
+                        <div class="col-12">
+                            <div class="h-100 bg-light rounded p-4">
+                                <div class="col-12">
+                                    <div class="col-12">
+                                        <label for="inputAddress" class="form-label">Tipo de acomodação</label>
+                                    </div>
+                                    <div class="row">
+
+                                        <select id="idEscolhaAtividade" class="form-select"
+                                            aria-label="Default select example" style="width: 80%;">
+                                            <option selected>Escolha atividade...</option>
+                                            <option value="1">Hotéis</option>
+                                            <option value="2">Pousadas e Hostels</option>
+                                            <option value="3">Albergues e Casas de Campo</option>
+                                            <option value="4">Resorts e Villages</option>
+                                            <option value="5">Aluguel de Casas ou Apartamentos</option>
+                                            <option value="6">Cruzeiros</option>
+                                            <option value="7">Camping</option>
+                                            <option value="8">Caminhada</option>
+                                        </select>
+                                        <button onclick="addItem()" type="button" class="btn btn-primary btnSalvar ms-1"
+                                            style="width: 15%;">+</button>
+                                    </div>
+
+                                </div>
+
+                                <div id="lista" class="col-12">
+
+                                    <div id="1" class="d-flex align-items-center border-bottom py-2">
+                                        <div class="w-100 ms-3">
+                                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                                <span>Caminhada</span>
+                                                <span onclick="removerLinha('1')" class="input-group-text pointer"
+                                                    id="basic-addon1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="2" class="d-flex align-items-center border-bottom py-2">
+                                        <div class="w-100 ms-3">
+                                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                                <span>Resorts e Villages</span>
+                                                <span onclick="removerLinha('2')" class="input-group-text pointer"
+                                                    id="basic-addon2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="3" class="d-flex align-items-center border-bottom py-2">
+                                        <div class="w-100 ms-3">
+                                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                                <span>Cruzeiros</span>
+                                                <span onclick="removerLinha('3')" class="input-group-text pointer"
+                                                    id="basic-addon3">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-12 pb-2 efeitoHover">
+                                    <button id="button" type="submit" class="btn btn-primary  btnSalvar">Salva</button>
+                                </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="text-center footerBgColor p-3">
+            <p class="p"> &copy; Gvrer | By joao</p>
+        </div>
+
+    </footer>
+    <script src="../static/js/bootstrap/bootstrap5.3.3.bundle.min.js"></script>
+    <script src="../static/js/redirecionarParaOutraPagina.js"></script>
+    <script src="../static/js/golberyadd.js"></script>
+    <script>
+        abrirNaAbaAtual("../home/home.html");
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/bootstrap/bootstrap5.3.3.min.css">
+    <link rel="stylesheet" href="../../static/css/header.css">
+    <link rel="stylesheet" href="../../static/css/footer.css">
+    <title>Calculadora</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <form class="container pt-5">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Número 1:</label>
+          <input type="number" class="form-control" id="num1" name="" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Número 2:</label>
+            <input type="number" class="form-control" id="num2" name="" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Operador:</label>
+            <select name="" id="operador" class="form-control" aria-describedby="emailHelp">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="x">x</option>
+                <option value="/">/</option>
+            </select>
+        </div>
+        <!-- <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Operador</label>
+            <input type="text" class="form-control" id="operador" name="" aria-describedby="emailHelp">
+        </div> -->
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Resultado:</label>
+            <input readonly type="text" class="form-control" id="resultado" name="" aria-describedby="emailHelp">
+        </div>
+        <button type="button" onclick="processar()" class="btn btn-outline-primary">Calcular</button>
+    </form>
+
+    <script src="../../static/js/bootstrap/bootstrap5.3.3.bundle.min.js"></script>
+    <script src="../vini/calculadora.js"></script>
+
+    <script>
+
+        function processar() {
+
+            let num1 = 0;
+            let num2 = 0;
+            let operador = 0;
+
+            num1 = document.getElementById("num1").valueAsNumber;
+            num2 = document.getElementById("num2").valueAsNumber;
+            operador = document.getElementById("operador").value;
+
+            console.log("OPERADOR >>> " + operador);
+
+            var classeCalculadora = new Calculadora(num1, num2);
+
+            document.getElementById("resultado").value = classeCalculadora.calcular(operador);
+            document.getElementById("resultado").style.color = "blue";
+            document.getElementById("resultado").style.fontSize = "15pt";
+        }
+
+    </script>
+</body>
+</html>

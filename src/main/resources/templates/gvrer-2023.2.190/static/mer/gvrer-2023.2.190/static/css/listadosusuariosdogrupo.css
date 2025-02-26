@@ -1,0 +1,42 @@
+.card-title {
+    text-transform: uppercase;
+    color: #FF385C !important;
+}
+
+.text-bg-danger {
+    background-color: #FF385C !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.separaCard {
+    margin: 50px;
+}
+
+.larguraCard {
+    float: left; /* Faz o card flutuar à esquerda */
+    width: 200px; /* Tamanho do card */
+    padding: 25px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.card-text {
+    font-size: 1.5rem !important;
+}
+
+.titulo {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.card-body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    }
+
+    

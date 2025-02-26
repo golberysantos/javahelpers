@@ -1,0 +1,32 @@
+img {
+    width:200px;
+    margin-top: 40px;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 40pt;
+}
+
+.border {
+    background-color:#FF385C;
+    border-radius: 20px;
+    color: aliceblue !important;
+    font-size: 27pt;
+    text-transform: uppercase;
+}
+
+
+
+.b {
+    color: black !important;
+}
+
+.active {
+    color: #FF385C !important;
+}
+
+.a1 {
+    text-decoration: none;
+    color: aliceblue !important;
+}

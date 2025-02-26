@@ -1,0 +1,40 @@
+.headerBgColor {
+    background-color: #f0f0f0; /*Cor de fundo do cabeçalho*/
+}
+
+.container {
+    background-color: white;
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    max-width: 90%;
+}
+
+.footer { /* Irá alterar apenas os elementos dentro do footer */
+    background-color: #333; /* Cor de fundo do footer */
+    color: white; /* Cor de texto do footer */
+    text-align: center; /* Alinha o texto do footer */
+    padding: 1rem; /* Espaçamento interno */
+    width: 100%; 
+    bottom: 0; /* Garante que o footer fique no final da página */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(#000048, #003d8c);
+}
+
+main {
+    flex: 1;
+    padding: 2rem 0;
+}
+
+.img-fluid {
+    max-width: 20%;
+    width: auto;
+    height: auto;
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Cardápio</title>
+    <link rel="stylesheet" href="../static/css/bootstrap/bootstrap5.3.3.min.css">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/detalhedorestaurante.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg headerBgColor">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../home/home.html">Gvrer</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Sobre</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
+                                    <path
+                                        d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z">
+                                    </path>
+                                </svg>
+                                <i>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                        class="bi bi-list" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                                    </svg>
+                                </i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../usuario/login.html">Entrar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../usuario/usuario.html">Cadastrar-se</a>
+                                </li>
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="../pessoa/selecaoconta.html">Cadastrar Empresa</a>
+                                </li>
+                                <li><a class="dropdown-item" href="../pessoa/restaurante.html">Cadastrar Restaurante</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="container"
+        alt="..." style="width: 80%;">
+            <div class="d-flex justify-content-center row">
+                <div class="form">
+                    <h1></h1>
+                    <form class="row g-3 ">
+                        <div class="card">
+                            <div class="col-m-3">
+                                <img src="../static/img/logoTemakiStationSush.png" class="rounded mx-auto d-block"
+                                    alt="..." style="width: 40%;">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"><b>Torino Massas</b></h5>
+                                <p class="card-text"><b>Endereço: </b> Av. Djalma Batista- Manaus-AM </p>
+                                <p class="card-text"> <b>Telefone: </b> (92) 3642-1234</p>
+                                <p class="card-text"> <b> Horário de funcionamento: </b> (92) 3642-1234</p>
+
+
+                                Fecha em breve ⋅ 22:00 ⋅ Abre sex. às 11:00
+
+                                Pagamentos: Pluxee · VR · Alelo
+
+                                Telefone: (92) 3085-8500
+                            </div>
+                        </div>                 
+                        <button button id="button" type="submit" class="btn btn-primary  btnSalvar">Reservar</button>
+                       </form>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="text-center footerBgColor p-3">
+            <p class="p"> &copy; Gvrer | By joao</p>
+        </div>
+    </footer>
+    <script src="../static/js/bootstrap/bootstrap5.3.3.bundle.min.js"></script>
+    <script src="../static/js/redirecionarParaOutraPagina.js"></script>
+
+<script src="../reserva/reserva.html"></script>
+    <script>
+        abrirEmOutraAba("../RESE/adicionarAtividades/reserva    .html");
+    </script>
+
+</body>
+
+</html>

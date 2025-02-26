@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsável pela reserva</title>
+  <link rel="stylesheet" href="../static/css/bootstrap/bootstrap5.3.3.min.css" />
+  <link rel="stylesheet" href="../static/css/header.css" />
+  <link rel="stylesheet" href="../static/css/footer.css" />
+  <link rel="stylesheet" href="../static/css/cadpessoaresp.css" />
+  <link rel="stylesheet" href="../static/css/sweetalert/sweetalert2.v11.16.0.min.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg headerBgColor">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../home/home.html">Gvrer</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Sobre</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                :: Mais
+              </a>
+              <ul class="dropdown-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="../usuario/login.html">Entrar</a>
+                </li>
+                <li><a class="dropdown-item" href="../usuario/usuario.html">Cadastrar-se</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="container al">
+      <form action="" class="mt-3 mb-3 col-md-6 login border border-4 rounded">
+        <div class="card p-3">
+
+          <div class="tituloCard">
+            <h1 class="mt-4">Cadastro</h1>
+            <h2 class="mb-4">Responsável pela reserva</h2>
+          </div>
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" class="form-control validar" name="nome" id="nome" required />
+          </div>
+          <div class="mb-3">
+            <label for="cpf" class="form-label">CPF</label>
+            <input type="tel" class="form-control vlidar" name="cpf" id="cpf" maxlength="14" placeholder="XXX.XXX.XXX-XX" required />
+          </div>
+          <div class="mb-3">
+            <label for="telefone" class="form-label">Número de celular</label>
+            <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
+              placeholder="XXX.XXX.XXX-XX" required
+              />
+          </div>
+          <div class="mb-3">
+            <div>
+              <label for="sexo" class="form-label">Sexo</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" id="inlineCheckbox1" name="genero" value="masculino">
+              <label class="form-check-label" for="inlineCheckbox1">Masculino</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" id="inlineCheckbox2" name="genero" value="feminino">
+              <label class="form-check-label" for="inlineCheckbox1">Feminino</label>
+            </div>
+
+            <div class="mt-3">
+              <button onclick="enviar()" type="button" id="button" class="btn btn-dark col-12 mb-4 mt-4">Entrar</button>
+            </div>
+          </div>
+      </form>
+    </div>
+  </main>
+  <footer class="text-center bgColor p-3">
+    <div class="text-center footerBgColo">
+      <p class="p"> &copy; Gvrer | By Renan</p>
+    </div>
+  </footer>
+  <script src="../static/js/bootstrap/bootstrap5.3.3.bundle.min.js"></script>
+  <script src="../static/js/sweetalert/sweetalert2.all.v11.16.0.min.js"></script>
+  <script src="../static/js/cadpessoaresp.js"></script>
+  <script src="../static/js/validarFormCadPessoaResp.js"></script>
+  <script src="../static/js/redirecionarParaOutraPagina.js"></script>
+  <script>
+    function enviar() {
+      if (validar()) {
+        abrirEmOutraAba("../home/home.html");
+      } else {
+        Swal.fire({
+          title: "Opps!",
+          text: "preencha os espaços em branco",
+          icon: "dunger",
+          confirmButtonColor: "#FF385C",
+        });
+      }
+    }
+  </script>
+</body>
+
+ </html>

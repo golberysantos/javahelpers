@@ -1,0 +1,29 @@
+h1 {
+    color: black !important;
+    font-size: 20pt;
+
+}
+
+.form-label {
+    color:#FF385C ;
+}
+
+.imgRestaurante {
+    display: flex;
+    justify-items: flex-start;
+    width: 200pt;
+}
+
+.border {
+    background-color:#FF385C;
+    border-radius: 20px;
+    color: aliceblue !important;
+    font-size: 23pt;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.a1 {
+    text-decoration: none;
+    color: aliceblue !important;
+}

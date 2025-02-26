@@ -1,0 +1,28 @@
+body{
+    background-color: #EEEEEE;
+}
+.botao-criar{
+    text-align: center;
+}
+.btn{
+    background-color: #FF385C;
+    border: 1px solid white;
+    color: white;
+}
+.checkbox-groups{
+    display: flex;
+    gap: 80px;
+}
+.logo{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+.logo>img{
+    width: 35%;
+}
+.termosUso{
+    text-decoration: none;
+    color: #FF385C;
+}

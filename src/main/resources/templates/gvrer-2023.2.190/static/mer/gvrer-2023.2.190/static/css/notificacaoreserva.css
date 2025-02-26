@@ -1,0 +1,10 @@
+
+.toast:not(.show) {
+    display: block;
+}
+.me-auto{
+    color:  #FF385C;;
+}
+.sino{
+    padding-right: 8px;
+}

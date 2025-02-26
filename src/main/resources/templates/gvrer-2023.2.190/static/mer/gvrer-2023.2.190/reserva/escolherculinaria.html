@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escolher Culinária</title>
+  <link rel="stylesheet" href="../static/css/bootstrap/bootstrap5.3.3.min.css">
+  <link rel="stylesheet" href="../static/css/header.css">
+  <link rel="stylesheet" href="../static/css/footer.css">
+  <link rel="stylesheet" href="../static/css/escolherculinaria.css">
+
+</head>
+
+<body>
+  <header>
+
+    <nav class="navbar navbar-expand-lg headerBgColor">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="../home/home.html">Gvrer</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">Sobre</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                          aria-expanded="false">
+
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                              style="fill: rgba(0, 0, 0, 1);transform: msFilter;">
+                              <path
+                                  d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z">
+                              </path>
+                          </svg>
+                          <i>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                  class="bi bi-list" viewBox="0 0 16 16">
+                                  <path fill-rule="evenodd"
+                                      d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                              </svg>
+                          </i>
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li class="nav-item">
+                              <a class="nav-link" href="../usuario/login.html">Entrar</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="../usuario/usuario.html">Cadastrar-se</a>
+                          </li>
+
+                          <li>
+                              <hr class="dropdown-divider">
+                          </li>
+                          <li><a class="dropdown-item" href="../pessoa/selecaoconta.html">Cadastrar Empresa</a>
+                          </li>
+                          <li><a class="dropdown-item" href="../pessoa/restaurante.html">Cadastrar Restaurante</a>
+                          </li>
+
+                      </ul>
+                  </li>
+
+              </ul>
+
+          </div>
+      </div>
+  </nav>
+  </header>
+  <main>
+    <div class="container row">
+
+      <div class="col-12 row">
+        <h1 class="tc"><b>Tipos de Culinárias</b></h1>
+      </div>
+
+      <div class="col-12 row">
+        <div class="col-md-4">
+          <div class="card mb-3">
+            <div class="row g-0 mb-0">
+              <div class="col-md-4">
+                <img src="../static/img/brasileira844.jpg" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8 mb-1">
+                <div class="card-body mb-0 p-2">
+                  <p class="card-title"><b>culinária brasileira</b></p>
+
+                  <!-- Button trigger modal -->
+                  <p class="text-bg-light pointer" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+
+                    <small class="text-body-secondary">
+                      A culinária brasileira é diversa e regional...
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-file-plus" viewBox="0 0 16 16">
+                        <path
+                          d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5z">
+                        </path>
+                        <path
+                          d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1">
+                        </path>
+                      </svg>
+                    </small>
+                  </p>
+                  <!-- Modal -->
+                  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="staticBackdropLabel"><b>culinária brasileira</b></h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label1="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p class="card-text">A culinária brasileira é diversa e regional. No Sudeste, feijoada e pão
+                            de queijo
+                            são destaque. O Sul é famoso pelo churrasco e barreado. No Nordeste, acarajé e moqueca se
+                            destacam. No
+                            Norte, tacacá e pato no tucupi são populares, enquanto o Centro-Oeste tem arroz com pequi e
+                            empadão
+                            goiano. Cada região reflete sabores únicos e influências culturais.</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">X</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="btn" >
+                    <span onclick="ir()" class="badge text-bg-danger pointer">Escolher >>></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="col-md-4">
+          <div class="card mb-3">
+            <div class="row g-0 mb-0">
+              <div class="col-md-4">
+                <img src="../static/img/mexican-tacos-with-beef-tomato-sauce-salsa-960x540.jpg"
+                  class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8 mb-1">
+                <div class="card-body mb-0 p-2">
+                  <p class="card-title"><b>culinária Mexicana</b></p>
+
+                  <!-- Button trigger modal -->
+                  <p class="text-bg-light pointer" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+
+                    <small class="text-body-secondary">
+                      A culinária mexicana é rica e vibrante...
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-file-plus" viewBox="0 0 16 16">
+                        <path
+                          d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5z">
+                        </path>
+                        <path
+                          d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1">
+                        </path>
+                      </svg>
+                    </small>
+                  </p>
+
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5"id="staticBackdropLabel">culinária mexicana</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label1="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p class="card-text">A culinária mexicana é rica e vibrante, marcada por sabores intensos e
+                            ingredientes
+                            como milho, pimentas e abacate. Destaques incluem tacos, guacamole, enchiladas e tamales.
+                            Pratos
+                            tradicionais como pozole e chiles en nogada também são populares. Nos doces, churros e
+                            cajeta se
+                            destacam. Bebidas típicas incluem aguas frescas, tequila e mezcal.</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">X</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="btn" >
+                    <span onclick="ir()" class="badge text-bg-danger pointer">Escolher >></span>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-4">
+          <div class="card mb-3">
+            <div class="row g-0 mb-0">
+              <div class="col-md-4">
+                <img src="../static/img/culinaria-japonesa.jpg" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8 mb-1">
+                <div class="card-body mb-0 p-2">
+                  <p class="card-title"><b>culinária japonesa</b></p>
+
+                  <!-- Button trigger modal -->
+                  <p class="text-bg-light pointer" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+
+                    <small class="text-body-secondary">
+                      A culinária japonesa é leve e refinada...
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-file-plus" viewBox="0 0 16 16">
+                        <path
+                          d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5z">
+                        </path>
+                        <path
+                          d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1">
+                        </path>
+                      </svg>
+                    </small>
+                  </p>
+
+
+
+                  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="staticBackdropLabel">culinária japonesa</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label1="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p class="card-text">A culinária japonesa é leve e refinada, com destaque para arroz, peixes e
+                            vegetais.
+                            Pratos icônicos incluem sushi, sashimi, tempura, ramen e miso soup. Doces como mochi e
+                            dorayaki são
+                            populares, além do chá matcha e o sake. A apresentação e o frescor dos ingredientes são
+                            características
+                            marcantes.</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">X</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="btn" >
+                    <span onclick="ir()" class="badge text-bg-danger pointer">Escolher >></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-3">
+            <div class="row g-0 mb-0">
+              <div class="col-md-4">
+                <img src="../static/img/culinaria-francesa.jpg" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8 mb-1">
+                <div class="card-body mb-0 p-2">
+                  <p class="card-title"><b>culinária francesa</b></p>
+
+                  <!-- Button trigger modal -->
+                  <p class="text-bg-light pointer" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+
+                    <small class="text-body-secondary">
+                      A culinária francesa é sofisticada e influente...
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-file-plus" viewBox="0 0 16 16">
+                        <path
+                          d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5z">
+                        </path>
+                        <path
+                          d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1">
+                        </path>
+                      </svg>
+                    </small>
+                  </p>
+
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="staticBackdropLabel">culinária francesa</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label1="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p class="card-text">A culinária francesa é sofisticada e influente, com pratos icônicos como
+                            coq au
+                            vin,
+                            ratatouille, quiche lorraine e boeuf bourguignon. Entre as sobremesas, destacam-se crêpes,
+                            macarons e
+                            éclairs. Os vinhos e champagnes são mundialmente famosos, refletindo a riqueza gastronômica
+                            do país.</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">X</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="btn" >
+                    <span onclick="ir()" class="badge text-bg-danger pointer">Escolher >></span>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-3">
+            <div class="row g-0 mb-0">
+              <div class="col-md-4">
+                <img src="../static/img/culina_arabe.png" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8 mb-1">
+                <div class="card-body mb-0 p-2">
+                  <p class="card-title"><b>culinária arabe</b></p>
+
+                  <!-- Button trigger modal -->
+                  <p class="text-bg-light pointer" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+
+                    <small class="text-body-secondary">
+                      A culinária árabe é rica em sabores, com pratos como kibe...
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-file-plus" viewBox="0 0 16 16">
+                        <path
+                          d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5z">
+                        </path>
+                        <path
+                          d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1">
+                        </path>
+                      </svg>
+                    </small>
+                  </p>
+
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="staticBackdropLabel ">culinária arabe</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label1="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p class="card-text">A culinária árabe é rica em sabores, com pratos como kibe, esfiha,
+                            tabule, homus e
+                            falafel. Doces tradicionais incluem baklava e mamoul. Bebidas populares são o chá de hortelã
+                            e o café
+                            árabe, marcados por aromas intensos.</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">X</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="btn" >
+                    <span onclick="ir()" class="badge text-bg-danger pointer">Escolher >></span>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-3">
+            <div class="row g-0 mb-0">
+              <div class="col-md-4">
+                <img src="../static/img/culinaria-italiana.jpg.optimal.jpg" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8 mb-1">
+                <div class="card-body mb-0 p-2">
+                  <p class="card-title"><b>culinária italiana</b></p>
+
+                  <!-- Button trigger modal -->
+                  <p class="text-bg-light pointer" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+
+                    <small class="text-body-secondary">
+                      A culinária italiana é famosa pela pizza e massas...
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-file-plus" viewBox="0 0 16 16">
+                        <path
+                          d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5z">
+                        </path>
+                        <path
+                          d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1">
+                        </path>
+                      </svg>
+                    </small>
+                  </p>
+
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="staticBackdropLabel">culinária italiana</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label1="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p class="card-text">A culinária italiana é famosa pela pizza, massas (como spaghetti e
+                            lasanha),
+                            risotos
+                            e polenta. Nos doces, destacam-se tiramisù, cannoli e gelato. Vinhos renomados e o
+                            tradicional
+                            espresso
+                            são símbolos da gastronomia italiana.</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">X</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="btn" >
+                    <span onclick="ir()" class="badge text-bg-danger pointer">Escolher >></span>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    <div class="text-center footerBgColor p-3">
+      <p class="p"> &copy; Gvrer | By Italo</p>
+  </div>
+  </footer>
+
+  <script src="../static/js/bootstrap/bootstrap5.3.3.bundle.min.js"></script>
+  <script src="../static/js/redirecionarParaOutraPagina.js"></script>
+  <a href=></a>
+  <script>
+    function ir() {
+      onClickAbaAtual("../reserva/listaderestaurante.html");
+    }
+  </script>
+
+
+
+</body>
+
+</html>

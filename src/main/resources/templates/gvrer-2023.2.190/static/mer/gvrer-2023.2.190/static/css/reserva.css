@@ -1,0 +1,59 @@
+.botaoPad {
+    padding: 35pt;
+}
+
+.borda {
+    border-color: black !important;
+    border-width: 3px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    color: black !important;
+}
+
+.reservacor{
+    background-color: rgb(224, 82, 5);
+    padding-bottom: 80pt;
+    padding-top: 80pt;
+}
+
+.negrito {
+    font-weight: bold;
+    margin-bottom: 30pt;
+    margin-top: 20pt;
+}
+
+.border {
+    border-radius: 10pt;
+    color: black !important;
+}
+
+.bg-mesa1 {
+    background-color: rgb(255, 98, 0);
+}
+
+.bg-mesa2 {
+    background-color: rgb(154, 0, 77);
+}
+
+.bg-mesa3 {
+    background-color: blueviolet;
+}
+
+.bg-mesa4 {
+    background-color: rgb(72, 7, 133);
+}
+
+.rad {
+    border-radius: 0pt;
+    background-color: rgb(200, 200, 200);
+}
+
+.marg {
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.a {
+    color: #ffffff;
+    text-decoration: none;
+}

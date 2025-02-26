@@ -1,0 +1,35 @@
+.navbar-brand {
+    color: #222222 !important;
+}
+
+.nav-link {
+    color: 222222 !important;
+
+}
+
+.al {
+    display: flex;
+    justify-content: center;
+}
+.tituloCard{
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: -.3px;
+}
+
+.bgColor {
+    background-color: #EEEEEE;
+}
+
+.corDoTitulo {
+    color: #FF385C;
+}
+.btn{
+    background-color: #FF385C;
+    color: #EEEEEE;
+}
+.form-check-input:checked {
+    background-color: #FF385C;
+    border-color: #FF385C;
+  }
+ 

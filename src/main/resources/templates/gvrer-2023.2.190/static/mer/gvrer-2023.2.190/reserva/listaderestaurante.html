@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Restaurante</title>
+    <link rel="stylesheet" href="../static/css/bootstrap/bootstrap5.3.3.min.css">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/listaderestaurante.css">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg headerBgColor">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../home/home.html">Gvrer</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Sobre</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    style="fill: rgba(0, 0, 0, 1);transform: msFilter;">
+                                    <path
+                                        d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z">
+                                    </path>
+                                </svg>
+                                <i>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                        class="bi bi-list" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                                    </svg>
+                                </i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../usuario/login.html">Entrar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../usuario/usuario.html">Cadastrar-se</a>
+                                </li>
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="../pessoa/selecaoconta.html">Cadastrar Empresa</a>
+                                </li>
+                                <li><a class="dropdown-item" href="../pessoa/restaurante.html">Cadastrar Restaurante</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container al ">
+            <nav class="navbar bg-body-tertiary">
+                <div class="container-fluid"> 
+                    <h1><b>Lista de Restaurantes</b></h1>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <span class="pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                class="bi bi-search" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                            </svg>
+                        </span>
+
+                    </form>
+                </div>
+            </nav>
+            <div class="d-flex justify-content-left row">
+
+                <div class="card m-2 p-1" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-4">
+                            <img src="../static/img/2023-09-14.jpg" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h5 class="card-title"> <b> La Vaca Negra - Cortes Argentinos - Parrilla </b></h5>
+                                <h6 class="tc"><b>Restaurante de carne</b><br></h6>
+                                <p class="card-text">
+                                    Endereço: R. Belo Horizonte, 45 - Adrianópolis, Manaus - AM, 69057-060
+                                </p>
+                                <p class="card-text"><small class="text-body-secondary"></small></p>
+                            </div>
+                            <div class="btn" >
+                                <span onclick="ir()" class="badge text-bg-danger pointer">Ver Detalhe >></span>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card m-2 p-1" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-4">
+                            <img src="../static/img/terra.jpg" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h5 class="card-title"> <b> Terra & Mar </b></h5>
+                                <h6 class="tc"><b>Restaurante português</b><br></h6>
+                                <p class="card-text">
+                                    Endereço: Av. Mário Ypiranga, 1039 - Adrianópolis, Manaus - AM, 69057-00
+                                </p>
+                                <p class="card-text"><small class="text-body-secondary"></small></p>
+                            </div>
+                            <div class="btn" >
+                                <span onclick="ir()" class="badge text-bg-danger pointer">Ver Detalhe >></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card m-2 p-1" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-4">
+                            <img src="../static/img/italiano.jpg" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h5 class="card-title"> <b> Trattoria da Margô </b></h5>
+                                <h6 class="tc"><b>Restaurante italiano</b><br></h6>
+                                <p class="card-text">
+                                    Endereço: R. Prof. João Ricardo Lima, 1 - Parque Dez de Novembro, Manaus - AM, 69054-391
+                                </p>
+                                <p class="card-text"><small class="text-body-secondary"></small></p>
+                            </div>
+                            <div class="btn" >
+                                <span onclick="ir()" class="badge text-bg-danger pointer">Ver Detalhe >></span>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card m-2 p-1" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-4">
+                            <img src="../static/img/dede4-08-23.jpg" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h5 class="card-title"> <b> Cachaçaria do Dedé </b></h5>
+                                <h6 class="tc"><b>Restaurante brasileiro</b><br></h6>
+                                <p class="card-text">
+                                    Endereço: R. do Comercio, 1003-F - Box 4 - Parque 10 de Novembro, Manaus - AM, 69055-000
+                                </p>
+                                <p class="card-text"><small class="text-body-secondary"></small></p>
+                            </div>
+                            <div class="btn" >
+                                <span onclick="ir()" class="badge text-bg-danger pointer">Ver Detalhe >></span>
+                            </div>
+            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div class="text-center footerBgColor p-3">
+            <p class="p"> &copy; Gvrer | By Italo </p>
+        </div>
+    </footer>
+
+    <script src="../static/js/bootstrap/bootstrap5.3.3.bundle.min.js"></script>
+    <script src="../static/js/redirecionarParaOutraPagina.js"></script>
+    <script>
+        function ir() {
+          onClickAbaAtual("../reserva/detalhedorestaurante.html");
+        }
+      </script>
+</body>
+
+</html>

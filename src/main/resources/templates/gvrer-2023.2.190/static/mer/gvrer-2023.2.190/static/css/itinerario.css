@@ -1,0 +1,25 @@
+.form {
+    --bd-example-padding: 1.5rem;
+    margin: 15px !important;
+    border-width: 1px;
+    border-radius: var(--bs-border-radius);
+    border: solid #d8d8d8;
+}
+
+.btn-primary {
+    background-color: #FF385C;
+    border-style: none;
+    border-color: #222222;
+}
+
+.btnSalvar:hover {
+    color: #FF385C;
+    background-color: #eeeeee;
+    font-weight: bold;
+    border-style: solid;
+    border-color: #222222;
+}
+
+.row {
+    margin: 0 0px 0 0px;
+}

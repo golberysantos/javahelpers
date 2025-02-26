@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta Corporativa Pt.I</title>
+    <link rel="stylesheet" href="../static/css/dados_da_empresa/empresadados1.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Vamos criar sua conta corporativa!</h2>
+        <p>Preencha os campos:</p>
+        <p class="obrigatorio">Campos com (*) são obrigatórios</p>
+
+        <form id="signup-form">
+            <div class="input-group">
+                <label for="name">Nome completo do responsável*:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="input-group">
+                <label for="birthdate">Data de nascimento*:</label>
+                <input type="date" id="data-nascimento" name="data-nascimento" required>
+            </div>
+            <div class="input-group">
+                <label for="genero">Sexo*:</label>
+                <select id="genero" name="genero" required>
+                    <option value="">Selecione</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="outro">Outro</option>
+                </select>
+            </div>
+
+            <button id="button" type="submit">Avançar</button>
+
+        </form>
+
+        <div class="info-do-app">
+            <img src="../static/img/travelservtitle.png" alt="TravelServ Logo">
+            <p class="desenvolvedor">Desenvolvido pela<br> Patrono Tech</p>
+        </div>
+    </div>
+    <script src="../static/js/redirecionarParaOutraPagina.js"></script>
+    <script> abrirNaAbaAtual("../pessoa/empresadados2.html");</script>
+</body>
+
+</html>
