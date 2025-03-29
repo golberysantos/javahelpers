@@ -2,6 +2,7 @@ SELECT * FROM gvrer.itinerario;
 SELECT * FROM gvrer.destino;
 SELECT * FROM gvrer.motivodaviagem;
 SELECT * FROM gvrer.itinerario_destino;
+SELECT * FROM gvrer.itinerario_destino;
 
 SELECT 
 	nomeitinerario, 
