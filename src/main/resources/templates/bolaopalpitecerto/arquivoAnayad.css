@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+/* Estilos para o corpo e layout geral */
+body {
+    font-family: Arial, sans-serif;
+    background: rgb(82,34,195);
+    background: linear-gradient(0deg, rgba(82,34,195,1) 0%, rgba(153,45,253,1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+     color: #f7f7f7;
+    font-weight: bold;
+    
+}
+
+header {
+    
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: #f0f0f0;
+}
+
+footer {
+    background-color: rgba(82,34,195,1);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+/* Estilos para o formulário de login */
+.login-container {
+    background-color: rgba(160, 61, 253, 0.673);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    
+    max-width: 350px;
+    
+}
+
+.title-login {
+    font-size: 24px;
+    color: #f7f7f7;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+hr{
+    margin: 20px;
+    color: #f7f7f7;
+}
+
+input{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+   
+}
+
+input:focus {
+    border-color: #7203f9;
+    outline: none;
+}
+
+span {
+    font-size: 14px;
+    color: #f7f7f7;
+    text-decoration: underline;
+    cursor: pointer;
+    
+    
+}
+#recuperar{
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+
+span:hover {
+    color: #b199cf;
+}
+
+button {
+    background-color: #fafafa;
+    color: #7c2be0;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #641bbe;
+    color: #fafafa;
+  
+}
+
+button:active {
+    background-color: #7c2be0;
+    transform: translateY(1px);
+}

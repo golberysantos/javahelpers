@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fundo do Corpo */
+body {
+    background: linear-gradient(to bottom, #f2f0ff, #ffffff);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Navegação */
+header nav {
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #7a5ef8;
+}
+
+/* Container principal */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+/* Caixa de login */
+#div1 {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 30px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 350px;
+    text-align: center;
+}
+
+/* Cabeçalho */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* Divisor */
+hr {
+    border: none;
+    height: 1px;
+    background-color: #eee;
+    margin-bottom: 2rem;
+}
+
+/* Rótulos de entrada */
+label {
+    font-size: 1rem;
+    color: #555;
+    display: block;
+    margin-bottom: -0.9rem;
+    text-align: left;
+}
+
+/* Inputs */
+.larguraDoInput {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+/* Recuperar senha */
+span {
+    display: block;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #7a5ef8;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+}
+
+/* Botão de Login */
+button {
+    width: 100%;
+    padding: 0.75rem;
+    background: #7a5ef8;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #644ad5;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #aaa;
+}

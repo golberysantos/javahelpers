@@ -1,0 +1,137 @@
+  main {
+            display: flex;
+            justify-content: center;
+            margin-top: 200px;
+        }
+
+ 
+
+        .larguraDoInput {
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        button {
+            background-color: rgb(161, 245, 240);
+            margin-top: 5px;
+            width: 102%;
+        }
+        .corDaFonte {
+            color: rgb(16, 17, 17);
+        }
+
+
+ #div {
+     border: 10px solid rgb(78, 244, 214);
+     border-radius: 15px;
+     padding: 0px 40px 40px 40px;
+     width: 45%;
+
+ }
+
+
+
+ body, html {
+     height: 100%;
+     margin: 0;
+     font-family: Arial, sans-serif;
+ }
+ main {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100%; 
+     font-size: 23pt;
+ }
+ #div1 {
+     text-align: center;
+     width: 300px; 
+     padding: 20px;
+     border: 2px solid #080808;
+     border-radius: 10px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     background-color: #ffffff; 
+     font-family: 'Courier New', Courier, monospace;
+ }
+ .larguraDoInput {
+     width: 100%;
+     padding: 10px;
+     margin: 10px 0;
+     border: 2px solid #89faf2;
+     border-radius: 5px;
+     box-sizing: border-box;
+ }
+ .larguraDoInput:focus {
+     border-color: #e83b3b;
+     outline: none;
+ }
+
+ /* From Uiverse.io by Ali-Tahmazi99 */ 
+/* From uiverse.io by @Ali-Tahmazi99 */
+
+
+button {
+ display: inline-block;
+ width: 150px;
+ height: 50px;
+ border-radius: 10px;
+ border: 1px solid #03045e;
+ position: relative;
+ overflow: hidden;
+ transition: all 0.5s ease-in;
+ z-index: 1;
+}
+
+button::before,
+button::after {
+ content: '';
+ position: absolute;
+ top: 0;
+ width: 0;
+ height: 100%;
+ transform: skew(15deg);
+ transition: all 0.5s;
+ overflow: hidden;
+ z-index: -1;
+}
+
+button::before {
+ left: -10px;
+ background: #67118c;
+}
+
+button::after {
+ right: -10px;
+ background: #5c0994;
+}
+
+button:hover::before,
+button:hover::after {
+ width: 58%;
+}
+
+button:hover b {
+ color: #e0aaff;
+ transition: 0.3s;
+}
+
+button b {
+ color: #52b4e6;
+ font-size: 18px;
+ transition: all 0.3s ease-in;
+}
+
+
+/* From Uiverse.io by garerim */ 
+input {
+  margin: 30px;
+  background: none;
+  border: none;
+  outline: none;
+  max-width: 190px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 9999px;
+  box-shadow: inset 2px 5px 10px rgb(227, 50, 50);
+  color: #fff;
+}
