@@ -11,10 +11,16 @@
         <button     onclick="exibirNome()"      type="button">
             Exibir nome
         </button>
+        <button     onclick="limparNome()"      type="button">
+            Limpar
+        </button>
     </div>
     <script>
         function exibirNome() {
             document.getElementById("demo").innerHTML = "Hello Golbery"            
+        }
+        function limparNome() {
+            document.getElementById("demo").innerHTML = ""            
         }
     </script>
 </body>

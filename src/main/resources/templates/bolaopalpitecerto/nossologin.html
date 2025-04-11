@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="iconmiro.png" sizes="192x192">
     <title>Palpite Certo</title>
     <link rel="stylesheet" href="loginlucas.css">
-    
+
 
 </head>
 
@@ -20,13 +20,30 @@
             </a>
         </nav>
     </header>
+    <br>
+
     <main>
-<!--
+
+
+        <!--
         <video class="video-background" autoplay muted loop>
             <source src="fundo-video.mp4" type="video/mp4">
           </video>
         -->
-        <div id="div1" >
+        <div>
+            <h1 id="demo"></h1>
+            <span id="eu"></span>
+            <span id="es"></span>
+            <div>
+                <button onclick="exibirNome()" type="button">
+                    Exibir nome
+                </button>
+                <button onclick="limparNome()" type="button">
+                    Limpar
+                </button>
+            </div>
+        </div>
+        <div id="div1">
             <div>
                 <h1>Login</h1>
             </div>
@@ -38,12 +55,7 @@
                     Nome de Usuário
                 </label>
                 <br>
-                <input 
-                    type="text" 
-                    name="usuario" 
-                    id="usuario"
-                    class="larguraDoInput"
-                >
+                <input type="text" name="usuario" id="usuario" class="larguraDoInput">
             </div>
 
             <!-- Inpute de Senha-->
@@ -52,10 +64,7 @@
                     Senha
                 </label>
                 <br>
-                <input 
-                    type="password" name="senha" id="senha"
-                    class="larguraDoInput"
-                    >
+                <input placeholder="Informe a senha..." type="password" name="senha" id="senha" class="larguraDoInput">
             </div>
 
             <div>
@@ -65,20 +74,46 @@
             </div>
 
             <div>
-                <button type="button">
+                <button onclick="validar()" type="button">
                     <b class="corDaFonte">
-                        Login
+                        Entrar
                     </b>
                 </button>
             </div>
-
         </div>
-
     </main>
+
     <footer>
         &copy; By Wesley
     </footer>
 
+    <script>
+        function exibirNome() {
+            document.getElementById("demo").innerHTML = "Hello Golbery"
+        }
+        function limparNome() {
+            document.getElementById("demo").innerHTML = ""
+        }
+
+        function pegarNomeDoUsuario() {
+            var usuario;
+            usuario = document.getElementById("usuario").value;
+            document.getElementById("eu").innerHTML = usuario;
+        }
+
+        function pegarSenhaDoUsuario() {
+            var senha;
+            senha = document.getElementById("senha").value;
+            document.getElementById("es").innerHTML = senha;
+        }
+
+        function validar() {
+            pegarNomeDoUsuario();
+            pegarSenhaDoUsuario();
+        }
+
+
+    </script>
 </body>
 
 </html>
