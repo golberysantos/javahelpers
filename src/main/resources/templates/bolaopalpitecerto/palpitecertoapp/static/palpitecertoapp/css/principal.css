@@ -1,0 +1,6 @@
+.btn-dark:hover {
+    background-color: #343a40 !important; /* tom mais escuro ou diferente */
+    color: #738C4D !important; /* amarelo Bootstrap para destaque */
+    transform: scale(1.03);
+    transition: all 0.3s ease;
+}
