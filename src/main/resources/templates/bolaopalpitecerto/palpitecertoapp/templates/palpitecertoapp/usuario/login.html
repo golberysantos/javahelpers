@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palpite Certo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #D9D9D9; /* nova cor de fundo */
+      color: #0D0D0D; /* nova cor de texto */
+    }
+
+    header {
+      background-color: #738C4D; /* cor do cabeçalho */
+      padding: 15px;
+      color: white;
+      text-align: center;
+    }
+
+    nav a {
+      color: #ffffff; /* nova cor para os links */
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 8px;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 60px;
+    }
+
+    h1 {
+      color: #738C4D; /* cor do título */
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .form-group {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #A67A44; /* nova cor para os rótulos */
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 6px;
+      border: 1px solid #A6A6A6; /* nova cor para a borda dos campos */
+    }
+
+    .recuperar {
+      margin: 10px 0 20px;
+      color: #738C4D; /* cor do link de recuperação de senha */
+      text-decoration: underline;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    button {
+      background-color: #738C4D; /* cor do botão */
+      color: white;
+      padding: 8px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #A67A44; /* cor do botão no hover */
+    }
+
+    footer {
+      background-color: #738C4D; /* cor do rodapé */
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      Home &bull;
+      <a href="historicodebolao.html" title="Acesse o Histórico de Bolão" aria-label="Ir para o histórico de bolão">
+        Histórico
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Login</h1>
+
+    <form>
+      <!-- Input de Usuário -->
+      <div class="form-group">
+        <label for="usuario">Nome de Usuário</label>
+        <input type="text" name="usuario" id="usuario" placeholder="Digite seu nome de usuário">
+      </div>
+
+      <!-- Input de Senha -->
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+      </div>
+
+      <!-- Link para Recuperação de Senha -->
+      <div class="recuperar">Recuperar a senha</div>
+
+      <!-- Link para Cadastrar usuario -->
+      <div class="recuperar">Cadastrar usuario</div>
+
+      <!-- Botão de Login -->
+      <button type="button">Login</button>
+    </form>
+  </main>
+
+  <footer>
+    &copy; By Alexandre
+  </footer>
+</body>
+</html>

@@ -1,0 +1,88 @@
+:root {
+    --cor-clara: #d9d9d9;
+    --verde-oliva: #738c4d;
+    --marrom-claro: #a67a44;
+    --preto: #0d0d0d;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor-clara);
+  }
+
+  nav {
+    background-color: var(--preto);
+    color: var(--cor-clara);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  .brand {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--cor-clara);
+  }
+
+  .brand span {
+    color: var(--verde-oliva);
+  }
+
+  .menu-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--verde-oliva);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .dropdown-box {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 1.3rem;
+    background-color: var(--preto);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    z-index: 100;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .dropdown-box a {
+    color: var(--cor-clara);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .dropdown-box a:hover {
+    color: var(--marrom-claro);
+  }
+
+  .dropdown-box.show {
+    display: flex;
+    animation: fadeIn 0.2s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

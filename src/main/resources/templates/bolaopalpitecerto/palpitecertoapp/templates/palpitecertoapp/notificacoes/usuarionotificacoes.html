@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Envio de Notificações - Mega-Sena</title>
+  <link rel="stylesheet" href="usuario.css"> <!-- Seu CSS -->
+</head>
+<body>
+  <div class="form-container">
+    <h2>Notificar Participantes do Bolão</h2>
+    <form>
+      <div class="form-group">
+        <label for="titulo">Título da Notificação</label>
+        <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Ex: Resultado do sorteio" required>
+      </div>
+      <div class="form-group">
+        <label for="mensagem">Mensagem</label>
+        <textarea class="form-control" id="mensagem" name="mensagem" rows="5" placeholder="Digite a mensagem aqui..." required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="destinatarios">Destinatários</label>
+        <input type="email" class="form-control" id="destinatarios" name="destinatarios" placeholder="Ex: email@exemplo.com" multiple required>
+      </div>
+      <button type="submit" class="btn-custom">Enviar Notificação</button>
+    </form>
+  </div>
+</body>
+</html>

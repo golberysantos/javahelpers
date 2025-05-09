@@ -1,0 +1,37 @@
+<header>
+    <nav>
+      <!-- Nome da Empresa -->
+      <div class="brand">Palpite <span>Certo</span></div>
+
+      <!-- Botão de Perfil -->
+      <div>
+        <button class="menu-button" onclick="toggleDropdown()">
+          <i class="bi bi-person-circle"></i>
+        </button>
+
+        <!-- Menu flutuante -->
+        <div id="dropdownBox" class="dropdown-box">
+          <a href="#">Home</a>
+          <a href="#">Login</a>
+          <a href="#">Sobre</a>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+
+  <script>
+    // Função para alternar a visibilidade do menu
+    function toggleDropdown() {
+      document.getElementById('dropdownBox').classList.toggle('show');
+    }
+
+    // Fecha o menu ao clicar fora do botão ou do menu
+    window.addEventListener('click', function (e) {
+      const box = document.getElementById('dropdownBox');
+      const button = document.querySelector('.menu-button');
+      if (!box.contains(e.target) && !button.contains(e.target)) {
+        box.classList.remove('show'); // Fecha o menu
+      }
+    });
+  </script> 
