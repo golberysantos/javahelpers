@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../static/palpitecertoapp/css/bootstrap/bootstrap5.0.2.min.css">
+  <link rel="stylesheet" href="../../../static/palpitecertoapp/css/principal.css">
+  <link rel="stylesheet" href="../../../static/palpitecertoapp/css/usuario.css">
+  <title>Palpite Certo</title>
+
+</head>
+
+<body>
+  <header></header>
+
+  <main>
+
+    <div class="container py-5">
+      <div class="form-container">
+        <h3 class="form-title">Cadastro de Usuário</h3>
+        <form>
+          <!-- Campo E-mail -->
+          <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" required>
+          </div>
+
+          <!-- Campo Senha -->
+          <div class="mb-3">
+            <label for="senha" class="form-label">Senha</label>
+            <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" required>
+          </div>
+
+          <!-- Campo Confirmar Senha -->
+          <div class="mb-3">
+            <label for="confirmarSenha" class="form-label">Confirmar Senha</label>
+            <input type="password" class="form-control" id="confirmarSenha" placeholder="Confirme sua senha" required>
+          </div>
+
+          <!-- Checkbox de Termos -->
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="termos" required>
+            <label class="form-check-label terms-checkbox" for="termos">Li e estou de acordo com os termos</label>
+          </div>
+
+          <!-- Botão de Cadastro -->
+          <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+
+  </main>
+
+  <footer></footer>
+  <script src="../../../static/palpitecertoapp/js/bootstrap/poppercore2.9.2.min.js"></script>
+  <script src="../../../static/palpitecertoapp/js/bootstrap/bootstrap5.0.2.min.js"></script>
+</body>
+
+</html>

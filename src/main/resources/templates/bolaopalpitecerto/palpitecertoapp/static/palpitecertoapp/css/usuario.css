@@ -1,0 +1,30 @@
+
+
+body {
+  background-color: #D9D9D9;
+  font-family: Arial, sans-serif;
+}
+.form-container {
+  max-width: 450px;
+  margin: 80px auto;
+  background-color: #A6A6A6;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(13, 13, 13, 0.3);
+  color: #0D0D0D;
+}
+.form-control:focus {
+  border-color: #738C4D;
+  box-shadow: 0 0 0 0.25rem rgba(115, 140, 77, 0.25);
+}
+.btn-custom {
+  background-color: #738C4D;
+  color: #fff;
+  border: none;
+}
+.btn-custom:hover {
+  background-color: #5c6f3b;
+}
+label {
+  font-weight: bold;
+}
