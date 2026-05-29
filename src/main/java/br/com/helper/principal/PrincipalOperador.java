@@ -7,7 +7,7 @@ public class PrincipalOperador {
 	public static void main(String[] args) {
 	System.out.println("OPERADORES");
 	OperadorIncremento oi = new OperadorIncremento();
-	
+	oi.incremento();
 	System.exit(0);
 
 	}
