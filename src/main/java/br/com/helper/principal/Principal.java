@@ -21,11 +21,13 @@ public class Principal {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
+		/*
 		CalculadoraController c = new CalculadoraController();
 		c.iniciar();
-		/*
 		System.exit(0);
+		*/
 		
+		/*
 		ConsultaChatGPTCtrl ccgptctrl = new ConsultaChatGPTCtrl();
 		ccgptctrl.consultar();
 
