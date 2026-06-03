@@ -1,15 +1,15 @@
 package br.com.helper.principal;
 
-import br.com.helper.oop.concorrencia.ConcorrenciaThread;
-import br.com.helper.oop.inheritance.TesteDowncast;
+import br.com.helper.oop.concorrencia.OpcoesConcorrenciaThread;
 
 public class PrincipalJavaOOP {
 
 	public static void main(String[] args) {
-		TesteDowncast t = new TesteDowncast();
-		t.show();
+		//TesteDowncast td = new TesteDowncast();
+		//td.show();
 		
-		ConcorrenciaThread t = new ConcorrenciaThread();
+		OpcoesConcorrenciaThread oct = new OpcoesConcorrenciaThread();
+		oct.show();
 
 	}
 

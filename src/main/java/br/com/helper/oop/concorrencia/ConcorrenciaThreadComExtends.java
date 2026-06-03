@@ -1,6 +1,6 @@
 package br.com.helper.oop.concorrencia;
 
-public class Exemplo01MyThreadComExtends extends Thread {
+public class ConcorrenciaThreadComExtends extends Thread {
 	@Override
     public void run() {
 		
