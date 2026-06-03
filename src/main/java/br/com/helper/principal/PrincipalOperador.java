@@ -15,7 +15,7 @@ public class PrincipalOperador {
 	System.out.println("1. TESTE COM OPERADOR DE INCREMENTO");
 	
 	Scanner ler = new Scanner(System.in);
-	
+	int key = ler.nextInt();
 	switch (key) {
 	case 1: {
 
