@@ -1,5 +1,6 @@
 package br.com.helper.principal;
 
+import br.com.helper.oop.concorrencia.ConcorrenciaThread;
 import br.com.helper.oop.inheritance.TesteDowncast;
 
 public class PrincipalJavaOOP {
@@ -7,6 +8,8 @@ public class PrincipalJavaOOP {
 	public static void main(String[] args) {
 		TesteDowncast t = new TesteDowncast();
 		t.show();
+		
+		ConcorrenciaThread t = new ConcorrenciaThread();
 
 	}
 
