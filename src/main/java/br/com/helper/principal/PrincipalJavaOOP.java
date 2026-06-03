@@ -7,7 +7,7 @@ public class PrincipalJavaOOP {
 	public static void main(String[] args) {
 		//TesteDowncast td = new TesteDowncast();
 		//td.show();
-		
+		System.out.println("Olha aÍ o args: " + args[1]);
 		OpcoesConcorrenciaThread oct = new OpcoesConcorrenciaThread();
 		oct.show();
 
