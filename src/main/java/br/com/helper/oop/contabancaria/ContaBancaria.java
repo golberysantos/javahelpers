@@ -1,4 +1,4 @@
-package br.com.helper.oop.encapsulation;
+package br.com.helper.oop.contabancaria;
 
 public class ContaBancaria {
 
