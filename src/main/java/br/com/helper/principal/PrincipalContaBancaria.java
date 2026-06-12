@@ -1,13 +1,11 @@
 package br.com.helper.principal;
 
-import java.util.Scanner;
-
-import br.com.helper.oop.contabancaria.ContaBancaria;
+import br.com.helper.oop.conatabancaria.view.MenuContaBancaria;
 
 public class PrincipalContaBancaria {
 	public static void main(String[] args) {
-		System.out.println("Aluno: Golbery Santos");
-
+		MenuContaBancaria mcb = new MenuContaBancaria();
+		mcb.exibir();
 		System.exit(0);;
 	}
 }
