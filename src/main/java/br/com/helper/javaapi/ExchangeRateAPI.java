@@ -8,13 +8,13 @@ public class ExchangeRateAPI {
 
 	private String baseCode;
 
+	public ExchangeRateAPI() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public ExchangeRateAPI(String baseCode, String yourAPIKey) {
 		this.baseCode = baseCode;
 		this.yourAPIKey = yourAPIKey;
-	}
-
-	public ExchangeRateAPI() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public String rate() throws IOException, InterruptedException {

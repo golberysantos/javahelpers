@@ -34,40 +34,14 @@ public class Titulo implements Comparable<Titulo> {
 		this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0, 2));
 	}
 
-	public String getNome() {
-		return nome;
+	public void avalia(double nota) {
+		somaDasAvaliacoes += nota;
+		totalDeAvaliacoes++;
 	}
 
-	public int getAnoDeLancamento() {
-		return anoDeLancamento;
-	}
-
-	public boolean isIncluidoNoPlano() {
-		return incluidoNoPlano;
-	}
-
-	public int getDuracaoEmMinutos() {
-		return duracaoEmMinutos;
-	}
-
-	public int getTotalDeAvaliacoes() {
-		return totalDeAvaliacoes;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public void setAnoDeLancamento(int anoDeLancamento) {
-		this.anoDeLancamento = anoDeLancamento;
-	}
-
-	public void setIncluidoNoPlano(boolean incluidoNoPlano) {
-		this.incluidoNoPlano = incluidoNoPlano;
-	}
-
-	public void setDuracaoEmMinutos(int duracaoEmMinutos) {
-		this.duracaoEmMinutos = duracaoEmMinutos;
+	@Override
+	public int compareTo(Titulo outroTitulo) {
+		return this.getNome().compareTo(outroTitulo.getNome());
 	}
 
 	public void exibeFichaTecnica() {
@@ -75,18 +49,44 @@ public class Titulo implements Comparable<Titulo> {
 		System.out.println("Ano de lançamento: " + anoDeLancamento);
 	}
 
-	public void avalia(double nota) {
-		somaDasAvaliacoes += nota;
-		totalDeAvaliacoes++;
+	public int getAnoDeLancamento() {
+		return anoDeLancamento;
+	}
+
+	public int getDuracaoEmMinutos() {
+		return duracaoEmMinutos;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public int getTotalDeAvaliacoes() {
+		return totalDeAvaliacoes;
+	}
+
+	public boolean isIncluidoNoPlano() {
+		return incluidoNoPlano;
 	}
 
 	public double pegaMedia() {
 		return somaDasAvaliacoes / totalDeAvaliacoes;
 	}
 
-	@Override
-	public int compareTo(Titulo outroTitulo) {
-		return this.getNome().compareTo(outroTitulo.getNome());
+	public void setAnoDeLancamento(int anoDeLancamento) {
+		this.anoDeLancamento = anoDeLancamento;
+	}
+
+	public void setDuracaoEmMinutos(int duracaoEmMinutos) {
+		this.duracaoEmMinutos = duracaoEmMinutos;
+	}
+
+	public void setIncluidoNoPlano(boolean incluidoNoPlano) {
+		this.incluidoNoPlano = incluidoNoPlano;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	@Override

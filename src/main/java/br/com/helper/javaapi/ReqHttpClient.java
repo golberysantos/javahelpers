@@ -10,17 +10,17 @@ public class ReqHttpClient {
 	private String url;
 	private String json;
 
-	public String getJson() throws IOException, InterruptedException {
-		json = requisitar();
-		return json;
-	}
-
 	public ReqHttpClient() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public ReqHttpClient(String url) {
 		this.url = url;
+	}
+
+	public String getJson() throws IOException, InterruptedException {
+		json = requisitar();
+		return json;
 	}
 
 	private String requisitar() throws IOException, InterruptedException {

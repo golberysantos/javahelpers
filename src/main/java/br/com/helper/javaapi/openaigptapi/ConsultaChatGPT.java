@@ -1,8 +1,5 @@
 package br.com.helper.javaapi.openaigptapi;
 
-import com.theokanning.openai.completion.CompletionRequest;
-import com.theokanning.openai.service.OpenAiService;
-
 import br.com.helper.env.SecretKey;
 
 /**

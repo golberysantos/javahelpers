@@ -8,7 +8,7 @@ public class ServicoTransferencia {
 			System.out.println("Transação bloqueada pelo validador.");
 		}
 	}
-	
+
 	public void transferir(double valor, CalculadoraTarifa estrategia) {
         double tarifa = estrategia.calcular(valor);
         System.out.println("Valor: R$ " + valor);

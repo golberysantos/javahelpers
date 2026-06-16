@@ -3,8 +3,6 @@ package br.com.helper.oop.conatabancaria.view;
 import java.math.BigDecimal;
 import java.util.Scanner;
 
-import org.aspectj.weaver.ast.Instanceof;
-
 import br.com.helper.oop.contabancaria.ContaBancaria;
 
 public class MenuContaBancaria {
@@ -23,9 +21,9 @@ public class MenuContaBancaria {
 		System.out.println("║ 4 -                                                          ║");
 		System.out.println("║ 5 -                                                          ║");
 		try (Scanner scanner = new Scanner(System.in)) {
-			
+
 			BigDecimal saldoInicial = new BigDecimal("1000");
-			
+
 
 			ContaBancaria conta = new ContaBancaria(saldoInicial);
 
@@ -36,7 +34,7 @@ public class MenuContaBancaria {
 					break;
 				}
 
-				
+
 				switch (linha) {
 				case "1" -> conta.depositar(scanner.nextBigDecimal());
 				case "2" -> conta.sacar(scanner.nextBigDecimal());

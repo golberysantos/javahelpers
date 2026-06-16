@@ -13,52 +13,52 @@ public class Usuario {
 
 	}
 
-	public int getUsuarioid() {
-		return usuarioid;
-	}
-
-	public void setUsuarioid(int usuarioid) {
-		this.usuarioid = usuarioid;
+	public String getAvatar() {
+		return avatar;
 	}
 
 	public String getNick() {
 		return nick;
 	}
 
-	public void setNick(String nick) {
-		this.nick = nick;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public int getPessoa_id() {
+		return pessoa_id;
 	}
 
 	public String getRi() {
 		return ri;
 	}
 
-	public void setRi(String ri) {
-		this.ri = ri;
+	public String getSenha() {
+		return senha;
 	}
 
-	public int getPessoa_id() {
-		return pessoa_id;
+	public int getUsuarioid() {
+		return usuarioid;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+
+	public void setNick(String nick) {
+		this.nick = nick;
 	}
 
 	public void setPessoa_id(int pessoa_id) {
 		this.pessoa_id = pessoa_id;
 	}
 
-	public String getAvatar() {
-		return avatar;
+	public void setRi(String ri) {
+		this.ri = ri;
 	}
 
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public void setUsuarioid(int usuarioid) {
+		this.usuarioid = usuarioid;
 	}
 
 }

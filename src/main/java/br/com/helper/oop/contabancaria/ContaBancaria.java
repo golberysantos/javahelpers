@@ -16,13 +16,13 @@ public class ContaBancaria {
 		}
 	}
 
+	public double getSaldo() {
+		return saldo;
+	}
+
 	public void sacar(BigDecimal valor) {
 		if (valor.doubleValue() > 0 && valor.doubleValue() <= saldo) {
 			saldo -= valor.doubleValue();
 		}
-	}
-
-	public double getSaldo() {
-		return saldo;
 	}
 }

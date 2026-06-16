@@ -8,38 +8,6 @@ public class Episodio implements Classificavel {
 	private Serie serie;
 	private int totalVisualizacoes;
 
-	public int getTotalVisualizacoes() {
-		return totalVisualizacoes;
-	}
-
-	public void setTotalVisualizacoes(int totalVisualizacoes) {
-		this.totalVisualizacoes = totalVisualizacoes;
-	}
-
-	public int getNumero() {
-		return numero;
-	}
-
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public Serie getSerie() {
-		return serie;
-	}
-
-	public void setSerie(Serie serie) {
-		this.serie = serie;
-	}
-
 	@Override
 	public int getClassificacao() {
 		if (totalVisualizacoes > 100) {
@@ -47,5 +15,37 @@ public class Episodio implements Classificavel {
 		} else {
 			return 2;
 		}
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public Serie getSerie() {
+		return serie;
+	}
+
+	public int getTotalVisualizacoes() {
+		return totalVisualizacoes;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public void setSerie(Serie serie) {
+		this.serie = serie;
+	}
+
+	public void setTotalVisualizacoes(int totalVisualizacoes) {
+		this.totalVisualizacoes = totalVisualizacoes;
 	}
 }

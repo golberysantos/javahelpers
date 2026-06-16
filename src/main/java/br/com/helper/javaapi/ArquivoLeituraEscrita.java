@@ -15,6 +15,27 @@ public class ArquivoLeituraEscrita {
 	 * Exemplo path: "C:\\Users\\user\\meuArquivo.txt"
 	 *
 	 * @param path
+	 * @param texto
+	 */
+	public void criarComFileWriter(String path, String texto) {
+		File file = new File(path);
+		FileWriter writer;
+		try {
+			writer = new FileWriter(file);
+			writer.write(texto);
+			writer.write("dsfafdsa");
+			writer.close();
+			System.out.println("Arquivo criado com sucesso!");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * Exemplo path: "C:\\Users\\user\\meuArquivo.txt"
+	 *
+	 * @param path
 	 * @throws IOException
 	 */
 	public void lerComFileReader(String path) throws IOException {
@@ -31,27 +52,6 @@ public class ArquivoLeituraEscrita {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-	}
-
-	/**
-	 * Exemplo path: "C:\\Users\\user\\meuArquivo.txt"
-	 *
-	 * @param path
-	 * @param texto
-	 */
-	public void criarComFileWriter(String path, String texto) {
-		File file = new File(path);
-		FileWriter writer;
-		try {
-			writer = new FileWriter(file);
-			writer.write(texto);
-			writer.write("dsfafdsa");
-			writer.close();
-			System.out.println("Arquivo criado com sucesso!");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
 	}
 
 }

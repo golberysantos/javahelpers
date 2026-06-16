@@ -15,7 +15,7 @@ public class ExemploRegraExcecao {
 		int[] numeros = { 1, 2, 3 };
 		System.out.println("Acessando posição inexistente: " + numeros[10]);
 
-		
+
 		System.out.println("\n==================================================");
 		System.out.println("2. CHECKED EXCEPTION (Checada)");
 		System.out.println("==================================================");
@@ -25,7 +25,7 @@ public class ExemploRegraExcecao {
 		// ou declarar o 'throws' no método.
 
 		/*
-		 * Se você descomentar a linha abaixo, o código NÃO COMPILARÁ: 
+		 * Se você descomentar a linha abaixo, o código NÃO COMPILARÁ:
 		 */
 		//FileReader leitor = new FileReader("arquivo_inexistente.txt");
 

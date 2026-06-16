@@ -6,6 +6,6 @@ public class PrincipalContaBancaria {
 	public static void main(String[] args) {
 		MenuContaBancaria mcb = new MenuContaBancaria();
 		mcb.exibir();
-		System.exit(0);;
+		System.exit(0);
 	}
 }

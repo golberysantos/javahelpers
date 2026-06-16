@@ -11,9 +11,9 @@ public class PrincipalOperador {
 	public static void main(String[] args) {
 	System.out.println("OPERADORES");
 	OperadorIncremento oi = new OperadorIncremento();
-	
+
 	System.out.println("1. TESTE COM OPERADOR DE INCREMENTO");
-	
+
 	Scanner ler = new Scanner(System.in);
 	int key = ler.nextInt();
 	switch (key) {
@@ -25,7 +25,7 @@ public class PrincipalOperador {
 	default:
 		throw new IllegalArgumentException("Unexpected value: " + key);
 	}
-	
+
 	System.exit(0);
 
 	}

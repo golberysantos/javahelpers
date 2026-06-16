@@ -13,10 +13,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 
 public class TelaCalculadora extends Calculadora implements ActionListener {
 	private JFrame frame;
-	private JTextField txtNum1;	
+	private JTextField txtNum1;
 	private JTextField txtNum2;
 	private JPanel panel;
 	private JLabel lblNewLabel;
@@ -28,12 +29,12 @@ public class TelaCalculadora extends Calculadora implements ActionListener {
 		frame = new JFrame();
 		txtNum1 = new JTextField();
 		txtNum1.setHorizontalAlignment(SwingConstants.CENTER);
-		txtNum2 = new JTextField();		
+		txtNum2 = new JTextField();
 		panel = new JPanel();
 		lblNewLabel = new JLabel("CALCULADORA GOLBERY");
 
 		frame.setBounds(100, 100, 502, 502);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Courier New", Font.BOLD, 24));
@@ -66,19 +67,19 @@ public class TelaCalculadora extends Calculadora implements ActionListener {
 
 		JLabel lblNewLabel_2 = new JLabel("Entre com o segundo número");
 		lblNewLabel_2.setFont(new Font("Courier New", Font.BOLD, 24));
-		
+
 		JButton btnSoma = new JButton("+");
 		btnSoma.setFont(new Font("Arial Black", Font.BOLD, 32));
-		
+
 		JButton btnSubtracao = new JButton("-");
 		btnSubtracao.setFont(new Font("Arial Black", Font.BOLD, 32));
-		
+
 		JButton btnMult = new JButton("x");
 		btnMult.setFont(new Font("Arial Black", Font.BOLD, 32));
-		
+
 		JButton btnDiv = new JButton("/");
 		btnDiv.setFont(new Font("Arial Black", Font.BOLD, 32));
-		
+
 		JLabel lblNewLabel_3 = new JLabel("Resultado:  ");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 32));
 		GroupLayout gl_panel = new GroupLayout(panel);
@@ -132,13 +133,22 @@ public class TelaCalculadora extends Calculadora implements ActionListener {
 		);
 		panel.setLayout(gl_panel);
 		frame.getContentPane().setLayout(groupLayout);
-		
-		// Manipular o clique 		
+
+		// Manipular o clique
 		btnSoma.addActionListener(this);
 		btnSubtracao.addActionListener(this);
-		
+
 		frame.setVisible(true);
-		
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String operador = e.getActionCommand();
+		System.out.println("num1: "+getNum1()+" "+operador+" num2: "+getNum2());
+		calcular();
+
+
 	}
 
 	public float getNum1() {
@@ -149,14 +159,5 @@ public class TelaCalculadora extends Calculadora implements ActionListener {
 	public float getNum2() {
 		num2 = Float.parseFloat(txtNum2.getText());
 		return num2;
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		String operador = e.getActionCommand();
-		System.out.println("num1: "+getNum1()+" "+operador+" num2: "+getNum2());
-		calcular();
-	
-		
 	}
 }

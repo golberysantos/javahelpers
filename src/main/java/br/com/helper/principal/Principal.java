@@ -1,21 +1,6 @@
 package br.com.helper.principal;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
-
-import br.com.helper.calculadora.Calculadora;
-import br.com.helper.calculadora.CalculadoraController;
-import br.com.helper.desktop.TelaDesktop;
-import br.com.helper.env.ConexaoGibenDB;
-import br.com.helper.javaapi.BuscarEnderecoViaCep;
-import br.com.helper.javaapi.ExchangeRateAPITela;
-import br.com.helper.javaapi.modelos.Episodio;
-import br.com.helper.javaapi.modelos.Filme;
-import br.com.helper.javaapi.modelos.Serie;
-import br.com.helper.javaapi.openaigptapi.ConsultaChatGPTCtrl;
-import br.com.javaapi.calculos.CalculadoraDeTempo;
-import br.com.javaapi.calculos.FiltroRecomendacao;
 
 public class Principal {
 
@@ -26,7 +11,7 @@ public class Principal {
 		c.iniciar();
 		System.exit(0);
 		*/
-		
+
 		/*
 		ConsultaChatGPTCtrl ccgptctrl = new ConsultaChatGPTCtrl();
 		ccgptctrl.consultar();
@@ -143,5 +128,5 @@ public class Principal {
 		*/
 
 	}
-	
+
 }

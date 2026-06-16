@@ -2,9 +2,9 @@ package br.com.helper.oop.contabancaria;
 
 public class ServicoTransferenciaController {
 	public void servicotransferenca() {
-		
+
 		ServicoTransferencia servico = new ServicoTransferencia();
-		
+
 		// Usando classes concretas
 		servico.transferir(1000.0, new TarifaPix());
 		servico.transferir(1000.0, new TarifaTed());

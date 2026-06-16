@@ -24,10 +24,6 @@ public class MyGson {
 	private String json;
 	private Object obj = null;
 
-	public void serializar() {
-
-	}
-
 	/**
 	 * Transforma json em um objeto java. Retorna um objeto java.
 	 *
@@ -50,6 +46,10 @@ public class MyGson {
 
 		System.out.println("Resposta desserializada " + obj);
 		return obj;
+
+	}
+
+	public void serializar() {
 
 	}
 
