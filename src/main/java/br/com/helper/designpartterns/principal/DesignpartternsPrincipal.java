@@ -1,9 +1,13 @@
 package br.com.helper.designpartterns.principal;
 
+import br.com.helper.designpartterns.singleton.SingletonEager;
+
 public class DesignpartternsPrincipal {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		SingletonEager se = SingletonEager.getInstancia();
+		
 
 	}
 
