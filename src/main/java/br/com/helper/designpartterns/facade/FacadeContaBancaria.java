@@ -1,5 +1,8 @@
 package br.com.helper.designpartterns.facade;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

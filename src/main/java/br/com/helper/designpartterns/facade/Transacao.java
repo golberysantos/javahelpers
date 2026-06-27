@@ -1,5 +1,8 @@
 package br.com.helper.designpartterns.facade;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 public class Transacao {
     private final LocalDateTime data;
     private final String tipo;
