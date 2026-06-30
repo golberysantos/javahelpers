@@ -13,7 +13,7 @@ public class ClienteBancario {
      FacadeContaBancaria facade = new FacadeContaBancaria(validador, saldoService, historicoService);
      
      try {
-         // Cliente usa a interface simplificada
+         // Cliente  usa a interface simplificada
          ExtratoBancario extrato = facade.obterExtratoCompleto("12345-6", 30);
          System.out.println(extrato);
      } catch (ContaInvalidaException e) {
