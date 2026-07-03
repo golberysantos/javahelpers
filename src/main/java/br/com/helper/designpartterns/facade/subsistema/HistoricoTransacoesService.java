@@ -1,4 +1,4 @@
-package br.com.helper.designpartterns.facade;
+package br.com.helper.designpartterns.facade.subsistema;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

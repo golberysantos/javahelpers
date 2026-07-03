@@ -6,6 +6,9 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import br.com.helper.designpartterns.facade.subsistema.ConsultaSaldoService;
+import br.com.helper.designpartterns.facade.subsistema.HistoricoTransacoesService;
+import br.com.helper.designpartterns.facade.subsistema.Transacao;
 import br.com.helper.designpartterns.facade.subsistema.ValidacaoContaService;
 
 //===== FACADE =====

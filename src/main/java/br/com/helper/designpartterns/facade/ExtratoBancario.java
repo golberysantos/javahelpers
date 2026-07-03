@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.helper.designpartterns.facade.subsistema.Transacao;
+
 public class ExtratoBancario {
     private final String numeroConta;
     private final BigDecimal saldoAtual;
