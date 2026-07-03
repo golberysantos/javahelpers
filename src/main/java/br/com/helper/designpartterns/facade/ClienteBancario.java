@@ -1,5 +1,7 @@
 package br.com.helper.designpartterns.facade;
 
+import br.com.helper.designpartterns.facade.subsistema.ValidacaoContaService;
+
 //===== CLIENTE =====
 
 public class ClienteBancario {

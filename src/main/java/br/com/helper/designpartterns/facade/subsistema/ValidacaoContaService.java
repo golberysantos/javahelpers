@@ -1,4 +1,4 @@
-package br.com.helper.designpartterns.facade;
+package br.com.helper.designpartterns.facade.subsistema;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
