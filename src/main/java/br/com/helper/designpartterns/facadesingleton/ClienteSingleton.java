@@ -1,5 +1,8 @@
 package br.com.helper.designpartterns.facadesingleton;
 
+import br.com.helper.designpartterns.facadeclassica.ContaInvalidaException;
+import br.com.helper.designpartterns.facadeclassica.ExtratoBancario;
+
 //===== CLIENTE =====
 
 public class ClienteSingleton {
