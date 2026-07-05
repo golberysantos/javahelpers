@@ -1,8 +1,8 @@
-package br.com.helper.designpartterns.facade;
+package br.com.helper.designpartterns.facadeclassica;
 
-import br.com.helper.designpartterns.facade.subsistema.ConsultaSaldoService;
-import br.com.helper.designpartterns.facade.subsistema.HistoricoTransacoesService;
-import br.com.helper.designpartterns.facade.subsistema.ValidacaoContaService;
+import br.com.helper.designpartterns.facadeclassica.subsistema.ConsultaSaldoService;
+import br.com.helper.designpartterns.facadeclassica.subsistema.HistoricoTransacoesService;
+import br.com.helper.designpartterns.facadeclassica.subsistema.ValidacaoContaService;
 
 //===== CLIENTE =====
 

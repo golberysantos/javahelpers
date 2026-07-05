@@ -1,4 +1,4 @@
-package br.com.helper.designpartterns.facade;
+package br.com.helper.designpartterns.facadeclassica;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -6,10 +6,10 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import br.com.helper.designpartterns.facade.subsistema.ConsultaSaldoService;
-import br.com.helper.designpartterns.facade.subsistema.HistoricoTransacoesService;
-import br.com.helper.designpartterns.facade.subsistema.Transacao;
-import br.com.helper.designpartterns.facade.subsistema.ValidacaoContaService;
+import br.com.helper.designpartterns.facadeclassica.subsistema.ConsultaSaldoService;
+import br.com.helper.designpartterns.facadeclassica.subsistema.HistoricoTransacoesService;
+import br.com.helper.designpartterns.facadeclassica.subsistema.Transacao;
+import br.com.helper.designpartterns.facadeclassica.subsistema.ValidacaoContaService;
 
 //===== FACADE =====
 //Interface simplificada para o cliente

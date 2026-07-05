@@ -1,10 +1,10 @@
-package br.com.helper.designpartterns.facade;
+package br.com.helper.designpartterns.facadeclassica;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.helper.designpartterns.facade.subsistema.Transacao;
+import br.com.helper.designpartterns.facadeclassica.subsistema.Transacao;
 
 public class ExtratoBancario {
     private final String numeroConta;
