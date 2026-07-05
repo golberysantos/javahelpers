@@ -13,7 +13,7 @@ import br.com.helper.designpartterns.facadeclassica.subsistema.ConsultaSaldoServ
 import br.com.helper.designpartterns.facadeclassica.subsistema.HistoricoTransacoesService;
 import br.com.helper.designpartterns.facadeclassica.subsistema.ValidacaoContaService;
 
-public abstract class FacadeBancariaPadrao implements FacadeBancaria {
+public class FacadeBancariaPadrao implements FacadeBancaria {
     private static final Logger logger = LoggerFactory.getLogger(FacadeBancariaPadrao.class);
     private final ValidacaoContaService validador;
     private final ConsultaSaldoService saldoService;
