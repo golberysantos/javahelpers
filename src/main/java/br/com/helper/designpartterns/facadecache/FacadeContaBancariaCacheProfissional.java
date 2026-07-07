@@ -8,7 +8,9 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+
 import br.com.helper.designpartterns.facadeclassica.ContaInvalidaException;
 import br.com.helper.designpartterns.facadeclassica.ExtratoBancario;
 import br.com.helper.designpartterns.facadeclassica.TransferenciaException;
@@ -27,7 +29,7 @@ import jakarta.annotation.PreDestroy;
  * <p>Esta implementação utiliza Google Guava para caching e inclui
  * gerenciamento de ciclo de vida, métricas e invalidação seletiva.</p>
  * 
- * @author Seu Nome
+ * @author Golbery Santos
  * @version 2.0
  */
 public class FacadeContaBancariaCacheProfissional implements AutoCloseable {
