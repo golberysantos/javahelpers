@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class ValidaValorMonetario {
 
-	public static void main(String[] args) {		
+	public static void main(String[] args) {
 		double saldo = 0;
-		
+
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Por favor, digite double:");
 		saldo = lerSaldo(scanner);

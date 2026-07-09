@@ -1,23 +1,28 @@
 package br.com.helper.designpartterns.facadefactory;
 
-import br.com.helper.designpartterns.facadeclassica.subsistema.HistoricoTransacoesService;
-import br.com.helper.designpartterns.facadeclassica.subsistema.Transacao;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
+
+import br.com.helper.designpartterns.facadeclassica.subsistema.HistoricoTransacoesService;
+import br.com.helper.designpartterns.facadeclassica.subsistema.Transacao;
 
 /**
  * Serviço de histórico de transações para ambiente de HOMOLOGAÇÃO.
- * 
+ *
  * <p>
  * Este serviço simula um histórico de transações para testes em ambiente de
  * homologação, com dados realísticos e persistência em memória.
  * </p>
- * 
+ *
  * @author Seu Nome
  * @version 1.0
  */
@@ -36,7 +41,7 @@ public class HistoricoTransacoesServiceHomologacao extends HistoricoTransacoesSe
 
 	/**
 	 * Consulta o histórico de transações para uma conta em homologação.
-	 * 
+	 *
 	 * @param numeroConta Número da conta
 	 * @param ultimosDias Quantidade de dias para consultar
 	 * @return Lista de transações do período

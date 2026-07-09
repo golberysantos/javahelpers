@@ -7,7 +7,7 @@ public class Transacao {
     private final LocalDateTime data;
     private final String tipo;
     private final BigDecimal valor;
-    
+
     public Transacao(LocalDateTime data, String tipo, BigDecimal valor) {
         this.data = data;
         this.tipo = tipo;

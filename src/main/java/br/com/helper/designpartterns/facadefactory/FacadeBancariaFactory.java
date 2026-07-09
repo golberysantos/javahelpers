@@ -13,11 +13,11 @@ import br.com.helper.designpartterns.facadeclassica.subsistema.ValidacaoContaSer
 public class FacadeBancariaFactory {
     private static final Logger logger = LoggerFactory.getLogger(FacadeBancariaFactory.class);
     private static final Map<Ambiente, FacadeBancaria> factories = new EnumMap<>(Ambiente.class);
-    
+
     // Configuração carregada de arquivo de propriedades
     private static String ambienteConfig = System.getProperty("app.ambiente", "PRODUCAO");
     private static final Ambiente ambienteAtual = Ambiente.valueOf(ambienteConfig);
-    
+
     static {
         // Pré-inicializar as fachadas para cada ambiente
         factories.put(Ambiente.PRODUCAO, criarFacadeProducao());
@@ -25,7 +25,7 @@ public class FacadeBancariaFactory {
         factories.put(Ambiente.DESENVOLVIMENTO, criarFacadeDesenvolvimento());
         factories.put(Ambiente.TESTE, criarFacadeTeste());
     }
-    
+
     private static FacadeBancaria criarFacadeProducao() {
         logger.info("Criando Facade em PRODUÇÃO");
         // Serviços reais
@@ -34,11 +34,11 @@ public class FacadeBancariaFactory {
         HistoricoTransacoesService historicoService = new HistoricoTransacoesService();
         TransferenciaService transferenciaService = new TransferenciaService();
         ProdutoFinanceiroService produtoService = new ProdutoFinanceiroService();
-        
-        return new FacadeBancariaPadrao(validador, saldoService, historicoService, 
+
+        return new FacadeBancariaPadrao(validador, saldoService, historicoService,
                                        transferenciaService, produtoService);
     }
-    
+
     private static FacadeBancaria criarFacadeHomologacao() {
         logger.info("Criando Facade em HOMOLOGAÇÃO");
         // Serviços reais com configurações específicas de homologação
@@ -48,27 +48,27 @@ public class FacadeBancariaFactory {
         HistoricoTransacoesService historicoService = new HistoricoTransacoesServiceHomologacao();
         TransferenciaService transferenciaService = new TransferenciaServiceHomologacao();
         ProdutoFinanceiroService produtoService = new ProdutoFinanceiroServiceHomologacao();
-        
-        return new FacadeBancariaPadrao(validador, saldoService, historicoService, 
+
+        return new FacadeBancariaPadrao(validador, saldoService, historicoService,
                                        transferenciaService, produtoService);
     }
-    
+
     private static FacadeBancaria criarFacadeDesenvolvimento() {
         logger.info("Criando Facade em DESENVOLVIMENTO");
         // Mocks e serviços simulados
         return new FacadeBancariaMock();
     }
-    
+
     private static FacadeBancaria criarFacadeTeste() {
         logger.info("Criando Facade em TESTE");
         // Configuração específica para testes unitários
         return new FacadeBancariaMock();
     }
-    
+
     public static FacadeBancaria getFacade() {
         return getFacade(ambienteAtual);
     }
-    
+
     public static FacadeBancaria getFacade(Ambiente ambiente) {
         FacadeBancaria facade = factories.get(ambiente);
         if (facade == null) {
@@ -77,7 +77,7 @@ public class FacadeBancariaFactory {
         logger.info("Retornando fachada para ambiente: {}", ambiente);
         return facade;
     }
-    
+
     public enum Ambiente {
         PRODUCAO, HOMOLOGACAO, DESENVOLVIMENTO, TESTE
     }

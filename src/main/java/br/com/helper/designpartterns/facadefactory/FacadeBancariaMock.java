@@ -16,34 +16,34 @@ import br.com.helper.designpartterns.facadeclassica.subsistema.Transacao;
 
 public class FacadeBancariaMock implements FacadeBancaria {
     private static final Logger logger = LoggerFactory.getLogger(FacadeBancariaMock.class);
-    
+
     @Override
-    public ExtratoBancario obterExtratoCompleto(String numeroConta, int ultimosDias) 
+    public ExtratoBancario obterExtratoCompleto(String numeroConta, int ultimosDias)
             throws ContaInvalidaException {
         logger.info("MOCK - Obtendo extrato para: {}", numeroConta);
-        
+
         if (!numeroConta.startsWith("12345")) {
             throw new ContaInvalidaException("Conta inválida no mock");
         }
-        
+
         List<Transacao> transacoes = new ArrayList<>();
-        transacoes.add(new Transacao(LocalDateTime.now(), "MOCK-DEPOSITO", 
+        transacoes.add(new Transacao(LocalDateTime.now(), "MOCK-DEPOSITO",
                        new BigDecimal("1000.00")));
-        transacoes.add(new Transacao(LocalDateTime.now().minusDays(1), "MOCK-SAQUE", 
+        transacoes.add(new Transacao(LocalDateTime.now().minusDays(1), "MOCK-SAQUE",
                        new BigDecimal("250.00")));
-        
+
         return new ExtratoBancario(numeroConta, new BigDecimal("750.00"), transacoes);
     }
-    
+
     @Override
-    public boolean realizarTransferencia(String contaOrigem, String contaDestino, 
+    public boolean realizarTransferencia(String contaOrigem, String contaDestino,
                                          BigDecimal valor) throws TransferenciaException {
-        logger.info("MOCK - Transferência de {} para {} no valor {}", 
+        logger.info("MOCK - Transferência de {} para {} no valor {}",
                    contaOrigem, contaDestino, valor);
         // Sempre sucesso nos mocks
         return true;
     }
-    
+
     @Override
     public List<ProdutoFinanceiro> consultarProdutos(String numeroConta) {
         logger.info("MOCK - Produtos para conta: {}", numeroConta);

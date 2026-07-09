@@ -20,7 +20,7 @@ public class FacadeBancariaPadrao implements FacadeBancaria {
     private final HistoricoTransacoesService historicoService;
     private final TransferenciaService transferenciaService;
     private final ProdutoFinanceiroService produtoService;
-    
+
     public FacadeBancariaPadrao(ValidacaoContaService validador,
                                 ConsultaSaldoService saldoService,
                                 HistoricoTransacoesService historicoService,
@@ -32,34 +32,34 @@ public class FacadeBancariaPadrao implements FacadeBancaria {
         this.transferenciaService = transferenciaService;
         this.produtoService = produtoService;
     }
-    
+
     @Override
-    public ExtratoBancario obterExtratoCompleto(String numeroConta, int ultimosDias) 
+    public ExtratoBancario obterExtratoCompleto(String numeroConta, int ultimosDias)
             throws ContaInvalidaException {
         // Implementação similar à Facade Clássica
         // ...
         return null;
     }
-    
+
     @Override
-    public boolean realizarTransferencia(String contaOrigem, String contaDestino, 
+    public boolean realizarTransferencia(String contaOrigem, String contaDestino,
                                          BigDecimal valor) throws TransferenciaException {
-        logger.info("Realizando transferência de {} para {} no valor de {}", 
+        logger.info("Realizando transferência de {} para {} no valor de {}",
                    contaOrigem, contaDestino, valor);
-        
+
         // Validação e processamento da transferência
         if (!validador.validarConta(contaOrigem) || !validador.validarConta(contaDestino)) {
             throw new TransferenciaException("Conta origem ou destino inválida");
         }
-        
+
         BigDecimal saldoOrigem = saldoService.consultarSaldo(contaOrigem);
         if (saldoOrigem.compareTo(valor) < 0) {
             throw new TransferenciaException("Saldo insuficiente para transferência");
         }
-        
+
         return transferenciaService.executarTransferencia(contaOrigem, contaDestino, valor);
     }
-    
+
     @Override
     public List<ProdutoFinanceiro> consultarProdutos(String numeroConta) {
         logger.info("Consultando produtos para conta: {}", numeroConta);

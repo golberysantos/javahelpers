@@ -10,13 +10,13 @@ public class ExtratoBancario {
     private final String numeroConta;
     private final BigDecimal saldoAtual;
     private final List<Transacao> transacoes;
-    
+
     public ExtratoBancario(String numeroConta, BigDecimal saldoAtual, List<Transacao> transacoes) {
         this.numeroConta = numeroConta;
         this.saldoAtual = saldoAtual;
         this.transacoes = new ArrayList<>(transacoes);
     }
-    
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

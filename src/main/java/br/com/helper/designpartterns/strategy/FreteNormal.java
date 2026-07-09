@@ -6,8 +6,9 @@ public enum FreteNormal implements FreteStrategy {
 
 	@Override
 	public double calcular(double peso) {
-		if (peso < 0)
+		if (peso < 0) {
 			throw new IllegalArgumentException("Peso não pode ser negativo.");
+		}
 		return peso * 1.5;
 	}
 }
