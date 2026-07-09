@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.helper.javaapi.openaigptapi.dto.PerguntaDTO;
 import br.com.helper.javaapi.openaigptapi.dto.RespostaDTO;
-import br.com.helper.javaapi.openaigptapi.service.ChatGPTService;
+import br.com.helper.javaapi.openaigptapi.service.MockChatService;
 
 
 @RestController
 @RequestMapping("/chat")
 public class ChatController {
 
-    private final ChatGPTService service;
+    private final MockChatService service;
 
-    public ChatController(ChatGPTService service) {
+    public ChatController(MockChatService service) {
         this.service = service;
     }
 
