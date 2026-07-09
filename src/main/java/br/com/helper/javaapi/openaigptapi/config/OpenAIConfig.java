@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import com.openai.client.OpenAIClient;
 import com.openai.client.okhttp.OpenAIOkHttpClient;
 
-@Configuration
+//@Configuration
 public class OpenAIConfig {
 
 	@Value("${openai.api.key}")
