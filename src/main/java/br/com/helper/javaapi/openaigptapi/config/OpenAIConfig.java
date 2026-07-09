@@ -10,13 +10,11 @@ import com.openai.client.okhttp.OpenAIOkHttpClient;
 @Configuration
 public class OpenAIConfig {
 
-    @Value("${openai.api.key}")
-    private String apiKey;
+	@Value("${openai.api.key}")
+	private String apiKey;
 
-    @Bean
-    public OpenAIClient openAIClient() {
-        return OpenAIOkHttpClient.builder()
-                .apiKey(apiKey)
-                .build();
-    }
+	@Bean
+	public OpenAIClient openAIClient() {
+		return OpenAIOkHttpClient.builder().apiKey(apiKey).build();
+	}
 }
