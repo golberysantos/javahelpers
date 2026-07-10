@@ -1,0 +1,13 @@
+{
+  "polimorfismo": "Polimorfismo é a capacidade de um objeto assumir diferentes comportamentos através da herança e interfaces.",
+
+  "herança": "Herança permite reutilizar atributos e métodos de outra classe.",
+
+  "encapsulamento": "Encapsulamento protege os atributos utilizando getters, setters e modificadores de acesso.",
+
+  "interface": "Uma interface define um contrato que deve ser implementado pelas classes.",
+
+  "spring boot": "Spring Boot simplifica o desenvolvimento de aplicações Java oferecendo configuração automática.",
+
+  "java": "Java é uma linguagem orientada a objetos, portátil e amplamente utilizada no desenvolvimento corporativo."
+}
