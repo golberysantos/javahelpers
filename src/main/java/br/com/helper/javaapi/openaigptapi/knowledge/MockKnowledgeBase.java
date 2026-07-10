@@ -1,56 +1,59 @@
 package br.com.helper.javaapi.openaigptapi.knowledge;
 
-import java.util.HashMap;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
 
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import jakarta.annotation.PostConstruct;
 
 @Component
 public class MockKnowledgeBase {
 
-	private final Map<String, String> conhecimento = new HashMap<>();
+    private Map<String, String> conhecimento;
 
-	public MockKnowledgeBase() {
+    @PostConstruct
+    public void carregarConhecimento() {
 
-		conhecimento.put("polimorfismo", """
-				Polimorfismo é a capacidade de um objeto assumir
-				diferentes comportamentos.
+        ObjectMapper mapper = new ObjectMapper();
 
-				Exemplo:
+        try (InputStream input =
+                     new ClassPathResource(
+                             "knowledge/knowledge-base.json")
+                             .getInputStream()) {
 
-				Animal animal = new Cachorro();
+            conhecimento = mapper.readValue(
+                    input,
+                    new TypeReference<Map<String, String>>() {
+                    });
 
-				animal.emitirSom();
-				""");
+        } catch (IOException e) {
 
-		conhecimento.put("herança", """
-				Herança permite reutilização de código entre classes.
-				""");
+            throw new RuntimeException(
+                    "Erro ao carregar knowledge-base.json",
+                    e);
 
-		conhecimento.put("encapsulamento", """
-				Encapsulamento protege os atributos utilizando
-				modificadores de acesso e métodos getters/setters.
-				""");
+        }
 
-		conhecimento.put("interface", """
-				Uma interface define um contrato que as classes
-				devem implementar.
-				""");
+    }
 
-		conhecimento.put("spring boot", """
-				Spring Boot facilita a criação de aplicações Java,
-				oferecendo configuração automática e servidor embarcado.
-				""");
+    public String buscarResposta(String pergunta) {
 
-	}
+        String texto = pergunta.toLowerCase();
 
-	public String buscarResposta(String pergunta) {
+        return conhecimento.entrySet()
+                .stream()
+                .filter(entry ->
+                        texto.contains(entry.getKey()))
+                .map(Map.Entry::getValue)
+                .findFirst()
+                .orElse(null);
 
-		String texto = pergunta.toLowerCase();
-
-		return conhecimento.entrySet().stream().filter(entry -> texto.contains(entry.getKey())).map(Map.Entry::getValue)
-				.findFirst().orElse(null);
-
-	}
+    }
 
 }
