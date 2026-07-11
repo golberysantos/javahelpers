@@ -58,3 +58,24 @@ Frase que consideramos um norte para toda a nossa jornada:
 "O código mostra o que o sistema faz. A arquitetura explica por que ele foi construído dessa maneira. A documentação garante que esse conhecimento continue existindo mesmo quando os autores seguirem novos caminhos."
 
 
+E agora vem uma proposta que considero especial
+
+Gostaria que, no final de cada Sprint, fizéssemos uma pequena cerimônia de encerramento.
+
+Algo como:
+
+Sprint Review
+O que foi entregue?
+O que aprendemos?
+O que melhorou na arquitetura?
+O que pode ser simplificado?
+Existe algum débito técnico?
+Precisamos criar uma ADR?
+Precisamos atualizar o Glossário?
+
+Isso cria um hábito de reflexão contínua, algo que faz muita diferença em projetos de longo prazo.
+
+
+E, como Tech Lead do JavaHelper AI, deixo registrada nossa primeira diretriz de processo:
+
+"Não seguimos metodologias por tradição. Adotamos práticas porque elas ajudam a construir um software melhor."
