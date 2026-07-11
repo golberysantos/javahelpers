@@ -3,6 +3,7 @@ package br.com.javahelperai.service;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+import br.com.javahelperai.exception.OpenAIException;
 import br.com.javahelperai.knowledge.MockKnowledgeBase;
 
 @Service

@@ -2,6 +2,8 @@ package br.com.javahelperai.service;
 
 import org.springframework.stereotype.Service;
 
+import br.com.javahelperai.exception.OpenAIException;
+
 @Service
 public class OpenAIChatService implements ChatService {
 
