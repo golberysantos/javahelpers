@@ -1,8 +1,6 @@
-package br.com.helper.javaapi.openaigptapi.service;
+package br.com.javahelperai.service;
 
 import org.springframework.stereotype.Service;
-
-import br.com.helper.javaapi.openaigptapi.exception.OpenAIException;
 
 @Service
 public class OpenAIChatService implements ChatService {

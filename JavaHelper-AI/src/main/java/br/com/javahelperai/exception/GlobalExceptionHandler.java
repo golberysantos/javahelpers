@@ -1,4 +1,4 @@
-package br.com.helper.javaapi.openaigptapi.exception;
+package br.com.javahelperai.exception;
 
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;

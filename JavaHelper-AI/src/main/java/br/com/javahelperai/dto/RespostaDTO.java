@@ -1,4 +1,4 @@
-package br.com.helper.javaapi.openaigptapi.dto;
+package br.com.javahelperai.dto;
 
 public class RespostaDTO {
 

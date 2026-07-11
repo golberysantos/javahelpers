@@ -1,7 +1,7 @@
-package br.com.helper.javaapi.openaigptapi.service;
+package br.com.javahelperai.service;
 
 public interface ChatService {
 
-    String perguntar(String pergunta);
+	String perguntar(String pergunta);
 
 }

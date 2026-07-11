@@ -1,4 +1,4 @@
-package br.com.helper.javaapi.openaigptapi.util;
+package br.com.javahelperai.util;
 
 public class PromptBuilder {
 

@@ -1,4 +1,4 @@
-package br.com.helper.javaapi.openaigptapi.exception;
+package br.com.javahelperai.exception;
 
 public class OpenAIException extends RuntimeException {
 
