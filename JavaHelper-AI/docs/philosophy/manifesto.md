@@ -42,3 +42,19 @@ Toda decisão deve responder:
 5. O projeto deve ensinar.
 
 Cada classe deve ser capaz de ensinar alguma boa prática.
+
+6. Toda decisão importante deve ser explicável.
+Não basta ela ser boa.
+Ela precisa ser compreendida.
+Esse princípio conversa diretamente com o que você escreveu anteriormente: "Quero conseguir abrir qualquer classe e explicar..."
+Na minha visão, isso resume o que buscamos: um projeto em que código, arquitetura e documentação contam a mesma história.
+
+
+
+Frase que consideramos um norte para toda a nossa jornada:
+
+"Código é um meio. Arquitetura é a forma como garantimos que esse código continue útil, compreensível e evolutivo ao longo do tempo."
+
+"O código mostra o que o sistema faz. A arquitetura explica por que ele foi construído dessa maneira. A documentação garante que esse conhecimento continue existindo mesmo quando os autores seguirem novos caminhos."
+
+
