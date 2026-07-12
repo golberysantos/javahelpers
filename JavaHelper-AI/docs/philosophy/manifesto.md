@@ -79,3 +79,13 @@ Isso cria um hábito de reflexão contínua, algo que faz muita diferença em pr
 E, como Tech Lead do JavaHelper AI, deixo registrada nossa primeira diretriz de processo:
 
 "Não seguimos metodologias por tradição. Adotamos práticas porque elas ajudam a construir um software melhor."
+
+
+
+Nossa filosofia para testes
+
+Gostaria que o JavaHelper AI seguisse uma filosofia simples.
+
+Não escrevemos testes porque o framework permite. Escrevemos testes porque queremos confiança para evoluir o software.
+
+Essa frase vai orientar todas as decisões que tomarmos sobre qualidade.
