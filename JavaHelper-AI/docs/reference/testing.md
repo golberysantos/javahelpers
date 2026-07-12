@@ -32,3 +32,23 @@ Meta inicial:
 
 Meta futura:
 90%
+
+
+Uma pequena convenção
+Gostaria de definir um padrão para os testes.
+
+src
+
+test
+
+java
+
+br.com.javahelperai
+
+service
+
+MockChatServiceTest.java
+
+controller
+
+ChatControllerTest.java
