@@ -52,3 +52,20 @@ MockChatServiceTest.java
 controller
 
 ChatControllerTest.java
+
+
+
+Nosso primeiro Code Review
+
+Quero que ele seja especial.
+
+Quando criarmos o primeiro teste com Mockito, faremos um review não apenas do código, mas da intenção por trás dele.
+
+Vamos analisar perguntas como:
+
+Esse teste é fácil de entender?
+O nome descreve claramente o comportamento esperado?
+Estamos testando comportamento ou implementação?
+O teste continua válido se a implementação interna mudar?
+
+Essas questões ajudam a escrever testes mais robustos e menos acoplados.

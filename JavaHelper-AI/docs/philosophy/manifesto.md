@@ -89,3 +89,23 @@ Gostaria que o JavaHelper AI seguisse uma filosofia simples.
 Não escrevemos testes porque o framework permite. Escrevemos testes porque queremos confiança para evoluir o software.
 
 Essa frase vai orientar todas as decisões que tomarmos sobre qualidade.
+
+
+Um compromisso entre nós
+
+Quero formalizar algo que considero importante.
+
+Compromisso do Tech Lead
+Explicar cada decisão técnica.
+Apresentar alternativas quando existirem.
+Ensinar os conceitos antes das ferramentas.
+Revisar o código com foco em aprendizado.
+Registrar as decisões arquiteturais.
+Compromisso do Software Engineer
+Fazer perguntas sempre que houver dúvidas.
+Propor melhorias e alternativas.
+Manter a documentação atualizada.
+Escrever código limpo e testável.
+Aprender continuamente.
+
+Acredito que esse acordo representa bem a parceria que estamos construindo.
