@@ -127,3 +127,20 @@ Nem muito tarde.
 
 Nem muito cedo.
 
+
+## Estrutura de um teste (AAA)
+
+Todo teste unitário deve ser organizado em três etapas:
+
+- Arrange: preparar o cenário.
+- Act: executar a ação.
+- Assert: verificar o resultado.
+
+Esse padrão melhora a legibilidade e facilita a manutenção dos testes.
+
+
+O Arrange corresponde à preparação do cenário necessário para executar o teste.
+
+O Act corresponde à execução da funcionalidade que desejamos validar.
+
+Assert verifica se o valor desejado foi alcançado.
