@@ -79,3 +79,51 @@ Teste: ChatServiceTest.java
 Classe: PromptBuilder.java
 Teste: PromptBuilderTest.java
 
+
+
+## FIRST
+
+É um acrônimo muito famoso para testes unitários.
+
+Um bom teste deve ser:
+
+F
+
+Fast
+
+Rápido.
+
+I
+
+Independent
+
+Independente.
+
+Um teste não depende do outro.
+
+R
+
+Repeatable
+
+Repetível.
+
+O resultado deve ser sempre o mesmo.
+
+S
+
+Self-validating
+
+O próprio teste informa se passou ou falhou.
+
+Não precisa alguém interpretar.
+
+T
+
+Timely
+
+Escrito no momento adequado.
+
+Nem muito tarde.
+
+Nem muito cedo.
+
