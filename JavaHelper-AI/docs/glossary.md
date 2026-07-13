@@ -1,2 +1,2 @@
 Unit
-Uma unidade é: A menor parte do sistema cuja responsabilidade pode ser validada de forma isolada. A palavra Isolada explica praticamente toda a existência do Mockito.
+Unit (Unidade) é a menor parte do sistema cuja responsabilidade pode ser validada de forma isolada, independentemente de bancos de dados, APIs externas, sistema de arquivos, rede ou outros componentes da aplicação.
