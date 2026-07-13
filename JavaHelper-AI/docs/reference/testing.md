@@ -69,3 +69,13 @@ Estamos testando comportamento ou implementação?
 O teste continua válido se a implementação interna mudar?
 
 Essas questões ajudam a escrever testes mais robustos e menos acoplados.
+
+
+## Convenção de nomenclatura
+
+Classe: ChatService.java
+Teste: ChatServiceTest.java
+
+Classe: PromptBuilder.java
+Teste: PromptBuilderTest.java
+
