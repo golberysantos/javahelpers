@@ -1,9 +1,12 @@
 # Unit
 Unit (Unidade) é a menor parte do sistema cuja responsabilidade pode ser validada de forma isolada, independentemente de bancos de dados, APIs externas, sistema de arquivos, rede ou outros componentes da aplicação.
 
+Testes unitários devem validar comportamento, não implementação.
 
 # Design Review
-Um Design Review é um ponto de verificação (checkpoint) colaborativo onde designers, desenvolvedores, gerentes de produto e outras partes interessadas (stakeholders) avaliam uma proposta de design. O objetivo principal é identificar falhas precocemente, garantir o alinhamento com as metas do negócio, validar a viabilidade técnica e garantir a melhor experiência para o usuário final.
+Um Design Review é um ponto de verificação (checkpoint) colaborativo onde designers, desenvolvedores, gerentes de produto e outras partes interessadas (stakeholders) avaliam uma proposta de design. 
+
+O objetivo principal é identificar falhas precocemente, garantir o alinhamento com as metas do negócio, validar a viabilidade técnica e garantir a melhor experiência para o usuário final.
 
 O Design Review (ou Revisão de Design) é um marco fundamental no desenvolvimento de produtos — sejam eles físicos, de software, jogos ou até mesmo experiências de usuário (UX).
 
