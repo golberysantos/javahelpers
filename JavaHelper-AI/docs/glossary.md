@@ -55,17 +55,13 @@ O BDD (ou Behavior-Driven Development — Desenvolvimento Guiado por Comportamen
 
 BDD é uma abordagem de desenvolvimento que descreve o comportamento esperado do sistema antes da implementação.
 
-O BDD (ou Behavior-Driven Development — Desenvolvimento Guiado por Comportamento) é uma das metodologias mais consolidadas para unir a visão de negócios com a construção técnica de um software.
-
 ## Estrutura
 
-Dado (Given)
+Para que qualquer pessoa (técnica ou não) consiga ler e escrever os cenários de BDD, utiliza-se uma sintaxe padrão conhecida como Gherkin. Ela é estruturada em três etapas principais:
 
-Quando (When)
-
-Então (Then)
-
-## Exemplo
+- Dado (Given)
+- Quando (When)
+- Então (Then)
 
 Dado que a palavra "Java" existe na base de conhecimento,
 
