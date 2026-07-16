@@ -54,19 +54,14 @@ controller
 ChatControllerTest.java
 
 
-
-Nosso primeiro Code Review
-
-Quero que ele seja especial.
-
+## Code Review
 Quando criarmos o primeiro teste com Mockito, faremos um review não apenas do código, mas da intenção por trás dele.
 
 Vamos analisar perguntas como:
-
-Esse teste é fácil de entender?
-O nome descreve claramente o comportamento esperado?
-Estamos testando comportamento ou implementação?
-O teste continua válido se a implementação interna mudar?
+- Esse teste é fácil de entender?
+- O nome descreve claramente o comportamento esperado?
+- Estamos testando comportamento ou implementação?
+- O teste continua válido se a implementação interna mudar?
 
 Essas questões ajudam a escrever testes mais robustos e menos acoplados.
 
@@ -94,38 +89,16 @@ Fast
 Rápido.
 
 I
-
-Independent
-
-Independente.
-
-Um teste não depende do outro.
+Independent - Independente. Um teste não depende do outro.
 
 R
-
-Repeatable
-
-Repetível.
-
-O resultado deve ser sempre o mesmo.
+Repeatable - Repetível. O resultado deve ser sempre o mesmo.
 
 S
-
-Self-validating
-
-O próprio teste informa se passou ou falhou.
-
-Não precisa alguém interpretar.
+Self-validating. O próprio teste informa se passou ou falhou. Não precisa alguém interpretar.
 
 T
-
-Timely
-
-Escrito no momento adequado.
-
-Nem muito tarde.
-
-Nem muito cedo.
+Timely. Escrito no momento adequado. Nem muito tarde. Nem muito cedo.
 
 
 ## Estrutura de um teste (AAA)
@@ -144,3 +117,18 @@ O Arrange corresponde à preparação do cenário necessário para executar o te
 O Act corresponde à execução da funcionalidade que desejamos validar.
 
 Assert verifica se o valor desejado foi alcançado.
+
+
+
+# Qualidade 
+Um bom teste possui três qualidades:
+
+- Legível
+	Qualquer pessoa entende.
+
+- Confiável
+	Falha apenas quando existe um problema real.
+
+- Independente
+	Pode ser executado sozinho.
+	

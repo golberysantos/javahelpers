@@ -5,7 +5,10 @@ Testes unitários devem validar comportamento, não implementação.
 
 # Padrão AAA
 ## Definição
-O **Padrão AAA** é uma diretriz de design para estruturação de testes automatizados. Ele preconiza que cada caso de teste deve ser dividido visualmente e logicamente em três seções sequenciais e bem definidas: **Arrange** (Organizar), **Act** (Agir) e **Assert** (Garantir).
+O **Padrão AAA** é uma diretriz de design para estruturação de testes automatizados. Ele preconiza que cada caso de teste deve ser dividido visualmente e logicamente em três seções sequenciais e bem definidas: 
+- **Arrange** (Organizar), 
+- **Act** (Agir) e 
+- **Assert** (Garantir).
 
 ## As Três Fases
 1. **Arrange (Organizar/Preparar):** Configuração de todo o cenário necessário para o teste. Criação de dados de teste, inicialização de classes, injeção de *mocks* ou definição de estados iniciais.
