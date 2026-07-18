@@ -1,3 +1,72 @@
+# Boilerplate
+**Boilerplate** (ou *boilerplate code*) é o termo usado na programação para descrever **"código repetitivo"**. São aqueles trechos de código que você é obrigado a escrever em vários lugares do projeto para fazer coisas simples funcionarem, mas que não trazem nenhuma lógica de negócio real.
+
+É o famoso "código padrão" ou "trabalho de datilógrafo" que todo programador precisa copiar e colar ou gerar automaticamente.
+
+---
+
+#### ❌ Com Boilerplate (Java Puro):
+
+Para essa classe funcionar direito em uma API ou banco de dados, você precisa escrever tudo isso:
+
+```java
+public class Usuario {
+    private Long id;
+    private String nome;
+
+    // Construtor Vazio (Boilerplate)
+    public Usuario() {}
+
+    // Construtor Cheio (Boilerplate)
+    public Usuario(Long id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+
+    // Getters e Setters (MUITO Boilerplate)
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
+
+    // Métodos equals, hashCode e toString (Mais boilerplate...)
+}
+
+```
+
+O arquivo fica enorme, cheio de linhas que não dizem o que o sistema *faz*, apenas regras que a linguagem exige.
+
+#### Sem Boilerplate (Com Lombok):
+
+```java
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Usuario {
+    private Long id;
+    private String nome;
+}
+
+```
+
+---
+
+### De onde veio esse nome estranho?
+
+O termo veio da indústria de jornais do século XIX. As chapas de metal que continham anúncios ou textos que se repetiam em várias edições regionais (como colunas sindicais) eram chamadas de *"boilerplate"* (chapas de caldeira, porque eram duras e resistentes). Os jornais compravam essas chapas prontas para não precisarem digitar o mesmo texto letra por letra todos os dias.
+
+A programação herdou o termo para designar esse código "comprado pronto" ou gerado no piloto automático.
+
+### Outros exemplos de boilerplate:
+
+* Configurações iniciais de servidores (HTML básico com as tags `<html>`, `<head>`, `<body>`).
+* Conexões manuais com bancos de dados (abrir conexão, tratar erro, fechar conexão).
+
+**Em resumo:** Boilerplate é a "burocracia" da linguagem de programação. Quanto menos boilerplate seu projeto tiver, mais limpo, legível e fácil de manter ele será!
+
+---
+
 # Unit
 Unit (Unidade) é a menor parte do sistema cuja responsabilidade pode ser validada de forma isolada, independentemente de bancos de dados, APIs externas, sistema de arquivos, rede ou outros componentes da aplicação.
 
