@@ -4,15 +4,15 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import br.com.javahelperai.exception.OpenAIException;
-import br.com.javahelperai.knowledge.MockKnowledgeBase;
+import br.com.javahelperai.knowledge.KnowledgeBase;
 
 @Service
 @Primary
 public class MockChatService implements ChatService {
 
-	private final MockKnowledgeBase knowledgeBase;
+	private final KnowledgeBase knowledgeBase;
 
-	public MockChatService(MockKnowledgeBase knowledgeBase) {
+	public MockChatService(KnowledgeBase knowledgeBase) {
 		this.knowledgeBase = knowledgeBase;
 	}
 

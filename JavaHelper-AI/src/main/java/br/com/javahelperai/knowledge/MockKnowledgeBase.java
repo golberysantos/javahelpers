@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.PostConstruct;
 
 @Component
-public class MockKnowledgeBase {
+public class MockKnowledgeBase implements KnowledgeBase {
 
 	private Map<String, String> conhecimento;
 

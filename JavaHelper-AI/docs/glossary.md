@@ -1,3 +1,63 @@
+
+
+---
+
+# Ports & Adapters
+A arquitetura **Ports & Adapters** (Portas e Adaptadores), também conhecida como **Arquitetura Hexagonal**, foi criada por Alistair Cockburn em 2005. O grande objetivo dela é criar uma separação clara entre a **lógica de negócio** do seu sistema e os **detalhes de tecnologia** externos (como bancos de dados, interfaces web, APIs de terceiros e mensageria).
+
+Em sistemas tradicionais em camadas, a lógica de negócio costuma depender diretamente do banco de dados ou de frameworks específicos. Se você precisar trocar o banco ou expor a mesma lógica para uma API e para um terminal de linhas de comando (CLI), o trabalho costuma ser doloroso. A Arquitetura Hexagonal resolve isso invertendo o controle.
+
+## O Núcleo, as Portas e os Adaptadores
+
+Para entender como funciona, imagine o sistema dividido em três partes principais:
+
+### 1. O Núcleo (Core / Domain)
+
+Fica bem no centro da aplicação. Aqui reside a sua **lógica de negócio pura** — as regras que fazem a sua empresa ou software funcionar. O mais importante sobre o núcleo: **ele não conhece nenhuma tecnologia externa**. Ele não sabe se os dados vêm de um banco MySQL, de um arquivo TXT ou de uma chamada HTTP. Ele é composto por entidades de negócio e casos de uso (use cases).
+
+### 2. As Portas (Ports)
+
+As portas são os "pontos de entrada e saída" do núcleo. No código, elas costumam ser representadas por **Interfaces** (ou classes abstratas). Elas definem o contrato de *como* o mundo externo pode interagir com o núcleo, ou de *como* o núcleo precisa interagir com o mundo externo. Existem dois tipos de portas:
+
+* **Portas de Entrada (Driving / Inbound Ports):** Definem como o mundo externo aciona o sistema. Exemplo: uma interface `CriarPedidoUseCase`.
+* **Portas de Saída (Driven / Outbound Ports):** Definem como o sistema conversa com o exterior para buscar ou salvar dados. Exemplo: uma interface `SalvarPedidoRepository`.
+
+### 3. Os Adaptadores (Adapters)
+
+Os adaptadores são as **implementações práticas das tecnologias**. Eles ficam fora do hexágono e traduzem a comunicação entre o mundo externo e as portas do núcleo.
+
+* **Adaptadores de Entrada (Driving Adapters):** Pegam um estímulo externo (uma requisição HTTP REST, uma mensagem em uma fila do RabbitMQ ou um comando no terminal) e traduzem isso para o formato que a Porta de Entrada do núcleo espera.
+* **Adaptadores de Saída (Driven Adapters):** Implementam as interfaces das Portas de Saída. Por exemplo, uma classe `PedidoMysqlRepository` que implementa a interface `SalvarPedidoRepository` e usa um framework (como Hibernate/JPA no ecossistema Java) para persistir os dados fisicamente.
+
+## Um Exemplo Prático (Conceitual)
+
+Pense em um sistema de processamento de pagamentos.
+
+```
+[Cliente HTTP / API] ➔ (Adaptador: PagamentoController) ➔ [Porta Entrada: ProcessarPagamento]
+                                                                  ⬇
+                                                           [ NÚCLEO DO SISTEMA ]
+                                                                  ⬇
+[Banco MySQL]        ◀ (Adaptador: PagamentoRepository) ◀ [Porta Saída: SalvarPagamento]
+
+```
+
+Se amanhã você decidir trocar o banco MySQL por um banco NoSQL (como o MongoDB), o seu **Núcleo** e a sua **Porta de Saída** não mudam uma única linha de código. Você apenas cria um *novo adaptador* (`PagamentoMongoRepository`) que assina a mesma porta antiga.
+
+
+## Vantagens da Arquitetura Hexagonal
+
+* **Testabilidade Extrema:** Como o núcleo depende apenas de interfaces (portas), você consegue testar toda a sua regra de negócio usando testes de unidade purificados e rápidos, substituindo os adaptadores de banco ou APIs por *mocks* ou *stubs*.
+* **Independência de Frameworks:** Tecnologias como Spring Boot, Quarkus ou Express tornam-se apenas detalhes de infraestrutura na borda do sistema. Se o framework mudar ou for descontinuado, o seu negócio está protegido no centro.
+* **Flexibilidade e Evolução:** Permite adiar decisões tecnológicas difíceis. Você pode começar a desenvolver as regras de negócio salvando os dados em memória e, semanas depois, plugar o adaptador de banco de dados definitivo.
+
+Se quiser, podemos montar um pequeno exemplo de código (em Java ou C#) demonstrando a estrutura exata de pacotes e interfaces de um caso de uso usando essa arquitetura.
+
+
+
+---
+
+
 # Architecture Decision Record (ADR)
 
 Um Architecture Decision Record (ADR) — ou Registro de Decisão de Arquitetura — é um documento curto e conciso criado para registrar uma escolha técnica significativa. Ele captura o problema, o contexto, as alternativas consideradas, a decisão tomada e as consequências dessa escolha. [1, 2] 
