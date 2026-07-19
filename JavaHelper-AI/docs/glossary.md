@@ -1,3 +1,57 @@
+# Architecture Decision Record (ADR)
+
+Um Architecture Decision Record (ADR) — ou Registro de Decisão de Arquitetura — é um documento curto e conciso criado para registrar uma escolha técnica significativa. Ele captura o problema, o contexto, as alternativas consideradas, a decisão tomada e as consequências dessa escolha. [1, 2] 
+O principal objetivo de um ADR é garantir clareza e transparência, mantendo o "porquê" de uma decisão acessível a toda a equipe de engenharia e aos novos integrantes, evitando que conhecimentos importantes se percam com o tempo. [1, 3] 
+Os ADRs são altamente valorizados na arquitetura moderna por seguirem princípios de documentação ágil e de "código vivo". [4] 
+## 📋 Principais características de um ADR
+
+* Leveza: Não é uma documentação extensa. Deve focar no essencial sobre a escolha feita. [5, 6] 
+* Imutabilidade: Uma vez aceito, um ADR não deve ser editado. Se o cenário mudar e a decisão precisar ser revertida, um novo ADR é criado para substituir (superseder) o anterior, mantendo o histórico intacto. [7, 8] 
+* Localização: Geralmente são salvos em formato Markdown (ex: .md) dentro do próprio repositório de código, próximos aos módulos que eles afetam. [9] 
+* Autoria Descentralizada: Qualquer membro da equipe pode propor e redigir um ADR, desde que discuta com os envolvidos e registre o resultado. [2] 
+
+## 🛠 Estrutura padrão de um ADR
+Apesar de não ser um padrão rígido, o formato mais aceito (criado pelo arquiteto Michael Nygard) geralmente inclui as seguintes seções: [2, 10] 
+
+   1. Título: Claro e descritivo (ex: ADR-001: Uso de mensageria RabbitMQ).
+   2. Contexto: O cenário atual, os requisitos, o problema enfrentado e as forças ou restrições que motivaram a decisão.
+   3. Opções/Alternativas: Quais foram as soluções consideradas e seus prós e contras.
+   4. Decisão: A solução escolhida e a justificativa exata do porquê foi selecionada em relação às outras.
+   5. Consequências: Os trade-offs, impactos de curto e longo prazo, e o que a equipe precisa aceitar ao seguir esse caminho.
+   6. Status: O estado atual (ex: Proposto, Aceito, Rejeitado, Obsoleto/Substituído). [5, 7, 8, 11, 12] 
+
+## 💡 Exemplo prático de uso
+Imagine que seu time está discutindo onde salvar as sessões dos usuários. Após avaliar banco de dados em memória, Redis e cookies, a equipe escolhe Redis. Isso é documentado no ADR, que explica que o Contexto pedia alta velocidade com replicação; a opção Descartada foi o cookie por limite de tamanho; e a Consequência foi a necessidade de manter e gerenciar um cluster Redis dedicado. [5, 7] 
+Se no futuro a arquitetura mudar para JWT (dispensando o Redis), um novo ADR será escrito como Substituído, contendo o link para o ADR original.
+## ❓ Por que usar?
+
+* Facilita o onboarding de novos membros, que passam a entender o histórico e o raciocínio por trás do sistema.
+* Evita discussões repetitivas (o famoso "por que não usamos a tecnologia X?"), pois o registro já documenta as alternativas testadas.
+* Evita a perda de conhecimento arquitetural quando membros da equipe deixam o projeto. [1, 2, 12, 13] 
+
+Para explorar a criação e o versionamento desses registros, equipes costumam utilizar ferramentas de linha de comando como o [adr-tools no GitHub](https://github.com/npryce/adr-tools). [14] 
+Você gostaria de escrever o seu primeiro ADR e precisa de ajuda com o template para uma decisão técnica específica? Ou quer entender a diferença entre ADRs e RFCs (Requests for Comments)?
+
+[1] [https://medium.com](https://medium.com/@jhonywalkeer/guia-completo-sobre-architecture-decision-records-adr-defini%C3%A7%C3%A3o-e-melhores-pr%C3%A1ticas-f63e66d33e6)
+[2] [https://incuca.net](https://incuca.net/en/adr-any-decision-record/)
+[3] [https://marcdias.com.br](https://marcdias.com.br/adr-architecture-decision-records/)
+[4] [https://www.youtube.com](https://www.youtube.com/watch?v=2u8GXr8VsmQ)
+[5] [https://pt.linkedin.com](https://pt.linkedin.com/pulse/adr-chave-para-documenta%C3%A7%C3%B5es-%C3%A1geis-e-eficientes-de-bruno-tadeu-russo-ps5hf)
+[6] [https://scrum-master.org](https://scrum-master.org/en/architecture-decision-record-how-and-why-use-adrs/)
+[7] [https://learn.microsoft.com](https://learn.microsoft.com/en-us/azure/well-architected/architect-role/architecture-decision-record)
+[8] [https://learn.microsoft.com](https://learn.microsoft.com/pt-br/azure/well-architected/architect-role/architecture-decision-record)
+[9] [https://docs.cloud.google.com](https://docs.cloud.google.com/architecture/architecture-decision-records)
+[10] [https://www.redhat.com](https://www.redhat.com/pt-br/blog/architecture-decision-records)
+[11] https://adr.github.io
+[12] [https://www.notion.com](https://www.notion.com/pt/templates/architecture-decision-records)
+[13] [https://dev.to](https://dev.to/sertaoseracloud/como-criar-adrs-consistentes-em-arquiteturas-de-microsservicos-2moe)
+[14] [https://medium.com](https://medium.com/@justhamade/architecting-the-future-planning-and-tooling-the-ai-driven-sdlc-334dcd02a4c9)
+
+
+
+---
+
+
 # Boilerplate
 **Boilerplate** (ou *boilerplate code*) é o termo usado na programação para descrever **"código repetitivo"**. São aqueles trechos de código que você é obrigado a escrever em vários lugares do projeto para fazer coisas simples funcionarem, mas que não trazem nenhuma lógica de negócio real.
 
