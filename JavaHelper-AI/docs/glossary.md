@@ -1,5 +1,44 @@
 
 
+# Backward Compatibility (Compatibilidade Retroativa)
+
+Compatibilidade Retroativa (Backward Compatibility) é a capacidade de um sistema, software ou padrão continuar funcionando perfeitamente com versões, dados ou componentes mais antigos.
+
+Em termos simples: o novo entende e aceita o velho.
+
+Se você lança a versão 2.0 de um produto, mas ela ainda consegue abrir arquivos criados na versão 1.0 ou rodar plugins antigos, esse sistema é compatível com versões anteriores.
+
+Exemplo Prático do Dia a Dia
+Arquivos do Word: O Microsoft Word 2024 consegue abrir um documento .doc criado em 1997.
+
+Consoles de Videogame: O PlayStation 5 rodar discos do PlayStation 4.
+
+Entradas USB: Uma porta USB 3.0 no seu computador funcionando normalmente quando você conecta um pendrive antigo USB 2.0.
+
+E na Programação / Desenvolvimento de Software?
+No desenvolvimento, garantir compatibilidade retroativa significa evitar as chamadas Breaking Changes (mudanças que quebram a aplicação).
+
+1. Em APIs REST
+Se você tem uma API na versão 1 (v1):
+
+Compatível: Adicionar um campo novo opcional no JSON de resposta ("status": "ativo"). Os clientes antigos simplesmente ignoram o campo novo e continuam funcionando.
+
+Incompatível (Quebra o sistema): Remover um campo que já existia ou mudar o tipo dele de texto para número ("idade": "25" para "idade": 25). Os clientes antigos que esperavam uma string vão falhar.
+
+2. Em Orientação a Objetos (Métodos e Classes)
+Compatível: Adicionar um novo método a uma classe.
+
+Incompatível: Alterar a assinatura de um método existente (mudar a ordem ou os tipos dos parâmetros) ou deletá-lo.
+
+Por que ela é tão importante?
+Preserva a experiência do usuário: Ninguém gosta de atualizar um app e descobrir que seus arquivos antigos não abrem mais.
+
+Facilita a adoção de atualizações: Se atualizar quebra tudo, os clientes/usuários vão adiar a atualização ao máximo por medo.
+
+Reduz custos de migração: Permite que diferentes partes de um sistema evoluam no seu próprio ritmo.
+
+O Desafio: Manter compatibilidade retroativa eterna gera débito técnico. O código acaba acumulando "gambiarras" e métodos antigos que não podem ser apagados porque alguém, em algum lugar, ainda usa. Por isso, sistemas maduros costumam avisar previamente que um recurso virou deprecated (obsoleto) antes de removê-lo em uma grande versão futura (ex: numa grande versão 3.0).
+
 ---
 
 # Ports & Adapters (Arquitetura Hexagonal)
