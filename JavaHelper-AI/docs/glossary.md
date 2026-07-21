@@ -2,8 +2,8 @@
 
 ---
 
-# Ports & Adapters
-A arquitetura **Ports & Adapters** (Portas e Adaptadores), também conhecida como **Arquitetura Hexagonal**, foi criada por Alistair Cockburn em 2005. O grande objetivo dela é criar uma separação clara entre a **lógica de negócio** do seu sistema e os **detalhes de tecnologia** externos (como bancos de dados, interfaces web, APIs de terceiros e mensageria).
+# Ports & Adapters (Arquitetura Hexagonal)
+A arquitetura Ports & Adapters (Portas e Adaptadores), também conhecida como Arquitetura Hexagonal, foi criada por Alistair Cockburn em 2005. O grande objetivo dela é criar uma separação clara entre a lógica de negócio do seu sistema e os detalhes de tecnologia externos (como bancos de dados, interfaces web, APIs de terceiros e mensageria).
 
 Em sistemas tradicionais em camadas, a lógica de negócio costuma depender diretamente do banco de dados ou de frameworks específicos. Se você precisar trocar o banco ou expor a mesma lógica para uma API e para um terminal de linhas de comando (CLI), o trabalho costuma ser doloroso. A Arquitetura Hexagonal resolve isso invertendo o controle.
 
@@ -13,21 +13,21 @@ Para entender como funciona, imagine o sistema dividido em três partes principa
 
 ### 1. O Núcleo (Core / Domain)
 
-Fica bem no centro da aplicação. Aqui reside a sua **lógica de negócio pura** — as regras que fazem a sua empresa ou software funcionar. O mais importante sobre o núcleo: **ele não conhece nenhuma tecnologia externa**. Ele não sabe se os dados vêm de um banco MySQL, de um arquivo TXT ou de uma chamada HTTP. Ele é composto por entidades de negócio e casos de uso (use cases).
+Fica bem no centro da aplicação. Aqui reside a sua lógica de negócio pura — as regras que fazem a sua empresa ou software funcionar. O mais importante sobre o núcleo: ele não conhece nenhuma tecnologia externa. Ele não sabe se os dados vêm de um banco MySQL, de um arquivo TXT ou de uma chamada HTTP. Ele é composto por entidades de negócio e casos de uso (use cases).
 
 ### 2. As Portas (Ports)
 
-As portas são os "pontos de entrada e saída" do núcleo. No código, elas costumam ser representadas por **Interfaces** (ou classes abstratas). Elas definem o contrato de *como* o mundo externo pode interagir com o núcleo, ou de *como* o núcleo precisa interagir com o mundo externo. Existem dois tipos de portas:
+As portas são os "pontos de entrada e saída" do núcleo. No código, elas costumam ser representadas por Interfaces (ou classes abstratas). Elas definem o contrato de *como* o mundo externo pode interagir com o núcleo, ou de *como* o núcleo precisa interagir com o mundo externo. Existem dois tipos de portas:
 
-* **Portas de Entrada (Driving / Inbound Ports):** Definem como o mundo externo aciona o sistema. Exemplo: uma interface `CriarPedidoUseCase`.
-* **Portas de Saída (Driven / Outbound Ports):** Definem como o sistema conversa com o exterior para buscar ou salvar dados. Exemplo: uma interface `SalvarPedidoRepository`.
+* Portas de Entrada (Driving / Inbound Ports): Definem como o mundo externo aciona o sistema. Exemplo: uma interface `CriarPedidoUseCase`.
+* Portas de Saída (Driven / Outbound Ports): Definem como o sistema conversa com o exterior para buscar ou salvar dados. Exemplo: uma interface `SalvarPedidoRepository`.
 
 ### 3. Os Adaptadores (Adapters)
 
-Os adaptadores são as **implementações práticas das tecnologias**. Eles ficam fora do hexágono e traduzem a comunicação entre o mundo externo e as portas do núcleo.
+Os adaptadores são as implementações práticas das tecnologias. Eles ficam fora do hexágono e traduzem a comunicação entre o mundo externo e as portas do núcleo.
 
-* **Adaptadores de Entrada (Driving Adapters):** Pegam um estímulo externo (uma requisição HTTP REST, uma mensagem em uma fila do RabbitMQ ou um comando no terminal) e traduzem isso para o formato que a Porta de Entrada do núcleo espera.
-* **Adaptadores de Saída (Driven Adapters):** Implementam as interfaces das Portas de Saída. Por exemplo, uma classe `PedidoMysqlRepository` que implementa a interface `SalvarPedidoRepository` e usa um framework (como Hibernate/JPA no ecossistema Java) para persistir os dados fisicamente.
+* Adaptadores de Entrada (Driving Adapters): Pegam um estímulo externo (uma requisição HTTP REST, uma mensagem em uma fila do RabbitMQ ou um comando no terminal) e traduzem isso para o formato que a Porta de Entrada do núcleo espera.
+* Adaptadores de Saída (Driven Adapters): Implementam as interfaces das Portas de Saída. Por exemplo, uma classe `PedidoMysqlRepository` que implementa a interface `SalvarPedidoRepository` e usa um framework (como Hibernate/JPA no ecossistema Java) para persistir os dados fisicamente.
 
 ## Um Exemplo Prático (Conceitual)
 
@@ -42,14 +42,14 @@ Pense em um sistema de processamento de pagamentos.
 
 ```
 
-Se amanhã você decidir trocar o banco MySQL por um banco NoSQL (como o MongoDB), o seu **Núcleo** e a sua **Porta de Saída** não mudam uma única linha de código. Você apenas cria um *novo adaptador* (`PagamentoMongoRepository`) que assina a mesma porta antiga.
+Se amanhã você decidir trocar o banco MySQL por um banco NoSQL (como o MongoDB), o seu Núcleo e a sua Porta de Saída não mudam uma única linha de código. Você apenas cria um *novo adaptador* (`PagamentoMongoRepository`) que assina a mesma porta antiga.
 
 
 ## Vantagens da Arquitetura Hexagonal
 
-* **Testabilidade Extrema:** Como o núcleo depende apenas de interfaces (portas), você consegue testar toda a sua regra de negócio usando testes de unidade purificados e rápidos, substituindo os adaptadores de banco ou APIs por *mocks* ou *stubs*.
-* **Independência de Frameworks:** Tecnologias como Spring Boot, Quarkus ou Express tornam-se apenas detalhes de infraestrutura na borda do sistema. Se o framework mudar ou for descontinuado, o seu negócio está protegido no centro.
-* **Flexibilidade e Evolução:** Permite adiar decisões tecnológicas difíceis. Você pode começar a desenvolver as regras de negócio salvando os dados em memória e, semanas depois, plugar o adaptador de banco de dados definitivo.
+* Testabilidade Extrema: Como o núcleo depende apenas de interfaces (portas), você consegue testar toda a sua regra de negócio usando testes de unidade purificados e rápidos, substituindo os adaptadores de banco ou APIs por *mocks* ou *stubs*.
+* Independência de Frameworks: Tecnologias como Spring Boot, Quarkus ou Express tornam-se apenas detalhes de infraestrutura na borda do sistema. Se o framework mudar ou for descontinuado, o seu negócio está protegido no centro.
+* Flexibilidade e Evolução: Permite adiar decisões tecnológicas difíceis. Você pode começar a desenvolver as regras de negócio salvando os dados em memória e, semanas depois, plugar o adaptador de banco de dados definitivo.
 
 Se quiser, podemos montar um pequeno exemplo de código (em Java ou C#) demonstrando a estrutura exata de pacotes e interfaces de um caso de uso usando essa arquitetura.
 
@@ -113,7 +113,7 @@ Você gostaria de escrever o seu primeiro ADR e precisa de ajuda com o template 
 
 
 # Boilerplate
-**Boilerplate** (ou *boilerplate code*) é o termo usado na programação para descrever **"código repetitivo"**. São aqueles trechos de código que você é obrigado a escrever em vários lugares do projeto para fazer coisas simples funcionarem, mas que não trazem nenhuma lógica de negócio real.
+Boilerplate (ou *boilerplate code*) é o termo usado na programação para descrever "código repetitivo". São aqueles trechos de código que você é obrigado a escrever em vários lugares do projeto para fazer coisas simples funcionarem, mas que não trazem nenhuma lógica de negócio real.
 
 É o famoso "código padrão" ou "trabalho de datilógrafo" que todo programador precisa copiar e colar ou gerar automaticamente.
 
@@ -177,7 +177,7 @@ A programação herdou o termo para designar esse código "comprado pronto" ou g
 * Configurações iniciais de servidores (HTML básico com as tags `<html>`, `<head>`, `<body>`).
 * Conexões manuais com bancos de dados (abrir conexão, tratar erro, fechar conexão).
 
-**Em resumo:** Boilerplate é a "burocracia" da linguagem de programação. Quanto menos boilerplate seu projeto tiver, mais limpo, legível e fácil de manter ele será!
+Em resumo: Boilerplate é a "burocracia" da linguagem de programação. Quanto menos boilerplate seu projeto tiver, mais limpo, legível e fácil de manter ele será!
 
 ---
 
@@ -188,15 +188,15 @@ Testes unitários devem validar comportamento, não implementação.
 
 # Padrão AAA
 ## Definição
-O **Padrão AAA** é uma diretriz de design para estruturação de testes automatizados. Ele preconiza que cada caso de teste deve ser dividido visualmente e logicamente em três seções sequenciais e bem definidas: 
-- **Arrange** (Organizar), 
-- **Act** (Agir) e 
-- **Assert** (Garantir).
+O Padrão AAA é uma diretriz de design para estruturação de testes automatizados. Ele preconiza que cada caso de teste deve ser dividido visualmente e logicamente em três seções sequenciais e bem definidas: 
+- Arrange (Organizar), 
+- Act (Agir) e 
+- Assert (Garantir).
 
 ## As Três Fases
-1. **Arrange (Organizar/Preparar):** Configuração de todo o cenário necessário para o teste. Criação de dados de teste, inicialização de classes, injeção de *mocks* ou definição de estados iniciais.
-2. **Act (Agir/Executar):** Execução da ação principal ou do método que está sendo testado. Idealmente, deve conter apenas **uma única linha** de código.
-3. **Assert (Garantir/Verificar):** Verificação de que o resultado da ação executada condiz perfeitamente com o resultado esperado.
+1. Arrange (Organizar/Preparar): Configuração de todo o cenário necessário para o teste. Criação de dados de teste, inicialização de classes, injeção de *mocks* ou definição de estados iniciais.
+2. Act (Agir/Executar): Execução da ação principal ou do método que está sendo testado. Idealmente, deve conter apenas uma única linha de código.
+3. Assert (Garantir/Verificar): Verificação de que o resultado da ação executada condiz perfeitamente com o resultado esperado.
 
 
 # Design Review

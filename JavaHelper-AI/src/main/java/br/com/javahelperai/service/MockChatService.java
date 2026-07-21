@@ -8,9 +8,11 @@ import br.com.javahelperai.knowledge.KnowledgeBase;
 
 @Service
 @Primary
-public class MockChatService implements ChatService {
+public class MockChatService implements ChatService  {
 
 	private final KnowledgeBase knowledgeBase;
+	
+	// private final OpenAIKnowledgeBase knowledgeBase;
 
 	public MockChatService(KnowledgeBase knowledgeBase) {
 		this.knowledgeBase = knowledgeBase;
