@@ -1,37 +1,40 @@
 package br.com.budgeting;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
-import org.springframework.ai.openai.OpenAiChatModel;
-import org.springframework.ai.openai.OpenAiChatModel.ResponseFormat;
-import org.springframework.ai.openai.OpenAiChatOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.ai.openai.OpenAiChatModel;
+import org.springframework.ai.openai.OpenAiChatOptions;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 @EnabledIfEnvironmentVariable(named = "OPENAI_API_KEY", matches = ".+")
 public class OpenAiChatModelIT {
+
+    // O Spring gerencia a criação e injeção do modelo de chat
     @Autowired
-    OpenAiApi openAiApi;
+    private OpenAiChatModel chatModel;
 
     @Test
     void should_receiveResponse_when_chatModelIsCalled() {
         var options = OpenAiChatOptions.builder()
                 .model("gpt-4o-mini")
                 .temperature(0.8)
-                .responseFormat(ResponseFormat.builder().type(ResponseFormat.Type.TEXT).build())
                 .build();
 
-        var chatModel = OpenAiChatModel.builder()
-                .openAiApi(openAiApi)
-                .defaultOptions(options)
-                .build();
+        // Faz a chamada passando o prompt e as opções de runtime
+        var response = chatModel.call(
+            new org.springframework.ai.chat.prompt.Prompt(
+                "Gere um registro de budgeting, com descrição de gasto, valor em reais e local",
+                options
+            )
+        );
 
-        var response = chatModel.call("Gere um registro de budgeting, com descrição de gasto, valor em reais e local");
+        String textResponse = response.getResult().getOutput().getText();
 
-        assertThat(response).isNotEmpty();
-        System.out.println(response);
+        assertThat(textResponse).isNotEmpty();
+        System.out.println(textResponse);
     }
 }
