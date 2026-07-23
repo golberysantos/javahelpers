@@ -1,11 +1,12 @@
-package dio.budgeting.application;
+package br.com.budgeting.application;
 
-import dio.budgeting.application.input.PersistTransactionInput;
-import dio.budgeting.application.output.TransactionOutput;
-import dio.budgeting.domain.Transaction;
-import dio.budgeting.domain.TransactionRepository;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.stereotype.Service;
+
+import br.com.budgeting.application.domain.Transaction;
+import br.com.budgeting.application.domain.TransactionRepository;
+import br.com.budgeting.application.input.PersistTransactionInput;
+import br.com.budgeting.application.output.TransactionOutput;
 
 @Service
 public class PersistTransactionUseCase {

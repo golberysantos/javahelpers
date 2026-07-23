@@ -1,10 +1,14 @@
 package br.com.budgeting.application;
 
+import java.util.List;
+
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import br.com.budgeting.application.domain.Category;
+import br.com.budgeting.application.domain.TransactionRepository;
+import br.com.budgeting.application.output.TransactionOutput;
 
 @Service
 public class ListTransactionsByCategoryUseCase {
