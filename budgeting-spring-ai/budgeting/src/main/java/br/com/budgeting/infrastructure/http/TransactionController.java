@@ -1,23 +1,34 @@
-package dio.budgeting.infrastructure.http;
+package br.com.budgeting.infrastructure.http;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.List;
+import java.util.Locale.Category;
 
-import dio.budgeting.application.ListTransactionsByCategoryUseCase;
-import dio.budgeting.application.PersistTransactionUseCase;
-import dio.budgeting.domain.Category;
-import dio.budgeting.infrastructure.http.request.TransactionRequest;
-import dio.budgeting.infrastructure.http.response.TransactionResponse;
 import org.springframework.ai.audio.transcription.TranscriptionModel;
 import org.springframework.ai.audio.tts.TextToSpeechModel;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
-import org.springframework.http.*;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ContentDisposition;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.util.List;
+import br.com.budgeting.application.ListTransactionsByCategoryUseCase;
+import br.com.budgeting.application.PersistTransactionUseCase;
+import dio.budgeting.infrastructure.http.request.TransactionRequest;
+import dio.budgeting.infrastructure.http.response.TransactionResponse;
 
 @RestController
 @RequestMapping("/transactions")
