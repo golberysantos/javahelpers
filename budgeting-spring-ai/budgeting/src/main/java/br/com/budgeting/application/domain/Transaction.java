@@ -18,4 +18,5 @@ public class Transaction {
 		this.amount = amount;
 		this.category = category;
 	}
+
 }

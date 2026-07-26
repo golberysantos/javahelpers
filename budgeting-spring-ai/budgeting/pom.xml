@@ -49,14 +49,14 @@
 			<artifactId>spring-boot-starter-data-jpa-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 			<scope>provided</scope>
 		</dependency>
-	
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-docker-compose</artifactId>
@@ -98,25 +98,22 @@
 				</configuration>
 			</plugin>
 
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<compilerArgs>
-						<!-- Libera o acesso a APIs internas do Java 21 caso algum componente precise -->
-						<arg>--add-exports=jdk.internal.jvmstat/sun.jvm=ALL-UNNAMED</arg>
-					</compilerArgs>
 					<annotationProcessorPaths>
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
-							<!-- Deixe o Spring Boot gerenciar a versão compatível com Java 21 -->
-							<version>${lombok.version}</version> 
+							<version>${lombok.version}</version>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
+
+
 		</plugins>
 	</build>
 

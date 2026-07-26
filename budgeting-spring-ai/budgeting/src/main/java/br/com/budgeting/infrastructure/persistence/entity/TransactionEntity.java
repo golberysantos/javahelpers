@@ -1,18 +1,19 @@
 package br.com.budgeting.infrastructure.persistence.entity;
 
 
+
 import java.util.UUID;
 
 import br.com.budgeting.application.domain.Category;
 import br.com.budgeting.application.domain.Transaction;
 import br.com.budgeting.application.domain.TransactionId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import sun.jvm.hotspot.debugger.cdbg.EnumType;
 
 @Entity
 @Data
@@ -23,11 +24,10 @@ public class TransactionEntity {
     private UUID id;
     private String description;
     private long amount;
-
     @Enumerated(EnumType.STRING)
     private Category category;
 
-    public static TransactionEntity from(Transaction transaction) {
+    public static TransactionEntity from(Transaction transaction) {    	
         return new TransactionEntity(
                 transaction.getId().uuid(),
                 transaction.getDescription(),
