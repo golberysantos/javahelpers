@@ -1,17 +1,18 @@
-package dio.budgeting.infrastructure.persistence.entity;
+package br.com.budgeting.infrastructure.persistence.entity;
 
-import dio.budgeting.domain.Category;
-import dio.budgeting.domain.Transaction;
-import dio.budgeting.domain.TransactionId;
+
+import java.util.UUID;
+
+import br.com.budgeting.application.domain.Category;
+import br.com.budgeting.application.domain.Transaction;
+import br.com.budgeting.application.domain.TransactionId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.UUID;
+import sun.jvm.hotspot.debugger.cdbg.EnumType;
 
 @Entity
 @Data

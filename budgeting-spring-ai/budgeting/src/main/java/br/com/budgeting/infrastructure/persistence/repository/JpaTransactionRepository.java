@@ -1,12 +1,13 @@
-package dio.budgeting.infrastructure.persistence.repository;
-
-import dio.budgeting.domain.Category;
-import dio.budgeting.domain.Transaction;
-import dio.budgeting.domain.TransactionRepository;
-import dio.budgeting.infrastructure.persistence.entity.TransactionEntity;
-import org.springframework.stereotype.Repository;
+package br.com.budgeting.infrastructure.persistence.repository;
 
 import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import br.com.budgeting.application.domain.Category;
+import br.com.budgeting.application.domain.Transaction;
+import br.com.budgeting.application.domain.TransactionRepository;
+import br.com.budgeting.infrastructure.persistence.entity.TransactionEntity;
 
 @Repository
 public class JpaTransactionRepository implements TransactionRepository {
