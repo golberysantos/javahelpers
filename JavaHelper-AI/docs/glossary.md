@@ -1,4 +1,8 @@
 
+# Overengineering (ou engenharia excessiva)
+
+ Overengineering (ou engenharia excessiva) é o ato de criar uma solução ou produto mais complexo, robusto ou cheio de recursos do que o necessário, resultando em desperdício de tempo, custos altos e dificuldade de manutenção.Principais CaracterísticasComplexidade desnecessária: Adicionar camadas, ferramentas ou funções que não resolvem o problema atual.Foco no "perfeito": Tentar prever problemas futuros que talvez nunca aconteçam.Perda de valor: O esforço investido não traz um retorno real para quem usa o produto.
+
 
 # Backward Compatibility (Compatibilidade Retroativa)
 
