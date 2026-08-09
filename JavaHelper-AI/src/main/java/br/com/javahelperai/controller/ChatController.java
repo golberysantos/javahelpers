@@ -13,15 +13,17 @@ import br.com.javahelperai.service.ChatService;
 @RequestMapping("/chat")
 public class ChatController {
 
+	// 1. A dependência é declarada usando o tipo da INTERFACE
 	private final ChatService service;
 
+	// 2. O Spring injeta a implementação através do construtor
 	public ChatController(ChatService service) {
 		this.service = service;
 	}
 
 	@PostMapping
 	public RespostaDTO perguntar(@RequestBody PerguntaDTO pergunta) {
-
+		// 3. O Controller chama o método do contrato (interface)
 		String resposta = service.perguntar(pergunta.getPergunta());
 
 		return new RespostaDTO(resposta);

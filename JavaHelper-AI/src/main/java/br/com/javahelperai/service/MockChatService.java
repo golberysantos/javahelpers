@@ -10,6 +10,7 @@ import br.com.javahelperai.knowledge.KnowledgeBase;
 @Primary
 public class MockChatService implements ChatService  {
 
+	// 1. A dependência é declarada usando o tipo da INTERFACE
 	private final KnowledgeBase knowledgeBase;
 	
 	// private final OpenAIKnowledgeBase knowledgeBase;
