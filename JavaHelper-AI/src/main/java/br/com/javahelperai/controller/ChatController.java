@@ -13,8 +13,10 @@ import br.com.javahelperai.service.ChatService;
 @RequestMapping("/chat")
 public class ChatController {
 
+	// 1. A dependência é declarada usando o tipo da INTERFACE
 	private final ChatService service;
 
+	// 2. O Spring injeta a implementação através do construtor
 	public ChatController(ChatService service) {
 		this.service = service;
 	}
