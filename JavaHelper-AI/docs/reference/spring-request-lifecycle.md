@@ -65,3 +65,79 @@ Uma dúvida clássica no ciclo de vida é a diferença entre **Filters** e **Int
 * **HandlerInterceptors:** Operam **dentro** do Spring MVC, entre o `DispatcherServlet` e o Controller. Têm acesso ao contexto do Spring e aos metadados do handler (anotações, métodos executados).
 
 
+# Spring Request Lifecycle
+
+## Objetivo
+
+...
+
+## Exemplo utilizado
+
+...
+
+## Fluxo da requisição
+
+...
+
+## 1. Inicialização da aplicação
+
+...
+
+## 2. Criação dos Beans
+
+...
+
+## 3. Recebimento da requisição HTTP
+
+...
+
+## 4. Roteamento para o Controller
+
+...
+
+## 5. Desserialização do JSON
+
+...
+
+## 6. Injeção de dependências
+
+...
+
+## 7. Execução do caso de uso
+
+...
+
+## 8. Consulta à KnowledgeBase
+
+...
+
+## 9. Construção da resposta
+
+...
+
+## 10. Serialização para JSON
+
+...
+
+## Conceitos envolvidos
+
+- IoC
+- DI
+- Polimorfismo
+- Spring Bean
+- Application Context
+- Jackson
+- Spring MVC
+
+## Perguntas para revisão
+
+...
+
+
+## Dúvidas em aberto
+
+- Como o Spring Boot registra o Jackson?
+- Como os HttpMessageConverters são configurados?
+- Como o @RequestBody determina qual objeto deve ser criado?
+- Como o Spring encontra o método associado a POST /chat?
+- Qual é exatamente o papel do DispatcherServlet?
