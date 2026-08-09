@@ -63,3 +63,5 @@ Uma dúvida clássica no ciclo de vida é a diferença entre **Filters** e **Int
 
 * **Servlet Filters:** Operam no nível do Container Servlet (Tomcat/Jetty), **antes** que o Spring MVC assuma o controle. Ideais para segurança, compactação (gzip) e CORS.
 * **HandlerInterceptors:** Operam **dentro** do Spring MVC, entre o `DispatcherServlet` e o Controller. Têm acesso ao contexto do Spring e aos metadados do handler (anotações, métodos executados).
+
+
