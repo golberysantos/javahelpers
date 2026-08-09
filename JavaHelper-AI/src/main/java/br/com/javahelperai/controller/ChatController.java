@@ -23,7 +23,7 @@ public class ChatController {
 
 	@PostMapping
 	public RespostaDTO perguntar(@RequestBody PerguntaDTO pergunta) {
-
+		// 3. O Controller chama o método do contrato (interface)
 		String resposta = service.perguntar(pergunta.getPergunta());
 
 		return new RespostaDTO(resposta);
