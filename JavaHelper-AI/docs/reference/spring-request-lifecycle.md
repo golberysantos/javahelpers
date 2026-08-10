@@ -2,6 +2,21 @@ O ciclo de vida de uma requisição no **Spring MVC** (e Spring Boot) descreve o
 
 O coração desse processo é o padrão **Front Controller**, implementado no Spring pela classe central `DispatcherServlet`.
 
+Cliente
+   │
+   │ POST /chat
+   ▼
+Tomcat
+   │
+   ▼
+Servlet Filters
+   │
+   ▼
+DispatcherServlet
+   │
+   ▼
+???
+
 ---
 
 ## O Ciclo de Vida Passo a Passo
