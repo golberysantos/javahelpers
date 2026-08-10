@@ -13,6 +13,10 @@ A requisição HTTP chega ao container Servlet (como Tomcat). Ela passa pela cad
 2. **Chegada ao DispatcherServlet:** Entrada no Spring Web MVC.
 Se os filtros permitirem a passagem, a requisição é entregue ao `DispatcherServlet` (o Front Controller). Ele orquestra todos os componentes subsequentes.
 
+O DispatcherServlet é o componente central e o coração do Spring MVC. Ele implementa o padrão de projeto Front Controller, funcionando como o único ponto de entrada para todas as requisições HTTP enviadas à aplicação.
+
+Em vez de cada rota ou endpoint ter seu próprio Servlet individual, o DispatcherServlet intercepta todas as chamadas e gerencia o fluxo de execução delegando as tarefas aos componentes especializados do Spring.
+
 
 3. **Mapeamento de Handlers (HandlerMapping):**
 O `DispatcherServlet` consulta o `HandlerMapping` para descobrir qual Controller e qual método específico deve processar a requisição (com base na URL e no verbo HTTP, como `@GetMapping`). O `HandlerMapping` retorna um objeto chamado `HandlerExecutionChain`.
