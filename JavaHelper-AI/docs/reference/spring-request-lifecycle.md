@@ -13,9 +13,12 @@ Servlet Filters
    │
    ▼
 DispatcherServlet
-   │
-   ▼
-???
+       │
+       ▼
+HandlerMapping
+       │
+       ▼
+HandlerExecutionChain
 
 ---
 
@@ -36,6 +39,7 @@ Em vez de cada rota ou endpoint ter seu próprio Servlet individual, o Dispatche
 3. **Mapeamento de Handlers (HandlerMapping):**
 O `DispatcherServlet` consulta o `HandlerMapping` para descobrir qual Controller e qual método específico deve processar a requisição (com base na URL e no verbo HTTP, como `@GetMapping`). O `HandlerMapping` retorna um objeto chamado `HandlerExecutionChain`.
 
+O HandlerMapping é responsável por encontrar qual Controller e qual método devem processar a requisição.
 
 4. **Execução de Interceptadores (Pre-Handle):** HandlerInterceptor.
 Antes de chamar o Controller, o Spring executa o método `preHandle()` dos **HandlerInterceptors** registrados. Se algum interceptador retornar `false`, a execução é abortada imediatamente.
