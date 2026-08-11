@@ -41,6 +41,8 @@ O `DispatcherServlet` consulta o `HandlerMapping` para descobrir qual Controller
 
 O HandlerMapping é responsável por encontrar qual Controller e qual método devem processar a requisição.
 
+O HandlerExecutionChain é um objeto que guarda o controlador (handler) escolhido para uma requisição e uma lista de interceptores (HandlerInterceptor) que rodam antes e depois dele. O DispatcherServlet usa essa cadeia para processar requisições web de forma organizada.
+
 4. **Execução de Interceptadores (Pre-Handle):** HandlerInterceptor.
 Antes de chamar o Controller, o Spring executa o método `preHandle()` dos **HandlerInterceptors** registrados. Se algum interceptador retornar `false`, a execução é abortada imediatamente.
 
@@ -164,3 +166,8 @@ Uma dúvida clássica no ciclo de vida é a diferença entre **Filters** e **Int
 - Como o @RequestBody determina qual objeto deve ser criado?
 - Como o Spring encontra o método associado a POST /chat?
 - Qual é exatamente o papel do DispatcherServlet?
+
+
+## Nota
+Entrada: @RequestBody participa da conversão do corpo HTTP para um objeto Java.
+Saída: @RestController implica comportamento de @ResponseBody, permitindo que o retorno do método seja escrito no corpo da resposta HTTP.
