@@ -77,8 +77,10 @@ A resposta formatada retorna pela cadeia de Servlet Filters até ser enviada de 
 | **DispatcherServlet** | Orquestrador central que recebe e direciona as requisições. |
 | **HandlerMapping** | Associa a URL recebida ao Controller correto. |
 | **HandlerAdapter** | Executa o método do Controller e injeta os argumentos necessários. |
-| **HttpMessageConverter** | Converte objetos Java em JSON/XML (e vice-versa). |
+| **HttpMessageConverter** | Converte objetos Java em JSON/XML (e vice-versa usando Jackson). |
 | **ViewResolver** | Resolve nomes de visões em arquivos HTML/Templates. |
+
+@PostMapping participa do mapeamento, @RequestBody indica que o corpo HTTP deve ser associado ao parâmetro, @RestController incorpora o comportamento de @ResponseBody, enquanto o HttpMessageConverter participa da conversão e o Jackson realiza a serialização/desserialização.
 
 ---
 
