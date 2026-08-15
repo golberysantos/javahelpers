@@ -1,4 +1,4 @@
-Excelente pergunta! O **Versionamento de Payload** é uma estratégia para **evoluir sua API sem quebrar os clientes existentes** quando você precisa alterar a estrutura dos dados que trafegam no corpo (payload) das requisições/respostas.
+O **Versionamento de Payload** é uma estratégia para **evoluir sua API sem quebrar os clientes existentes** quando você precisa alterar a estrutura dos dados que trafegam no corpo (payload) das requisições/respostas.
 
 Vou detalhar tudo com exemplos práticos em Spring:
 

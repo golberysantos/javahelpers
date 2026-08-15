@@ -738,4 +738,8 @@ log.info("Payload recebido: {}", payload); // ❌ Expor senhas, cartões de cré
 
 ---
 
-Posso complementar com alguma seção específica que você queira aprofundar ainda mais? (Ex: performance com grandes payloads, integração com GraphQL, ou payloads assíncronos com WebFlux)
+Explorar: 
+- performance com grandes payloads;
+- integração com GraphQL;
+- payloads assíncronos com WebFlux.
+
