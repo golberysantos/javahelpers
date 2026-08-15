@@ -1,10 +1,12 @@
 
+## Payload
+Payload é o "miolo" da comunicação – são os dados que importam para a sua regra de negócio. No Spring, você pega ele com @RequestBody nas requisições e o devolve como corpo das respostas, ou o recebe/processa em filas e eventos.
 
-#GraphQL 
+## GraphQL 
 O GraphQL é uma linguagem de consulta (query language) e um ambiente de execução (runtime) para APIs, criada pelo Facebook em 2012 e tornada código aberto em 2015.
 A principal ideia por trás do GraphQL é dar ao cliente (aplicativo mobile, site, etc.) o poder de pedir exatamente os dados de que precisa — nem mais, nem menos.
 
-# Backward Compatibility (Compatibilidade Retroativa)
+## Backward Compatibility (Compatibilidade Retroativa)
 
 Compatibilidade Retroativa (Backward Compatibility) é a capacidade de um sistema, software ou padrão continuar funcionando perfeitamente com versões, dados ou componentes mais antigos.
 
