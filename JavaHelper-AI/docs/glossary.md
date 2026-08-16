@@ -1,4 +1,10 @@
 
+## DTO (Data Transfer Object): 
+Estrutura simples criada para receber o JSON enviado por um cliente na camada de controle (Controller).
+
+##Command: 
+Objeto que representa uma ordem ou um caso de uso específico (ex: CriarUsuarioCommand), contendo os dados validados necessários para o serviço processar a ação
+
 ## Payload
 Payload é o "miolo" da comunicação – são os dados que importam para a sua regra de negócio. No Spring, você pega ele com @RequestBody nas requisições e o devolve como corpo das respostas, ou o recebe/processa em filas e eventos.
 
