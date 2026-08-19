@@ -35,10 +35,3 @@ Pense nele como o **"USB-C para a Inteligência Artificial"**: um padrão univer
 ---
 *Nota: Criado pela Anthropic, mas mantido como um padrão aberto adotado pela indústria.*
 """
-
-# Gerando o arquivo Markdown
-file_path = "mcp.md"
-with open(file_path, "w", encoding="utf-8") as f:
-    f.write(conteudo_mcp)
-
-print(f"Arquivo {file_path} gerado com sucesso.")
