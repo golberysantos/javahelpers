@@ -1,9 +1,21 @@
-SDK oficial do MCP
+# MCP
 
-Gostaria de explorar como você poderia criar o seu próprio servidor MCP simples em Python ou Node.js para automatizar alguma tarefa do seu dia a dia?
+## Prompte inicial par MCP
 
-# Conteúdo do arquivo mcp.md
-conteudo_mcp = """# Model Context Protocol (MCP) - Guia de Referência
+Gostaria que incorporasse tudo sobre MCP. Em seguida, gostaria de explorar como eu poderia criar o meu próprio servidor MCP em Java para automatizar alguma tarefa do meu dia dia.
+
+
+## MCP — o que é, sem enrolação
+
+MCP é um protocolo aberto, baseado em JSON-RPC 2.0, que padroniza como uma aplicação de IA (o Host — ex: Claude Desktop, um IDE) se conecta a fontes de dados e ferramentas externas (o Server). O Host mantém um ou mais Clients, cada um ligado 1:1 a um Server.
+
+Três primitivas centrais que um Server expõe:
+
+Tools — funções que o modelo pode chamar (com JSON Schema de entrada). É o que você vai usar pra automação.
+Resources — dados legíveis, endereçados por URI (arquivos, registros).
+Prompts — templates reutilizáveis que o servidor oferece ao cliente.
+
+E o cliente pode oferecer capacidades de volta ao servidor: sampling (pedir ao modelo do cliente pra gerar texto), elicitation (pedir input ao usuário) e roots (dizer em quais diretórios/URIs o servidor pode atuar).
 
 O **Model Context Protocol (MCP)** é um padrão aberto que define uma forma universal de conectar Modelos de Linguagem (LLMs) a fontes de dados e ferramentas externas.
 
@@ -32,13 +44,8 @@ Pense nele como o **"USB-C para a Inteligência Artificial"**: um padrão univer
 2. **Host:** Conecta ao servidor via `claude_desktop_config.json`.
 3. **IA:** Quando o usuário pede para analisar dados, a IA chama a ferramenta padronizada, recebe a resposta estruturada e entrega o resultado final.
 
+
+## SDK oficial do MCP
 ---
 *Nota: Criado pela Anthropic, mas mantido como um padrão aberto adotado pela indústria.*
 """
-
-# Gerando o arquivo Markdown
-file_path = "mcp.md"
-with open(file_path, "w", encoding="utf-8") as f:
-    f.write(conteudo_mcp)
-
-print(f"Arquivo {file_path} gerado com sucesso.")
