@@ -1,8 +1,14 @@
 
+
+
+##  OCR (Reconhecimento Óptico de Caracteres)
+OCR refere-se a imperfeições, manchas, pixels dispersos ou distorções em uma imagem digitalizada que atrapalham o software de Reconhecimento Óptico de Caracteres (OCR)
+
+
 ## DTO (Data Transfer Object): 
 Estrutura simples criada para receber o JSON enviado por um cliente na camada de controle (Controller).
 
-##Command: 
+## Command: 
 Objeto que representa uma ordem ou um caso de uso específico (ex: CriarUsuarioCommand), contendo os dados validados necessários para o serviço processar a ação
 
 ## Payload
