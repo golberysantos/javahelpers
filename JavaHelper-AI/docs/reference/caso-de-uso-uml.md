@@ -149,6 +149,74 @@ Ferramentas populares para diagramas de Caso de Uso:
 - Sparx Enterprise Architect
 - StarUML
 
+## BDD (Gherkin) e Casos de Uso
+
+É possível e recomendável usar BDD (Behavior Driven Development) com Casos de Uso. Enquanto os Casos de Uso fornecem visão de alto nível, fluxos e pré/pós-condições, o Gherkin permite transformar esses fluxos em exemplos concretos e executáveis (cenários) que servem tanto como especificação quanto como testes automatizados.
+
+Mapeamento prático:
+- ID do Caso de Uso: use uma tag ou comentário no arquivo `.feature` (ex.: `@CU-002` ou `# CU-002`).
+- Nome do Caso de Uso: nome da `Feature`.
+- Ator(es) e Pré-condições: `Background` ou passos `Given`.
+- Fluxo principal: `Scenario` que representa o happy path.
+- Fluxos alternativos/erros: `Scenario` separados ou `Scenario Outline` com `Examples`.
+- Pós-condições: passos `Then` com asserções esperadas.
+
+Boas práticas ao unir Casos de Uso com Gherkin:
+- Mantenha cenários curtos e observáveis; cada `Scenario` descreve um comportamento verificável.
+- Use `Background` para pré-condições comuns (autenticação, dados no carrinho).
+- Use tags (ex.: `@CU-002`, `@regressao`) para rastreabilidade e controle de execução em CI.
+- Não tente transformar todo o detalhamento do Caso de Uso em um único cenário gigante; decomponha em vários cenários.
+- Inclua o ID do Caso de Uso como tag para rastrear documentação ↔ testes.
+
+Exemplo (arquivo `finalizar_compra.feature`):
+
+```gherkin
+# CU-002
+@CU-002
+Feature: Finalizar Compra
+  Como um Cliente
+  Eu quero finalizar a compra dos itens no meu carrinho
+  Para que o pedido seja criado e pago
+
+  Background:
+    Given que o cliente "joao@example.com" está autenticado
+    And o carrinho contém:
+      | produto    | quantidade |
+      | Camiseta   | 2          |
+      | Caneca     | 1          |
+
+  Scenario: Finalizar compra com pagamento aprovado
+    Given o cliente seleciona o endereço "Rua A, 123"
+    And escolhe a forma de pagamento "Cartão"
+    When o cliente confirma a compra
+    And o sistema processa o pagamento com resultado "aprovado"
+    Then o pedido deve ser criado com status "Confirmado"
+    And o cliente deve receber a confirmação por email
+
+  Scenario: Pagamento recusado
+    Given o cliente seleciona o endereço "Rua A, 123"
+    And escolhe a forma de pagamento "Cartão"
+    When o cliente confirma a compra
+    And o sistema processa o pagamento com resultado "recusado"
+    Then o pedido não deve ser criado
+    And o cliente deve ver a mensagem "Pagamento recusado"
+
+  Scenario Outline: Finalizar compra com diferentes resultados de pagamento
+    Given o cliente seleciona o endereço "Rua A, 123"
+    And escolhe a forma de pagamento "<forma>"
+    When o cliente confirma a compra
+    And o sistema processa o pagamento com resultado "<resultado>"
+    Then o pedido deve ter status "<status>"
+
+    Examples:
+      | forma  | resultado  | status     |
+      | Cartão | aprovado   | Confirmado |
+      | Boleto | pendente   | Pendente   |
+      | Cartão | recusado   | Cancelado  |
+```
+
+Ferramentas BDD comuns: Cucumber (Java, JS), SpecFlow (.NET), Behave (Python), pytest-bdd (Python). Integre os `.feature` ao pipeline de CI e use tags para controle de execução.
+
 Renderizando PlantUML no Windows PowerShell (exemplo):
 
 1) Instale o PlantUML (baixar plantuml.jar) e Graphviz (necessário para PNG/SVG). Coloque `plantuml.jar` em uma pasta conhecida.
