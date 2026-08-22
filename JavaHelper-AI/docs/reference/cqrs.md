@@ -181,4 +181,29 @@ Isso permite alta escalabilidade e resiliência, mas exige monitoramento das lat
 
 ---
 
+## Diagrama
+
+Inclua o diagrama visual abaixo para facilitar o entendimento do fluxo (commands -> events -> projections -> read models). Um SVG já está disponível em `docs/reference/diagrams/cqrs-diagram.svg`.
+
+![CQRS Diagram](../diagrams/cqrs-diagram.svg)
+
+## Exemplo runnable (Java + Spring Boot)
+
+Um exemplo mínimo foi criado em `docs/examples/cqrs-demo`. Ele demonstra CQRS com um Event Store em memória e uma projeção simples.
+
+Quickstart:
+
+```powershell
+cd docs/examples/cqrs-demo
+mvn spring-boot:run
+```
+
+Endpoints:
+- POST /orders  -> body: { "orderId": "o1", "customerId": "c1", "amount": 123.45 }
+- GET /orders/{orderId} -> retorna o read model (JSON)
+
+Este exemplo é didático — para produção use um Event Store persistente e mecanismos confiáveis de publicação (outbox, brokers duráveis).
+
+---
+
 Arquivo criado: `docs/reference/cqrs.md`

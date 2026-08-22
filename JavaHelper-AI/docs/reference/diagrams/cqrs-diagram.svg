@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420">
+  <style>
+    .box { fill:#f8f9fa; stroke:#4a5568; stroke-width:1.5; rx:6; }
+    .title { font: bold 14px sans-serif; fill:#111827; }
+    .text  { font: 12px sans-serif; fill:#1f2937; }
+    .arrow { stroke:#4a5568; stroke-width:2; fill:none; marker-end:url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4a5568" />
+    </marker>
+  </defs>
+
+  <!-- Commands -->
+  <rect x="20" y="30" width="180" height="60" class="box" />
+  <text x="30" y="55" class="title">Commands</text>
+  <text x="30" y="75" class="text">PlaceOrder, CancelOrder</text>
+
+  <!-- Command Handler -->
+  <rect x="240" y="30" width="200" height="80" class="box" />
+  <text x="250" y="55" class="title">Command Handler / Write Model</text>
+  <text x="250" y="75" class="text">Valida regras e gera eventos</text>
+
+  <!-- Event Store -->
+  <rect x="480" y="30" width="180" height="80" class="box" />
+  <text x="490" y="55" class="title">Event Store</text>
+  <text x="490" y="75" class="text">Append-only log</text>
+
+  <!-- Projections -->
+  <rect x="20" y="170" width="260" height="100" class="box" />
+  <text x="30" y="195" class="title">Projections / Event Handlers</text>
+  <text x="30" y="215" class="text">Atualizam Read Models</text>
+
+  <!-- Read Model -->
+  <rect x="320" y="170" width="340" height="100" class="box" />
+  <text x="330" y="195" class="title">Read Models</text>
+  <text x="330" y="215" class="text">Denormalized stores: SQL, Mongo, Elastic</text>
+
+  <!-- Queries -->
+  <rect x="700" y="170" width="160" height="80" class="box" />
+  <text x="710" y="195" class="title">Queries</text>
+  <text x="710" y="215" class="text">GetOrderById, ListOrders</text>
+
+  <!-- Arrows -->
+  <path d="M200 60 L240 60" class="arrow" />
+  <path d="M440 60 L480 60" class="arrow" />
+  <path d="M560 110 L560 170" class="arrow" />
+  <path d="M300 170 L320 220" class="arrow" />
+  <path d="M660 220 L700 220" class="arrow" />
+
+  <!-- Labels -->
+  <text x="260" y="95" class="text">events</text>
+  <text x="520" y="140" class="text">publish/stream</text>
+
+  <!-- Footer note -->
+  <text x="20" y="320" class="text">Diagrama simples: Commands geram eventos que vão ao Event Store; Projections
+consomem eventos e atualizam Read Models; Queries leem das Read Models.</text>
+</svg>
