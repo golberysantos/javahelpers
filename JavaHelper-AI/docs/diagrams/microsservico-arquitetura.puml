@@ -1,0 +1,61 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor Client
+
+node "API Gateway" as gateway
+
+folder "Service Discovery / Config" {
+  [Service Discovery]
+  [Config Server]
+}
+
+cloud "Message Broker (Kafka)" as broker
+
+package "Microservices" {
+  [Order Service] as order
+  [Payment Service] as payment
+  [Inventory Service] as inventory
+}
+
+database "Orders DB" as db_orders
+database "Payments DB" as db_payments
+database "Inventory DB" as db_inventory
+
+Client --> gateway : HTTP/HTTPS
+gateway --> order : route /orders
+gateway --> payment : route /payments
+gateway --> inventory : route /inventory
+
+order --> db_orders : reads/writes
+payment --> db_payments : reads/writes
+inventory --> db_inventory : reads/writes
+
+order --> broker : publish OrderCreatedEvent
+payment --> broker : publish PaymentProcessedEvent
+inventory --> broker : publish InventoryUpdatedEvent
+
+broker --> order : subscribe
+broker --> payment : subscribe
+broker --> inventory : subscribe
+
+order --> [Service Discovery]
+payment --> [Service Discovery]
+inventory --> [Service Discovery]
+
+order --> [Config Server]
+payment --> [Config Server]
+inventory --> [Config Server]
+
+note right of gateway
+  API Gateway: autenticação, roteamento,
+  rate-limiting, caching
+end note
+
+note left of broker
+  Mensageria para integração
+  e eventos (event-driven)
+end note
+
+@enduml
