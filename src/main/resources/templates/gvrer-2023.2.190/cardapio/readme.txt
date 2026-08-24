@@ -1,1 +1,0 @@
-Cardápio: referente aos produtos do restaurante como pratos, bebidas, sobremesa, etc.
