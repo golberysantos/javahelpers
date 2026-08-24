@@ -827,3 +827,34 @@ HttpMessageConverter
 Este documento descreve um **modelo didático simplificado** do ciclo de requisição do JavaHelper AI.
 
 O Spring MVC possui outros componentes, etapas e mecanismos internos que não estão representados aqui. O objetivo deste documento é registrar o modelo mental necessário para compreender a interação entre HTTP, Servlet Container, filtros, Spring MVC, Controllers, DTOs, conversores, Jackson e as camadas internas da aplicação.
+
+---
+
+## 📚 Próximo Passo: Mecanismos de Resolução de Argumentos
+
+Para um entendimento profundo de **como o Spring resolve os argumentos de métodos** (o tópico **8. Argument Resolution** desta documentação), consulte o documento complementar:
+
+### 👉 [**spring-argument-resolvers.md**](./spring-argument-resolvers.md)
+
+Nesse documento você encontrará:
+
+- **HandlerMethodArgumentResolver**: O mecanismo central que resolve cada parâmetro
+- **Query String vs Body JSON**: Por que são completamente diferentes
+- **Cenários práticos**: Exemplos detalhados de cada anotação
+- **Tabela comparativa**: Quando usar `@RequestBody`, `@RequestParam`, `@ModelAttribute`, etc.
+- **Boas práticas**: Recomendações para evitar erros comuns
+- **Dúvidas frequentes**: Respostas às perguntas mais cirúrgicas
+
+### Resumo Rápido
+
+A pergunta clássica é: **"Por que o Spring consegue preencher um objeto a partir de parâmetros de query string, mas não faz o mesmo com body JSON sem `@RequestBody`?"**
+
+**Resposta curta:**
+- `@RequestBody` ativa o **RequestResponseBodyMethodProcessor**, que lê o `InputStream` e usa `HttpMessageConverter` + Jackson
+- Sem anotação, o Spring ativa o **ServletModelAttributeMethodProcessor** (fallback), que lê apenas `request.getParameterMap()` (query/form data)
+- O `WebDataBinder` não foi projetado para desserializar JSON do body
+
+**Regra de ouro:**
+- JSON no body → use `@RequestBody`
+- Query string / Form data → use `@RequestParam` ou `@ModelAttribute` (ou fallback sem anotação)
+- URL path → use `@PathVariable`
