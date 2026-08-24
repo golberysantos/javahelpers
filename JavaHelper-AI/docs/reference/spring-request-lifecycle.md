@@ -68,6 +68,7 @@ O método `postHandle()` é chamado após a execução do Controller, e o `after
 A resposta formatada retorna pela cadeia de Servlet Filters até ser enviada de volta ao navegador ou cliente HTTP.
 
 
+Nota: As annotations não são a arquitetura do Controller. Elas são metadados que permitem ao Spring MVC conectar o contrato externo ao comportamento do Controller.
 ---
 
 ## Componentes Principais
