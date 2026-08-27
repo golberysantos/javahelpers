@@ -4,7 +4,7 @@ package br.com.javaocp17.array;
 public class ArrayBasicoExemple01 {
     public static void main(String[] args) {
         // Declaração e inicialização
-        int[] numeros = new int[3];
+        int[] numeros = new int[] {};
         String[] nomes = new String[2];
         
         // Atribuindo valores
@@ -15,7 +15,7 @@ public class ArrayBasicoExemple01 {
         
         nomes[0] = "Ana";
         nomes[1] = "João";
-        System.out.println(numeros[3]);
+
         // Acessando e imprimindo
         System.out.println("Números:");
         for (int i = 0; i < numeros.length; i++) {
@@ -30,5 +30,28 @@ public class ArrayBasicoExemple01 {
         // Valores padrão
         System.out.println("\nValor padrão de int: " + new int[1][0]);
         System.out.println("Valor padrão de String: " + new String[1][0]);
+        
+        System.out.println(  findMax(new int[]{})   );
     }
+    
+    public static int findMax(int[] numbers) {
+    	System.out.println("\n\n"+ numbers);
+    	int max = Integer.MIN_VALUE;
+    	try {
+			if (numbers == null || numbers.length == 0) {
+				throw new IllegalArgumentException("Array não pode ser nulo ou vazio");
+			}
+			max = numbers[0];
+			for (int i = 1; i < numbers.length; i++) {
+				if (numbers[i] > max) {
+					max = numbers[i];
+				}
+			}
+			
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+		}
+    	return max;
+		
+	}
 }
