@@ -29,6 +29,13 @@ Pontos-chave:
 - Modelo de evento: utiliza um loop de eventos (event-driven) por worker process, evitando o modelo clássico de criar uma thread por conexão.
 - Modularidade: suporta módulos core e módulos de terceiros (alguns pagos/empresariais no Nginx Plus).
 
+TLS (Transport Layer Security) é o protocolo de criptografia usado para proteger os dados trocados entre o servidor web e os usuários. Ele transforma conexões comuns (HTTP) em conexões seguras (HTTPS), garantindo privacidade e integridade.
+
+O que o TLS faz no Nginx?:
+- Criptografia: Esconde senhas e dados sensíveis de quem tenta roubar informações na rede.
+- Autenticação: Prova que o usuário está conectado ao site verdadeiro e não a um clone falso.
+- Configuração: É ativado nos arquivos de configuração do Nginx com comandos para escolher versões seguras e certificados digitais.
+
 ## História e versões
 
 Nginx foi criado por Igor Sysoev em 2002–2004 para resolver problemas de C10k (manter 10.000 conexões concorrentes). Existem duas linhas principais:

@@ -1,5 +1,6 @@
 
-
+## TLS (Transport Layer Security) 
+TLS (Transport Layer Security) é o protocolo de criptografia usado para proteger os dados trocados entre o servidor web e os usuários. Ele transforma conexões comuns (HTTP) em conexões seguras (HTTPS), garantindo privacidade e integridade.
 
 ##  OCR (Reconhecimento Óptico de Caracteres)
 OCR refere-se a imperfeições, manchas, pixels dispersos ou distorções em uma imagem digitalizada que atrapalham o software de Reconhecimento Óptico de Caracteres (OCR)
