@@ -42,7 +42,14 @@ PC → vm-app (externa) → vm-db (interna)
 
 ## Diagrama de arquitetura
 https://copilot.microsoft.com/th/id/BCO.0e7b5e38-b030-498b-a876-ca0b05fb0b80.png
+
+![Mini Datacenter Diagram](mini-datacenter-diagram.png)
+
 ✅ O que o diagrama mostra
+O diagrama mostra a comunicação entre o PC, a vm-app e a vm-db:
+- A vm-app atua como bastion host, conectando a rede externa (vmbr0) à interna (vmbr1).
+- A vm-db é acessível apenas pela vm-app, garantindo isolamento e segurança.
+- Cada VM roda Docker para hospedar seus serviços (Nginx, App Server, PostgreSQL).
 
     PC (seu host físico) → acessa a vm-app pela rede externa (vmbr0, faixa 192.168.0.x).
 
