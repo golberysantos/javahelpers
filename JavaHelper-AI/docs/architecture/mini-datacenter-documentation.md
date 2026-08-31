@@ -1,8 +1,6 @@
 Perfeito, Golbery 👌 — vamos criar uma documentação completa em um novo arquivo chamado **`docs/architecture/mini-datacenter-documentation.md`**, incluindo todos os comandos, configurações e o diagrama da arquitetura.  
 
----
-
-```markdown
+#---
 # Mini Datacenter Documentation
 
 ## 🎯 Objetivo
@@ -143,6 +141,7 @@ flowchart LR
 
     VMWS -->|Admin GUI| VMDB
 
+```
 
 ---
 
@@ -171,10 +170,9 @@ flowchart LR
 ---
 
 ## 📌 Próximos passos
-1. Configurar aplicação backend na vm-app para usar o PostgreSQL.  
-2. Criar tabelas e dados de teste no banco.  
-3. Documentar expansão futura (Redis, API Gateway, etc.).  
-```
+#1. Configurar aplicação backend na vm-app para usar o PostgreSQL.  
+#2. Criar tabelas e dados de teste no banco.  
+#3. Documentar expansão futura (Redis, API Gateway, etc.).
 
 ---
 
