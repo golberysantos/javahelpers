@@ -119,6 +119,36 @@ O diagrama mostra:
 - vm-app atuando como bastion host e ponte para a rede interna.  
 - vm-db acessível apenas pela vm-app, rodando PostgreSQL em container.  
 
+
+## 📊 Diagrama da Arquitetura (Mermaid)
+
+```mermaid
+flowchart LR
+    PC["💻 PC\n192.168.0.x"] -->|SSH/HTTP| VMAPP["🖥️ vm-app\n192.168.0.39\n192.168.100.10\nDocker + Nginx + App Server\n(Bastion Host)"]
+    VMAPP -->|PostgreSQL Conn| VMDB["🗄️ vm-db\n192.168.100.20\nDocker + PostgreSQL"]
+
+    subgraph External_Network ["🌐 Rede Externa (vmbr0) - 192.168.0.x"]
+        PC
+        VMAPP
+    end
+
+    subgraph Internal_Network ["🔒 Rede Interna (vmbr1) - 192.168.100.x"]
+        VMAPP
+        VMDB
+    end
+
+
+---
+
+### ✅ O que esse diagrama mostra
+- O **PC** acessa a `vm-app` pela rede externa (`vmbr0`).  
+- A **vm-app** atua como bastion host e conecta à rede interna (`vmbr1`).  
+- A **vm-db** só é acessível pela `vm-app`, rodando PostgreSQL em container.  
+
+---
+
+👉 Se quiser, posso gerar também **diagramas Mermaid separados para cada aplicação futura** — [vox-pix-api](ca://s?q=Diagramar_vox-pix-api_em_Mermaid), [n8n](ca://s?q=Diagramar_n8n_em_Mermaid) e [JavaHelper_AI](ca://s?q=Diagramar_JavaHelper_AI_em_Mermaid) — para você colar nos arquivos de documentação específicos de cada serviço. Quer que eu prepare esses modelos já agora?
+
 ---
 
 ## 📌 Próximos passos
