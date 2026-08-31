@@ -122,6 +122,7 @@ O diagrama mostra:
 
 ## 📊 Diagrama da Arquitetura com Workstation (Mermaid)
 
+
 ```mermaid
 flowchart LR
     PC["💻 PC\n192.168.0.x"] -->|SSH/HTTP| VMAPP["🖥️ vm-app\n192.168.0.39\n192.168.100.10\nDocker + Nginx + App Server\n(Bastion Host)"]
@@ -143,6 +144,8 @@ flowchart LR
     VMWS -->|Admin GUI| VMDB
 
 
+---
+
 ### ✅ O que esse diagrama mostra
 - O **PC físico** acessa tanto a `vm-app` quanto a `vm-ubuntu-workstation` pela rede externa (`vmbr0`).  
 - A **vm-ubuntu-workstation** roda ferramentas gráficas como **pgAdmin** e **DBeaver**, acessíveis via navegador.  
@@ -152,8 +155,7 @@ flowchart LR
 
 ---
 
-👉 Quer que eu prepare também um **guia passo a passo para instalar pgAdmin dentro da vm-ubuntu-workstation** ([instalar pgAdmin na vm-workstation](ca://s?q=Instalar_pgAdmin_na_vm-ubuntu-workstation)) para complementar essa documentação?
-
+👉 Quer que eu prepare também um **diagrama Mermaid separado só da vm-ubuntu-workstation** ([diagramar vm-ubuntu-workstation isolada](ca://s?q=Diagramar_vm-ubuntu-workstation_isolada)) para detalhar como ela se conecta ao PostgreSQL e ao PC?
 
 ---
 
