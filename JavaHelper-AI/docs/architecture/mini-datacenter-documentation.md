@@ -120,22 +120,39 @@ O diagrama mostra:
 - vm-db acessível apenas pela vm-app, rodando PostgreSQL em container.  
 
 
-## 📊 Diagrama da Arquitetura (Mermaid)
+## 📊 Diagrama da Arquitetura com Workstation (Mermaid)
 
 ```mermaid
 flowchart LR
     PC["💻 PC\n192.168.0.x"] -->|SSH/HTTP| VMAPP["🖥️ vm-app\n192.168.0.39\n192.168.100.10\nDocker + Nginx + App Server\n(Bastion Host)"]
     VMAPP -->|PostgreSQL Conn| VMDB["🗄️ vm-db\n192.168.100.20\nDocker + PostgreSQL"]
+    PC -->|Web Browser| VMWS["🖥️ vm-ubuntu-workstation\n192.168.0.40\npgAdmin / DBeaver"]
 
     subgraph External_Network ["🌐 Rede Externa (vmbr0) - 192.168.0.x"]
         PC
         VMAPP
+        VMWS
     end
 
     subgraph Internal_Network ["🔒 Rede Interna (vmbr1) - 192.168.100.x"]
         VMAPP
         VMDB
+        VMWS
     end
+
+    VMWS -->|Admin GUI| VMDB
+
+
+### ✅ O que esse diagrama mostra
+- O **PC físico** acessa tanto a `vm-app` quanto a `vm-ubuntu-workstation` pela rede externa (`vmbr0`).  
+- A **vm-ubuntu-workstation** roda ferramentas gráficas como **pgAdmin** e **DBeaver**, acessíveis via navegador.  
+- A **vm-app** continua como bastion host e servidor de aplicação.  
+- A **vm-db** é acessada tanto pela `vm-app` (para rodar aplicações) quanto pela `vm-ubuntu-workstation` (para administração).  
+- Todas as VMs compartilham a rede interna (`vmbr1`) para comunicação segura.  
+
+---
+
+👉 Quer que eu prepare também um **guia passo a passo para instalar pgAdmin dentro da vm-ubuntu-workstation** ([instalar pgAdmin na vm-workstation](ca://s?q=Instalar_pgAdmin_na_vm-ubuntu-workstation)) para complementar essa documentação?
 
 
 ---
