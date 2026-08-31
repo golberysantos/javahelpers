@@ -1,4 +1,7 @@
 
+## cURL
+cURL (abreviação para Client URL) é uma ferramenta de linha de comando usada em sistemas Linux e macOS para transferir dados de ou para um servidor usando endereços de internet (URLs). Você pode saber mais sobre seu funcionamento e aplicações no Guia Completo da IBM.
+
 ## TLS (Transport Layer Security) 
 TLS (Transport Layer Security) é o protocolo de criptografia usado para proteger os dados trocados entre o servidor web e os usuários. Ele transforma conexões comuns (HTTP) em conexões seguras (HTTPS), garantindo privacidade e integridade.
 
