@@ -1,5 +1,5 @@
 # Mini Datacenter Plan
-
+Ubuntu 24.04 LTS (Noble) como sistema base para todas as VMs.
 ## Objetivo
 Criar um ambiente de laboratório que simule um datacenter em nuvem, com separação clara entre aplicação e banco de dados, utilizando VMs, redes internas e containers Docker.
 

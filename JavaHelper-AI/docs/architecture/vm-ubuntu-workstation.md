@@ -1,6 +1,8 @@
 
 ## 📄 Guia para a vm-ubuntu-workstation com IP fixo
 
+Ubuntu 24.04 LTS (Noble) como sistema base para todas as VMs.
+
 ###
 graph TD
     subgraph Rede Externa (vmbr0 - 192.168.0.x)
@@ -43,22 +45,35 @@ Exemplo:
 ```yaml
 network:
   version: 2
+  renderer: networkd
   ethernets:
-    ens18:   # interface ligada ao vmbr0
+    ens18: # interface ligada ao vmbr0
+      dhcp4: no
       addresses:
         - 192.168.0.25/24
       gateway4: 192.168.0.1
       nameservers:
-        addresses: [8.8.8.8, 1.1.1.1]
-    ens19:   # interface ligada ao vmbr1
+        addresses:
+          - 8.8.8.8
+          - 1.1.1.1
+      ens19:   # interface ligada ao vmbr1
       addresses:
         - 192.168.100.25/24
+
 ```
 
 Aplicar:
 ```bash
 sudo netplan apply
 ```
+
+* forçar o uso de IPv4:
+	sudo nano /etc/apt/apt.conf.d/99force-ipv4
+		Adicionar: 
+		
+		Acquire::ForceIPv4 "true";
+		
+
 
 ### 3. Instalar pgAdmin
 ```bash
@@ -242,5 +257,74 @@ sudo /usr/pgadmin4/bin/setup-web.sh
 - Logs e acessos sob controle.  
 - Alertas configurados para incidentes.  
 - Ambiente seguro e pronto para produção.  
+
+---
+
+
+# 📄 Pacotes Extras Pós-Boot — Ubuntu Server
+
+### 🛠️ Ferramentas básicas
+```bash
+sudo apt install net-tools htop curl wget git unzip -y
+```
+- `net-tools` → comandos de rede (`ifconfig`, `netstat`).  
+- `htop` → monitoramento de CPU/memória.  
+- `curl` e `wget` → downloads e testes HTTP.  
+- `git` → controle de versão.  
+- `unzip` → manipulação de arquivos compactados.  
+
+---
+
+### 🐘 pgAdmin
+```bash
+sudo apt install pgadmin4 -y
+sudo /usr/pgadmin4/bin/setup-web.sh
+```
+- Acesse via navegador: `http://192.168.0.25/pgadmin4`.  
+- Conecte ao PostgreSQL da `vm-db` pela rede interna.  
+
+---
+
+### 📈 Monitoramento web
+```bash
+sudo apt install netdata -y
+```
+- Interface web em `http://192.168.0.25:19999`.  
+- Monitoramento em tempo real de CPU, memória, disco e rede.  
+
+---
+
+### 🔒 Segurança extra
+```bash
+sudo apt install fail2ban -y
+```
+- Protege contra tentativas de login SSH.  
+- Configuração padrão já cobre ataques de força bruta.  
+
+---
+
+### 🛡️ Firewall UFW
+```bash
+sudo apt install ufw -y
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
+sudo ufw enable
+```
+
+---
+
+### 🗄️ Backup e snapshots
+- Configurar snapshots regulares no Proxmox.  
+- Usar `backup-hdd` para armazenar dumps da VM.  
+
+---
+
+## ✅ Resultado
+- Ferramentas essenciais instaladas.  
+- pgAdmin acessível via navegador.  
+- Monitoramento ativo com Netdata.  
+- Segurança reforçada com UFW e fail2ban.  
+- Ambiente pronto para operação contínua e manutenção.  
 
 ---

@@ -9,6 +9,7 @@ Documentar a criação de um mini datacenter em laboratório, simulando prática
 ---
 
 ## 🏗️ Componentes
+Ubuntu 24.04 LTS (Noble) como sistema base para todas as VMs.
 
 ### vm-app
 - **Função:** Servidor de aplicação e bastion host.  
