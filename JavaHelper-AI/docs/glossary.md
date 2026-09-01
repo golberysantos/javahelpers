@@ -1,6 +1,9 @@
 
 # 📖 Glossário Técnico
 
+## LVM
+LVM significa Logical Volume Manager (Gerenciador de Volumes Lógicos). É uma tecnologia de gerenciamento de armazenamento que funciona como uma camada flexível entre o seu disco rígido físico e o sistema operacional.Em termos simples, pense no LVM como uma parede de drywall em vez de uma parede de tijolos. Se você precisar aumentar ou diminuir um cômodo (partição do disco), você pode mover essa parede facilmente sem quebrar nada.Em um sistema tradicional, se você fizesse uma partição de 40 GB e ela enchesse, o processo para aumentá-la seria difícil e arriscado. Com o LVM, o comportamento muda:Flexibilidade total: Você pode aumentar o tamanho desses 40 GB depois, mesmo com o Ubuntu Server ligado e rodando.União de discos: Se o seu servidor precisar de mais espaço no futuro, você pode espetar um segundo HD físico e "somar" o espaço dele aos 40 GB originais, como se fossem um único disco.Snapshots: Permite criar "fotos" instantâneas do estado do disco, facilitando backups antes de atualizações perigosas.Para o seu Ubuntu Server, essa é a opção padrão e mais recomendada, pois garante que você não terá dores de cabeça se o espaço em disco acabar no futuro.
+
 ## 🖥️ Infraestrutura
 
 - **[Bastion Host](ca://s?q=Definir_bastion_host)**  
