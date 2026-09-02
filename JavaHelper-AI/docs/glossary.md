@@ -1,4 +1,53 @@
 
+# 📖 Glossário Técnico
+
+## LVM
+LVM significa Logical Volume Manager (Gerenciador de Volumes Lógicos). É uma tecnologia de gerenciamento de armazenamento que funciona como uma camada flexível entre o seu disco rígido físico e o sistema operacional.Em termos simples, pense no LVM como uma parede de drywall em vez de uma parede de tijolos. Se você precisar aumentar ou diminuir um cômodo (partição do disco), você pode mover essa parede facilmente sem quebrar nada.Em um sistema tradicional, se você fizesse uma partição de 40 GB e ela enchesse, o processo para aumentá-la seria difícil e arriscado. Com o LVM, o comportamento muda:Flexibilidade total: Você pode aumentar o tamanho desses 40 GB depois, mesmo com o Ubuntu Server ligado e rodando.União de discos: Se o seu servidor precisar de mais espaço no futuro, você pode espetar um segundo HD físico e "somar" o espaço dele aos 40 GB originais, como se fossem um único disco.Snapshots: Permite criar "fotos" instantâneas do estado do disco, facilitando backups antes de atualizações perigosas.Para o seu Ubuntu Server, essa é a opção padrão e mais recomendada, pois garante que você não terá dores de cabeça se o espaço em disco acabar no futuro.
+
+## 🖥️ Infraestrutura
+
+- **[Bastion Host](ca://s?q=Definir_bastion_host)**  
+  Servidor intermediário usado para acessar sistemas internos de forma segura. No mini datacenter, a `vm-app` atua como bastion host.
+
+- **[vmbr0](ca://s?q=Definir_vmbr0)**  
+  Bridge de rede externa, conecta o PC físico às VMs. Usada para acesso SSH/HTTP à `vm-app` e `vm-ubuntu-workstation`.
+
+- **[vmbr1](ca://s?q=Definir_vmbr1)**  
+  Bridge de rede interna, conecta apenas as VMs entre si (`vm-app`, `vm-db`, `vm-ubuntu-workstation`). Não acessível diretamente pelo PC físico.
+
+- **[Container](ca://s?q=Definir_container)**  
+  Unidade leve de software que empacota aplicação e dependências. Usado para rodar Nginx, PostgreSQL, n8n, etc.
+
+- **[Docker](ca://s?q=Definir_Docker)**  
+  Plataforma de containers que permite criar, rodar e gerenciar aplicações isoladas.
+
+---
+
+## 🗄️ Banco de Dados
+
+- **[PostgreSQL](ca://s?q=Definir_PostgreSQL)**  
+  Banco de dados relacional open source usado na `vm-db`.
+
+- **[pgAdmin](ca://s?q=Definir_pgAdmin)**  
+  Cliente gráfico oficial para gerenciar PostgreSQL, rodando na `vm-ubuntu-workstation`.
+
+- **[DBeaver](ca://s?q=Definir_DBeaver)**  
+  Cliente gráfico multi-banco, alternativa ao pgAdmin.
+
+---
+
+## 🌐 Aplicações
+
+- **[vox-pix-api](ca://s?q=Definir_vox-pix-api)**  
+  API de Voice-Activated Banking usando Whisper (Groq) e Gemini para interpretar comandos de voz em português.
+
+- **[n8n](ca://s?q=Definir_n8n)**  
+  Ferramenta de automação de workflows, instalada via Docker na `vm-app`.
+
+- **[JavaHelper AI](ca://s?q=Definir_JavaHelper_AI)**  
+  API para auxiliar desenvolvedores Java com Inteligência Artificial e boas práticas de Engenharia de Software.
+
+
 ## cURL
 cURL (abreviação para Client URL) é uma ferramenta de linha de comando usada em sistemas Linux e macOS para transferir dados de ou para um servidor usando endereços de internet (URLs). Você pode saber mais sobre seu funcionamento e aplicações no Guia Completo da IBM.
 

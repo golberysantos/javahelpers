@@ -9,6 +9,7 @@ Documentar a criação de um mini datacenter em laboratório, simulando prática
 ---
 
 ## 🏗️ Componentes
+Ubuntu 24.04 LTS (Noble) como sistema base para todas as VMs.
 
 ### vm-app
 - **Função:** Servidor de aplicação e bastion host.  
@@ -176,8 +177,23 @@ flowchart LR
 
 ---
 
-👉 Assim você terá dois arquivos bem organizados:  
-- **`mini-datacenter-plan.md`** → visão geral e plano.  
-- **`mini-datacenter-documentation.md`** → execução detalhada com comandos, configs e diagrama.  
+## 📊 Diagrama isolado da vm-ubuntu-workstation (Mermaid)
 
-Quer que eu já te ajude a **criar um glossário técnico** dentro de `docs/glossary.md` (criar glossário técnico) para registrar termos como *bastion host*, *vmbr0*, *vmbr1*, *container*, etc.?
+```mermaid
+flowchart TB
+    PC["💻 PC\n192.168.0.x"] -->|Web Browser| VMWS["🖥️ vm-ubuntu-workstation\n192.168.0.40\npgAdmin / DBeaver"]
+
+    VMWS -->|Admin GUI| VMDB["🗄️ vm-db\n192.168.100.20\nDocker + PostgreSQL"]
+
+    subgraph External_Network ["🌐 Rede Externa (vmbr0) - 192.168.0.x"]
+        PC
+        VMWS
+    end
+
+    subgraph Internal_Network ["🔒 Rede Interna (vmbr1) - 192.168.100.x"]
+        VMWS
+        VMDB
+    end
+```
+
+
