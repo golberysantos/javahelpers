@@ -30,6 +30,12 @@
 * docker network ls: Lista todas as redes configuradas no Docker.
 * docker network create: Cria uma nova rede para comunicação entre containers.
 * docker network connect: Conecta um container ativo a uma rede específica.
+* docker network disconnect: Desconecta um container de uma rede específica.
+* docker network rm: Remove uma ou mais redes que não estão em uso.
+* docker network inspect: Exibe detalhes sobre uma rede específica, incluindo containers conectados.
+* docker volume inspect: Exibe detalhes sobre um volume específico, incluindo containers que o utilizam.
+* docker volume prune: Remove todos os volumes não utilizados para liberar espaço.
+
 
 ## Limpeza do Sistema
 * docker system prune: Remove containers parados, redes não utilizadas e imagens suspensas.
@@ -114,6 +120,8 @@
   - Exemplo: `docker exec -it postgres psql -U postgres` conecta ao banco de dados PostgreSQL dentro do container chamado "postgres" usando o usuário "postgres".
 * docker exec -it postgres psql -U devops -d appdb: 'exec -it' Executa um comando interativo dentro de um container em execução; 'psql -U <usuario> -d <database>' Especifica o usuário do PostgreSQL e o banco de dados para autenticação.  
   - Exemplo: `docker exec -it postgres psql -U devops -d appdb` conecta ao banco de dados "appdb" dentro do container chamado "postgres" usando o usuário "devops".
+*  docker inspect postgres | grep IPAddress: Exibe informações detalhadas sobre o container "postgres" e filtra a saída para mostrar apenas o endereço IP do container.  
+  - Exemplo: `docker inspect postgres | grep IPAddress` retorna o endereço IP do container "postgres".
 
 ## Referências
 * [Documentação oficial do Docker](https://docs.docker.com/)
