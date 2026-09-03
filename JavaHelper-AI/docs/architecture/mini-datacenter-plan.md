@@ -112,7 +112,7 @@ Isolado da vm-ubuntu-workstation
     
     [x] Instalar e configurar pgAdmin na vm-ubuntu-workstation.
 
-    [ ] Configurar para gerenciar o banco de dados com pgAdmin considerando o fluxo: Meu PC (via pgAdmin browser) → vm-workstation → vm-db (interna).
+    [x] Configurar para gerenciar o banco de dados com pgAdmin considerando o fluxo: Meu PC (via pgAdmin browser) → vm-workstation → vm-db (interna).
     
     [ ] Instalar e configurar DBeaver na vm-ubuntu-workstation.
     
