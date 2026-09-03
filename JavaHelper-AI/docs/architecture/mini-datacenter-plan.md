@@ -80,3 +80,71 @@ O diagrama mostra a comunicação entre o PC, a vm-app e a vm-db:
     Configurar conexão app ↔ DB
 
         A aplicação na vm-app acessa o PostgreSQL na vm-db.
+        
+        
+---
+
+# 📄 Pacotes Extras Pós-Boot — Ubuntu Server
+
+### 🛠️ Ferramentas básicas
+```bash
+sudo apt install net-tools htop curl wget git unzip -y
+```
+- `net-tools` → comandos de rede (`ifconfig`, `netstat`).  
+- `htop` → monitoramento de CPU/memória.  
+- `curl` e `wget` → downloads e testes HTTP.  
+- `git` → controle de versão.  
+- `unzip` → manipulação de arquivos compactados.  
+
+---
+
+### 🐘 pgAdmin
+```bash
+sudo apt install pgadmin4 -y
+sudo /usr/pgadmin4/bin/setup-web.sh
+```
+- Acesse via navegador: `http://192.168.0.25/pgadmin4`.  
+- Conecte ao PostgreSQL da `vm-db` pela rede interna.  
+
+
+---
+
+### 📈 Monitoramento web com Netdata
+O Netdata é uma ferramenta de código aberto feita para monitorar a saúde e o desempenho do seu servidor em tempo real. No Ubuntu Server 24, ele funciona coletando milhares de métricas a cada segundo e exibindo tudo em um painel web interativo e automático.
+
+- Interface web em `http://192.168.0.25:19999`.  
+- Monitoramento em tempo real de CPU, memória, disco e rede.  
+
+---
+
+### 🔒 Segurança extra com fail2ban
+- Protege contra tentativas de login SSH.  
+- Configuração padrão já cobre ataques de força bruta.  
+
+---
+
+### 🛡️ Firewall UFW
+
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
+sudo ufw enable
+
+
+---
+
+### 🗄️ Backup e snapshots
+- Configurar snapshots regulares no Proxmox.  
+- Usar `backup-hdd` para armazenar dumps da VM.  
+
+---
+
+## ✅ Resultado
+- Ferramentas essenciais instaladas.  
+- pgAdmin acessível via navegador.  
+- Monitoramento ativo com Netdata.  
+- Segurança reforçada com UFW e fail2ban.  
+- Ambiente pronto para operação contínua e manutenção.  
+
+
+        

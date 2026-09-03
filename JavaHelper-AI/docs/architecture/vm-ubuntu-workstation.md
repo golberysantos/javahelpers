@@ -1,3 +1,72 @@
+# Documentação — vm-ubuntu-workstation
+
+## 🎯 Objetivo
+Registrar a configuração e papel da **vm-ubuntu-workstation** dentro do mini datacenter, atuando como estação administrativa para gerenciar o banco de dados e aplicações.
+
+---
+
+## 🖥️ Sistema
+- **Sistema Operacional:** Ubuntu 24.04 LTS (Noble).  
+- **Infraestrutura:** Proxmox VE 9.2.2 (pve-lab).  
+
+---
+
+## 🌐 Rede
+- **Interface:** `ens18`  
+- **MTU:** 1400  
+- **MAC:** bc:24:11:73:c4:7a  
+- **IP externo (vmbr0):** 192.168.0.25/24  
+- **IP interno (vmbr1):** 192.168.100.30/24 *(reservado para expansão futura)*  
+- **IPv6:**  
+  - Global: `2804:7af8:239:fc00:be24:11ff:fe73:c47a/64`  
+  - Link-local: `fe80::be24:11ff:fe73:c47a/64`  
+
+---
+
+## 🔧 Serviços
+- **Ferramentas de administração:**  
+  - [pgAdmin](ca://s?q=Instalar_pgAdmin_Ubuntu)  
+  - [DBeaver](ca://s?q=Instalar_DBeaver_Ubuntu)  
+- **Função principal:** acessar e administrar o PostgreSQL rodando na `vm-db`.  
+
+---
+
+## 📊 Diagrama isolado da vm-ubuntu-workstation
+```mermaid
+flowchart TB
+    PC["💻 PC\n192.168.0.x"] -->|Web Browser| VMWS["🖥️ vm-ubuntu-workstation\n192.168.0.25\npgAdmin / DBeaver"]
+    VMWS -->|Admin GUI| VMDB["🗄️ vm-db\n192.168.100.20\nDocker + PostgreSQL"]
+
+    subgraph External_Network ["🌐 Rede Externa (vmbr0) - 192.168.0.x"]
+        PC
+        VMWS
+    end
+
+    subgraph Internal_Network ["🔒 Rede Interna (vmbr1) - 192.168.100.x"]
+        VMWS
+        VMDB
+    end
+    ```
+
+--- 
+
+## ✅ Resultado esperado
+
+    Workstation acessível pela rede externa (vmbr0).
+
+    Comunicação segura com vm-db pela rede interna (vmbr1).
+
+    Ferramentas gráficas disponíveis para administração do banco.
+
+📌 Próximos passos
+
+    Instalar pgAdmin e configurar conexão com vm-db.
+
+    Instalar DBeaver para acesso multiplataforma.
+
+    Documentar credenciais seguras para administração.
+    
+--- 
 
 ## 📄 Guia para a vm-ubuntu-workstation com IP fixo
 
@@ -328,3 +397,5 @@ sudo ufw enable
 - Ambiente pronto para operação contínua e manutenção.  
 
 ---
+
+
