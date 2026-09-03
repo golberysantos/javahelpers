@@ -123,5 +123,8 @@
 *  docker inspect postgres | grep IPAddress: Exibe informações detalhadas sobre o container "postgres" e filtra a saída para mostrar apenas o endereço IP do container.  
   - Exemplo: `docker inspect postgres | grep IPAddress` retorna o endereço IP do container "postgres".
 
+* docker exec -it <nomeDoConteiner> bash: Executa um shell bash interativo dentro do container "postgres".  
+  - Exemplo: `docker exec -it postgres bash` abre um terminal dentro do container "postgres", permitindo executar comandos diretamente no ambiente do container.
+
 ## Referências
 * [Documentação oficial do Docker](https://docs.docker.com/)
