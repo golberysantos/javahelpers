@@ -381,6 +381,9 @@ sudo ufw allow https
 sudo ufw enable
 ```
 
+Para desabilitar: 
+	sudo ufw disable
+
 ---
 
 ### 🗄️ Backup e snapshots

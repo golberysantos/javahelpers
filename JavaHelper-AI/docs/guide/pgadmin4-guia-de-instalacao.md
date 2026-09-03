@@ -62,3 +62,78 @@ http://<IP_DO_SEU_SERVIDOR>/pgadmin4
 ```bash
 ip a s | grep global
 ```
+
+
+---
+
+# Conectar com a vm-db (PostgreSQL)
+
+## 🔍 Diagnóstico provável
+1. **Interface da vm-workstation**:  
+   - Pelo documento, a vm-workstation tem apenas IP externo (`192.168.0.25` em `vmbr0`).  
+   - Para falar com a vm-db, ela precisa também estar ligada à rede interna (`vmbr1`).  
+
+2. **Configuração de rede no Proxmox**:  
+   - A vm-db está em `vmbr1` (rede interna).  
+   - A vm-workstation precisa de uma segunda interface de rede conectada ao mesmo `vmbr1`.  
+
+3. **Rotas**:  
+   - Se a vm-workstation não tem IP na rede `192.168.100.x`, ela nunca vai alcançar `192.168.100.20`.  
+
+---
+
+## 🛠️ Solução passo a passo
+
+### 1. Adicionar interface interna na vm-workstation
+No Proxmox:
+- Abra a configuração da **vm-ubuntu-workstation**.  
+- Adicione uma segunda NIC conectada ao **bridge vmbr1**.  
+
+### 2. Configurar IP interno na vm-workstation
+Dentro da vm-workstation, configure a nova interface (exemplo `ens19`):
+
+```bash
+sudo ip addr add 192.168.100.25/24 dev ens19
+sudo ip link set ens19 up
+```
+
+Ou configure permanentemente em `/etc/netplan/*.yaml`:
+
+```yaml
+network:
+  version: 2
+  ethernets:
+    ens18:
+      addresses: [192.168.0.25/24]
+      gateway4: 192.168.0.1
+    ens19:
+      addresses: [192.168.100.25/24]
+```
+
+Depois aplique:
+```bash
+sudo netplan apply
+```
+
+### 3. Testar conectividade
+Agora da vm-workstation:
+```bash
+ping 192.168.100.20
+```
+Se responder, a rede interna está funcionando.
+
+### 4. Configurar pgAdmin
+No pgAdmin da vm-workstation:
+- **Host:** `192.168.100.20`  
+- **Port:** `5432`  
+- **User/Password:** conforme configurado no PostgreSQL  
+
+---
+
+## 📌 Resultado esperado
+Fluxo completo:
+- Seu **PC (192.168.0.34)** acessa a **vm-workstation (192.168.0.25)** via browser.  
+- A **vm-workstation** tem acesso tanto à rede externa quanto à interna.  
+- O **pgAdmin** na vm-workstation conecta ao PostgreSQL na **vm-db (192.168.100.20)**.  
+
+---
