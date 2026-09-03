@@ -1,132 +1,66 @@
-Perfeito, Golbery 👌 — vamos criar uma documentação completa em um novo arquivo chamado **`docs/architecture/mini-datacenter-documentation.md`**, incluindo todos os comandos, configurações e o diagrama da arquitetura.  
-
-#---
 # Mini Datacenter Documentation
 
 ## 🎯 Objetivo
-Documentar a criação de um mini datacenter em laboratório, simulando práticas de produção com separação entre aplicação e banco de dados, utilizando VMs, redes internas e containers Docker.
+Documentar a criação de um mini datacenter em laboratório, simulando práticas de produção com separação entre aplicação, banco de dados e workstation administrativa.
 
 ---
+## 🖥️ Infraestrutura de Virtualização
 
+    Proxmox VE: versão 9.2.2 (pve-lab).
+
+    Todas as VMs rodam Ubuntu 24.04 LTS (Noble).
+
+
+    
 ## 🏗️ Componentes
-Ubuntu 24.04 LTS (Noble) como sistema base para todas as VMs.
 
 ### vm-app
 - **Função:** Servidor de aplicação e bastion host.  
+- **Sistema:** Ubuntu 24.04 LTS (Noble).  
 - **IP externo:** 192.168.0.39 (vmbr0).  
 - **IP interno:** 192.168.100.10 (vmbr1).  
 - **Serviços:** Docker Engine, Nginx, aplicação backend.  
-
-**Comandos executados:**
-```bash
-# Instalar Docker
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-sudo usermod -aG docker $USER
-newgrp docker
-
-# Testar instalação
-docker --version
-docker compose version
-docker run hello-world
-
-# Rodar Nginx
-docker run -d -p 8080:80 --name nginx nginx
-```
 
 ---
 
 ### vm-db
 - **Função:** Servidor de banco de dados.  
+- **Sistema:** Ubuntu 24.04 LTS (Noble).  
 - **IP interno:** 192.168.100.20 (vmbr1).  
 - **Serviços:** Docker Engine, PostgreSQL.  
 
-**Comandos executados:**
-```bash
-# Instalar OpenSSH Server
-sudo apt update
-sudo apt install openssh-server -y
-sudo systemctl enable ssh
-sudo systemctl start ssh
-sudo systemctl status ssh
-ss -tlnp | grep ssh
+---
 
-# Instalar Docker
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-sudo usermod -aG docker $USER
-newgrp docker
-
-# Testar instalação
-docker --version
-docker compose version
-docker run hello-world
-
-# Subir PostgreSQL
-docker volume create pgdata
-docker run -d \
-  --name postgres \
-  -e POSTGRES_USER=devops \
-  -e POSTGRES_PASSWORD=senha123 \
-  -e POSTGRES_DB=appdb \
-  -v pgdata:/var/lib/postgresql/data \
-  -p 5432:5432 \
-  postgres:16
-
-# Testar acesso ao banco
-docker exec -it postgres psql -U devops -d appdb
-```
+### vm-ubuntu-workstation
+- **Função:** Workstation administrativa.  
+- **Sistema:** Ubuntu 24.04 LTS (Noble).  
+- **IP externo:** 192.168.0.25 (vmbr0).  
+- **Interface:** `ens18` com MTU 1400.  
+- **Serviços:** pgAdmin, DBeaver, ferramentas de administração.  
 
 ---
 
 ## 🌐 Redes
-
-- **vmbr0 (externa):** conecta o host físico e permite acesso do PC à vm-app.  
-- **vmbr1 (interna):** rede privada entre vm-app e vm-db, não acessível diretamente do PC.  
+- **vmbr0 (externa):** conecta o host físico e permite acesso do PC às VMs.  
+- **vmbr1 (interna):** rede privada entre vm-app, vm-db e vm-workstation.  
 
 ---
 
 ## 🔄 Fluxo de acesso
 - **PC → vm-app (externa)** → via SSH/HTTP.  
-- **vm-app → vm-db (interna)** → via SSH/PostgreSQL.  
+- **vm-app → vm-db (interna)** → via PostgreSQL.  
+- **vm-workstation → vm-db (interna)** → via pgAdmin/DBeaver.  
 
 ---
 
-## 🔧 Conexão vm-app → vm-db
-Na `vm-app`, instalamos o cliente PostgreSQL e testamos a conexão:  
-```bash
-sudo apt update
-sudo apt install postgresql-client -y
+## 📊 Diagramas da Arquitetura
 
-psql -h 192.168.100.20 -U devops -d appdb
-```
-Senha: `senha123`.  
-
-String de conexão para aplicações:  
-```
-postgres://devops:senha123@192.168.100.20:5432/appdb
-```
-
----
-
-## 📊 Diagrama da Arquitetura
-
-`[Looks like the result wasn't safe to show. Let's switch things up and try something else!]`
-
-O diagrama mostra:
-- PC acessando a vm-app pela rede externa (vmbr0).  
-- vm-app atuando como bastion host e ponte para a rede interna.  
-- vm-db acessível apenas pela vm-app, rodando PostgreSQL em container.  
-
-
-## 📊 Diagrama da Arquitetura com Workstation (Mermaid)
-
-
+### Geral
 ```mermaid
 flowchart LR
     PC["💻 PC\n192.168.0.x"] -->|SSH/HTTP| VMAPP["🖥️ vm-app\n192.168.0.39\n192.168.100.10\nDocker + Nginx + App Server\n(Bastion Host)"]
     VMAPP -->|PostgreSQL Conn| VMDB["🗄️ vm-db\n192.168.100.20\nDocker + PostgreSQL"]
-    PC -->|Web Browser| VMWS["🖥️ vm-ubuntu-workstation\n192.168.0.40\npgAdmin / DBeaver"]
+    PC -->|Web Browser| VMWS["🖥️ vm-ubuntu-workstation\n192.168.0.25\npgAdmin / DBeaver"]
 
     subgraph External_Network ["🌐 Rede Externa (vmbr0) - 192.168.0.x"]
         PC
@@ -141,48 +75,12 @@ flowchart LR
     end
 
     VMWS -->|Admin GUI| VMDB
-
 ```
 
 ---
-
-### ✅ O que esse diagrama mostra
-- O **PC físico** acessa tanto a `vm-app` quanto a `vm-ubuntu-workstation` pela rede externa (`vmbr0`).  
-- A **vm-ubuntu-workstation** roda ferramentas gráficas como **pgAdmin** e **DBeaver**, acessíveis via navegador.  
-- A **vm-app** continua como bastion host e servidor de aplicação.  
-- A **vm-db** é acessada tanto pela `vm-app` (para rodar aplicações) quanto pela `vm-ubuntu-workstation` (para administração).  
-- Todas as VMs compartilham a rede interna (`vmbr1`) para comunicação segura.  
-
----
-
-👉 Quer que eu prepare também um **diagrama Mermaid separado só da vm-ubuntu-workstation** ([diagramar vm-ubuntu-workstation isolada](ca://s?q=Diagramar_vm-ubuntu-workstation_isolada)) para detalhar como ela se conecta ao PostgreSQL e ao PC?
-
----
-
-### ✅ O que esse diagrama mostra
-- O **PC** acessa a `vm-app` pela rede externa (`vmbr0`).  
-- A **vm-app** atua como bastion host e conecta à rede interna (`vmbr1`).  
-- A **vm-db** só é acessível pela `vm-app`, rodando PostgreSQL em container.  
-
----
-
-👉 Se quiser, posso gerar também **diagramas Mermaid separados para cada aplicação futura** — [vox-pix-api](ca://s?q=Diagramar_vox-pix-api_em_Mermaid), [n8n](ca://s?q=Diagramar_n8n_em_Mermaid) e [JavaHelper_AI](ca://s?q=Diagramar_JavaHelper_AI_em_Mermaid) — para você colar nos arquivos de documentação específicos de cada serviço. Quer que eu prepare esses modelos já agora?
-
----
-
-## 📌 Próximos passos
-#1. Configurar aplicação backend na vm-app para usar o PostgreSQL.  
-#2. Criar tabelas e dados de teste no banco.  
-#3. Documentar expansão futura (Redis, API Gateway, etc.).
-
----
-
-## 📊 Diagrama isolado da vm-ubuntu-workstation (Mermaid)
-
 ```mermaid
 flowchart TB
-    PC["💻 PC\n192.168.0.x"] -->|Web Browser| VMWS["🖥️ vm-ubuntu-workstation\n192.168.0.40\npgAdmin / DBeaver"]
-
+    PC["💻 PC\n192.168.0.x"] -->|Web Browser| VMWS["🖥️ vm-ubuntu-workstation\n192.168.0.25\npgAdmin / DBeaver"]
     VMWS -->|Admin GUI| VMDB["🗄️ vm-db\n192.168.100.20\nDocker + PostgreSQL"]
 
     subgraph External_Network ["🌐 Rede Externa (vmbr0) - 192.168.0.x"]
@@ -194,6 +92,17 @@ flowchart TB
         VMWS
         VMDB
     end
+
 ```
 
+---
 
+## 📌 Próximos passos
+
+    Configurar backend na vm-app para usar PostgreSQL.
+
+    Criar tabelas e dados de teste.
+
+    Documentar expansão futura (Redis, API Gateway, serviços adicionais).
+
+    Diagramar serviços futuros como vox-pix-api, n8n e JavaHelper_AI.
