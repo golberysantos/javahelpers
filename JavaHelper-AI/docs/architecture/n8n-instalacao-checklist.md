@@ -19,7 +19,7 @@
   ```bash
   sudo systemctl enable docker
   ```
-- [ ] Criar diretório `/opt/n8n`
+- [x] Criar diretório `/opt/n8n`
   ```bash
   mkdir -p /opt/n8n/{data,config}
   ```
