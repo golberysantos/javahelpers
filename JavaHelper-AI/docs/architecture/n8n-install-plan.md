@@ -1,5 +1,74 @@
 # Plano de Instalação do n8n em Cenário de Laboratório Profissional
 
+📄 Checklist — Instalação do n8n na vm-app
+markdown
+
+# Checklist — Instalação do n8n na vm-app
+
+## 🎯 Objetivo
+Rodar o n8n em container Docker na vm-app, acessível pelo PC (192.168.0.34 → vm-app), utilizando o PostgreSQL da vm-db como banco de dados.
+
+---
+
+## 🛠️ Pré-requisitos
+- vm-app rodando Ubuntu 24.04 LTS (Noble).  
+- Docker Engine instalado e funcionando.  
+- vm-db com PostgreSQL ativo e acessível pela rede interna (vmbr1).  
+
+---
+
+## 📂 Criar diretório para configuração
+```bash
+sudo mkdir -p /opt/n8n
+sudo chown $USER:$USER /opt/n8n
+
+🔧 Arquivo .env para credenciais
+
+Crie /opt/n8n/.env com:
+Code
+
+DB_TYPE=postgresdb
+DB_POSTGRESDB_HOST=192.168.100.20
+DB_POSTGRESDB_PORT=5432
+DB_POSTGRESDB_DATABASE=appdb
+DB_POSTGRESDB_USER=devops
+DB_POSTGRESDB_PASSWORD=senha123
+
+N8N_PORT=5678
+N8N_HOST=0.0.0.0
+
+🚀 Rodar container n8n
+bash
+
+docker run -d \
+  --name n8n \
+  -p 5678:5678 \
+  -v n8n_data:/home/node/.n8n \
+  --env-file /opt/n8n/.env \
+  n8nio/n8n
+
+🌐 Acesso
+
+    Navegador no PC → http://192.168.0.39:5678
+
+    n8n conectado ao PostgreSQL da vm-db.
+
+🔒 Segurança
+
+    Configurar firewall UFW na vm-app para expor apenas porta 5678.
+
+    Não expor PostgreSQL na rede externa.
+
+    Usar volumes para persistência (n8n_data).
+
+📌 Próximos passos
+
+    Configurar SSL/TLS para acesso seguro.
+
+    Automatizar backup dos workflows.
+
+    Monitorar consumo de recursos na vm-app.
+
 ## 1. Preparação do Ambiente
 - **VMs configuradas**:  
   - vm-app: aplicação, Docker + Nginx.  

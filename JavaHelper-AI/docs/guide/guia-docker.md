@@ -44,6 +44,7 @@
 ## Informações e Diagnóstico
 * docker info: Exibe informações detalhadas sobre a instalação do Docker e o estado do sistema.
 * docker version: Mostra a versão do Docker instalada no sistema.
+* docker compose version: Exibe a versão do Docker Compose instalada.
 
 ## Dicas e Boas Práticas
 * Sempre utilize tags específicas ao puxar imagens para evitar problemas de compatibilidade.
