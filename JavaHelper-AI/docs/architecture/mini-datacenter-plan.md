@@ -1,3 +1,4 @@
+
 # Mini Datacenter Plan
 
 ## 🎯 Objetivo
@@ -16,9 +17,9 @@ Criar um ambiente de laboratório que simule um datacenter em nuvem, com separa�
 ### vm-app
 - **Função:** Servidor de aplicação e bastion host.  
 - **Sistema:** Ubuntu 24.04 LTS (Noble).  
-- **IP externo:** 192.168.0.39 (vmbr0).  
-- **IP interno:** 192.168.100.10 (vmbr1).  
-- **Serviços:** Docker Engine, Nginx, aplicação backend.  
+- **IP externo:** 192.168.0.12 (vmbr0).  
+- **IP interno:** 192.168.100.12 (vmbr1).  
+- **Serviços:** Docker Engine, Nginx, aplicação backend, n8n.  
 - **Papel:** Ponte entre rede externa e interna.  
 
 ---
@@ -49,7 +50,7 @@ Criar um ambiente de laboratório que simule um datacenter em nuvem, com separa�
 ---
 
 ## 🔄 Fluxo de acesso
-- **PC → vm-app (externa)** → via SSH/HTTP.  
+- **PC → vm-app (externa)** → via SSH/HTTP/n8n.  
 - **vm-app → vm-db (interna)** → via PostgreSQL.  
 - **vm-workstation → vm-db (interna)** → via pgAdmin/DBeaver.  
 
@@ -60,7 +61,7 @@ Criar um ambiente de laboratório que simule um datacenter em nuvem, com separa�
 ### Geral
 ```mermaid
 flowchart LR
-    PC["💻 PC\n192.168.0.x"] -->|SSH/HTTP| VMAPP["🖥️ vm-app\n192.168.0.39\n192.168.100.10\nDocker + Nginx + App Server\n(Bastion Host)"]
+    PC["💻 PC\n192.168.0.x"] -->|SSH/HTTP| VMAPP["🖥️ vm-app\n192.168.0.12\n192.168.100.12\nDocker + Nginx + App Server + n8n\n(Bastion Host)"]
     VMAPP -->|PostgreSQL Conn| VMDB["🗄️ vm-db\n192.168.100.20\nDocker + PostgreSQL"]
     PC -->|Web Browser| VMWS["🖥️ vm-ubuntu-workstation\n192.168.0.25\npgAdmin / DBeaver"]
 
@@ -79,11 +80,10 @@ flowchart LR
     VMWS -->|Admin GUI| VMDB
 ```
  
+Isolado da vm-ubuntu-workstation:
  
-Isolado da vm-ubuntu-workstation
- 
- ```mermaid
- flowchart TB
+```mermaid
+flowchart TB
     PC["💻 PC\n192.168.0.x"] -->|Web Browser| VMWS["🖥️ vm-ubuntu-workstation\n192.168.0.25\npgAdmin / DBeaver"]
     VMWS -->|Admin GUI| VMDB["🗄️ vm-db\n192.168.100.20\nDocker + PostgreSQL"]
 
@@ -96,48 +96,33 @@ Isolado da vm-ubuntu-workstation
         VMWS
         VMDB
     end
-    ```
+```
     
 ---
 
 ### 📌 Checklist dos próximos passos
 
-    [x] Instalar Docker na vm-db.
+- [x] Instalar Docker na vm-db.  
+- [x] Subir container PostgreSQL na vm-db.  
+- [x] Configurar usuário, senha e banco de dados no PostgreSQL.  
+- [x] Criar banco de dados, tabelas e dados de teste no PostgreSQL.  
+- [x] Instalar e configurar pgAdmin na vm-ubuntu-workstation.  
+- [x] Configurar para gerenciar o banco de dados com pgAdmin considerando o fluxo: Meu PC (via pgAdmin browser) → vm-workstation → vm-db (interna).  
+- [ ] Instalar e configurar DBeaver na vm-ubuntu-workstation.  
+- [ ] Configurar para gerenciar o banco de dados com DBeaver considerando o fluxo: Meu PC (via DBeaver) → vm-workstation → vm-db (interna).  
+- [ ] Configurar variáveis de ambiente na vm-app para conexão com o PostgreSQL.  
+- [x] Configurar vm-app para se conectar ao PostgreSQL.  
+- [ ] Configurar firewall e regras de acesso entre vm-app e vm-db.  
+- [ ] Testar conexão da aplicação com o banco de dados.  
+- [ ] Configurar backups automáticos do PostgreSQL.  
+- [ ] Documentar credenciais e variáveis de ambiente para a aplicação.  
+- [ ] Configurar monitoramento com Netdata na vm-app e vm-db.  
+- [ ] Configurar fail2ban e UFW para segurança adicional.  
+- [ ] Criar scripts de inicialização para containers Docker na vm-app e vm-db.  
+- [ ] Documentar procedimentos de manutenção e atualização das VMs.  
+- [ ] Documentar expansão futura (Redis, API Gateway, etc.).  
+- [ ] Diagramar serviços futuros como vox-pix-api, n8n e JavaHelper_AI.  
 
-    [x] Subir container PostgreSQL na vm-db.
-    
-    [x] Configurar usuário, senha e banco de dados no PostgreSQL.
-    
-    [x] Criar banco de dados, tabelas e dados de teste no PostgreSQL.
-    
-    [x] Instalar e configurar pgAdmin na vm-ubuntu-workstation.
+---
 
-    [x] Configurar para gerenciar o banco de dados com pgAdmin considerando o fluxo: Meu PC (via pgAdmin browser) → vm-workstation → vm-db (interna).
-    
-    [ ] Instalar e configurar DBeaver na vm-ubuntu-workstation.
-    
-    [ ] Configurar para gerenciar o banco de dados com DBeaver considerando o fluxo: Meu PC (via DBeaver) → vm-workstation → vm-db (interna).
-    
-    [ ] Configurar variáveis de ambiente na vm-app para conexão com o PostgreSQL.
-    
-    [x] Configurar vm-app para se conectar ao PostgreSQL.
-
-    [ ] Configurar firewall e regras de acesso entre vm-app e vm-db.
-
-    [ ] Testar conexão da aplicação com o banco de dados.
-
-    [ ] Configurar backups automáticos do PostgreSQL.
-
-    [ ] Documentar credenciais e variáveis de ambiente para a aplicação.
-
-    [ ] Configurar monitoramento com Netdata na vm-app e vm-db.
-
-    [ ] Configurar fail2ban e UFW para segurança adicional.
-
-    [ ] Criar scripts de inicialização para containers Docker na vm-app e vm-db.
-
-    [ ] Documentar procedimentos de manutenção e atualização das VMs.
-
-    [ ] Documentar expansão futura (Redis, API Gateway, etc.).
-
-    [ ] Diagramar serviços futuros como vox-pix-api, n8n e JavaHelper_AI.
+👉 Esse texto já está pronto para substituir o conteúdo do seu **mini-datacenter-plan.md**.
