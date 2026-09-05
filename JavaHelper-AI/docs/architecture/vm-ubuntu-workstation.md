@@ -381,8 +381,10 @@ sudo ufw allow https
 sudo ufw enable
 ```
 
+Para habilitar:
+	sudo ufw enable.
 Para desabilitar: 
-	sudo ufw disable
+	sudo ufw disable.
 
 ---
 
