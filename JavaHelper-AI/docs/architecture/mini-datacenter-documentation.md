@@ -47,9 +47,9 @@ Documentar a criação de um mini datacenter em laboratório, simulando prática
 ---
 
 ## 🔄 Fluxo de acesso
-- **PC → vm-app (externa)** → via SSH/HTTP.  
-- **vm-app → vm-db (interna)** → via PostgreSQL.  
-- **vm-workstation → vm-db (interna)** → via pgAdmin/DBeaver.  
+- PC (192.168.0.34) → vm-app (192.168.0.12) → via SSH/HTTP/n8n
+- vm-app (192.168.100.12) → vm-db (192.168.100.20) → via PostgreSQL
+- vm-workstation (192.168.0.25) → vm-db (192.168.100.20) → via pgAdmin/DBeaver 
 
 ---
 
@@ -58,7 +58,7 @@ Documentar a criação de um mini datacenter em laboratório, simulando prática
 ### Geral
 ```mermaid
 flowchart LR
-    PC["💻 PC\n192.168.0.x"] -->|SSH/HTTP| VMAPP["🖥️ vm-app\n192.168.0.39\n192.168.100.10\nDocker + Nginx + App Server\n(Bastion Host)"]
+    PC["💻 PC\n192.168.0.34"] -->|SSH/HTTP| VMAPP["🖥️ vm-app\n192.168.0.12\n192.168.100.12\nDocker + Nginx + App Server + n8n"]
     VMAPP -->|PostgreSQL Conn| VMDB["🗄️ vm-db\n192.168.100.20\nDocker + PostgreSQL"]
     PC -->|Web Browser| VMWS["🖥️ vm-ubuntu-workstation\n192.168.0.25\npgAdmin / DBeaver"]
 
@@ -75,9 +75,24 @@ flowchart LR
     end
 
     VMWS -->|Admin GUI| VMDB
+
 ```
+✅ Resultado esperado
+
+    vm-app com IPs estáticos 192.168.0.12 (externo) e 192.168.100.12 (interno).
+
+    Documentação e diagramas consistentes.
+
+    Netplan atualizado com routes em vez de gateway4.
+
+    Fluxo de acesso preservado: PC → vm-app → vm-db.
+
+    n8n acessível em http://192.168.0.12:5678.
 
 ---
+
+Isolado da vm-ubuntu-workstation:
+ 
 ```mermaid
 flowchart TB
     PC["💻 PC\n192.168.0.x"] -->|Web Browser| VMWS["🖥️ vm-ubuntu-workstation\n192.168.0.25\npgAdmin / DBeaver"]
@@ -92,7 +107,6 @@ flowchart TB
         VMWS
         VMDB
     end
-
 ```
 
 ---
