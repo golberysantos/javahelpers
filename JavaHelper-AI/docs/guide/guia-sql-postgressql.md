@@ -38,6 +38,39 @@ Formato padrão utilizado em arquivos de configuração de sistemas e frameworks
 * `DROP`: Remove permanentemente um objeto do banco de dados.
 * `TRUNCATE`: Esvazia rapidamente uma tabela, redefinindo contadores, sendo mais eficiente que o `DELETE`.
 
+
+Para remover um banco de dados no PostgreSQL, você deve utilizar o comando `DROP DATABASE`.
+
+
+```sql
+DROP DATABASE nome_do_banco;
+
+```
+
+**Comando seguro (evita erros caso o banco não exista):**
+
+```sql
+DROP DATABASE IF EXISTS nome_do_banco;
+
+```
+
+**⚠️ Observações importantes:**
+
+* **Conexão:** Você não pode estar conectado ao banco de dados que deseja excluir. Conecte-se a outro banco (como o `postgres`) antes de executar o comando.
+* **Conexões ativas (Versão 13 ou superior):** Se houver usuários conectados ao banco, você pode forçar a desconexão e exclusão utilizando:
+```sql
+DROP DATABASE nome_do_banco WITH (FORCE);
+
+```
+
+
+* **Alternativa via terminal (fora do SQL):** Você também pode usar o utilitário do sistema operacional no terminal do seu computador:
+```bash
+dropdb nome_do_banco
+
+```
+---
+
 **Controle de Transações (TCL)**
 
 * `BEGIN` (ou `START TRANSACTION`): Inicia uma nova transação.
@@ -60,3 +93,34 @@ Formato padrão utilizado em arquivos de configuração de sistemas e frameworks
 **Otimização**
 
 * `EXPLAIN`: Exibe o plano de execução planejado pelo otimizador para uma consulta, útil para identificar gargalos de performance e uso de índices.
+
+
+Para alterar a senha de um usuário no PostgreSQL, você pode utilizar o comando `ALTER ROLE` ou `ALTER USER` (ambos funcionam da mesma forma).
+
+
+## **Comando SQL administativos:**
+
+```sql
+ALTER USER nome_do_usuario WITH PASSWORD 'nova_senha';
+
+```
+
+**Alternativa com ROLE:**
+
+```sql
+ALTER ROLE nome_do_usuario WITH PASSWORD 'nova_senha';
+
+```
+
+**⚠️ Observações importantes:**
+
+* **Permissões:** Para alterar a senha de outro usuário, você precisa ter a permissão de `CREATEROLE` ou ser um superusuário (`postgres`). Qualquer usuário pode alterar a sua própria senha sem privilégios especiais.
+* **Criptografia padrão:** Por segurança, o PostgreSQL armazena a senha criptografada (geralmente usando SCRAM-SHA-256 por padrão nas versões mais recentes). O comando acima cuida disso automaticamente, desde que a senha seja passada entre apóstrofos (`'`).
+* **Alternativa via terminal (fora do SQL):** Você também pode alterar a senha diretamente pelo terminal do sistema operacional utilizando o comando `psql`:
+```bash
+psql -U postgres -c "\password nome_do_usuario"
+
+```
+
+
+*(O terminal solicitará a nova senha de forma segura, sem exibi-la na tela).*
