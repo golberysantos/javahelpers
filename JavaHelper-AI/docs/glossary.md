@@ -1,6 +1,16 @@
 
 # 📖 Glossário Técnico
 
+## snapshot
+
+Um snapshot (ou ponto de restauração) é uma cópia instantânea do estado de um sistema virtual — como uma máquina virtual, container ou disco — em um determinado momento exato. Ele registra tanto os arquivos do sistema quanto a configuração e, opcionalmente, o conteúdo da memória RAM. 
+Para que serve
+
+    Segurança antes de alterações: Permite testar atualizações, instalar pacotes ou modificar configurações arriscadas sabendo que você pode voltar atrás se algo quebrar.
+
+    Restauração rápida: Caso uma alteração corrompa o sistema (como o n8n ou o banco de dados que mencionamos), você consegue reverter a máquina para o estado perfeito em segundos, sem precisar reinstalar tudo do zero.
+
+    Ambientes de teste: Facilita a criação de pontos de controle para experimentar novas funcionalidades de forma isolada.
 ## LVM
 LVM significa Logical Volume Manager (Gerenciador de Volumes Lógicos). É uma tecnologia de gerenciamento de armazenamento que funciona como uma camada flexível entre o seu disco rígido físico e o sistema operacional.Em termos simples, pense no LVM como uma parede de drywall em vez de uma parede de tijolos. Se você precisar aumentar ou diminuir um cômodo (partição do disco), você pode mover essa parede facilmente sem quebrar nada.Em um sistema tradicional, se você fizesse uma partição de 40 GB e ela enchesse, o processo para aumentá-la seria difícil e arriscado. Com o LVM, o comportamento muda:Flexibilidade total: Você pode aumentar o tamanho desses 40 GB depois, mesmo com o Ubuntu Server ligado e rodando.União de discos: Se o seu servidor precisar de mais espaço no futuro, você pode espetar um segundo HD físico e "somar" o espaço dele aos 40 GB originais, como se fossem um único disco.Snapshots: Permite criar "fotos" instantâneas do estado do disco, facilitando backups antes de atualizações perigosas.Para o seu Ubuntu Server, essa é a opção padrão e mais recomendada, pois garante que você não terá dores de cabeça se o espaço em disco acabar no futuro.
 
