@@ -72,6 +72,11 @@ Pegadinha OCP: Muitos acham que new int[0] é erro de compilação. Não é! É 
 	 */
 	static void prova03(){
 		String[] names = new String[3];
+		
+		System.out.println("""
+				Regra: Arrays de objetos são inicializados com null em todas as posições. Chamar método em null → NullPointerException.
+				Pegadinha OCP: O compilador não detecta isso. É um erro em runtime, não em compilação. A OCP adora esse tipo de questão.
+				""");
 		System.out.println(names[1].length());
 	}
 	
@@ -82,7 +87,15 @@ Pegadinha OCP: Muitos acham que new int[0] é erro de compilação. Não é! É 
 		int[] arr1 = {1, 2, 3};
 		int[] arr2 = new int[]{4, 5, 6};
 		arr1 = arr2;
-		arr2 = {7, 8, 9};  // Linha X
+		//arr2 = {7, 8, 9};  // errado.
+		arr2 = new int[]{7, 8, 9};  // ✅ Válido
+		
+		System.out.println("""				
+				Explicação.
+				- Compilação: ❌ Erro na linha X
+				- Erro: Array constants can only be used in initializers
+				- Regra: A sintaxe {...} só é válida na declaração da variável. Em atribuições posteriores, use new int[]{...}.
+				""");
 	}
 	
 	/***
@@ -94,12 +107,32 @@ Pegadinha OCP: Muitos acham que new int[0] é erro de compilação. Não é! É 
 		x[0] = 10;
 		y[1] = 20;
 		System.out.println(x[0] + " " + x[1]);
+		
+		System.out.println("""
+				Explicação.
+				- Saída: 10 20
+				- Regra: Arrays são objetos. int[] y = x; não copia o array. Copia a referência. x e y apontam para o mesmo objeto na memória.
+				Atribuição de arrays copia a referência, não os valores. Portanto, x e y referenciam o mesmo array.
+				Pegadinha OCP: Muitos acham que int[] y = x cria uma cópia. Não cria! Para copiar, use:
+					int[] y = Arrays.copyOf(x, x.length);
+					// ou
+					int[] y = x.clone();
+				""");
+	}
+	
+	//	🎯 Próximo tópico: Arrays de Objetos e Arrays Multidimensionais 
+	
+	static void prova06(){
+		String[] nomes = new String[3];
+		nomes[0] = "Ana";
+		nomes[1] = "João";
+		System.out.println(nomes[2]);
 	}
 
 	public static void main(String[] args) {
 		int[] valores = { 5, 2, 8, 1, 9 };
 		System.out.println("Máximo: " + findMax(valores));
 		System.out.println("Conteúdo do array: " + Arrays.toString(valores));
-		prova02();
+		prova06();
 	}
 }
