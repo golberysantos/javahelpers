@@ -38,11 +38,33 @@ Pegadinha OCP: Muitos acham que new int[0] é erro de compilação. Não é! É 
 
 	/***
 	 * 2. Qual é a saída?	  
-	 */
+	 * 
+	 * */
 	static void prova02(){
 		int[] nums = new int[2];
 		nums[0] = 5;
 		System.out.println(nums[0] + nums[1]);
+		String txt = """
+				A saída será 5. O array 'nums' é inicializado com tamanho 2, então ele possui
+		dois elementos: nums[0] e nums[1]. O elemento nums[0] é atribuído o valor 5,
+		enquanto nums[1] não é explicitamente inicializado, então ele recebe o valor
+		padrão para inteiros, que é 0. Portanto, a expressão nums[0] + nums[1] resulta
+		em 5 + 0 = 5.
+		  
+		Regra: Arrays de primitivos são inicializados com valores padrão:
+
+				int, short, byte, long → 0
+
+				float, double → 0.0
+
+				boolean → false
+
+				char → '\u0000' (null character)
+
+		Pegadinha OCP: A saída não é 5 0 (dois valores), é 5 (soma). Muitos leem rápido e erram.
+				""";
+		System.out.println(txt);
+		
 	}
 	
 	/***
@@ -78,6 +100,6 @@ Pegadinha OCP: Muitos acham que new int[0] é erro de compilação. Não é! É 
 		int[] valores = { 5, 2, 8, 1, 9 };
 		System.out.println("Máximo: " + findMax(valores));
 		System.out.println("Conteúdo do array: " + Arrays.toString(valores));
-		prova05();
+		prova02();
 	}
 }
