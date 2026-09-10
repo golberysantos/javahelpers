@@ -336,3 +336,188 @@ Error response from daemon: failed to resolve reference "docker.io/n8nio/n8n:lat
 
 devops@vm-app:/opt/n8n$ curl -I https://registry-1.docker.io/v2/
 curl: (35) Recv failure: Connection reset by peer
+
+
+
+
+---
+
+Ótimo, Golbery! Agora o problema ficou bem claro. O Docker está funcionando, o PostgreSQL está acessível, mas o n8n não inicializa por erro de permissão.
+
+A mensagem importante é esta:
+
+Error: EACCES: permission denied, open '/home/node/.n8n/config'
+
+
+EACCES = Error Access, ou seja, o usuário dentro do container não consegue escrever no diretório montado.
+
+Você está montando:
+
+volumes:
+  - /opt/n8n/data:/home/node/.n8n
+
+
+O container do n8n roda como o usuário node (UID 1000 na maioria dos casos). Se o diretório /opt/n8n/data pertence ao root ou a outro usuário, o n8n não consegue criar o arquivo config.
+
+1. Verifique as permissões
+
+Na VM vm-app execute:
+
+ls -lah /opt/n8n
+ls -lah /opt/n8n/data
+
+
+Provavelmente verá algo parecido com:
+
+drwx------ root root
+
+
+ou
+
+drwxr-xr-x root root
+
+2. Corrija o proprietário
+
+A solução mais comum:
+
+sudo chown -R 1000:1000 /opt/n8n/data
+
+
+ou
+
+sudo chown -R node:node /opt/n8n/data
+
+
+(se existir o usuário node no host)
+
+3. Dar permissões adequadas
+sudo chmod -R 755 /opt/n8n/data
+
+
+Se ainda houver problemas:
+
+sudo chmod -R 775 /opt/n8n/data
+
+4. Corrija um erro no docker-compose
+
+Notei um problema na sua configuração:
+
+      - DB_POSTGRESDB_PASSWORD=n8nGs      
+	  - N8N_ENCRYPTION_KEY=999994fic346e192...
+
+
+Há uma tabulação estranha antes de N8N_ENCRYPTION_KEY.
+
+O YAML não gosta de misturar tabs e espaços.
+
+Troque por:
+
+environment:
+  - DB_TYPE=postgresdb
+  - DB_POSTGRESDB_HOST=192.168.100.20
+  - DB_POSTGRESDB_PORT=5432
+  - DB_POSTGRESDB_DATABASE=n8n
+  - DB_POSTGRESDB_USER=n8nuser
+  - DB_POSTGRESDB_PASSWORD=n8nGs
+  - N8N_ENCRYPTION_KEY=999994fic346e192a1cf3f5cc9db957154c9b7c977848a0d
+  - N8N_HOST=192.168.0.12
+  - N8N_PORT=5678
+  - N8N_PROTOCOL=http
+  - WEBHOOK_URL=http://192.168.0.12:5678/
+
+5. Reinicie o container
+
+Depois das correções:
+
+cd /opt/n8n
+
+docker compose down
+
+docker compose up -d
+
+6. Verifique os logs novamente
+docker logs -f n8n-n8n-1
+
+
+Se estiver tudo certo, você verá algo parecido com:
+
+Starting n8n...
+n8n ready on 0.0.0.0, port 5678
+
+Teste rápido
+
+Antes de reiniciar, me mostre a saída destes comandos:
+
+ls -ld /opt/n8n
+ls -ld /opt/n8n/data
+docker inspect n8n-n8n-1 --format '{{.Config.User}}'
+
+
+Aí consigo confirmar exatamente qual permissão está bloqueando o n8n.
+
+2. Python Runner
+Plain Text
+1
+Failed to start Python task runner in internal mode. because Python 3 is missing from this system.
+Show more lines
+
+Não impede o funcionamento do n8n.
+
+Só afeta workflows que usam execução Python.
+
+Para verificar se precisa:
+
+Vai usar IA?
+Vai usar scripts Python?
+Vai usar automações com Pandas?
+
+Se não, ignore.
+
+3. MCP Registry Timeout
+
+Esse aqui é interessante:
+
+Plain Text
+1
+Error fetching from Strapi API
+2
+https://api.n8n.io/api/mcp-servers
+3
+ 
+4
+timeout of 6000ms exceeded
+Show more lines
+
+Isso significa que o n8n tentou consultar o catálogo oficial de MCP Servers da própria n8n.
+
+A consulta demorou mais de 6 segundos.
+
+Pode ser:
+
+internet lenta
+firewall
+DNS
+indisponibilidade temporária do serviço
+
+Como o Editor abriu, isso não é crítico.
+
+Prioridade: baixa.
+
+
+
+---
+
+DIAGNÓSTICO
+
+## Verifique se o banco está rodando e se o usuário existe:
+	psql -h 192.168.100.20 -U n8nuser -d n8n
+
+## reinicie o container:
+	cd /opt/n8n
+	docker compose down
+	docker compose up -d
+
+## E veja os logs:
+	cd /opt/n8n
+	docker logs -f n8n-n8n-1
+	
