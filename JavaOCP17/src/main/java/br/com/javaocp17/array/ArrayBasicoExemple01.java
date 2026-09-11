@@ -3,7 +3,7 @@ package br.com.javaocp17.array;
 import java.util.Arrays;
 
 public class ArrayBasicoExemple01 {
-	public static int findMax(int[] numbers) {
+	public static int findMax(final int[] numbers) {
 		if (numbers == null) {
 			throw new IllegalArgumentException("Array não pode ser nulo");
 		}
@@ -161,7 +161,7 @@ Pegadinha OCP: Muitos acham que new int[0] é erro de compilação. Não é! É 
 	
 	static void prova09() {
 		int[][] matriz = new int[2][];
-		System.out.println(matriz[0][0]);
+		System.out.println(matriz[0]);
 		System.out.println("""
 				Explicação.
 				- Saída: null
