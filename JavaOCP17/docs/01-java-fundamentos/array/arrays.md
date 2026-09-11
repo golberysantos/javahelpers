@@ -187,6 +187,91 @@ para cada número em numbers[1..n-1]:
         maior = número
 retornar maior
 
-Quando tiver sua solução (ou depois de tentar bastante), me envie e farei o Code Review completo, analisando compilação, lógica, casos de borda, complexidade e possíveis pegadinhas OCP.
 
-O que você acha? Vamos começar com a pergunta do Modo Fail Fast (código do ArrayPegadinha) e depois o exercício.
+---
+
+# Diferença entre as duas formas de inicializar arrays em Java
+
+## `int[] numeros = {1, 2, 3}` vs `int[] numeros = new int[]{1, 2, 3}`
+
+**Funcionalmente, são idênticas.** As duas criam um array de 3 inteiros com os mesmos valores. A diferença é **sintática/contextual**:
+
+### 1. `int[] numeros = {1, 2, 3};`
+- É um **atalho (shortcut)** permitido apenas **na declaração da variável**.
+- O compilador infere o tipo e o tamanho a partir dos elementos.
+- **Não pode** ser usado em outros contextos, como:
+  ```java
+  numeros = {1, 2, 3};        // ❌ Erro de compilação
+  metodo({1, 2, 3});          // ❌ Erro de compilação
+  return {1, 2, 3};           // ❌ Erro de compilação
+  ```
+
+### 2. `int[] numeros = new int[]{1, 2, 3};`
+- É a forma **explícita e completa**.
+- Pode ser usado em **qualquer contexto**, inclusive fora de declarações:
+  ```java
+  numeros = new int[]{1, 2, 3};        // ✅ OK
+  metodo(new int[]{1, 2, 3});          // ✅ OK
+  return new int[]{1, 2, 3};           // ✅ OK
+  ```
+
+### Resumo
+| Situação | `{...}` | `new int[]{...}` |
+|---|---|---|
+| Na declaração | ✅ | ✅ |
+| Fora da declaração | ❌ | ✅ |
+
+> 💡 Dica: `{...}` é chamado de *array initializer*. Só funciona quando o compilador já sabe o tipo pelo contexto da declaração.
+
+---
+
+# Erro de Compilação vs Erro de Runtime
+
+## 🔴 Erro de Compilação (Compile-time error)
+Ocorre **antes do programa executar**, durante a compilação (javac). O código nem chega a virar `.class`.
+
+**Características:**
+- Detectado pelo compilador.
+- Impede a geração do bytecode.
+- Geralmente é erro de **sintaxe** ou **tipo**.
+
+**Exemplos:**
+```java
+int x = "texto";              // tipo incompatível
+System.out.println(y);        // variável não declarada
+if (x > 0) {                  // falta fechar chave
+numeros = {1, 2, 3};          // inicialização inválida fora da declaração
+metodo(1, 2);                 // método não existe
+```
+
+## 🟠 Erro de Runtime (Runtime error / Exception)
+Ocorre **durante a execução** do programa. O código compilou e começou a rodar, mas algo deu errado em tempo de execução.
+
+**Características:**
+- Detectado pela JVM em execução.
+- Pode ser tratado com `try/catch`.
+- Muitas vezes depende dos dados de entrada.
+
+**Exemplos:**
+```java
+int[] v = new int[3];
+System.out.println(v[5]);        // ArrayIndexOutOfBoundsException
+
+String s = null;
+System.out.println(s.length());  // NullPointerException
+
+int a = 10, b = 0;
+System.out.println(a / b);       // ArithmeticException (divisão por zero)
+```
+
+## Comparação rápida
+
+| Aspecto | Compilação | Runtime |
+|---|---|---|
+| Quando ocorre | Antes de executar | Durante a execução |
+| Quem detecta | Compilador (javac) | JVM |
+| Pode tratar com try/catch? | ❌ | ✅ |
+| Exemplo típico | `int x = "abc";` | `v[10]` fora do limite |
+| Programa chega a rodar? | ❌ | ✅ (até o ponto do erro) |
+
+> ⚠️ Observação: em Java, mesmo erros de runtime são "compiláveis" porque são **exceptions** — o compilador só exige que você trate as *checked exceptions* (ex.: `IOException`). As *unchecked* (`NullPointerException`, `ArrayIndexOutOfBoundsException`) não precisam ser declaradas, mas podem estourar em execução.

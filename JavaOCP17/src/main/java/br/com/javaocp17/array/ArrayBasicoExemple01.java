@@ -127,12 +127,55 @@ Pegadinha OCP: Muitos acham que new int[0] é erro de compilação. Não é! É 
 		nomes[0] = "Ana";
 		nomes[1] = "João";
 		System.out.println(nomes[2]);
+		System.out.println("""
+				Explicação.
+				- Saída: null
+				- Regra: Arrays de objetos são inicializados com null em todas as posições. A posição nomes[2] não foi atribuída, então seu valor é null.
+				Pegadinha OCP: Muitos acham que nomes[2] é uma String vazia (""). Não é! É null.
+				""");
+	}
+	
+	static void prova07() {
+		String[] nomes = new String[3];
+		System.out.println(nomes[0].toUpperCase());
+		System.out.println("""
+				Explicação.
+				- Saída: NullPointerException
+				- Regra: Arrays de objetos são inicializados com null em todas as posições. A posição nomes[0] não foi atribuída, então seu valor é null.
+				Chamar um método em null resulta em NullPointerException.
+				Pegadinha OCP: Muitos acham que nomes[0] é uma String vazia (""). Não é! É null.
+				""");
+	}
+	
+	static void prova08() {
+		int[][] matriz = new int[2][3];
+		System.out.println(matriz.length);
+		System.out.println(matriz[0].length);
+		System.out.println("""
+				Explicação.
+				- Saída: 2 3
+				- Regra: Arrays multidimensionais são arrays de arrays. matriz.length retorna o número de linhas (2), e matriz[0].length retorna o número de colunas (3).
+				Pegadinha OCP: Muitos acham que matriz.length retorna o número total de elementos (6). Não é! Retorna o número de linhas.
+				""");
+	}
+	
+	static void prova09() {
+		int[][] matriz = new int[2][];
+		System.out.println(matriz[0][0]);
+		System.out.println("""
+				Explicação.
+				- Saída: null
+				- Regra: Arrays multidimensionais podem ter tamanhos diferentes em cada linha. matriz[0] não foi inicializado, então seu valor é null.
+				Pegadinha OCP: Muitos acham que matriz[0] é um array vazio. Não é! É null.
+				""");
 	}
 
 	public static void main(String[] args) {
 		int[] valores = { 5, 2, 8, 1, 9 };
 		System.out.println("Máximo: " + findMax(valores));
 		System.out.println("Conteúdo do array: " + Arrays.toString(valores));
-		prova06();
+		prova09();
 	}
+	
+	
 }
