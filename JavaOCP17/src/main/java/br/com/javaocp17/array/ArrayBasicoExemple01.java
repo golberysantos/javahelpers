@@ -1,42 +1,14 @@
 package br.com.javaocp17.array;
 
+import java.util.Arrays;
+
 public class ArrayBasicoExemple01 {
-	public static void main(String[] args) {
-		// Declaração e inicialização
-		int[] numeros = new int[] {};
-		String[] nomes = new String[2];
-
-		// Atribuindo valores
-
-		numeros[0] = 10;
-		numeros[1] = 20;
-		numeros[2] = 30;
-
-		nomes[0] = "Ana";
-		nomes[1] = "João";
-
-		// Acessando e imprimindo
-		System.out.println("Números:");
-		for (int i = 0; i < numeros.length; i++) {
-			System.out.println("numeros[" + i + "] = " + numeros[i]);
-		}
-
-		System.out.println("\nNomes:");
-		for (int i = 0; i < nomes.length; i++) {
-			System.out.println("nomes[" + i + "] = " + nomes[i]);
-		}
-
-		// Valores padrão
-		System.out.println("\nValor padrão de int: " + new int[1][0]);
-		System.out.println("Valor padrão de String: " + new String[1][0]);
-
-		System.out.println(findMax(new int[] {}));
-	}
-
 	public static int findMax(int[] numbers) {
-		// Validação - lança, não captura
-		if (numbers == null || numbers.length == 0) {
-			throw new IllegalArgumentException("Array não pode ser nulo ou vazio");
+		if (numbers == null) {
+			throw new IllegalArgumentException("Array não pode ser nulo");
+		}
+		if (numbers.length == 0) {
+			throw new IllegalArgumentException("Array não pode ser vazio");
 		}
 
 		int max = numbers[0];
@@ -47,4 +19,163 @@ public class ArrayBasicoExemple01 {
 		}
 		return max;
 	}
+
+	/***
+	 * 1. O código abaixo compila? Se não, por quê?
+	 */
+	private static void prova01() {
+		int[] a = new int[0];
+		a[0] = 10;
+		System.out.println(a[0]);
+		/*
+		 * O código não compila, pois o array 'a' é inicializado com tamanho 0, o que
+		 * significa que não há elementos no array. Portanto, tentar acessar a posição
+		 * 0 (a[0]) resulta em um erro de índice fora dos limites (ArrayIndexOutOfBoundsException).
+		 *     Regra: Array de tamanho 0 é válido (é um objeto), mas qualquer acesso é inválido. Índices válidos: nenhum.
+Pegadinha OCP: Muitos acham que new int[0] é erro de compilação. Não é! É um array vazio válido. Só não pode acessar nenhum índice.
+		 */
+	}
+
+	/***
+	 * 2. Qual é a saída?	  
+	 * 
+	 * */
+	static void prova02(){
+		int[] nums = new int[2];
+		nums[0] = 5;
+		System.out.println(nums[0] + nums[1]);
+		String txt = """
+				A saída será 5. O array 'nums' é inicializado com tamanho 2, então ele possui
+		dois elementos: nums[0] e nums[1]. O elemento nums[0] é atribuído o valor 5,
+		enquanto nums[1] não é explicitamente inicializado, então ele recebe o valor
+		padrão para inteiros, que é 0. Portanto, a expressão nums[0] + nums[1] resulta
+		em 5 + 0 = 5.
+		  
+		Regra: Arrays de primitivos são inicializados com valores padrão:
+
+				int, short, byte, long → 0
+
+				float, double → 0.0
+
+				boolean → false
+
+				char → '\u0000' (null character)
+
+		Pegadinha OCP: A saída não é 5 0 (dois valores), é 5 (soma). Muitos leem rápido e erram.
+				""";
+		System.out.println(txt);
+		
+	}
+	
+	/***
+	 * 3. O que acontece?	  
+	 */
+	static void prova03(){
+		String[] names = new String[3];
+		
+		System.out.println("""
+				Regra: Arrays de objetos são inicializados com null em todas as posições. Chamar método em null → NullPointerException.
+				Pegadinha OCP: O compilador não detecta isso. É um erro em runtime, não em compilação. A OCP adora esse tipo de questão.
+				""");
+		System.out.println(names[1].length());
+	}
+	
+	/***
+	 * 4. Compila?	  
+	 */
+	static void prova04(){
+		int[] arr1 = {1, 2, 3};
+		int[] arr2 = new int[]{4, 5, 6};
+		arr1 = arr2;
+		//arr2 = {7, 8, 9};  // errado.
+		arr2 = new int[]{7, 8, 9};  // ✅ Válido
+		
+		System.out.println("""				
+				Explicação.
+				- Compilação: ❌ Erro na linha X
+				- Erro: Array constants can only be used in initializers
+				- Regra: A sintaxe {...} só é válida na declaração da variável. Em atribuições posteriores, use new int[]{...}.
+				""");
+	}
+	
+	/***
+	 * 5. Qual é a saída?  
+	 */
+	static void prova05(){
+		int[] x = new int[3];
+		int[] y = x;
+		x[0] = 10;
+		y[1] = 20;
+		System.out.println(x[0] + " " + x[1]);
+		
+		System.out.println("""
+				Explicação.
+				- Saída: 10 20
+				- Regra: Arrays são objetos. int[] y = x; não copia o array. Copia a referência. x e y apontam para o mesmo objeto na memória.
+				Atribuição de arrays copia a referência, não os valores. Portanto, x e y referenciam o mesmo array.
+				Pegadinha OCP: Muitos acham que int[] y = x cria uma cópia. Não cria! Para copiar, use:
+					int[] y = Arrays.copyOf(x, x.length);
+					// ou
+					int[] y = x.clone();
+				""");
+	}
+	
+	//	🎯 Próximo tópico: Arrays de Objetos e Arrays Multidimensionais 
+	
+	static void prova06(){
+		String[] nomes = new String[3];
+		nomes[0] = "Ana";
+		nomes[1] = "João";
+		System.out.println(nomes[2]);
+		System.out.println("""
+				Explicação.
+				- Saída: null
+				- Regra: Arrays de objetos são inicializados com null em todas as posições. A posição nomes[2] não foi atribuída, então seu valor é null.
+				Pegadinha OCP: Muitos acham que nomes[2] é uma String vazia (""). Não é! É null.
+				""");
+	}
+	
+	static void prova07() {
+		String[] nomes = new String[3];
+		System.out.println(nomes[0].toUpperCase());
+		System.out.println("""
+				Explicação.
+				- Saída: NullPointerException
+				- Regra: Arrays de objetos são inicializados com null em todas as posições. A posição nomes[0] não foi atribuída, então seu valor é null.
+				Chamar um método em null resulta em NullPointerException.
+				Pegadinha OCP: Muitos acham que nomes[0] é uma String vazia (""). Não é! É null.
+				""");
+	}
+	
+	static void prova08() {
+		int[][] matriz = new int[2][3];
+		System.out.println(matriz.length);
+		System.out.println(matriz[0].length);
+		System.out.println("""
+				Explicação.
+				- Saída: 2 3
+				- Regra: Arrays multidimensionais são arrays de arrays. matriz.length retorna o número de linhas (2), e matriz[0].length retorna o número de colunas (3).
+				Pegadinha OCP: Muitos acham que matriz.length retorna o número total de elementos (6). Não é! Retorna o número de linhas.
+				""");
+	}
+	
+	static void prova09() {
+		int[][] matriz = new int[2][];
+		System.out.println(matriz[0][0]);
+		System.out.println("""
+				Explicação.
+				- Saída: null
+				- Regra: Arrays multidimensionais podem ter tamanhos diferentes em cada linha. matriz[0] não foi inicializado, então seu valor é null.
+				Pegadinha OCP: Muitos acham que matriz[0] é um array vazio. Não é! É null.
+				""");
+	}
+
+	public static void main(String[] args) {
+		int[] valores = { 5, 2, 8, 1, 9 };
+		System.out.println("Máximo: " + findMax(valores));
+		System.out.println("Conteúdo do array: " + Arrays.toString(valores));
+		prova09();
+	}
+	
+	
 }
