@@ -275,3 +275,151 @@ System.out.println(a / b);       // ArithmeticException (divisão por zero)
 | Programa chega a rodar? | ❌ | ✅ (até o ponto do erro) |
 
 > ⚠️ Observação: em Java, mesmo erros de runtime são "compiláveis" porque são **exceptions** — o compilador só exige que você trate as *checked exceptions* (ex.: `IOException`). As *unchecked* (`NullPointerException`, `ArrayIndexOutOfBoundsException`) não precisam ser declaradas, mas podem estourar em execução.
+
+
+---
+
+
+## 🧠 Entendendo Arrays Multidimensionais em Profundidade
+
+### O que é `int[][]`?
+
+**Definição:** Em Java, **não existem arrays multidimensionais verdadeiros**. O que existe são **arrays de arrays**.
+
+```java
+int[][] matriz = new int[2][3];
+```
+
+Isso **não** é uma matriz 2x3 na memória. Isso é:
+
+1. Um array de tamanho 2 (`matriz`)
+2. Cada elemento de `matriz` é uma referência para um `int[]`
+3. Cada `int[]` tem tamanho 3
+
+### Representação na memória:
+
+```
+Stack          Heap
+------         ------
+matriz  ────→  [ ref0, ref1 ]    ← array de 2 elementos (matriz.length = 2)
+                 │      │
+                 │      └──→ [0, 0, 0]  ← array de 3 elementos (matriz[1].length = 3)
+                 │
+                 └──────────→ [0, 0, 0]  ← array de 3 elementos (matriz[0].length = 3)
+```
+
+### Respondendo sua dúvida:
+
+**Por que `matriz[0]` e não `matriz[0][0]`?**
+
+Porque `matriz[0]` **é um array** (`int[]`). Quando você imprime um array, o `toString()` padrão mostra algo como `[I@15db9742` — mas aqui a saída foi `null` porque:
+
+```java
+int[][] matriz = new int[2][];
+```
+
+Aqui, `matriz` tem 2 posições, mas cada posição é um `int[]` que **não foi inicializado**. Como `int[]` é um tipo de **referência**, o valor padrão é `null`.
+
+Então:
+- `matriz.length` → `2`
+- `matriz[0]` → `null` (não foi inicializado)
+- `matriz[0][0]` → ❌ `NullPointerException` (você está tentando acessar um índice em `null`)
+
+### Comparando os dois casos:
+
+**Caso A: `new int[2][3]`**
+```java
+int[][] matriz = new int[2][3];
+```
+- `matriz` → array de 2 referências
+- Cada referência aponta para um `int[]` de tamanho 3
+- `matriz[0]` → `[0, 0, 0]` (array válido)
+- `matriz[0][0]` → `0` (valor padrão)
+
+**Caso B: `new int[2][]`**
+```java
+int[][] matriz = new int[2][];
+```
+- `matriz` → array de 2 referências
+- Cada referência é `null` (não foi inicializada)
+- `matriz[0]` → `null`
+- `matriz[0][0]` → ❌ `NullPointerException`
+
+---
+
+## 💡 Por que isso importa para a OCP?
+
+A OCP cobra **exatamente** essa distinção. Exemplo clássico:
+
+```java
+int[][] matriz = new int[3][];
+matriz[0] = new int[2];
+matriz[1] = new int[5];
+matriz[2] = new int[3];
+
+System.out.println(matriz.length);      // ?
+System.out.println(matriz[0].length);   // ?
+System.out.println(matriz[1].length);   // ?
+System.out.println(matriz[2].length);   // ?
+```
+
+**Saída:**
+```
+3
+2
+5
+3
+```
+
+**Regra:** Arrays multidimensionais em Java podem ser **irregulares** (jagged arrays). Cada "linha" pode ter um tamanho diferente.
+
+**Isso é uma pegadinha OCP clássica:**
+```java
+int[][] matriz = new int[2][3];
+matriz[0] = new int[5];  // Válido! Agora matriz[0] tem 5 elementos
+System.out.println(matriz[0].length);  // 5
+System.out.println(matriz[1].length);  // 3
+```
+
+---
+
+## 📝 Exercício rápido (responda antes de continuar):
+
+**1.** O que acontece?
+```java
+int[][] m = new int[2][];
+System.out.println(m[0].length);
+```
+
+**2.** O que acontece?
+```java
+int[][] m = new int[2][3];
+System.out.println(m[1][2]);
+```
+
+**3.** O que acontece?
+```java
+int[][] m = new int[2][3];
+m[0] = new int[5];
+System.out.println(m[0].length + " " + m[1].length);
+```
+
+**4.** O que acontece?
+```java
+int[][] m = {{1, 2}, {3, 4, 5}, {6}};
+System.out.println(m.length);
+System.out.println(m[1].length);
+System.out.println(m[2][0]);
+```
+
+**5.** O que acontece?
+```java
+int[][] m = new int[3][];
+m[0] = new int[]{1, 2};
+m[1] = new int[]{3, 4, 5};
+m[2] = new int[]{6};
+System.out.println(m[1][1]);
+```
+
+**Responda essas 5 questões. Depois faremos o Code Review do seu `findMax` corrigido e avançaremos para varargs e exercícios mais complexos.** 🚀
+
