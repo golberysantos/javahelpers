@@ -308,22 +308,15 @@ matriz  ────→  [ ref0, ref1 ]    ← array de 2 elementos (matriz.leng
                  └──────────→ [0, 0, 0]  ← array de 3 elementos (matriz[0].length = 3)
 ```
 
-### Respondendo sua dúvida:
+No código `int[][] m = new int[2][3];`, o primeiro colchete representa a **linha** e o segundo representa a **coluna**.
 
-**Por que `matriz[0]` e não `matriz[0][0]`?**
+* **`2`** é o número de **linhas** (`i`).
+* **`3`** é o número de **colunas** (`j`).
 
-Porque `matriz[0]` **é um array** (`int[]`). Quando você imprime um array, o `toString()` padrão mostra algo como `[I@15db9742` — mas aqui a saída foi `null` porque:
+Ao acessar um elemento específico usando `m[i][j]`:
 
-```java
-int[][] matriz = new int[2][];
-```
-
-Aqui, `matriz` tem 2 posições, mas cada posição é um `int[]` que **não foi inicializado**. Como `int[]` é um tipo de **referência**, o valor padrão é `null`.
-
-Então:
-- `matriz.length` → `2`
-- `matriz[0]` → `null` (não foi inicializado)
-- `matriz[0][0]` → ❌ `NullPointerException` (você está tentando acessar um índice em `null`)
+* **`i`** representa o índice da **linha** (variando de `0` a `1`).
+* **`j`** representa o índice da **coluna** (variando de `0` a `2`).
 
 ### Comparando os dois casos:
 
