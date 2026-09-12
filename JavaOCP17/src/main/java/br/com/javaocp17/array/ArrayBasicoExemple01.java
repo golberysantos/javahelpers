@@ -169,12 +169,48 @@ Pegadinha OCP: Muitos acham que new int[0] é erro de compilação. Não é! É 
 				Pegadinha OCP: Muitos acham que matriz[0] é um array vazio. Não é! É null.
 				""");
 	}
+	
+	//
+	static void prova10() {
+		int[][] m = new int[2][];
+		System.out.println(m[0].length);
+		System.out.println("""
+				Explicação.
+				- Saída: NullPointerException
+				- Regra: Arrays multidimensionais podem ter tamanhos diferentes em cada linha. m[0] não foi inicializado, então seu valor é null.
+				Tentar acessar m[0].length resulta em NullPointerException.
+				Pegadinha OCP: Muitos acham que m[0].length é 0. Não é! É null.
+				""");
+	}
 
+	static void prova11() {
+		int[][] m = new int[2][3];
+		System.out.println(m[1][2]);
+		System.out.println("""
+				Explicação.
+				- Saída: 0
+				- Regra: Arrays multidimensionais são inicializados com valores padrão. m[1][2] não foi atribuído, então seu valor é 0.
+				Pegadinha OCP: Muitos acham que m[1][2] é null. Não é! É 0, pois é um array de primitivos (int).
+				""");
+	}
+	
+	static void prova12() {
+		int[][] m = new int[2][3];
+		m[0] = new int[5];
+		System.out.println(m[0].length + " " + m[1].length);
+		System.out.println("""
+				Explicação.
+				- Saída: 5 3
+				- Regra: Arrays multidimensionais podem ter tamanhos diferentes em cada linha. m[0] foi reatribuído para um array de tamanho 5, enquanto m[1] permanece com tamanho 3.
+				Pegadinha OCP: Muitos acham que m[0].length é 3. Não é! É 5, pois foi reatribuído.
+				""");
+	}
+	
 	public static void main(String[] args) {
 		int[] valores = { 5, 2, 8, 1, 9 };
 		System.out.println("Máximo: " + findMax(valores));
 		System.out.println("Conteúdo do array: " + Arrays.toString(valores));
-		prova09();
+		prova11();
 	}
 	
 	
