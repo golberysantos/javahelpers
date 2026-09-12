@@ -318,25 +318,110 @@ Ao acessar um elemento específico usando `m[i][j]`:
 * **`i`** representa o índice da **linha** (variando de `0` a `1`).
 * **`j`** representa o índice da **coluna** (variando de `0` a `2`).
 
-### Comparando os dois casos:
+Observe estas linhas de código:
+		int[][] m = new int[2][3];
+		System.out.println(m[0].length);
+		System.out.println(m[1].length);
+		
+Por que imprime `3` e `3`?
 
-**Caso A: `new int[2][3]`**
-```java
-int[][] matriz = new int[2][3];
-```
-- `matriz` → array de 2 referências
-- Cada referência aponta para um `int[]` de tamanho 3
-- `matriz[0]` → `[0, 0, 0]` (array válido)
-- `matriz[0][0]` → `0` (valor padrão)
+Porque a linha:
 
-**Caso B: `new int[2][]`**
 ```java
-int[][] matriz = new int[2][];
+int[][] m = new int[2][3];
 ```
-- `matriz` → array de 2 referências
-- Cada referência é `null` (não foi inicializada)
-- `matriz[0]` → `null`
-- `matriz[0][0]` → ❌ `NullPointerException`
+
+cria uma **matriz retangular** de **2 linhas × 3 colunas**, matriz 2x3. Ou seja:
+
+- `m.length` → **2** (número de linhas)
+- `m[0].length` → **3** (número de colunas da linha 0)
+- `m[1].length` → **3** (número de colunas da linha 1)
+
+Então `m[0].length` e `m[1].length` **ambos valem 3**, por isso imprime `3` e `3`.
+
+
+Em Java, um array 2D é um **array de arrays**. A sintaxe `new int[2][3]` significa:
+
+> "Crie um array com **2 posições**, e em **cada** posição coloque um array de **3 inteiros**."
+
+Visualmente:
+
+```
+m  →  [  linha 0  ]  →  [0][0] [0][1] [0][2]   (3 colunas)
+      [  linha 1  ]  →  [1][0] [1][1] [1][2]   (3 colunas)
+         ↑
+      2 linhas
+```
+
+Cada linha é um array separado de tamanho 3.
+
+
+🔍 Passo a passo do código
+
+```java
+int[][] m = new int[2][3];
+```
+- `m` tem tamanho **2**: `m[0]` e `m[1]`.
+- `m[0]` é um `int[]` de tamanho **3**.
+- `m[1]` é um `int[]` de tamanho **3**.
+
+```java
+System.out.println(m[0].length);   // 3
+System.out.println(m[1].length);   // 3
+```
+- `m[0].length` → tamanho do array da linha 0 → **3**
+- `m[1].length` → tamanho do array da linha 1 → **3**
+
+Resultado:
+```
+3
+3
+```
+
+
+
+## ⚠️ Cuidado: `m.length` é diferente!
+
+```java
+System.out.println(m.length);      // 2  ← número de LINHAS
+System.out.println(m[0].length);   // 3  ← número de COLUNAS
+```
+
+| Expressão | O que retorna | Valor |
+|---|---|---|
+| `m.length` | nº de linhas | `2` |
+| `m[0].length` | nº de colunas da linha 0 | `3` |
+| `m[1].length` | nº de colunas da linha 1 | `3` |
+
+
+
+## 💡 O ponto importante: arrays 2D em Java **não precisam ser retangulares**
+
+Como cada linha é um array independente, você pode ter linhas de **tamanhos diferentes** (isso se chama *jagged array* ou array "dente de serra"):
+
+```java
+int[][] m = new int[2][];   // 2 linhas, mas SEM definir as colunas
+m[0] = new int[3];          // linha 0 tem 3 colunas
+m[1] = new int[5];          // linha 1 tem 5 colunas
+
+System.out.println(m[0].length);   // 3
+System.out.println(m[1].length);   // 5
+```
+
+Agora imprime `3` e `5` — **diferentes**, porque as linhas têm tamanhos distintos.
+
+```
+m  →  [ linha 0 ]  →  [0][0] [0][1] [0][2]              (3)
+      [ linha 1 ]  →  [1][0] [1][1] [1][2] [1][3] [1][4] (5)
+```
+
+Ou seja:
+
+- `new int[2][3]` cria 2 arrays de 3 inteiros cada → **matriz 2×3**.
+- `m[0].length` e `m[1].length` valem **3** porque **ambas as linhas têm 3 colunas**.
+- Por isso imprime `3` e `3`.
+- Se você não definir as colunas (`new int[2][]`), cada linha pode ter tamanho diferente — aí os valores mudam.
+
 
 ---
 

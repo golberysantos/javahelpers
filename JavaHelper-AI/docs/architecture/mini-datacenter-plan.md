@@ -124,5 +124,3 @@ flowchart TB
 - [ ] Diagramar serviços futuros como vox-pix-api, n8n e JavaHelper_AI.  
 
 ---
-
-👉 Esse texto já está pronto para substituir o conteúdo do seu **mini-datacenter-plan.md**.

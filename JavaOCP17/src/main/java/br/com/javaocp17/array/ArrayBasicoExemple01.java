@@ -185,6 +185,8 @@ Pegadinha OCP: Muitos acham que new int[0] é erro de compilação. Não é! É 
 
 	static void prova11() {
 		int[][] m = new int[2][3];
+		System.out.println(m[0].length);
+		System.out.println(m[1].length);
 		System.out.println(m[1][2]);
 		System.out.println("""
 				Explicação.
