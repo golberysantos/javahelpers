@@ -17,17 +17,19 @@ Documentar a criação de um mini datacenter em laboratório, simulando prática
 ### vm-app
 - **Função:** Servidor de aplicação e bastion host.  
 - **Sistema:** Ubuntu 24.04 LTS (Noble).  
-- **IP externo:** 192.168.0.39 (vmbr0).  
-- **IP interno:** 192.168.100.10 (vmbr1).  
-- **Serviços:** Docker Engine, Nginx, aplicação backend.  
+- **IP externo:** 192.168.0.12/24 via `ens18` (vmbr0).  
+- **IP interno:** 192.168.100.12/24 via `ens19` (vmbr1).  
+- **Interfaces:** `ens18` (MTU 1400) e `ens19` (MTU 1400).  
+- **Serviços:** Docker Engine, Nginx (em Docker), aplicação backend, containers e redes Docker.  
 
 ---
 
 ### vm-db
 - **Função:** Servidor de banco de dados.  
 - **Sistema:** Ubuntu 24.04 LTS (Noble).  
-- **IP interno:** 192.168.100.20 (vmbr1).  
-- **Serviços:** Docker Engine, PostgreSQL.  
+- **IP interno:** 192.168.100.20/24 via `ens18` (vmbr1).  
+- **Interfaces:** `ens18` (MTU 1500) na rede interna.  
+- **Serviços:** Docker Engine, PostgreSQL (em Docker).  
 
 ---
 
@@ -42,15 +44,15 @@ Documentar a criação de um mini datacenter em laboratório, simulando prática
 ---
 
 ## 🌐 Redes
-- **vmbr0 (externa):** rede 192.168.0.0/24, conectando o host físico e permitindo acesso do PC às VMs pela interface `ens18` da workstation.  
-- **vmbr1 (interna):** rede privada 192.168.100.0/24, entre vm-app, vm-db e vm-workstation pela interface `ens19` da workstation.  
+- **vmbr0 (externa):** rede 192.168.0.0/24, conectando o host físico e permitindo acesso do PC às VMs pela interface `ens18` da workstation e do `vm-app`.  
+- **vmbr1 (interna):** rede privada 192.168.100.0/24, entre vm-app, vm-db e vm-workstation; o `vm-db` usa somente esta rede pela interface `ens18`, e a workstation usa `ens19` para a mesma faixa interna.  
 
 ---
 
 ## 🔄 Fluxo de acesso
 - PC (192.168.0.34) → vm-app (192.168.0.12) → via SSH/HTTP/n8n
 - vm-app (192.168.100.12) → vm-db (192.168.100.20) → via PostgreSQL
-- vm-workstation (192.168.0.25) → vm-db (192.168.100.20) → via pgAdmin/DBeaver 
+- vm-workstation (192.168.0.25) → vm-db (192.168.100.20) → via pgAdmin
 
 ---
 
