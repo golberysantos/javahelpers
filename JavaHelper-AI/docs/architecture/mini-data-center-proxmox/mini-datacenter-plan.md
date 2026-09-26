@@ -17,9 +17,10 @@ Criar um ambiente de laboratório que simule um datacenter em nuvem, com separa�
 ### vm-app
 - **Função:** Servidor de aplicação e bastion host.  
 - **Sistema:** Ubuntu 24.04 LTS (Noble).  
-- **IP externo:** 192.168.0.12 (vmbr0).  
-- **IP interno:** 192.168.100.12 (vmbr1).  
-- **Serviços:** Docker Engine, Nginx, aplicação backend, n8n.  
+- **IP externo:** 192.168.0.12/24 via `ens18` (vmbr0).  
+- **IP interno:** 192.168.100.12/24 via `ens19` (vmbr1).  
+- **Interfaces:** `ens18` (MTU 1400) e `ens19` (MTU 1400).  
+- **Serviços:** Docker Engine, Nginx, aplicação backend, n8n, redes Docker.  
 - **Papel:** Ponte entre rede externa e interna.  
 
 ---
@@ -27,7 +28,8 @@ Criar um ambiente de laboratório que simule um datacenter em nuvem, com separa�
 ### vm-db
 - **Função:** Servidor de banco de dados.  
 - **Sistema:** Ubuntu 24.04 LTS (Noble).  
-- **IP interno:** 192.168.100.20 (vmbr1).  
+- **IP interno:** 192.168.100.20/24 via `ens18` (vmbr1).  
+- **Interfaces:** `ens18` (MTU 1500) na rede interna.  
 - **Serviços:** Docker Engine, PostgreSQL.  
 - **Papel:** Armazenamento seguro de dados, acessível apenas pela vm-app e workstation.  
 
@@ -45,8 +47,8 @@ Criar um ambiente de laboratório que simule um datacenter em nuvem, com separa�
 ---
 
 ## 🌐 Redes
-- **vmbr0 (externa):** rede 192.168.0.0/24, conectando o host físico e permitindo acesso do PC às VMs pela interface `ens18` da workstation.  
-- **vmbr1 (interna):** rede privada 192.168.100.0/24, entre vm-app, vm-db e vm-workstation pela interface `ens19` da workstation.  
+- **vmbr0 (externa):** rede 192.168.0.0/24, conectando o host físico e permitindo acesso do PC às VMs pela interface `ens18` da workstation e do `vm-app`.  
+- **vmbr1 (interna):** rede privada 192.168.100.0/24, entre vm-app, vm-db e vm-workstation; o `vm-db` usa somente esta rede via `ens18`, e a workstation usa `ens19` para a mesma faixa interna.  
 
 ---
 
