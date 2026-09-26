@@ -3,7 +3,8 @@
 
 ## 1. O que é OpenFeign?
 
-**OpenFeign** é um cliente HTTP declarativo utilizado para facilitar a comunicação entre aplicações, especialmente em arquiteturas de **microsserviços**.
+Como verbo em inglês, feign é usado com mais frequência em contextos formais, literários ou descritivos para indicar que alguém está fingindo ter ou sentir algo que não é real. Feign significa fingir, simular ou dissimular algo, como um sentimento, uma reação ou um estado físico que não é real.
+Feign (ou **OpenFeign**) é uma biblioteca Java popular. Ela funciona como um cliente HTTP declarativo que facilita muito a comunicação entre **microsserviços**. Em vez de escrever códigos repetitivos para fazer requisições a uma API externa, você cria apenas uma interface com anotações, e o framework se encarrega de transformá-la em chamadas REST reais em tempo de execução.
 
 Em vez de escrever manualmente código para construir uma requisição HTTP, configurar URL, headers, serializar JSON, executar a chamada e desserializar a resposta, você declara uma **interface Java** que representa o serviço remoto.
 

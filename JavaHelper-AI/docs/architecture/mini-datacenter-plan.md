@@ -100,27 +100,66 @@ flowchart TB
     
 ---
 
-### 📌 Checklist dos próximos passos
+## 📌 Checklist dos próximos passos
 
-- [x] Instalar Docker na vm-db.  
-- [x] Subir container PostgreSQL na vm-db.  
-- [x] Configurar usuário, senha e banco de dados no PostgreSQL.  
-- [x] Criar banco de dados, tabelas e dados de teste no PostgreSQL.  
-- [x] Instalar e configurar pgAdmin na vm-ubuntu-workstation.  
-- [x] Configurar para gerenciar o banco de dados com pgAdmin considerando o fluxo: Meu PC (via pgAdmin browser) → vm-workstation → vm-db (interna).  
-- [ ] Instalar e configurar DBeaver na vm-ubuntu-workstation.  
-- [ ] Configurar para gerenciar o banco de dados com DBeaver considerando o fluxo: Meu PC (via DBeaver) → vm-workstation → vm-db (interna).  
-- [ ] Configurar variáveis de ambiente na vm-app para conexão com o PostgreSQL.  
-- [x] Configurar vm-app para se conectar ao PostgreSQL.  
-- [ ] Configurar firewall e regras de acesso entre vm-app e vm-db.  
-- [ ] Testar conexão da aplicação com o banco de dados.  
-- [ ] Configurar backups automáticos do PostgreSQL.  
-- [ ] Documentar credenciais e variáveis de ambiente para a aplicação.  
-- [ ] Configurar monitoramento com Netdata na vm-app e vm-db.  
-- [ ] Configurar fail2ban e UFW para segurança adicional.  
-- [ ] Criar scripts de inicialização para containers Docker na vm-app e vm-db.  
-- [ ] Documentar procedimentos de manutenção e atualização das VMs.  
-- [ ] Documentar expansão futura (Redis, API Gateway, etc.).  
-- [ ] Diagramar serviços futuros como vox-pix-api, n8n e JavaHelper_AI.  
+### Banco de Dados
+
+- [x] Instalar Docker na vm-db.
+- [x] Subir container PostgreSQL na vm-db.
+- [x] Configurar usuário, senha e banco de dados no PostgreSQL.
+- [x] Criar banco de dados, tabelas e dados de teste no PostgreSQL.
+
+
+### Administração de Banco
+
+- [x] Instalar e configurar pgAdmin4 Web na vm-ubuntu-workstation.
+- [x] Configurar gerenciamento PostgreSQL via pgAdmin considerando o fluxo:
+      PC → vm-ubuntu-workstation → vm-db.
+
+- [x] Instalar DBeaver no PC físico (192.168.0.34).
+- [ ] Configurar túnel SSH através da vm-ubuntu-workstation.
+- [ ] Configurar conexão DBeaver → PostgreSQL usando SSH Tunnel.
+- [ ] Documentar arquitetura Bastion Host + SSH Tunnel.
+- [ ] Criar guia de troubleshooting para conexões SSH Tunnel.
+- [ ] Documentar credenciais, portas e estratégias de acesso ao banco.
+
+
+### Aplicação
+
+- [x] Configurar vm-app para se conectar ao PostgreSQL.
+- [ ] Configurar variáveis de ambiente da aplicação.
+- [ ] Criar usuários específicos do PostgreSQL para cada aplicação.
+- [ ] Implementar segregação de acessos por banco/schema.
+
+
+### Segurança
+
+- [ ] Configurar UFW na vm-app.
+- [ ] Configurar UFW na vm-db.
+- [ ] Configurar UFW na vm-ubuntu-workstation.
+- [ ] Configurar fail2ban na vm-app.
+- [ ] Configurar fail2ban na vm-db.
+- [ ] Configurar fail2ban na vm-ubuntu-workstation.
+- [ ] Restringir acesso ao PostgreSQL apenas para hosts autorizados da rede interna.
+- [ ] Revisar exposição de portas Docker.
+
+
+### Backup e Recuperação
+
+- [ ] Configurar backups automáticos do PostgreSQL.
+- [ ] Configurar retenção de backups.
+- [ ] Documentar procedimento de restauração.
+- [ ] Configurar snapshots periódicos das VMs.
+- [ ] Testar restauração completa do banco.
+
+
+### Monitoramento
+
+- [ ] Instalar Netdata na vm-app.
+- [ ] Instalar Netdata na vm-db.
+- [ ] Instalar Netdata na vm-ubuntu-workstation.
+- [ ] Criar dashboard centralizado de monitoramento.
+- [ ] Documentar métricas críticas.
+
 
 ---
