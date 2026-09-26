@@ -34,15 +34,16 @@ Documentar a criação de um mini datacenter em laboratório, simulando prática
 ### vm-ubuntu-workstation
 - **Função:** Workstation administrativa.  
 - **Sistema:** Ubuntu 24.04 LTS (Noble).  
-- **IP externo:** 192.168.0.25 (vmbr0).  
-- **Interface:** `ens18` com MTU 1400.  
+- **IP externo:** 192.168.0.25/24 via `ens18` (vmbr0).  
+- **IP interno:** 192.168.100.25/24 via `ens19` (vmbr1).  
+- **Interfaces:** `ens18` (MTU 1400) e `ens19` (MTU 1500).  
 - **Serviços:** pgAdmin, DBeaver, ferramentas de administração.  
 
 ---
 
 ## 🌐 Redes
-- **vmbr0 (externa):** conecta o host físico e permite acesso do PC às VMs.  
-- **vmbr1 (interna):** rede privada entre vm-app, vm-db e vm-workstation.  
+- **vmbr0 (externa):** rede 192.168.0.0/24, conectando o host físico e permitindo acesso do PC às VMs pela interface `ens18` da workstation.  
+- **vmbr1 (interna):** rede privada 192.168.100.0/24, entre vm-app, vm-db e vm-workstation pela interface `ens19` da workstation.  
 
 ---
 
@@ -60,7 +61,7 @@ Documentar a criação de um mini datacenter em laboratório, simulando prática
 flowchart LR
     PC["💻 PC\n192.168.0.34"] -->|SSH/HTTP| VMAPP["🖥️ vm-app\n192.168.0.12\n192.168.100.12\nDocker + Nginx + App Server + n8n"]
     VMAPP -->|PostgreSQL Conn| VMDB["🗄️ vm-db\n192.168.100.20\nDocker + PostgreSQL"]
-    PC -->|Web Browser| VMWS["🖥️ vm-ubuntu-workstation\n192.168.0.25\npgAdmin / DBeaver"]
+    PC -->|Web Browser| VMWS["🖥️ vm-ubuntu-workstation\n192.168.0.25\n192.168.100.25\npgAdmin / DBeaver"]
 
     subgraph External_Network ["🌐 Rede Externa (vmbr0) - 192.168.0.x"]
         PC
@@ -95,7 +96,7 @@ Isolado da vm-ubuntu-workstation:
  
 ```mermaid
 flowchart TB
-    PC["💻 PC\n192.168.0.x"] -->|Web Browser| VMWS["🖥️ vm-ubuntu-workstation\n192.168.0.25\npgAdmin / DBeaver"]
+    PC["💻 PC\n192.168.0.x"] -->|Web Browser| VMWS["🖥️ vm-ubuntu-workstation\n192.168.0.25\n192.168.100.25\npgAdmin / DBeaver"]
     VMWS -->|Admin GUI| VMDB["🗄️ vm-db\n192.168.100.20\nDocker + PostgreSQL"]
 
     subgraph External_Network ["🌐 Rede Externa (vmbr0) - 192.168.0.x"]
