@@ -1,12 +1,12 @@
-Guia Operacional: DBeaver + SSH Tunnel (Bastion Host)
+# Guia Operacional: DBeaver + SSH Tunnel (Bastion Host)
 
 Este documento descreve a arquitetura, configuração e operação do acesso ao PostgreSQL privado utilizando DBeaver + SSH Tunnel, mantendo o banco isolado na rede interna.
 
-Objetivo
+## Objetivo
 
 Permitir que um usuário no PC local (192.168.0.34) acesse com segurança o PostgreSQL localizado na VM vm-db (192.168.100.20), utilizando a vm-ubuntu-workstation (192.168.0.25 / 192.168.100.25) como Bastion Host.
 
-Arquitetura
+## Arquitetura
 ┌─────────────────────┐
 │ PC 192.168.0.34     │
 │ DBeaver             │
@@ -27,13 +27,11 @@ Arquitetura
 │ PostgreSQL          │
 └─────────────────────┘
 
-Visão da Infraestrutura
+### Visão da Infraestrutura
 Rede Externa (vmbr0)
 192.168.0.0/24
 
-
 Equipamentos conectados:
-
 PC Local                  192.168.0.34
 vm-app                    192.168.0.12
 vm-ubuntu-workstation     192.168.0.25
@@ -41,14 +39,12 @@ vm-ubuntu-workstation     192.168.0.25
 Rede Interna (vmbr1)
 192.168.100.0/24
 
-
 Equipamentos conectados:
-
 vm-app                    192.168.100.12
 vm-db                     192.168.100.20
 vm-ubuntu-workstation     192.168.100.25
 
-Fluxo de Conexão
+### Fluxo de Conexão
 
 O tráfego segue exatamente este caminho:
 
@@ -72,103 +68,69 @@ vm-ubuntu-workstation
 vm-db
 
 
-O PC nunca acessa diretamente o banco.
+O PC nunca acessa diretamente o banco. O PostgreSQL permanece acessível apenas pela rede privada.
 
-O PostgreSQL permanece acessível apenas pela rede privada.
-
-Vantagens da Arquitetura
-Segurança
-
+### Vantagens da Arquitetura
+1. Segurança
 O PostgreSQL não fica exposto na rede externa.
-
 Não existe acesso:
-
 192.168.0.34  ---> 192.168.100.20
-
-
 O acesso ocorre somente através do SSH.
 
-Bastion Host
-
+2. Bastion Host
 A workstation atua como ponto único de entrada administrativa.
-
 PC
  ↓
 Bastion
  ↓
 Banco
 
-
 Benefícios:
-
 Centralização dos acessos;
 Auditoria simplificada;
 Menor superfície de ataque;
 Controle de usuários SSH.
-Isolamento de Rede
 
+4. Isolamento de Rede
 O banco permanece exclusivamente na rede interna:
-
 192.168.100.0/24
-
-
 Sem necessidade de:
-
-NAT;
-Port Forward;
-Exposição de porta PostgreSQL;
-VPN para acesso administrativo.
-Confiabilidade Operacional
-
+- NAT;
+- Port Forward;
+- Exposição de porta PostgreSQL;
+- VPN para acesso administrativo.
+- Confiabilidade Operacional
 Caso seja necessário alterar o banco de dados futuramente:
 
 vm-db antigo
     ↓
 vm-db novo
 
+Somente o bastion precisa conhecer o novo endereço. As estações continuam conectando via SSH Tunnel.
 
-Somente o bastion precisa conhecer o novo endereço.
-
-As estações continuam conectando via SSH Tunnel.
-
-Pré-Requisitos
-No PC
-
+### Pré-Requisitos
+1. No PC
 Instalar:
-
 DBeaver Community ou Enterprise
 Cliente SSH nativo
-
 Teste:
-
-ssh usuario@192.168.0.25
-
-
+    ssh usuario@192.168.0.25
 Se conectar normalmente, o túnel funcionará.
 
-Na vm-ubuntu-workstation
-
+2. Na vm-ubuntu-workstation
 Verificar:
-
-sudo systemctl status ssh
-
-
+    sudo systemctl status ssh
 Deve mostrar:
+    active (running)
 
-active (running)
-
-Testar acesso ao PostgreSQL
+3. Testar acesso ao PostgreSQL
 
 Logado na workstation:
-
-nc -zv 192.168.100.20 5432
-
-
+    nc -zv 192.168.100.20 5432
 Resultado esperado:
+    Connection to 192.168.100.20 5432 succeeded
 
-Connection to 192.168.100.20 5432 succeeded
-
-Configuração do DBeaver
+## Configuração do DBeaver
 Nova Conexão PostgreSQL
 
 Menu:
@@ -184,19 +146,17 @@ Aba Main
 Preencher:
 
 Host
-192.168.100.20
+    192.168.100.20
 
 Port
-5432
+    5432
 
 Database
-postgres
-
-
+    postgres
 ou o banco desejado.
 
 Username
-postgres
+    postgres
 
 Password
 ********
@@ -241,12 +201,12 @@ id_rsa
 ou
 id_ed25519
 
-Resumo dos Campos
+### Resumo dos Campos
 PostgreSQL
 Host........: 192.168.100.20
 Port........: 5432
 Database....: postgres
-User........: postgres
+User........: devops
 Password....: ********
 
 SSH Tunnel
@@ -259,7 +219,7 @@ User..........: ubuntu
 Authentication:
 Password ou Public Key
 
-Como Funciona Internamente
+### Como Funciona Internamente
 
 O DBeaver cria automaticamente um túnel semelhante a:
 
@@ -342,7 +302,7 @@ Liberar somente para rede interna:
 
 sudo ufw allow from 192.168.100.0/24 to any port 5432
 
-Boas Práticas Recomendadas
+## Boas Práticas Recomendadas
 ✔ Utilizar chave SSH (ED25519)
 Mais segura
 Mais rápida
@@ -376,7 +336,7 @@ Expor apenas:
 
 192.168.100.20:5432
 
-Conclusão
+## Conclusão
 
 A arquitetura recomendada é:
 
