@@ -35,13 +35,13 @@ Documentar a criação de um mini datacenter em laboratório, simulando prática
 ---
 
 ### vm-ubuntu-workstation
-- **Função:** Workstation administrativa e bastion host.  
+- **Função:** Bastion Host; Administração PostgreSQL; Encaminhamento SSH Tunnel.  
 - **Sistema:** Ubuntu 24.04 LTS (Noble).  
 - **IP externo:** 192.168.0.25/24 via `ens18` (vmbr0).  
 - **IP interno:** 192.168.100.25/24 via `ens19` (vmbr1).  
 - **Interfaces:** `ens18` (MTU 1400) e `ens19` (MTU 1500).  
-- **Serviços:** pgAdmin, DBeaver, ferramentas de administração, SSH para acesso ao banco via túnel.  
-- **Papel:** Bastion host para acesso seguro ao PostgreSQL da rede interna e ponto central de administração do laboratório.  
+- **Serviços:** OpenSSH Server; pgAdmin4 Web.  
+- **Observação:** DBeaver e Power BI são executados no PC local (192.168.0.34) e não na workstation.  
 
 ---
 
@@ -119,7 +119,7 @@ flowchart TB
 
 ---
 
-## �️ Configuração do PostgreSQL no DBeaver e no Power BI
+## 🔐 Configuração do PostgreSQL no DBeaver e no Power BI
 
 A arquitetura de acesso segue o padrão do bastion host documentado em [config-dbeaver-sshtunnel-bastion.md](config-dbeaver-sshtunnel-bastion.md): o cliente nunca conecta diretamente ao PostgreSQL da rede interna. Em vez disso, ele abre um túnel SSH pela `vm-ubuntu-workstation` e conecta ao banco por `localhost` ou pela porta local encaminhada.
 
@@ -137,7 +137,7 @@ A arquitetura de acesso segue o padrão do bastion host documentado em [config-d
 5. Preencha:
    - `SSH Host`: `192.168.0.25`
    - `SSH Port`: `22`
-   - `SSH User`: `ubuntu` (ou o usuário administrativo configurado na workstation)
+   - `SSH User`: `golbery` (ou o usuário administrativo configurado na workstation)
    - `Authentication`: `Password` ou `Public Key`
    - Se usar chave, selecione a chave privada correspondente (`id_ed25519` ou outra já validada no host)
 6. Clique em `Test Connection`.
@@ -159,7 +159,7 @@ O Power BI Desktop não cria um SSH Tunnel dentro da conexão PostgreSQL como o 
 No terminal do PC, execute:
 
 ```bash
-ssh -L 5433:192.168.100.20:5432 ubuntu@192.168.0.25
+ssh -L 5433:192.168.100.20:5432 golbery@192.168.0.25
 ```
 
 Esse comando cria um encaminhamento local tal que:
@@ -194,8 +194,12 @@ Para manter o ambiente consistente e seguro, a convenção ideal é:
 Essa abordagem preserva o isolamento da rede privada, mantém o banco inacessível diretamente da internet ou da rede externa e permite acesso seguro para administração e análise.
 
 ---
+## Documentação Relacionada
 
-## �📌 Próximos passos
+- [config-dbeaver-sshtunnel-bastion.md](config-dbeaver-sshtunnel-bastion.md)
+
+---
+## 📌 Próximos passos
 
     Configurar backend na vm-app para usar PostgreSQL.
 
