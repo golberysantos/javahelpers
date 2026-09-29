@@ -114,7 +114,7 @@ Instalar:
 DBeaver Community ou Enterprise
 Cliente SSH nativo
 Teste:
-    ssh usuario@192.168.0.25
+    ssh golbery@192.168.0.25
 Se conectar normalmente, o túnel funcionará.
 
 2. Na vm-ubuntu-workstation
@@ -177,7 +177,7 @@ User Name
 
 Exemplo:
 
-ubuntu
+golbery
 
 
 ou o usuário administrativo definido na workstation.
@@ -214,7 +214,7 @@ Use SSH Tunnel : ✔
 
 Host..........: 192.168.0.25
 Port..........: 22
-User..........: ubuntu
+User..........: golbery
 
 Authentication:
 Password ou Public Key
@@ -223,7 +223,7 @@ Password ou Public Key
 
 O DBeaver cria automaticamente um túnel semelhante a:
 
-ssh -L 5432:192.168.100.20:5432 ubuntu@192.168.0.25
+ssh -L 5432:192.168.100.20:5432 golbery@192.168.0.25
 
 
 Significado:
@@ -256,6 +256,22 @@ O fluxo esperado é:
 3. Workstation acessa 192.168.100.20:5432
 4. PostgreSQL responde
 5. Conexão validada
+
+---
+
+## Status de Implementação
+
+✅ SSH Tunnel operacional
+
+✅ Chave ED25519 operacional
+
+✅ PostgreSQL 16 operacional
+
+✅ pgAdmin conectado
+
+✅ DBeaver conectado
+
+✅ Arquitetura Bastion Host validada
 
 
 Mensagem esperada:

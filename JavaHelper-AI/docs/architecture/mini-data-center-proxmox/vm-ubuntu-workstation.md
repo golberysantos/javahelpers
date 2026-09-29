@@ -1,41 +1,45 @@
 # Documentação — vm-ubuntu-workstation
 
 ## 🎯 Objetivo
-Registrar a configuração e papel da **vm-ubuntu-workstation** dentro do mini datacenter, atuando como estação administrativa para gerenciar o banco de dados e aplicações.
+Registrar a configuração e o papel da **vm-ubuntu-workstation** no mini datacenter, atuando como estação administrativa e como bastion host para acesso seguro ao PostgreSQL e demais serviços internos.
 
 ---
 
 ## 🖥️ Sistema
 - **Sistema Operacional:** Ubuntu 24.04 LTS (Noble).  
 - **Infraestrutura:** Proxmox VE 9.2.2 (pve-lab).  
+- **Função:** administração, suporte ao desenvolvimento e entrada segura para acesso ao ambiente interno.  
 
 ---
 
 ## 🌐 Rede
-- **Interface:** `ens18`  
-- **MTU:** 1400  
-- **MAC:** bc:24:11:73:c4:7a  
+- **Interface externa:** `ens18`  
+- **MTU externa:** 1400  
 - **IP externo (vmbr0):** 192.168.0.25/24  
-- **IP interno (vmbr1):** 192.168.100.30/24 *(reservado para expansão futura)*  
+- **Interface interna:** `ens19`  
+- **MTU interna:** 1500  
+- **IP interno (vmbr1):** 192.168.100.25/24  
 - **IPv6:**  
-  - Global: `2804:7af8:239:fc00:be24:11ff:fe73:c47a/64`  
-  - Link-local: `fe80::be24:11ff:fe73:c47a/64`  
+  - Link-local externo: `fe80::be24:11ff:fe73:c47a/64`  
+  - Link-local interno: `fe80::be24:11ff:fe0e:833a/64`  
 
 ---
 
 ## 🔧 Serviços
 - **Ferramentas de administração:**  
-  - [pgAdmin](ca://s?q=Instalar_pgAdmin_Ubuntu)  
-  - [DBeaver](ca://s?q=Instalar_DBeaver_Ubuntu)  
-- **Função principal:** acessar e administrar o PostgreSQL rodando na `vm-db`.  
+  - pgAdmin  
+  - DBeaver Community  
+  - Power BI Desktop (via túnel SSH local)  
+- **Função principal:** atuar como bastion host para acesso seguro ao PostgreSQL da `vm-db` pela rede interna.  
+- **Acesso administrativo:** via SSH Tunnel, sem expor o PostgreSQL diretamente na rede externa.  
 
 ---
 
 ## 📊 Diagrama isolado da vm-ubuntu-workstation
 ```mermaid
 flowchart TB
-    PC["💻 PC\n192.168.0.x"] -->|Web Browser| VMWS["🖥️ vm-ubuntu-workstation\n192.168.0.25\npgAdmin / DBeaver"]
-    VMWS -->|Admin GUI| VMDB["🗄️ vm-db\n192.168.100.20\nDocker + PostgreSQL"]
+    PC["💻 PC\n192.168.0.x"] -->|SSH Tunnel / Web| VMWS["🖥️ vm-ubuntu-workstation\nBastion Host\n192.168.0.25\n192.168.100.25\npgAdmin / DBeaver / Power BI"]
+    VMWS -->|Admin GUI / Tunnel| VMDB["🗄️ vm-db\n192.168.100.20\nDocker + PostgreSQL"]
 
     subgraph External_Network ["🌐 Rede Externa (vmbr0) - 192.168.0.x"]
         PC
@@ -46,177 +50,72 @@ flowchart TB
         VMWS
         VMDB
     end
-    ```
+```
 
---- 
+---
 
 ## ✅ Resultado esperado
 
-    Workstation acessível pela rede externa (vmbr0).
+- a workstation fica acessível pela rede externa (`vmbr0`);
+- a workstation atua como bastion host para administração do ambiente interno;
+- o PostgreSQL da `vm-db` não fica exposto diretamente na rede externa;
+- ferramentas gráficas e usuários administrativos acessam o banco pela rede interna via SSH Tunnel.
 
-    Comunicação segura com vm-db pela rede interna (vmbr1).
+---
 
-    Ferramentas gráficas disponíveis para administração do banco.
+## 🔐 Bastion host e acesso ao PostgreSQL
 
-📌 Próximos passos
+A `vm-ubuntu-workstation` é o ponto de entrada administrativo para o banco de dados da `vm-db`.
 
-    Instalar pgAdmin e configurar conexão com vm-db.
+### Fluxo seguro recomendado
 
-    Instalar DBeaver para acesso multiplataforma.
+```text
+PC local
+  ↓
+SSH Tunnel ou acesso via bastion
+  ↓
+vm-ubuntu-workstation (192.168.0.25 / 192.168.100.25)
+  ↓
+vm-db (192.168.100.20:5432)
+```
 
-    Documentar credenciais seguras para administração.
-    
---- 
+### Operação típica
+- DBeaver: usa `SSH Tunnel` diretamente na conexão ao PostgreSQL;
+- Power BI Desktop: usa `ssh -L` no cliente local antes de conectar;
+- pgAdmin: deve conectar ao banco via endereço da rede interna ou via túnel local apropriado;
+- nenhuma porta do PostgreSQL deve ficar aberta diretamente na rede externa.
 
-## 📄 Guia para a vm-ubuntu-workstation com IP fixo
+---
 
-Ubuntu 24.04 LTS (Noble) como sistema base para todas as VMs.
+## 📌 Configuração recomendada
 
-###
-graph TD
-    subgraph Rede Externa (vmbr0 - 192.168.0.x)
-        PC[pvc-lab\n192.168.0.5]
-        Workstation[vm-ubuntu-workstation\n192.168.0.25]
-        App[vm-app\n192.168.0.10]
-    end
+### 1. Redes e interfaces
+- Rede externa: `192.168.0.25/24` em `ens18`
+- Rede interna: `192.168.100.25/24` em `ens19`
 
-    subgraph Rede Interna (vmbr1 - 192.168.100.x)
-        WorkstationInt[vm-ubuntu-workstation\n192.168.100.25]
-        DB[vm-db\n192.168.100.20]
-        AppInt[vm-app\n192.168.100.10]
-    end
+### 2. SSH para bastion
+Habilite o SSH na workstation e configure autenticação por chave para acesso seguro:
 
-    PC -->|HTTP/SSH| Workstation
-    PC -->|HTTP/SSH| App
-    WorkstationInt -->|pgAdmin| DB
-    AppInt -->|API / Nginx| DB
-
-📄 Explicação do diagrama
-
-    Rede externa (vmbr0): conecta o PC físico (192.168.0.5), a workstation (192.168.0.25) e a vm-app (192.168.0.10).
-
-    Rede interna (vmbr1): conecta a workstation (192.168.100.25), a vm-db (192.168.100.20) e a vm-app (192.168.100.10).
-
-    O pgAdmin na workstation acessa o PostgreSQL da vm-db pela rede interna.
-
-    O PC físico acessa a workstation e a vm-app pela rede externa.
-### 1. Escolha do IP
-- Rede externa (`vmbr0`): sugiro `192.168.0.25` (abaixo de `.30` e diferente do `.5` do seu PC).  
-- Rede interna (`vmbr1`): pode ser `192.168.100.25` (mantendo consistência).  
-
-### 2. Configuração Netplan
-Edite o arquivo:
 ```bash
-sudo nano /etc/netplan/01-netcfg.yaml
+sudo systemctl enable --now ssh
+ssh-keygen -t ed25519 -C "admin@workstation"
 ```
 
-Exemplo:
-```yaml
-network:
-  version: 2
-  renderer: networkd
-  ethernets:
-    ens18: # interface ligada ao vmbr0
-      dhcp4: no
-      addresses:
-        - 192.168.0.25/24
-      gateway4: 192.168.0.1
-      nameservers:
-        addresses:
-          - 8.8.8.8
-          - 1.1.1.1
-      ens19:   # interface ligada ao vmbr1
-      addresses:
-        - 192.168.100.25/24
+### 3. Conexão ao PostgreSQL
+- Host do PostgreSQL: `192.168.100.20`
+- Porta: `5432`
+- Acesso real: somente pela rede interna e via bastion host
 
-```
-
-Aplicar:
-```bash
-sudo netplan apply
-```
-
-* forçar o uso de IPv4:
-	sudo nano /etc/apt/apt.conf.d/99force-ipv4
-		Adicionar: 
-		
-		Acquire::ForceIPv4 "true";
-		
-
-
-### 3. Instalar pgAdmin
-```bash
-sudo apt update && sudo apt upgrade -y
-sudo apt install pgadmin4 -y
-sudo /usr/pgadmin4/bin/setup-web.sh
-```
-
-### 4. Acesso
-- Via navegador: `http://192.168.0.25/pgadmin4`  
-- Conexão ao banco:  
-  - Host: `192.168.100.20`  
-  - Porta: `5432`  
-  - Usuário: `postgres`  
-  - Senha: definida no container da `vm-db`.  
+### 4. Ferramentas de administração
+- `pgAdmin`: acesso administrativo via workstation
+- `DBeaver`: acesso via SSH Tunnel
+- `Power BI Desktop`: acesso via `ssh -L 5433:192.168.100.20:5432 <user>@192.168.0.25`
 
 ---
 
-## ✅ Resultado
-- A `vm-ubuntu-workstation` terá IP fixo fora do range DHCP.  
-- O pgAdmin ficará acessível via navegador do seu PC físico (`192.168.0.5`).  
-- Comunicação segura com a `vm-db` pela rede interna (`vmbr1`).  
+## 📍 Resumo da arquitetura
 
----
-
-Golbery, perfeito 👌 — aqui está o **guia consolidado da instalação da vm-ubuntu-workstation** com todas as configurações que definimos juntos. Você pode incluir esse documento dentro da própria VM (por exemplo em `/docs/vm-ubuntu-workstation.md`) para manter o histórico técnico.
-
----
-
-# 📄 Guia de Instalação — vm-ubuntu-workstation
-
-## 1. Criação da VM no Proxmox
-- **VM ID**: 102 (ou outro livre)  
-- **Name**: `vm-ubuntu-workstation`  
-- **ISO**: `ubuntu-22.04-server.iso`  
-- **Firmware**: OVMF (UEFI) com EFI Disk em `local-lvm`  
-- **SCSI Controller**: VirtIO SCSI single  
-- **Disk**: `local-lvm`, 40 GB, formato qcow2, IO thread habilitado  
-- **CPU**: 1 socket × 2 cores, tipo `x86-64-v2-AES`  
-- **Memory**: 4096 MiB (4 GB)  
-- **Network**:  
-  - net0 → VirtIO, bridge `vmbr0`, firewall ativo  
-  - net1 → VirtIO, bridge `vmbr1` (adicionar após criação)  
-
----
-
-## 2. Instalação do Ubuntu Server
-- Instalar **Ubuntu Server 22.04 LTS**.  
-- Criar usuário administrador e senha.  
-- Não instalar interface gráfica (somente server).  
-
----
-
-## 3. Configuração de IP fixo
-Como o DHCP inicia em `.30` e o PC físico está em `.5`, usamos IPs abaixo de `.30`:
-
-- **vmbr0 (externa)** → `192.168.0.25`  
-- **vmbr1 (interna)** → `192.168.100.25`  
-
-Editar Netplan:
-```yaml
-network:
-  version: 2
-  ethernets:
-    ens18:
-      addresses:
-        - 192.168.0.25/24
-      gateway4: 192.168.0.1
-      nameservers:
-        addresses: [8.8.8.8, 1.1.1.1]
-    ens19:
-      addresses:
-        - 192.168.100.25/24
-```
+A workstation centraliza o acesso administrativo e garante que o banco continue isolado na rede privada. Isso reduz a superfície de ataque, melhora a auditoria e mantém o ambiente mais próximo de um padrão de produção.
 
 Aplicar:
 ```bash

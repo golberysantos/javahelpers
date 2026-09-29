@@ -15,13 +15,13 @@ Criar um ambiente de laboratório que simule um datacenter em nuvem, com separa�
 ## 🏗️ Componentes
 
 ### vm-app
-- **Função:** Servidor de aplicação e bastion host.  
+- **Função:** Servidor de aplicação e backend.  
 - **Sistema:** Ubuntu 24.04 LTS (Noble).  
 - **IP externo:** 192.168.0.12/24 via `ens18` (vmbr0).  
 - **IP interno:** 192.168.100.12/24 via `ens19` (vmbr1).  
 - **Interfaces:** `ens18` (MTU 1400) e `ens19` (MTU 1400).  
 - **Serviços:** Docker Engine, Nginx, aplicação backend, n8n, redes Docker.  
-- **Papel:** Ponte entre rede externa e interna.  
+- **Papel:** Receber tráfego do PC e acessar o banco via rede interna, sem atuar como bastion host para administração do PostgreSQL.  
 
 ---
 
@@ -36,13 +36,13 @@ Criar um ambiente de laboratório que simule um datacenter em nuvem, com separa�
 ---
 
 ### vm-ubuntu-workstation
-- **Função:** Workstation administrativa.  
+- **Função:** Workstation administrativa e Bastion Host.  
 - **Sistema:** Ubuntu 24.04 LTS (Noble).  
 - **IP externo:** 192.168.0.25/24 via `ens18` (vmbr0).  
 - **IP interno:** 192.168.100.25/24 via `ens19` (vmbr1).  
 - **Interfaces:** `ens18` (MTU 1400) e `ens19` (MTU 1500).  
-- **Serviços:** pgAdmin, DBeaver, ferramentas de administração.  
-- **Papel:** Administração gráfica do PostgreSQL, acesso à rede interna e suporte ao desenvolvimento.  
+- **Serviços:** OpenSSH Server; pgAdmin4 Web.  
+- **Papel:** Bastion Host, administração PostgreSQL e encaminhamento SSH Tunnel.  
 
 ---
 
@@ -54,8 +54,9 @@ Criar um ambiente de laboratório que simule um datacenter em nuvem, com separa�
 
 ## 🔄 Fluxo de acesso
 - **PC → vm-app (externa)** → via SSH/HTTP/n8n.  
-- **vm-app → vm-db (interna)** → via PostgreSQL.  
-- **vm-workstation → vm-db (interna)** → via pgAdmin/DBeaver.  
+- **vm-app → vm-db (interna)** → via PostgreSQL da rede interna.  
+- **PC → vm-ubuntu-workstation (externa)** → via SSH/Tunnel para administração segura.  
+- **vm-ubuntu-workstation → vm-db (interna)** → via pgAdmin, DBeaver, Power BI e SSH Tunnel.  
 
 ---
 
@@ -64,9 +65,10 @@ Criar um ambiente de laboratório que simule um datacenter em nuvem, com separa�
 ### Geral
 ```mermaid
 flowchart LR
-    PC["💻 PC\n192.168.0.x"] -->|SSH/HTTP| VMAPP["🖥️ vm-app\n192.168.0.12\n192.168.100.12\nDocker + Nginx + App Server + n8n\n(Bastion Host)"]
+    PC["💻 PC\n192.168.0.x"] -->|SSH/HTTP| VMAPP["🖥️ vm-app\n192.168.0.12\n192.168.100.12\nDocker + Nginx + App Server + n8n"]
+    PC -->|SSH Tunnel / Admin| VMWS["🖥️ vm-ubuntu-workstation\nBastion Host\n192.168.0.25\n192.168.100.25\npgAdmin / DBeaver / Power BI"]
     VMAPP -->|PostgreSQL Conn| VMDB["🗄️ vm-db\n192.168.100.20\nDocker + PostgreSQL"]
-    PC -->|Web Browser| VMWS["🖥️ vm-ubuntu-workstation\n192.168.0.25\n192.168.100.25\npgAdmin / DBeaver"]
+    VMWS -->|SSH Tunnel + Admin GUI| VMDB
 
     subgraph External_Network ["🌐 Rede Externa (vmbr0) - 192.168.0.x"]
         PC
@@ -79,15 +81,13 @@ flowchart LR
         VMDB
         VMWS
     end
-
-    VMWS -->|Admin GUI| VMDB
 ```
  
 Isolado da vm-ubuntu-workstation:
  
 ```mermaid
 flowchart TB
-    PC["💻 PC\n192.168.0.x"] -->|Web Browser| VMWS["🖥️ vm-ubuntu-workstation\n192.168.0.25\n192.168.100.25\npgAdmin / DBeaver"]
+    PC["💻 PC\n192.168.0.34"] -->|SSH Tunnel (ED25519)| VMWS["🖥️ vm-ubuntu-workstation\nBastion Host\n192.168.0.25\n192.168.100.25\npgAdmin4 Web"]
     VMWS -->|Admin GUI| VMDB["🗄️ vm-db\n192.168.100.20\nDocker + PostgreSQL"]
 
     subgraph External_Network ["🌐 Rede Externa (vmbr0) - 192.168.0.x"]
@@ -100,7 +100,22 @@ flowchart TB
         VMDB
     end
 ```
-    
+
+---
+
+## Sprint 04 — Administração PostgreSQL
+
+Status: ✅ CONCLUÍDA
+
+Entregas:
+- PostgreSQL operacional
+- pgAdmin operacional
+- DBeaver operacional
+- Bastion Host operacional
+- SSH Tunnel operacional
+- n8n operacional
+- Documentação operacional criada
+
 ---
 
 ## 📌 Checklist dos próximos passos
@@ -109,27 +124,28 @@ flowchart TB
 
 - [x] Instalar Docker na vm-db.
 - [x] Subir container PostgreSQL na vm-db.
-- [x] Configurar usuário, senha e banco de dados no PostgreSQL.
+- [x] Configurar PostgreSQL.
+- [x] Criar bancos e tabelas.
 - [x] Criar banco de dados, tabelas e dados de teste no PostgreSQL.
-
 
 ### Administração de Banco
 
-- [x] Instalar e configurar pgAdmin4 Web na vm-ubuntu-workstation.
-- [x] Configurar gerenciamento PostgreSQL via pgAdmin considerando o fluxo:
-      PC → vm-ubuntu-workstation → vm-db.
-
+- [x] Instalar pgAdmin4 Web.
+- [x] Configurar pgAdmin via Bastion Host.
 - [x] Instalar DBeaver no PC físico (192.168.0.34).
-- [ ] Configurar túnel SSH através da vm-ubuntu-workstation.
-- [ ] Configurar conexão DBeaver → PostgreSQL usando SSH Tunnel.
-- [ ] Documentar arquitetura Bastion Host + SSH Tunnel.
-- [ ] Criar guia de troubleshooting para conexões SSH Tunnel.
-- [ ] Documentar credenciais, portas e estratégias de acesso ao banco.
+- [x] Configurar Bastion Host.
+- [x] Configurar SSH Tunnel.
+- [x] Configurar conexão DBeaver → PostgreSQL.
+- [x] Documentar arquitetura Bastion Host + SSH Tunnel.
+- [x] Criar documentação operacional do DBeaver com SSH Tunnel.
+- [x] Documentar credenciais, portas e estratégias de acesso ao banco.
+- [x] Documentar acesso do Power BI Desktop via túnel local (`ssh -L`).
 
 
 ### Aplicação
 
 - [x] Configurar vm-app para se conectar ao PostgreSQL.
+- [x] Instalar n8n na vm-app.
 - [ ] Configurar variáveis de ambiente da aplicação.
 - [ ] Criar usuários específicos do PostgreSQL para cada aplicação.
 - [ ] Implementar segregação de acessos por banco/schema.
