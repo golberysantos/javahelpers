@@ -236,7 +236,86 @@ Operação e Segurança
 • Fail2Ban
 • PostgreSQL Backup
 • Netdata
+--- 
+# Sprint 04 Review — Administração PostgreSQL
 
+## Período
+
+Sprint 04
+
+---
+
+## Objetivo
+
+Implementar uma camada profissional de administração e acesso ao PostgreSQL utilizando Bastion Host, SSH Tunnel e ferramentas gráficas de administração.
+
+---
+
+## Entregas planejadas
+
+- PostgreSQL operacional na vm-db
+- pgAdmin operacional na vm-ubuntu-workstation
+- DBeaver operacional no PC físico
+- Implementação de Bastion Host
+- Implementação de SSH Tunnel
+- Documentação operacional
+- Integração vm-app → PostgreSQL
+
+---
+
+## Entregas realizadas
+
+### Banco de Dados
+
+✅ Docker instalado na vm-db
+
+✅ PostgreSQL executando em container Docker
+
+✅ Banco appdb configurado
+
+✅ Usuário devops configurado
+
+✅ Conectividade validada
+
+---
+
+### Administração PostgreSQL
+
+✅ pgAdmin4 Web instalado
+
+✅ pgAdmin conectado ao PostgreSQL
+
+✅ DBeaver instalado no PC físico
+
+✅ SSH Tunnel implementado
+
+✅ Chaves SSH ED25519 configuradas
+
+✅ Conexão DBeaver → PostgreSQL validada
+
+✅ Arquitetura Bastion Host validada
+
+---
+
+### Aplicações
+
+✅ vm-app conectada ao PostgreSQL
+
+✅ n8n instalado na vm-app
+
+✅ n8n operacional em container Docker
+
+---
+
+### Documentação
+
+✅ mini-datacenter-plan.md atualizado
+
+✅ mini-datacenter-documentation.md atualizado
+
+✅ vm-ubuntu-workstation.md atualizado
+
+✅ config-dbeaver-sshtunnel-bastion.md
 --- 
 
 ## Sprint 05
