@@ -1,0 +1,1 @@
+fornecer um script em Python (usando pandas ou sqlite3) ou instruções de linha de comando para você rodar na sua máquina, filtrar os arquivos oficiais da Receita e gerar automaticamente uma planilha .xlsx ou .csv contendo todas as 310 empresas com seus respectivos endereços e telefones.
