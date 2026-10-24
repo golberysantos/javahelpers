@@ -151,6 +151,7 @@ Importante:
 Exemplo de fluxo:
 - PC local → DBeaver → SSH Tunnel → `vm-ubuntu-workstation` (192.168.0.25) → `vm-db` (192.168.100.20:5432)
 
+---
 ### 2) Power BI Desktop 2.156.951.0 64-bit (julho de 2026)
 
 O Power BI Desktop não cria um SSH Tunnel dentro da conexão PostgreSQL como o DBeaver. Para manter o padrão seguro do bastion host, o túnel precisa ser aberto na máquina local antes de iniciar a conexão.
