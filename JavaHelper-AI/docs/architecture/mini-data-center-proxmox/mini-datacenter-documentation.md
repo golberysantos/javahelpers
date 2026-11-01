@@ -10,6 +10,14 @@ Documentar a criação de um mini datacenter em laboratório, simulando prática
 
     Todas as VMs rodam Ubuntu 24.04 LTS (Noble).
 
+Entrar no Proxmox via browser
+https://192.168.0.5:8006
+
+
+- Para acessar a pve-lab(ubuntu server)
+    ssh root@192.168.0.5
+
+
 
     
 ## 🏗️ Componentes
@@ -20,8 +28,12 @@ Documentar a criação de um mini datacenter em laboratório, simulando prática
 - **IP externo:** 192.168.0.12/24 via `ens18` (vmbr0).  
 - **IP interno:** 192.168.100.12/24 via `ens19` (vmbr1).  
 - **Interfaces:** `ens18` (MTU 1400) e `ens19` (MTU 1400).  
-- **Serviços:** Docker Engine, Nginx (em Docker), aplicação backend, containers e redes Docker.  
+- **Serviços:** Docker Engine, n8n (em Docker :5678), Selenium Chrome com noVNC (em Docker :7900 / :4444), automatesendmsgviawpp, Nginx, containers e redes Docker.  
 - **Papel:** Receber tráfego do PC e acessar o banco via rede interna, sem atuar como bastion host para administração do banco.  
+
+- Para acessar a vm-app:
+    ssh devops@192.168.0.12
+    
 
 ---
 
@@ -31,7 +43,9 @@ Documentar a criação de um mini datacenter em laboratório, simulando prática
 - **IP interno:** 192.168.100.20/24 via `ens18` (vmbr1).  
 - **Interfaces:** `ens18` (MTU 1500) na rede interna.  
 - **Serviços:** Docker Engine, PostgreSQL (em Docker).  
-
+    
+- Para acessar a vm-db via jump-host vm-ubuntu-workstation:
+    ssh devops@192.168.100.20
 ---
 
 ### vm-ubuntu-workstation
@@ -42,6 +56,9 @@ Documentar a criação de um mini datacenter em laboratório, simulando prática
 - **Interfaces:** `ens18` (MTU 1400) e `ens19` (MTU 1500).  
 - **Serviços:** OpenSSH Server; pgAdmin4 Web.  
 - **Observação:** DBeaver e Power BI são executados no PC local (192.168.0.34) e não na workstation.  
+
+- Para acessar a vm-ubuntu-workstation
+    ssh golbery@192.168.0.25
 
 ---
 

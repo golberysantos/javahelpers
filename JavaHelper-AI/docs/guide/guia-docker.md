@@ -136,5 +136,21 @@
 
 * sudo systemctl restart docker: reinicia o serviço.
 
+## Faxina imediata (Docker + Sistema)
+Execute os comandos abaixo na vm-app para liberar espaço:
+* 1. Remover containers parados antigos
+docker container prune -f
+
+* 2. Remover imagens não utilizadas e camadas corrompidas do download que falhou
+docker image prune -a -f
+
+* 3. Limpar cache de instalação de pacotes do Ubuntu
+sudo apt clean
+sudo apt autoremove -y
+
+* 4. Limpar logs acumulados do sistema (mantendo apenas os últimos 100MB)
+sudo journalctl --vacuum-size=100M
+
+
 ## Referências
 * [Documentação oficial do Docker](https://docs.docker.com/)
